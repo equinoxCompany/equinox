@@ -1,0 +1,20 @@
+.mobile_nav ul{
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  margin: 0;
+  padding: 0;
+}
+
+.mobile_nav li {
+  display: inline-block;
+  padding-right: 2%;
+  padding-bottom: 0;
+  font-size: 4vw;
+}
+
+.mobile_nav_active {
+  border-bottom: 3px solid rgb(270, 92, 20);
+}

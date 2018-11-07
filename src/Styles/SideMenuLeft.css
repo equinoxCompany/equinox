@@ -1,0 +1,66 @@
+.sidemenu_left {
+  position: fixed;
+  left: 0;
+  top: 40%;
+  z-index: 10;
+}
+
+ul{
+  margin: 0;
+  padding: 0;
+}
+
+.sidemenu_left li {
+  width: 15vw;
+  height: 3vw;
+  background: rgb(270, 92, 20);
+  margin-bottom: .5vw;
+  border-radius: 10vw;
+  text-align: right;
+  padding-bottom: .5vw;
+  padding-right: .5vw;
+  margin-left: -100%;
+  transition: transform 1.5s ease-in-out;
+}
+
+.left_menu:hover {
+  animation: sidemenu_left_appear .3s ease-in-out forwards .1s;
+}
+
+.sidemenu_left li:nth-child(even){
+  background: rgb(58, 58, 58);
+}
+
+.first_item_left {
+  width: 25vw !important;
+}
+
+.second_item_left {
+  width: 22vw !important;
+}
+
+.third_item_left{
+  width: 20vw !important;
+}
+
+.fourth_item_left{
+  width: 18vw !important;
+}
+
+.sidemenu_left li a {
+  text-decoration: none;
+  color: white;
+  font-size: 3vw;
+}
+
+@keyframes sidemenu_left_appear {
+  100% {
+    transform: translateX(23vw);
+  }
+}
+
+@keyframes sidemenu_left_dissappear {
+  100% {
+    transform: translateX(0);
+  }
+}

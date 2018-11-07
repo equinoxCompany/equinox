@@ -1,0 +1,62 @@
+/* a {
+  text-decoration: none;
+} */
+
+/* a:visited {
+  text-decoration: none;
+  color: transparent;
+} */
+
+.side_menu {
+  position: fixed;
+  right: 10%;
+  top: 30%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif !important;
+}
+
+
+nav {
+  padding: 0;
+  margin: 0;
+}
+
+ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.side_menu li {
+  font-size: 24px;
+  margin: 0;
+  padding-bottom: 20px;
+  color: rgb(58, 58, 58);
+  opacity: 0;
+}
+
+.active_menu {
+  color: white !important;
+}
+
+.menu_lines {
+  position: absolute;
+  top: 5%;
+  right: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.menu_lines li {
+  padding-bottom: 49px;
+}
+
+.line_after{
+  position: absolute;
+  width: 50px;
+  height: 3px;
+  background: rgb(270, 92, 20);
+  left: 10px;
+}
+
