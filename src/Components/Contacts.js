@@ -4,6 +4,7 @@ import Socials from '../Components/SocialsV2';
 import '../App.css';
 import Link from 'react-router-dom/Link';
 import { BrowserRouter } from 'react-router-dom';
+import '../Styles/Contacts.css';
 
 export default class extends Component {
   constructor(props){

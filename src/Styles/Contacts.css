@@ -1,4 +1,4 @@
-/* .contacts {
+.contacts {
   overflow: scroll !important;
   position: relative;
   background-image: url('../media/contacts.png'); 
@@ -254,4 +254,4 @@
   height: 8px;
   border-radius: 5px;
   background: rgb(270, 92, 20);
-} */
+}
