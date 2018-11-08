@@ -204,37 +204,77 @@ export default class extends Component {
     }
   };
 
-  onClickEvent(){
-    let animation = this.state.sideMenu ? '-20vw' : '20vw'
+  onClickEvent(state = true){
+    function preventDefault(e) {
+      e = e || window.event;
+      if (e.preventDefault)
+          e.preventDefault();
+      e.returnValue = false;  
+    }
+    let aboutContainer = document.getElementsByClassName('about_container')[0];
+    if(state && !aboutContainer.className.includes('darken_bg')){
+      aboutContainer.className += ' darken_bg';
+      console.log(aboutContainer.className);
+      let keys = {37: 1, 38: 1, 39: 1, 40: 1};
+      function preventDefaultForScrollKeys(e) {
+          if (keys[e.keyCode]) {
+              preventDefault(e);
+              return false;
+          }
+      }
+
+    if (window.addEventListener) // older FF
+        window.addEventListener('DOMMouseScroll', preventDefault, false);
+    window.onwheel = preventDefault; // modern standard
+    window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
+    window.ontouchmove  = preventDefault; // mobile
+    document.onkeydown  = preventDefaultForScrollKeys;
+
+    } else {
+      if(aboutContainer.className.includes('darken_bg'))
+      aboutContainer.className = aboutContainer.className.slice(0, -10);
+      console.log(aboutContainer.className)
+      if (window.removeEventListener)
+        window.removeEventListener('DOMMouseScroll', preventDefault, false);
+        window.onmousewheel = document.onmousewheel = null; 
+        window.onwheel = null; 
+        window.ontouchmove = null;  
+        document.onkeydown = null;  
+    }
+    
+    let animation = !state ? '-20vw' : '20vw'
     let sideMenu = document.getElementsByClassName('left_menu');
-    console.log(this.state.sideMenu)
     for(let i = 0; i < sideMenu.length; i++){
       (function(i){
-        setTimeout(function(){sideMenu[i].style.transform = `translateX(${animation})`}, i*500);
+        setTimeout(function(){
+          if(sideMenu[i]){
+             sideMenu[i].style.transform = `translateX(${animation})`
+          }
+        }, i*500);
       })(i);
     }
-    this.setState({sideMenu: !this.state.sideMenu});
   }
 
   
 
   render(){
     return(
-      <div onScroll={() => this.visible(document.getElementsByClassName('description_container')[0])}>
+      <div onScroll={() => this.visible(document.getElementsByClassName('description_container')[0])} onClick={() => this.onClickEvent(false)}>
       {
         this.state.visibility ?(
       <div className="about">
-      <div onClick={()=> this.onClickEvent()}><Logo /></div>
+      <div onMouseEnter={()=> this.onClickEvent()}><Logo/></div>
       
       {/* <SideMenuLeft></SideMenuLeft> */}
       <div className="sidemenu_left">
         <ul>
           <li className="left_menu first_item_left"><Link to="/">Project</Link></li>
-          <li className="left_menu second_item_left"><Link to="/">Team</Link> </li>
+          <li className="left_menu second_item_left"><Link to="blog">Blog</Link> </li>
           <li className="left_menu third_item_left"><Link to="about-us">About Us</Link></li>
           <li className="left_menu fourth_item_left"><Link to="contacts">Contacts</Link></li>
         </ul>
       </div>
+      <div className="about_container">
         <div className="circle_container">
           <div className="bg_circle one"></div>
           <div id="connection_one"></div>
@@ -530,6 +570,7 @@ export default class extends Component {
           </div>
         </div>
         <Socials/>
+        </div>
         </div>) : ( <div className="mobile_about">
         <div className="mobile_about_circle_container">
           <div className="mobile_about_circle">

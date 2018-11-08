@@ -3,17 +3,12 @@ import logo_blank from '../media/logo_blank.png';
 import logo_text from '../media/logo_text.png';
 import '../Styles/Logo.css'
 import '../scripts/hover.js';
+import Link from 'react-router-dom/Link';
 
 export default class extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      clicked: false
-    }
-  }
-
   render(){
     return (
+      <Link to="home">
       <div id="wrapper">
           <div className="logo"></div>
           <div className="logo_wrapper_big"></div>
@@ -41,6 +36,7 @@ export default class extends Component {
           <div className="logo_text" style={{backgroundImage: `url(${logo_text})`}}></div>
         </div>
         </div>
+        </Link>
     )
   }
 }

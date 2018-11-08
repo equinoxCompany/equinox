@@ -545,6 +545,27 @@
   }
 }
 
+.darken_bg *:not(.sidemenu_left){
+  opacity: .5;
+}
+
+.sidemenu_left {
+  z-index: 1000 !important;
+}
+
+
+.darken_bg {
+  position: relative;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.11);
+  width: 100%;
+  height: 100%;
+  z-index: 100 !important;
+}
+
+
+
 /* .list_hide_one {
 
   width: 100%;
@@ -751,6 +772,10 @@ p {
   background: rgb(227, 93, 20);
   border-radius: 50%;
 }
+
+/* .disable_scroll {
+  overflow: hidden;
+} */
 
 .career_text {
   position: absolute;
