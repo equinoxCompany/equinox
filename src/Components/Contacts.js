@@ -21,7 +21,7 @@ export default class extends Component {
     }
   }
 
-  //COMMENT
+  //COMents
 
   openMap(){
     document.getElementsByClassName('map_folded')[0].style.height = '100vh'
