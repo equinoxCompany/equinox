@@ -47,6 +47,8 @@ export default class extends Component {
     // return <Redirect to={this.props}/>
   }
 
+  //New Comment
+
   mouseEnterHandler(){
     let tail = document.getElementsByClassName('tail');
     tail[0].style.opacity = 0;
