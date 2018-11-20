@@ -22,18 +22,14 @@ componentDidMount(){
 
   mouseEnterHandler(){
     let tail = document.getElementsByClassName('tail');
-    let circle = document.getElementsByClassName('inner_circle');
-    circle[0].style.animationPlayState = 'running';
     tail[0].style.opacity = 0;
     tail[1].style.opacity = 0;
   }
 
   mouseLeaveHandler(){
-    let circle = document.getElementsByClassName('inner_circle');
     let tail = document.getElementsByClassName('tail');
     tail[0].style.opacity = 1;
     tail[1].style.opacity = 1;
-    circle[0].style.animationPlayState = 'paused';
   }
   render(){
   
@@ -49,7 +45,6 @@ componentDidMount(){
         <div className="header_desc_logo"></div>
         <div className="game_loader">
           <canvas id="loader_circle" ></canvas>
-          <div className="inner_circle" ></div>
         </div>
         <Logo/>
         <div className="r circle_medium first"></div>

@@ -147,7 +147,7 @@ export default class extends Component {
 
 
       let pulse = document.getElementsByClassName("pulse")[0];
-      let ring = document.getElementsByClassName("ring")[0];
+      let ring = document.getElementsByClassName("ring_map")[0];
       let text_we_are_here = document.getElementsByClassName("text_we_are_here")[0].children;
       let contact_info = document.getElementsByClassName("contact_info")[0].children;
       let info_circle = contacts_address_bottom.firstChild;
@@ -214,7 +214,7 @@ export default class extends Component {
     }
     let text_we_are_here = document.getElementsByClassName("text_we_are_here")[0].children;
     let contact_info = document.getElementsByClassName("contact_info")[0].children;
-    let ring = document.getElementsByClassName("ring")[0];
+    let ring = document.getElementsByClassName("ring_map")[0];
     let pulse = document.getElementsByClassName("pulse")[0];
     let address_info_circle = document.getElementsByClassName("address_info_circle_transform")[0];
     let circle_li = address_info_circle.firstChild.children;
@@ -261,7 +261,7 @@ export default class extends Component {
               <div className="close_map" onClick={()=>this.setMap(false)}>
               </div>
               <div className="pulse"></div>
-              <div className="ring"></div>
+              <div className="ring_map"></div>
               <div className="text_we_are_here">
                 <h1>WE</h1>
                 <h2 style={{color: "rgb(270, 92, 20)"}}>ARE</h2>

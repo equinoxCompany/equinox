@@ -1,9 +1,10 @@
 .contacts {
-  overflow: hidden;
+  overflow: hidden !important; 
   position: relative;
   width: 100vw;
   height: 100vh;
   z-index: 1;
+  background: rgb(41, 41, 41);
 }
 
 .contacts_background{
