@@ -46,7 +46,7 @@ export default class extends Component {
             <div className="circle_send"></div><input type="submit" value="SEND"></input>
           </ul>
         </form>
-        <div className="join_exit" onClick={()=>this.goBack()}><h1>X</h1></div>
+        <div className="services-menu-exit" style={{top: '55vw'}}onClick={()=>this.goBack()}></div>
       </div>) : (
         <div className="mobile_join">
           <h1>Ready to start a project? <br/>Let's chat!</h1>

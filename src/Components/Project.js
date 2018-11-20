@@ -15,7 +15,7 @@ export default class extends Component {
     return(
       <div>
         <Logo/>
-        <div className="join_exit" style={{top: '2vw'}}onClick={()=>this.goBack()}><h1>X</h1></div>
+        <div className="services-menu-exit" style={{top: '2vw'}}onClick={()=>this.goBack()}></div>
         <div className="project_page">
         <div className="content_top">
           <div className="content_img"></div>

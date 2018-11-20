@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Logo from '../Components/Logo';
-import Socials from '../Components/SocialsV2';
+import SocialsMobile from '../Components/SocialsV2';
+import Socials from '../Components/Socials';
 import '../App.css';
 import Link from 'react-router-dom/Link';
 import { BrowserRouter } from 'react-router-dom';

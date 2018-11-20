@@ -31,6 +31,7 @@ a {
   border-radius: 50%;
   background: rgb(136, 136, 136);
   z-index: 2000;
+  transform: translate(-50%, -60%);
   transition: width 0.5s ease-in-out, height 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
@@ -39,6 +40,7 @@ a {
   width: 12px;
   background-color: rgb(58, 58, 58);
   border: 2px solid rgb(227, 93, 20);
+  transform: translate(-50%, -60%);
   z-index: 2001;
 }
 

@@ -11,9 +11,13 @@
   height: 4vw;
   border: .2vw solid rgb(270, 92, 20);
   background-image: url(../media/exit.png);
+  background-position: center center;
+  -moz-background-size: 80%; /* Firefox 3.6+ */
+  -webkit-background-size: 80%; /* Safari 3.1+ и Chrome 4.0+ */
+  -o-background-size: 80%; /* Opera 9.6+ */
+  background-size: 80%; 
   border-radius: 50%;
   background-repeat: no-repeat;
-  background-size: contain;
 }
 
 .service-type-title::after {
