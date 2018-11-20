@@ -1,0 +1,37 @@
+.content_top {
+  display: flex;
+  align-items: top;
+  width: 100vw;
+  height: 60vh;
+}
+
+.content_img {
+  background-image: url('../media/planet_projects.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 2%;
+  width: 40vw;
+  height: 50vh;
+}
+
+
+
+.content_title {
+  margin-top: 2%;
+  font-size: 5vw;
+  color: white;
+  float: right;
+}
+
+.content_title_date {
+  text-align: right;
+  font-size: 2vw;
+}
+
+.content_text {
+  margin: 0;
+  padding-left: 5%;
+  color: white;
+  font-size: 2vw;
+  width: 68vw;
+}

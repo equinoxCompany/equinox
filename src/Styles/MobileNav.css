@@ -1,17 +1,16 @@
 .mobile_nav ul{
-  position: absolute;
-  bottom: 15%;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
   width: 80%;
   margin: 0;
   padding: 0;
 }
 
 .mobile_nav li {
+  position: absolute;
   display: inline-block;
-  padding-right: 2%;
+  padding-right: 20%;
   padding-bottom: 0;
+  margin: 20%;
   font-size: 4vw;
 }
 

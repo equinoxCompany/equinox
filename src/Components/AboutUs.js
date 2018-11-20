@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Logo from '../Components/Logo';
 import Socials from '../Components/Socials';
 import Login from '../Components/Login';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import '../Styles/AboutUs.css';
 import bg from '../media/bg.png'
 import mobile_img from '../media/mobile_about.png';
@@ -12,6 +12,13 @@ import '../Styles/SideMenu.css';
 import VisibilitySensor from 'react-visibility-sensor';
 import SideMenuLeft from '../Components/SideMenuLeft'
 import '../Styles/SideMenuLeft.css'
+import '../scripts/cursor.js';
+import ceo from '../media/ceo.jpg';
+import design from '../media/design.jpg';
+import dev1 from '../media/dev1.jpg';
+import dev2 from '../media/dev2.jpg';
+import seo from '../media/seo.jpg';
+import StartProject from '../Components/StartProject.js';
 
 export default class extends Component {
   
@@ -20,8 +27,36 @@ export default class extends Component {
     this.state = {
       visibility: window.innerWidth >= 768 ? true : false,
       team: 0,
-      sideMenu: false
+      career: 0,
+      sideMenu: false,
+      offers: 0,
+      start: 0,
+      sideMenuLinks: []
     }
+  }
+
+  componentDidMount(){
+    // fetch('/users')
+    //   .then(res => res.json())
+    //   .then(sideMenuLinks => this.setState({sideMenuLinks}))
+  }
+  
+
+  redirectTo(props) {
+    console.log('s');
+    // return <Redirect to={this.props}/>
+  }
+
+  mouseEnterHandler(){
+    let tail = document.getElementsByClassName('tail');
+    tail[0].style.opacity = 0;
+    tail[1].style.opacity = 0;
+  }
+
+  mouseLeaveHandler(){
+    let tail = document.getElementsByClassName('tail');
+    tail[0].style.opacity = 1;
+    tail[1].style.opacity = 1;
   }
 
 
@@ -113,18 +148,19 @@ export default class extends Component {
   }
 
   showFirstSec(visible){
-    if(visible){
-      let elName = 'about_sec';
+    let elName = 'about_sec';
       let animName = 'title_before';
       let textName = 'again_text'
       let el = document.getElementsByClassName(elName)[0];
       let elText = document.getElementsByClassName(textName)[0];
       let animPlay = document.getElementsByClassName(elName)[0];
       let titleAnim = document.getElementsByClassName(animName)[0];
+      
+    if(visible){
       animPlay.style.animation ='appear 0.5s ease-in-out forwards 0.5s';
       titleAnim.style.animation= 'title_appear 1s ease-in-out forwards 1s';
       elText.style.animation = 'text_appear_about 1.5s ease-in-out forwards 1.5s';
-    }  
+    }
   };
 
   showSecondSec(visible){
@@ -185,9 +221,7 @@ export default class extends Component {
     }
   };
 
-  showEl(visible){
-  }
-
+  
   
   showSomeTwo(visible){
     if(visible){
@@ -204,69 +238,164 @@ export default class extends Component {
     }
   };
 
-  onClickEvent(state = true){
-    function preventDefault(e) {
-      e = e || window.event;
-      if (e.preventDefault)
-          e.preventDefault();
-      e.returnValue = false;  
-    }
-    let aboutContainer = document.getElementsByClassName('about_container')[0];
-    if(state && !aboutContainer.className.includes('darken_bg')){
-      aboutContainer.className += ' darken_bg';
-      console.log(aboutContainer.className);
+  showSideMenu(){
+    if(!this.state.sideMenu){
+      function preventDefault(e) {
+        e = e || window.event;
+        if (e.preventDefault)
+            e.preventDefault();
+        e.returnValue = false;  
+      }
       let keys = {37: 1, 38: 1, 39: 1, 40: 1};
+      let aboutContainer = document.getElementsByClassName('about_container')[0];
+      if(!aboutContainer.className.includes('darken_bg')){
+        aboutContainer.className += ' darken_bg';
+        let sideMenu = document.getElementsByClassName('left_menu');
+        for(let i = 0; i < sideMenu.length; i++){
+          (function(i){
+            setTimeout(function(){
+              if(sideMenu[i]){
+                 sideMenu[i].style.transform = 'translateX(20vw)'
+              }
+            }, i*500);
+          })(i);
+        }
+      }
       function preventDefaultForScrollKeys(e) {
-          if (keys[e.keyCode]) {
-              preventDefault(e);
-              return false;
-          }
+        if (keys[e.keyCode]) {
+            preventDefault(e);
+            return false;
+        }
       }
 
-    if (window.addEventListener) // older FF
-        window.addEventListener('DOMMouseScroll', preventDefault, false);
-    window.onwheel = preventDefault; // modern standard
-    window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
-    window.ontouchmove  = preventDefault; // mobile
-    document.onkeydown  = preventDefaultForScrollKeys;
+      if (window.addEventListener) // older FF
+      window.addEventListener('DOMMouseScroll', preventDefault, false);
+      window.onwheel = preventDefault; // modern standard
+      window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
+      window.ontouchmove  = preventDefault; // mobile
+      document.onkeydown  = preventDefaultForScrollKeys;
 
-    } else {
-      if(aboutContainer.className.includes('darken_bg'))
+      this.setState({sideMenu: true});
+    }
+  }
+
+  hideSideMenu() {
+    if(this.state.sideMenu){
+      function preventDefault(e) {
+        e = e || window.event;
+        if (e.preventDefault)
+            e.preventDefault();
+        e.returnValue = false;  
+      }
+      let aboutContainer = document.getElementsByClassName('about_container')[0];
       aboutContainer.className = aboutContainer.className.slice(0, -10);
-      console.log(aboutContainer.className)
-      if (window.removeEventListener)
+      if (window.removeEventListener){
         window.removeEventListener('DOMMouseScroll', preventDefault, false);
         window.onmousewheel = document.onmousewheel = null; 
         window.onwheel = null; 
         window.ontouchmove = null;  
-        document.onkeydown = null;  
+        document.onkeydown = null;
     }
-    
-    let animation = !state ? '-20vw' : '20vw'
     let sideMenu = document.getElementsByClassName('left_menu');
     for(let i = 0; i < sideMenu.length; i++){
       (function(i){
         setTimeout(function(){
           if(sideMenu[i]){
-             sideMenu[i].style.transform = `translateX(${animation})`
+             sideMenu[i].style.transform = 'translateX(-20vw)'
           }
         }, i*500);
       })(i);
     }
+    }
+    this.setState({sideMenu: false});
   }
 
+  goToAbout(){
+    let el = document.getElementsByClassName('description_container')[0];
+    el.scrollIntoView();
+  }
+
+  mouseClick() {
+    function scrollToView(name){
+      let el;
+      switch(name){
+        case 'about_menu' : el = document.getElementsByClassName('description_container')[0];
+        el.scrollIntoView();
+        break;
+        case 'services_menu' : el = document.getElementsByClassName('services_list')[0];
+        el.scrollIntoView();
+        break;
+        case 'team_menu' : el = document.getElementsByClassName('team')[0];
+        el.scrollIntoView();
+        break;
+        case 'career_menu' : el = document.getElementsByClassName('career')[0];
+        el.scrollIntoView();
+        break;
+      }
+    }
+
+    document.onmousedown = handleMouseMove();
+    function handleMouseMove(event) {
+        var dot, eventDoc, doc, body, pageX, pageY;
+  
+        event = event || window.event; // IE-ism
+        let els = document.getElementsByClassName('side_click');
+        let sideMenu = []
+        
+        for(let el of els){
+          sideMenu.push(
+            {
+              class: el.className.split(' ')[1],
+              y: el.getBoundingClientRect().y
+            }
+          )
+        }
+  
+        if (event.pageX == null && event.clientX != null) {
+            eventDoc = (event.target && event.target.ownerDocument) || document;
+            doc = eventDoc.documentElement;
+            body = eventDoc.body;
+        }
+  
+        for(let item of sideMenu){
+          let curItem = document.getElementsByClassName(item.class)[0]
+          let curItemCoords = curItem.getBoundingClientRect();
+          if(event.x >= curItemCoords.x ){
+              if(event.y <= curItemCoords.y + curItemCoords.height / 2 && event.y >= curItemCoords.y - curItemCoords.height / 2){
+              for(let el of els){
+                if(el.className.includes('active_menu')){
+                  el.className = el.className.slice(0, -11);
+                }
+              }
+              curItem.className += ' active_menu';
+              scrollToView(item.class);
+              }
+            }
+        }
+  }
+  };
+  
   
 
   render(){
     return(
-      <div onScroll={() => this.visible(document.getElementsByClassName('description_container')[0])} onClick={() => this.onClickEvent(false)}>
+      <div className="test" onScroll={() => {
+        this.visible(document.getElementsByClassName('description_container')[0]);
+      }}
+        onClick={() => this.hideSideMenu()}
+        onMouseDown={() => this.mouseClick()}
+        >
       {
         this.state.visibility ?(
       <div className="about">
-      <div onMouseEnter={()=> this.onClickEvent()}><Logo/></div>
+      <div onMouseEnter={()=> this.showSideMenu()}><Logo/></div>
       
-      {/* <SideMenuLeft></SideMenuLeft> */}
       <div className="sidemenu_left">
+      {/* <ul>
+      {this.state.sideMenuLinks.map(link => 
+       <li className="left_menu first_item_left"><Link to={link.to}>{link.text}</Link></li>
+      )}
+      </ul> */}
         <ul>
           <li className="left_menu first_item_left"><Link to="/">Project</Link></li>
           <li className="left_menu second_item_left"><Link to="blog">Blog</Link> </li>
@@ -310,11 +439,11 @@ export default class extends Component {
         <div className="side_menu">
         <nav>
           <ul>
-            <li className="about_menu trigered_text trigered_one" onClick={()=>this.handleClick()}><a>About us</a></li> 
-            <li className="services_menu trigered_text trigered_two" onClick={()=>this.handleClick()}><a>Services</a></li>
-            <li className="team_menu trigered_text trigered_three" onClick={()=>this.handleClick()}><a>Team</a></li>
-            <li className="career_menu trigered_text trigered_four" onClick={()=>this.handleClick()}><a>Career</a></li>
-            <li className="awards_menu trigered_text trigered_five" onClick={()=>this.handleClick()}><a>Awards</a></li>
+            <li className="side_click about_menu trigered_text trigered_one" ><a>About us</a></li> 
+            <li className="side_click services_menu trigered_text trigered_two" ><a >Services</a></li>
+            <li className="side_click team_menu trigered_text trigered_three"><a >Team</a></li>
+            <li className="side_click career_menu trigered_text trigered_four" ><a>Career</a></li>
+            <li className="side_click awards_menu trigered_text trigered_five"><a>Awards</a></li>
           </ul>
         </nav>
         <div className="menu_lines">
@@ -344,9 +473,9 @@ export default class extends Component {
         </div>
         <div className="descrition_small_container">
           <div className="descrition_small">
-            <p>Some moore about us text here or something another,we are      
-              i dont <span style={{color: 'rgb(227, 93, 20)'}}>SOME</span>moore about us text here
-              <span style={{color: 'rgb(227, 93, 20)'}}> NICE TYPE</span>  job.</p>
+            <p>EQUINOX -  авторська група,що розробляє , впроваджує новітні стратегії  у сфері маркетингу та створює особливі концепції бренду.
+            Тисячі ідей, мрій, які  ми допоможемо вам втілити  по - особливому.
+            </p>
           </div>
         </div>
         <div className="circle_big_about">
@@ -359,20 +488,20 @@ export default class extends Component {
             <div className="atom inner_circle_six"></div>
           </div>
         </div>
-        <VisibilitySensor onChange={this.showFirstSec}>
+        <VisibilitySensor onChange={this.showFirstSec} >
         <div className="section about_sec">
             <div className="title again">
             <div className="title_before"></div>
             <div className="hidding_title"></div>
               <h1 className="again_text">
-                Title <span style={{ color: 'rgb(270, 92, 20)', fontSize: '88px'}}>AGAIN</span>
+                Наша <span style={{ color: 'rgb(270, 92, 20)', fontSize: '88px'}}>ціль</span>
               </h1>
             </div>
-            <p>Let's face it: the digital age has introduced a bunch of new players on the block.
-              Hey, you might be litteraly going aginst the computer.
-                That's were Equinox comes in-our team has winning visual and interactive combos
-                at our fingertips to take brands and businesses
-                to the next level, and we have fun doing it. </p>
+            <p>Самобутність інтернет - простору , на  якому якість та потужний емоційний заряд надихає всіх і кожного. 
+            Ми спеціалізуємося на комплексному підході: з вами від задуму до всебічно налаштованого концептуального механізму.
+            Нас запалюють Ваші проекти , спонукаючи до найбільш неочікуваного   вираженняq ідейної індивідуальності. 
+
+            </p>
         </div>
         </VisibilitySensor>
         <VisibilitySensor onChange={this.showSecondSec}>
@@ -382,26 +511,27 @@ export default class extends Component {
             <div className="title_before_services"></div>
             <h1 className="services_text">Services</h1>
             </div>
-            <p>Let's face it: the digital age has introduced a bunch of new players on the block.
-              Hey, you might be litteraly going aginst the computer.
-                That's were Equinox comes in-our team has winning visual and interactive combos
-                at our fingertips to take brands and businesses
-                to the next level, and we have fun doing it. </p>
+            <p>
+            Ми спеціалізуємося на  комплексному  підході : з вами від задуму до  всебічно налаштованого концептуального механізму. Оформлення простору  – ніби створення гри , між аудиторією та уявою. Правил не існує  ,лише  декорації й  атмосфера… лише погляд.... і
+            гра почалась)
+            </p>
         </div>
         </VisibilitySensor>
-        <VisibilitySensor onChange={this.showServList}>
+        <VisibilitySensor onChange={this.showServList} partialVisibility={true}>
         <div className="section services_list">
             <div className="col first_ser">
             <div className="title service_list first_list">
             <div className="hidding_title"></div>
             <div className="title_before_list"></div>
-            <h2 className="list_text first_text">The Digital Studio</h2>
+            <h2 className="list_text first_text">The Digital<br/> Studio</h2>
             </div>
               <ul>  
-                <li><div className="circle_before_li"></div><h1 className="list_item_about">Digital strategy</h1></li>
+                <li><div className="circle_before_li"
+                onClick={() => this.redirectTo()}
+                ></div><h1 className="list_item_about">Digital strategy</h1></li>
                 <li><div className="circle_before_li"></div><h1 className="list_item_about" >SEO</h1> </li>
                 <li><div className="circle_before_li"></div><h1 className="list_item_about">User experience</h1> </li>
-                <li><div className="circle_before_li"></div><h1 className="list_item_about">User experience</h1> </li>
+                <li><div className="circle_before_li"></div><h1 className="list_item_about">E-commerce</h1> </li>
                 <li><div className="circle_before_li"></div><h1 className="list_item_about">Web design</h1> </li>
                 <li><div className="circle_before_li"></div><h1 className="list_item_about">Content creation</h1> </li>
                 <li><div className="circle_before_li"></div><h1 className="list_item_about">Web development & CMS</h1> </li>
@@ -412,7 +542,7 @@ export default class extends Component {
             <div className="title service_list second_list">
             <div className="hidding_title second_hide"></div>
             <div className="title_before_list"></div>
-            <h2 className="list_text second_text">The Branding Studio</h2></div>
+            <h2 className="list_text second_text">The Branding<br/> Studio</h2></div>
             <ul>
                 <li><div className="circle_before_li"></div><h1 className="list_item_about">Brand strategy</h1> </li>
                 <li><div className="circle_before_li"></div><h1 className="list_item_about">Motion design</h1> </li>
@@ -428,6 +558,7 @@ export default class extends Component {
         </VisibilitySensor>
         <VisibilitySensor onChange={this.showSome}>
         <div className="section services_type">
+        <a href="#services_type"></a>
             <div className="title title_type">
             <div className="title_before_type"></div>
             <div className="hidding_title"></div>
@@ -435,10 +566,8 @@ export default class extends Component {
                 Type Services
               </h1>
             </div>
-            <p>Your brand is your avatar, and we’re in the game
-            to make it the best it can be. <span style={{ color: 'rgb(270, 92, 20)'}}>WE CREATE </span>
-            adaptable brand identities that stand strong on
-            all platforms<span style={{ color: 'rgb(270, 92, 20)'}}>...</span></p>
+            <p>Студія , що почала свою діяльність у 2018, згуртувала молоду команду творчих експериментаторів з усієї країни.  
+            Відчайдушність , наполегливість, відданість стали запорукою вдалих  результатів нашої щоденної кооперації . </p>
         </div>
         </VisibilitySensor>
         <VisibilitySensor onChange={this.showEl} active={this.state.team ? true: false}>
@@ -458,116 +587,189 @@ export default class extends Component {
           <VisibilitySensor onChange={()=> {
           this.setState({team: this.state.team += 1});
           if(this.state.team > 1){
-            let members = document.getElementsByClassName('first_row_member_img');
-            for(let member of members) member.style.animation = 'show_img 1s ease-in-out forwards 1s';
+
+            let members = document.getElementsByClassName('member_img');
+            let borders = document.getElementsByClassName('border_bottom');
+            let circles = document.getElementsByClassName('circle_before_info');
+            let text = document.getElementsByClassName('member_info_text');
+            let order = [[0, 1], [2,3], [4,5], [6,7], [8,9], [10, 11]];
+            let atoms = document.getElementsByClassName('atom');
+            let rect = borders[0].getBoundingClientRect();
+            for(let i = 0; i < members.length; i++){
+              (function(i){
+                setTimeout(function(){
+                     members[i].style.animation = 'show_img 1s ease-in-out forwards 1s';
+                     borders[i].style.animation = 'border_img 1s ease-in-out forwards 1s';
+                     circles[i].style.animation = 'about_appear 1s ease-in-out forwards 1s';
+                     text[order[i][0]].style.animation = 'appear 1s ease-in-out forwards 1s';
+                     text[order[i][1]].style.animation = 'appear 1s ease-in-out forwards 1s';
+                }, i*500);
+              })(i);
+            }
           }
         }}>
        
           <div className="first_row">
             <li className="first_row_item">
-              <div className="first_row_member_img">
-              <div className="border_bottom"></div>
+              <div className="member_img" style={{ backgroundImage: `url(${ceo})` }}>
               </div>
+              <div className="border_bottom"></div>
               <div className="member_info">
-              <h1>Designer</h1>
-              <p>Some more info</p>
+              <div className="circle_before_info"></div>
+              <h1 className="member_info_text">CEO</h1>
+              <p className="member_info_text">Some more info</p>
               </div>
             </li>
             <li className="first_row_item">
-              <div className="first_row_member_img">
-              <div className="border_bottom"></div>
+              <div className="member_img" style={{ backgroundImage: `url(${design})` }}>
               </div>
+              <div className="border_bottom"></div>
               <div className="member_info">
-                <h1>Designer</h1>
-                <p>Some more info</p>
+              <div className="circle_before_info"></div>
+                <h1 className="member_info_text">Designer</h1>
+                <p className="member_info_text">Some more info</p>
                 </div>
             </li>
             <li className="first_row_item">
-              <div className="first_row_member_img">
-              <div className="border_bottom"></div>
+              <div className="member_img" style={{ backgroundImage: `url(${dev1})` }}>
               </div>
+              <div className="border_bottom"></div>
               <div className="member_info">
-              <h1>Designer</h1>
-              <p>Some more info</p>
+              <div className="circle_before_info"></div>
+              <h1 className="member_info_text">Developer</h1>
+              <p className="member_info_text">Some more info</p>
               </div>
             </li>
+            <div className="hide_row">
             </div>
-            
+          </div>
             </VisibilitySensor>
             <li>
-              <div className="member_img">
-              <div className="border_bottom"></div>
+              <div className="member_img" style={{ backgroundImage: `url(${dev2})` }}>
               </div>
+              <div className="border_bottom"></div>
               <div className="member_info">
-              <h1>Designer</h1>
-              <p>Some more info</p>
+              <div className="circle_before_info"></div>
+              <h1 className="member_info_text">Developer</h1>
+              <p className="member_info_text">Some more info</p>
               </div>
             </li>
             <li>
-              <div className="member_img">
-              <div className="border_bottom"></div>
+              <div className="member_img" style={{ backgroundImage: `url(${seo})` }}>
               </div>
+              <div className="border_bottom"></div>
               <div className="member_info">
-              <h1>Designer</h1>
-              <p>Some more info</p>
+              <div className="circle_before_info"></div>
+              <h1 className="member_info_text">Seo</h1>
+              <p className="member_info_text">Some more info</p>
               </div>
             </li>
-            <li>
+            {/* <li>
               <div className="member_img">
+              </div>
               <div className="border_bottom"></div>
-              </div>
               <div className="member_info">
-              <h1>Designer</h1>
-              <p>Some more info</p>
+              <div className="circle_before_info"></div>
+              <h1 className="member_info_text">Designer</h1>
+              <p className="member_info_text">Some more info</p>
               </div>
-            </li>
-            <li>
-              <div className="member_img">
-              <div className="border_bottom"></div>
-              </div>
-              <div className="member_info">
-              <h1>Designer</h1>
-              <p>Some more info</p>
-              </div>
-            </li>
-            <li>
-              <div className="member_img">
-              <div className="border_bottom"></div>
-              </div>
-              <div className="member_info">
-              <h1>Designer</h1>
-              <p>Some more info</p>
-              </div>
-            </li>
-            <li>
-              <div className="member_img">
-              <div className="border_bottom"></div>
-              </div>
-              <div className="member_info">
-              <h1>Designer</h1>
-              <p>Some more info</p>
-              </div>
-            </li>
+            </li> */}
+            <div className="hide_row_second">
+            </div>
           </ul>
         </div>
-        <VisibilitySensor onChange={this.showEl}>
         <div className="section career">
         <a name="fourth-link"></a>
           <div className="career_text">
-          <p>You are passionate, curious, creative
-              and ready to <span style={{color: 'rgb(227, 93, 20)'}}>step up</span> your game?
-              <span style={{color: 'rgb(227, 93, 20)'}}>Let’s talk! ...</span></p>
-          </div>
+          <VisibilitySensor onChange={()=>{
+            this.setState({team: this.state.career += 1});
+            if(this.state.career > 1){
+              let text = document.getElementsByClassName('career_text')[0];
+              let btn = document.getElementsByClassName('join_button')[0];
+              btn.style.animation = 'appear 1s ease-in-out forwards 1s';
+              text.style.animation = 'appear 1s ease-in-out forwards 1s';
+            }
+        }}>
+          <p>Equinoх –  це стихія  різних   уподобань та вмінь, 
+          це команда, націлена  на винятковість,
+          це мрія, що прагне реалізації.</p>
+            </VisibilitySensor>
+          </div >
+          <div className="join_button">
           <Link to="/join-the-crew" className="join">Join the Crew</Link>
+          </div>
         </div>
-        </VisibilitySensor>
         <div className="section offers">
           <div className="offers_text">
+          <VisibilitySensor onChange={()=>{
+            this.setState({team: this.state.offers += 1});
+            if(this.state.offers > 1){
+             let text = document.getElementsByClassName('offers_text')[0];
+             text.style.animation = 'appear 1s ease-in-out forwards 1s';
+          }}}>
             <p>From <span style={{color: 'rgb(227, 93, 20)'}}>full-time jobs</span>, to freelance gigs and internships, 
               we’re always on the lookout. So if the position you’re l
               ooking for <span style={{color: 'rgb(227, 93, 20)'}}>isn’t available</span> at the moment, <span style={{color: 'rgb(227, 93, 20)'}}>no worries–send </span>
                us your stuff anyway....</p>
+          </VisibilitySensor>
           </div>
+        </div>
+        <div className="start_project">
+          <VisibilitySensor onChange={() => {
+            this.setState({team: this.state.start += 1});
+            if(this.state.start > 1){
+              let letters = document.getElementsByClassName('start_txt');
+              let lettersEven = document.getElementsByClassName('start_txt_even');
+              for(let letter of letters){
+                letter.style.animation = 'start_appear_bot 1s ease-in-out forwards 1s';
+              }
+              for(let letterEven of lettersEven){
+                letterEven.style.animation = 'start_appear_top 1s ease-in-out forwards 1s';
+              } 
+            }
+          }} partialVisibility={true} >
+
+<Link to="join-the-crew">
+          <h1>
+            <span className="start_txt proj_r" onMouseEnter={()=>this.mouseEnterHandler()} onMouseLeave={()=>this.mouseLeaveHandler()} onClick={()=>this.mouseLeaveHandler()}>R
+            <div className="grey_container_about"><div className="grey_circle_about" style={{backgroundColor:"rgb(58, 58, 58)"}}> <p>Start a project</p> </div></div>
+            </span>
+            <span className="start_txt_even proj_e" onMouseEnter={()=>this.mouseEnterHandler()} onMouseLeave={()=>this.mouseLeaveHandler()} onClick={()=>this.mouseLeaveHandler()}>E
+            <div className="grey_container_about"><div className="grey_circle_about" style={{backgroundColor:"rgb(58, 58, 58)"}}> <p>Start a project</p> </div></div></span>
+            <span className="start_txt proj_a" onMouseEnter={()=>this.mouseEnterHandler()} onMouseLeave={()=>this.mouseLeaveHandler()} onClick={()=>this.mouseLeaveHandler()}>a
+            <div className="grey_container_about"><div className="grey_circle_about" style={{backgroundColor:"rgb(58, 58, 58)"}}> <p>Start a project</p> </div></div>
+            </span>
+            <span className="start_txt_even proj_d" onMouseEnter={()=>this.mouseEnterHandler()} onMouseLeave={()=>this.mouseLeaveHandler()} onClick={()=>this.mouseLeaveHandler()}>D
+            <div className="grey_container_about"><div className="grey_circle_about" style={{backgroundColor:"rgb(58, 58, 58)"}}> <p>Start a project</p> </div></div>
+            </span> 
+            <span className="start_txt proj_y "onMouseEnter={()=>this.mouseEnterHandler()} onMouseLeave={()=>this.mouseLeaveHandler()} onClick={()=>this.mouseLeaveHandler()}>Y
+            <div className="grey_container_about"><div className="grey_circle_about" style={{backgroundColor:"rgb(58, 58, 58)"}}> <p>Start a project</p> </div></div>
+            </span><br/>
+            <span className="start_txt_even proj_to"onMouseEnter={()=>this.mouseEnterHandler()} onMouseLeave={()=>this.mouseLeaveHandler()} onClick={()=>this.mouseLeaveHandler()}>to
+            <div className="grey_container_about"><div className="grey_circle_about" style={{backgroundColor:"rgb(58, 58, 58)"}}> <p>Start a project</p> </div></div>
+            </span> <br/>
+            <span className="start_txt start_s" onMouseEnter={()=>this.mouseEnterHandler()} onMouseLeave={()=>this.mouseLeaveHandler()} onClick={()=>this.mouseLeaveHandler()}>S
+            <div className="grey_container_about"><div className="grey_circle_about" style={{backgroundColor:"rgb(58, 58, 58)"}}> <p>Start a project</p> </div></div>
+            </span>
+            <span className="start_txt_even start_t" onMouseEnter={()=>this.mouseEnterHandler()} onMouseLeave={()=>this.mouseLeaveHandler()} onClick={()=>this.mouseLeaveHandler()}>t
+            <div className="grey_container_about"><div className="grey_circle_about" style={{backgroundColor:"rgb(58, 58, 58)"}}> <p>Start a project</p> </div></div>
+            </span>
+            <span className="start_txt start_a" onMouseEnter={()=>this.mouseEnterHandler()} onMouseLeave={()=>this.mouseLeaveHandler()} onClick={()=>this.mouseLeaveHandler()}>A
+            <div className="grey_container_about"><div className="grey_circle_about" style={{backgroundColor:"rgb(58, 58, 58)"}}> <p>Start a project</p> </div></div>
+            </span>
+            <span className="start_txt_even start_r" onMouseEnter={()=>this.mouseEnterHandler()} onMouseLeave={()=>this.mouseLeaveHandler()} onClick={()=>this.mouseLeaveHandler()}>r
+            <div className="grey_container_about"><div className="grey_circle_about" style={{backgroundColor:"rgb(58, 58, 58)"}}> <p>Start a project</p> </div></div>
+            </span>
+            <span className="start_txt start_t" onMouseEnter={()=>this.mouseEnterHandler()} onMouseLeave={()=>this.mouseLeaveHandler()} onClick={()=>this.mouseLeaveHandler()}>t
+            <div className="grey_container_about"><div className="grey_circle_about" style={{backgroundColor:"rgb(58, 58, 58)"}}> <p>Start a project</p> </div></div>
+            </span>
+            <span className="start_txt_even start_quest" onMouseEnter={()=>this.mouseEnterHandler()} onMouseLeave={()=>this.mouseLeaveHandler()} onClick={()=>this.mouseLeaveHandler()}>?
+            <div className="grey_container_about"><div className="grey_circle_about" style={{backgroundColor:"rgb(58, 58, 58)"}}> <p>Start a project</p> </div></div>
+            </span>
+            </h1>
+            </Link>
+          
+            </VisibilitySensor>
         </div>
         <Socials/>
         </div>

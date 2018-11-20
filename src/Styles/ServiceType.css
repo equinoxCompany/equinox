@@ -1,0 +1,48 @@
+.services-menu-exit {
+  position: fixed;
+  right: 3vw;
+  top: 3vw;
+  width: 4vw;
+  height: 4vw;
+  border: .2vw solid rgb(270, 92, 20);
+  background-image: url(../media/exit.png);
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.services-seo-title {
+  font-size: 5vw;
+  color: white;
+  text-align: center;
+  padding-top: 8vw;
+}
+
+.services-seo-title:before {
+  position: absolute;
+  content: '';
+  left: 30vw;
+  width: 1vw;
+  height: 5vw;
+  background: rgb(270, 92, 20);
+}
+
+.services-seo-info {
+  display: flex;
+  align-items: center;
+  padding: 0 2vw;
+}
+
+.services-seo-text {
+  font-size: 2.2vw;
+  color: white;
+  padding: 0 8vw;
+}
+
+.services-seo-image {
+  width: 100vw;
+  height: 25vw;
+  background-image: url(../media/serviceImage.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}

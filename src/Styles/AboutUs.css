@@ -36,10 +36,12 @@
 }
 
 .first_list {
+  height: 20vh;
   z-index: 3 !important; 
 }
 
 .second_list {
+  height: 20vh;
   z-index: 1 !important; 
 }
 
@@ -67,6 +69,24 @@
   height: 100%;
   background: rgb(41, 41, 41);
   z-index: 4;
+}
+
+.hide_row {
+  position: absolute;
+  background: rgb(41, 41, 41);
+  top: 41.6vh;
+  height: 50vh;
+  width: 100vw;
+  z-index: -1;
+}
+
+.hide_row_second {
+  position: absolute;
+  background: rgb(41, 41, 41);
+  top: 90vh;
+  height: 50vh;
+  width: 100vw;
+  z-index: -1;
 }
 
 
@@ -141,7 +161,7 @@
   padding: 0;
   margin-top: -4%;
   float: right;
-  font-size: 3.4vw;
+  font-size: 2.5vw;
   font-weight: normal;
   color: rgb(227, 93, 20);
 }
@@ -245,6 +265,12 @@
     transform: translate(0, 0);
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+@keyframes hide_sec{
+  100% {
+    transform: opacity(0);
   }
 }
 
@@ -534,14 +560,16 @@
   padding-right: 20vw;
 }
 
-.first_row_member_img {
-  z-index: 0 !important;
-  bottom: -100% !important;
+.member_img, .first_row_member_img {
+  position: relative;
+  z-index: -1 !important;
+  bottom: -110% !important;
 }
 
 @keyframes show_img {
   100% {
     bottom: 0;
+    opacity: 1;
   }
 }
 
@@ -585,18 +613,18 @@
 }
 
 .career {
-  top: 580vh;
+  top: 530vh;
   opacity: 1;
 }
 
 .offers {
-  top: 600vh;
+  top: 560vh;
 }
 
 
 .title {
   position: relative;
-  font-size: 33px;
+  font-size: 3vw;
   font-weight: normal;
   color: white;
 }
@@ -626,7 +654,7 @@
 
 p {
   position: absolute;
-  font-size: 30px;
+  font-size: 2vw;
   padding-right: 30%;
   padding-left: 1%;
   color: white;
@@ -643,7 +671,7 @@ p {
 }
 
 .service_list{
-  font-size: 30px;
+  font-size: 2vw;
   font-weight: lighter;
 }
 
@@ -653,6 +681,141 @@ p {
 
 .col li {
  position: relative;
+}
+
+.start_project {
+  position: absolute;
+  background-image: url('../media/Lin.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  top: 600vh;
+  text-align: center;
+  width: 100vw;
+  letter-spacing: 3vw;
+  padding-top: 20vh;
+}
+
+.start_project h1 {
+  font-weight: 500;
+  font-size: 10vw;
+  color: rgb(227, 93, 20);
+}
+
+.start_project span {
+  display: inline-block;
+  opacity: 0;
+}
+
+
+.proj_r {
+  transform: rotate(-15deg);
+  opacity: 0;
+}
+
+.proj_e {
+  transform: rotate(-15deg) translateY(-2vw);
+  font-size: 8vw;
+  color: white;
+}
+
+.proj_a {
+  transform:translate(-2vw, -3vw);
+}
+
+.proj_d {
+  transform: translate(-2vw, -3vw);
+  font-size: 8vw; 
+  color: white;
+}
+
+.proj_y {
+  font-size: 8vw; 
+  transform: translate(-2vw, -2vw);
+}
+
+.proj_to {
+  color: white;
+  transform: translate(3vw, -5vw);
+  letter-spacing: 0;
+}
+
+.start_s {
+  transform: rotate(-20deg) translate(7vw, -5vw);
+}
+
+.start_t {
+  transform: translate(4vw, -8vw);
+  color: white;
+}
+
+.start_a {
+  transform: rotate(-20deg) translate(6vw, -7vw);
+}
+
+.start_r {
+  transform: rotate(20deg) translate(1vw, -10vw);
+  color: white;
+}
+
+.start_quest {
+  transform: rotate(20deg) translate(0vw, -10vw);
+  color: white;
+}
+
+@keyframes start_appear_bot {
+  0%{
+    padding-top: 10vw;
+  }
+  100%{
+    padding-top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes start_appear_top {
+  0%{
+    padding-left: 10vw;
+  }
+  100%{
+    padding-left: 0;
+    opacity: 1;
+  }
+}
+
+.grey_circle_about {
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
+  transform: scale(0);
+}
+
+.grey_container_about {
+  position: absolute;
+  height: 180px;
+  width: 180px;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  -webkit-backface-visibility: hidden;
+  transform: translate(-60%, -60%);
+  text-align: center;
+}
+
+.grey_circle_about p {
+  width: 100%;
+  padding-top: 30%;
+  z-index: 200 !important;
+  font-size: 1vw;
+  letter-spacing: 0;
+}
+
+.start_txt:hover > .grey_container_about > .grey_circle_about, .start_txt_even:hover > .grey_container_about > .grey_circle_about {
+  opacity: 0.7;
+  transform: scale(.7);
 }
 
 .col li .circle_before_li {
@@ -668,7 +831,7 @@ p {
 
 
 .services_type p{
-  font-size: 39px;
+  font-size: 2vw;
 }
 
 .team_container {
@@ -684,7 +847,7 @@ p {
 
 
 .team h1{
-  font-size: 100px;
+  font-size: 7vw;
   text-align: right;
   padding: 0;
   margin: 0;
@@ -722,48 +885,70 @@ p {
 }
 
 .member_img, .first_row_member_img {
+  opacity: 0;
+  z-index: -1 !important;
   position: relative;
   background-size: cover !important;
-  background: url('../media/member.png');
+  /* background: url('../media/member.png'); */
   width: 100%;
   height: 100%;
 }
 
-.first_row_items {
-
-}
-
 .border_bottom {
-  position: absolute;
-  bottom: -3%;
+  position: relative;
+  bottom: 0vh;
   left: -2.5%;
-  width: 105%;
+  width: 0;
   height: 8px;
   border-radius: 3px;
   background: rgb(138, 138,138);
 }
 
+@keyframes border_img {
+  100%{
+    width: 105%;
+  }
+}
+
 .member_info {
   position: absolute;
-  transform: translateY(-10px);
   width: 100%;
   height: 60px;
 }
 
+.member_info_text {
+  transform: translateY(20vh);
+  opacity: 0;
+}
+
 .member_info h1 {
-  transform: translateX(20px);
+  position: relative;
+  left: 1vw;
+  /* transform: translateX(20px); */
   font-size: 30px;
   color: white;
 }
 
 .member_info p {
   position: absolute;
-  transform: translate(10px, -40px);
+  left: 0vw;
+  top: 4vh;
   font-size: 20px; 
   color: rgb(138, 138,138);
 }
 
-.member_info h1::before {
+.circle_before_info {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  opacity: 0;
+  background: rgb(227, 93, 20);
+  border-radius: 50%;
+}
+
+/* .member_info h1::before {
   position: absolute;
   transform: translate(-20px, 15px);
   content:'';
@@ -771,7 +956,7 @@ p {
   height: 10px;
   background: rgb(227, 93, 20);
   border-radius: 50%;
-}
+} */
 
 /* .disable_scroll {
   overflow: hidden;
@@ -779,18 +964,19 @@ p {
 
 .career_text {
   position: absolute;
+  opacity: 0;
   width: 60%;
   left: -15%;
 }
 
 .join {
   position: absolute;
-  bottom: -140px;
-  left: 50px;
+  bottom: -1vw;
+  left: 5vw;
   background: rgb(29, 29, 29);
   border-radius: 25px;
-  border: 1px solid rgb(227, 93, 20);
-  padding: 8px 15px;
+  border: .1vw solid rgb(227, 93, 20);
+  padding: .5vw 1vw;
   color: white;
   text-decoration: none;
 }
@@ -805,6 +991,7 @@ p {
 
 .offers_text {
   position: absolute;
+  opacity: 0;
   width: 92%;
   left: -15%;
 }
@@ -815,6 +1002,15 @@ p {
   height: 3px;
   left: 0;
 
+}
+
+
+a{
+  text-decoration: none;
+}
+
+.join_button {
+  opacity: 0;
 }
 
 @media (max-width: 768px){
@@ -1059,6 +1255,7 @@ p {
     height: 20%;
     background: rgba(0, 0, 0, 0.5);
   }
+
 
   .mobile_member_info h1 {
     font-size: 5vw;

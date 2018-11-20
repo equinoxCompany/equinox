@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import logo_blank from '../media/logo_blank.png';
 import logo_text from '../media/logo_text.png';
 import '../Styles/Logo.css'
-import '../scripts/hover.js';
 import Link from 'react-router-dom/Link';
 
 export default class extends Component {

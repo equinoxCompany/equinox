@@ -34,14 +34,15 @@ export default class extends Component {
     return(
       <div className="container">
         <div className="nav">
-          <div className="link_wrapper fb" onMouseEnter={()=> this.mouseEnterFb()} onMouseLeave={()=>this.mouseLeaveFb()}>
-            <a href="#">fb</a>
+          <div className="link_wrapper fb" onMouseEnter={()=> this.mouseEnterFb()} onMouseLeave={()=>this.mouseLeaveFb()}
+          >
+            <a href="https://www.facebook.com/equinox.ua/">fb</a>
           </div>
           <div className="link_wrapper tw" onMouseEnter={()=> this.mouseEnterTw()} onMouseLeave={()=>this.mouseLeaveTw()}>
-            <a href="#">tw</a>
+            <a href="https://t.me/equinox_blog">tg</a>
           </div>
           <div className="link_wrapper in" onMouseEnter={()=> this.mouseEnterIn()} onMouseLeave={()=>this.mouseLeaveIn()}>
-            <a href="#">in</a>
+            <a href="https://instagram.com/equinox.company?utm_source=ig_profile_share&igshid=1i8qc9w51qnhw">in</a>
           </div>
           <div className="wrapper_line">
             <div className="line"></div>
