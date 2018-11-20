@@ -697,23 +697,26 @@
 }
 
 
-.close_map_show{
+.close_map{
   opacity: 1;
   position: absolute;
   background: url(../media/exit.png) no-repeat;
-  -moz-background-size: 100%; /* Firefox 3.6+ */
-  -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
-  -o-background-size: 100%; /* Opera 9.6+ */
-  background-size: 100%; 
+  background-position: center center;
+  -moz-background-size: 80%; /* Firefox 3.6+ */
+  -webkit-background-size: 80%; /* Safari 3.1+ и Chrome 4.0+ */
+  -o-background-size: 80%; /* Opera 9.6+ */
+  background-size: 80%; 
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+}
+
+.close_map_show{
   right: 5vw;
   top: 5vw;
   z-index: 5;
-  width: 4vw;
-  height: 4vw;
+  width: 6vw;
+  height: 6vw;
   border: 0.3vw solid rgb(270, 92, 20);
   border-radius: 50%;
   -webkit-animation-name: close_map_show;
@@ -723,22 +726,11 @@
 }
 
 .close_map_hide{
-  opacity: 1;
-  position: absolute;
-  background: url(../media/exit.png) no-repeat;
-  -moz-background-size: 100%; /* Firefox 3.6+ */
-  -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
-  -o-background-size: 100%; /* Opera 9.6+ */
-  background-size: 100%; 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
   right: -50vw;
   top: 5vw;
   z-index: 5;
-  width: 4vw;
-  height: 4vw;
+  width: 6vw;
+  height: 6vw;
   border: 0.3vw solid rgb(270, 92, 20);
   border-radius: 50%;
   -webkit-animation-name: close_map_hide;
