@@ -21,6 +21,8 @@ export default class extends Component {
     }
   }
 
+  //COMMENT
+
   openMap(){
     document.getElementsByClassName('map_folded')[0].style.height = '100vh'
     document.getElementsByClassName('click_to_open')[0].style.opacity = 0;
@@ -245,67 +247,13 @@ export default class extends Component {
       circle_li[2].classList.toggle("decreaseCircleLi");
       circle_li[2].classList.toggle("increaseCircleLi");
     }, 400);
-
     }
   }
-
-  // closeMap(){
-  //   let close_map = document.getElementsByClassName("close_map")[0];
-  //   let contacts_address_bottom = document.getElementsByClassName("pull_map")[0];
-  //   let contacts_address_bottom_text = document.getElementsByClassName("contacts_address_bottom_text_hide")[0];
-  //   let text_we_are_here = document.getElementsByClassName("text_we_are_here")[0].children;
-  //   let contact_info = document.getElementsByClassName("contact_info")[0].children;
-  //   let ring = document.getElementsByClassName("ring")[0];
-  //   let pulse = document.getElementsByClassName("pulse")[0];
-  //   let address_info_circle = document.getElementsByClassName("address_info_circle_transform")[0];
-  //   let circle_li = address_info_circle.firstChild.children;
-  //   ring.classList.remove("ring_animation");
-  //   pulse.classList.remove("pulse_animation");
-  //   contacts_address_bottom.classList.toggle("push_map");
-  //   contacts_address_bottom.classList.toggle("pull_map");
-  //   contacts_address_bottom_text.classList.toggle("contacts_address_bottom_text_hide");
-  //   contacts_address_bottom_text.classList.toggle("contacts_address_bottom_text");
-  //   text_we_are_here[0].classList.toggle("first_part_show");
-  //   text_we_are_here[0].classList.toggle("first_part_hide");
-  //   contact_info[0].classList.toggle("box_contact_info_h1");
-  //   contact_info[0].classList.toggle("box_contact_info_h1_hide");
-  //   contact_info[1].classList.toggle("contact_info_h1");
-  //   contact_info[1].classList.toggle("contact_info_h1_hide");
-  //   address_info_circle.classList.toggle("address_info_circle_transform");
-  //   address_info_circle.classList.toggle("address_info_circle");
-  //   circle_li[0].classList.toggle("decreaseCircleLi");
-  //   circle_li[0].classList.toggle("increaseCircleLi");
-  //   setTimeout(()=>{
-  //     text_we_are_here[1].classList.toggle("second_part_show");
-  //     text_we_are_here[1].classList.toggle("second_part_hide");
-  //     contact_info[2].classList.toggle("contact_info_h2");
-  //     contact_info[2].classList.toggle("contact_info_h2_hide");
-  //     circle_li[1].classList.toggle("decreaseCircleLi");
-  //     circle_li[1].classList.toggle("increaseCircleLi");
-  //   }, 200);
-  //   setTimeout(()=>{
-  //     text_we_are_here[2].classList.toggle("third_part_show");
-  //     text_we_are_here[2].classList.toggle("third_part_hide");
-  //     circle_li[2].classList.toggle("decreaseCircleLi");
-  //     circle_li[2].classList.toggle("increaseCircleLi");
-  //   }, 400);
-
-  // }
 
 
   render(){
     return(
-      <div className="contacts" /*onScroll={() => {
-                let node = ReactDOM.findDOMNode(this).scrollTop;
-                let contact_address = document.getElementsByClassName('contacts_address')[0].getBoundingClientRect().top;
-                let footer = document.getElementsByClassName('contacts_address_bottom_text')[0].getBoundingClientRect().top;
-                if(node >= contact_address){
-                  this.animationContacts();
-                }
-                if(node >= footer){
-                  this.animationFooter(); 
-                }
-              } }*/>
+      <div className="contacts">
         <div>
           { this.state.visibility ?(
             <div>
