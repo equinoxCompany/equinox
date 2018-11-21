@@ -291,8 +291,8 @@ export default class extends Component {
                   <h1>HOW <span style={{color: 'rgb(270, 92, 20'}}>YOU CAN </span> FIND US</h1>
                   <div></div>
                   <div className="address_info left">
-                    <h3>equinox@gmail.com</h3>
-                    <a href="tel: +380667680976">+380667680976</a>
+                    <h3> <a href="mailto:info@equinox.company" style={{color: 'white'}}>info@equinox.company</a> </h3>
+                    <a href="tel: +380961999932">+380961999932</a>
                     <div onClick={()=>this.setMap(true)}>
                       <h3>Open map</h3>
                       <div></div>
