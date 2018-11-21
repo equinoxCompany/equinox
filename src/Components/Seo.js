@@ -5,8 +5,9 @@ import bgSeo from '../media/bgSeo.jpg'
 import '../Styles/Seo.css'
 import Link from 'react-router-dom/Link';
 import blogBg from '../media/blogBg.png';
-import blogBg2 from '../media/blogBg2.png'
-import blog_img from '../media/blog_img.png'
+import blogBg2 from '../media/blogBg2.png';
+import blog_img from '../media/blog_img.png';
+import search_img from '../media/search.png';
 
 export default class extends Component {
   constructor(props){
@@ -20,81 +21,131 @@ export default class extends Component {
     this.props.history.goBack();
     }
   }
+
+
   render(){
     return(
       <div className="Seo">
       <div>
         {
           this.state.visibility ?(
-            <div>
-        <div className="seo_left">
-          <div className="seo_top">
-            <div className="blog_date">
-            <h1>12.11</h1>
-              <div className="blog_title">
-                <h3>Design<br/>Is<span style={{color: 'rgb(270,92,20)'}}>About</span><br/>stories</h3>
+            <div className="blog_canvas">
+              <div className="blog_area">
+                <div className="post" >
+                  <div className="subject">
+                    <div className="date">12.11</div>
+                    <div className="post_title">
+                      <h2>Design</h2><br/>
+                      <h1>Is<span className="c_color">About</span></h1><br/>
+                      <h2>stories</h2>
+                    </div>
+                  </div>
+                  <div className="post_preview" style={{background: `url(${blogBg2}) no-repeat`, backgroundSize:'cover'}}>
+                    <div className="cover"></div>
+                    <div className="post_info">
+                      <div className="short_info">
+                        Design is the merging of the fields of art technology and societyait a......
+                      </div>
+                      <div className="addition">
+                        <div className="post_likes">
+                          <div className="likes_circle"></div>
+                          <div className="number_likes"><span className="upper_like">2</span>3.245</div>
+                        </div>
+                        <div className="read_more">Read more</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="post">
+                  <div className="subject">
+                    <div className="date">12.11</div>
+                    <div className="post_title">
+                      <h2>Jewel</h2><br/>
+                      <h1><span className="c_color">FROM</span>the</h1><br/>
+                      <h2>archipelago</h2>
+                    </div>
+                  </div>
+                  <div className="post_preview" style={{background: `url(${blogBg}) no-repeat`, backgroundSize:'cover'}}>
+                    <div className="cover"></div>
+                    <div className="post_info">
+                      <div className="short_info">
+                        Design is the merging of the fields of art technology and societyait a......
+                      </div>
+                      <div className="addition">
+                        <div className="post_likes">
+                          <div className="likes_circle"></div>
+                          <div className="number_likes"><span className="upper_like">2</span>3.245</div>
+                        </div>
+                        <div className="read_more">Read more</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="post" >
+                  <div className="subject">
+                    <div className="date">12.11</div>
+                    <div className="post_title">
+                      <h2>Design</h2><br/>
+                      <h1>Is<span className="c_color">About</span></h1><br/>
+                      <h2>stories</h2>
+                    </div>
+                  </div>
+                  <div className="post_preview" style={{background: `url(${blogBg2}) no-repeat`, backgroundSize:'cover'}}>
+                    <div className="cover"></div>
+                    <div className="post_info">
+                      <div className="short_info">
+                        Design is the merging of the fields of art technology and societyait a......
+                      </div>
+                      <div className="addition">
+                        <div className="post_likes">
+                          <div className="likes_circle"></div>
+                          <div className="number_likes"><span className="upper_like">2</span>3.245</div>
+                        </div>
+                        <div className="read_more">Read more</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
+              <div className="post_delimiter"></div>
+              <div className="post_controller">
+                <div className="post_type_selector">
+                  <span className="first_type">DESIGN</span>
+                  <span className="second_type active">SEO</span>
+                  <span className="third_type">WEB</span>
+                </div>
+                <div className="post_search">
+                  <input type="text" placeholder="Search"/>
+                  <img src={search_img}/>
+                </div>
+                <div className="posts_selector">
+                  <span>Show for...</span>
+                  <div className="number_posts_selector">
+                    <div className="selector_circle"></div>
+                    <select>
+                      <option>All time</option>
+                      <option>Recently</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="posts_selector">
+                  <span>Tabs per page...</span>
+                  <div className="size_posts_selector">
+                    <div className="selector_circle"></div>
+                    <select>
+                      <option>Two</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="posts_calendar">
+                  <span>Calendar</span>
+                  <h2>1 2 3 4 5 6 7<br/> 8 9 10 11 12 13 14<br/>
+                15 16 17 18 19 20 21 <br/>22 23 24 25 26 27 28<br/>29 30</h2>
+                </div>
+              </div>
+              <Logo/>
+              <Socials/>
             </div>
-            <div className="blog_image" style={{background: `url(${blogBg}) no-repeat`, backgroundSize:'contain'}}>
-            <div className="blog_stats"><div className="views">23.245</div><div className="likes">13.273</div></div>
-              <div className="image_info">
-                <h3>Some text about<br/> this theme...</h3>
-              </div>
-            </div>
-          </div>
-          <div className="seo_bottom">
-            <div className="blog_date">
-            <h1>02.11</h1>
-              <div className="blog_title">
-              <h3>Jewel<br/><span style={{color: 'rgb(270,92,20)'}}>FROM</span> the<br/>archipelago</h3>
-              </div>
-            </div>
-            <div className="blog_image" style={{background: `url(${blogBg2}) no-repeat`, backgroundSize:'contain'}}>
-            <div className="blog_stats"><div className="views">23.245</div><div className="likes">13.273</div></div>
-              <div className="image_info">
-                <h3>Some text about<br/> this theme...</h3>
-              </div>
-            </div>
-            </div>
-        </div>
-        <div className="seo_right">
-          <ul>
-            <li>
-              <div className="seo_right_title">
-                <h1>SEO</h1>
-                <h3>Return to choose another theme</h3>
-              </div>
-            </li>
-            <li>
-              <div className="seo_right_sort">
-                <h2>Show for...</h2>
-                <div className="seo_right_underline"></div>
-                <h2 className="seo_active" style={{color: 'rgb(99,99,99)'}}>All time</h2>
-                <h2>Tabs per page...</h2>
-                <div className="seo_right_underline"></div>
-                <h2 style={{color: 'rgb(99,99,99)'}}>Two</h2>
-              </div>
-            </li>
-            <li>
-              <div className="seo_right_calendar">
-                <h2>Calendar</h2>
-                <div className="seo_right_underline"></div>
-                <h2 style={{color: 'rgb(92,92,92)', marginTop:'5%'}}>1 2 3 4 5 6 7<br/> 8 9 10 11 12 13 14<br/>
-                15 16 17 18 19 20 21 <br/>22 23 24 25 26 27 28<br/>29 30
-                </h2>
-              </div>
-            </li>
-            <li>
-              <div className="seo_right_dates">
-                <h2 style={{color: '#d1f776'}}>Design DAY</h2>
-                <h2 style={{color: '#e852f1'}}>Web TIME</h2>
-              </div>
-            </li>
-          </ul>
-        </div>
-       <Logo/>
-       <Socials/>
-      </div>
           ):( <div className="seo_mobile">
           <h1>Namale,<br/> 
             a <span style={{color: 'rgb(270, 92, 20)'}}>UnIQuE</span>  jewel from the<br/>
