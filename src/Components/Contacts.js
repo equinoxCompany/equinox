@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Logo from '../Components/Logo';
-import SocialsMobile from '../Components/SocialsV2';
-import Socials from '../Components/Socials';
+import Socials from '../Components/SocialsV2';
 import '../App.css';
 import Link from 'react-router-dom/Link';
 import { BrowserRouter } from 'react-router-dom';
@@ -22,7 +21,6 @@ export default class extends Component {
     }
   }
 
-  //COMents
 
   openMap(){
     document.getElementsByClassName('map_folded')[0].style.height = '100vh'
