@@ -9,17 +9,21 @@ import Contacts from './Components/Contacts';
 import JoinCrew from './Components/JoinCrew';
 import Blog from './Components/Blog';
 import Seo from './Components/Seo';
+import Post from './Components/Post';
 import Loader from './Components/Loader';
 import Admin from './Components/Admin';
 import Projects from './Components/Projects';
 import Project from './Components/Project';
 import SeoService from './Components/Services/Seo';
 import ServicesMenu from './Components/Services/ServicesMenu'
-import { HashRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import createBrowserHistory from "history/createBrowserHistory";
 import * as serviceWorker from './serviceWorker';
 
+const history = createBrowserHistory();
+
 ReactDOM.render((
-  <HashRouter>
+  <BrowserRouter history={history}>
     <Switch>
       <Route exact path='/' component={Main}/>
       <Route path='/home' component={Main}/>
@@ -34,7 +38,7 @@ ReactDOM.render((
       <Route path='/services' component={ServicesMenu}/>
       <Route path='/service' component={SeoService}/>
     </Switch>
-  </HashRouter>
+  </BrowserRouter>
 ), document.getElementById('root'))
 
 // If you want your app to work offline and load faster, you can change

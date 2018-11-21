@@ -7,7 +7,7 @@ import Link from 'react-router-dom/Link';
 export default class extends Component {
   render(){
     return (
-      <Link to="home">
+      <Link to="/">
       <div id="wrapper">
           <div className="logo"></div>
           <div className="logo_wrapper_big"></div>

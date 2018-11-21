@@ -1,8 +1,8 @@
 import React , { Component } from 'react';
 import Logo from './Logo';
 import Socials from './SocialsV2';
-import bgSeo from '../media/bgSeo.jpg'
-import '../Styles/Seo.css'
+import bgSeo from '../media/bgSeo.jpg';
+import '../Styles/Seo.css';
 import Link from 'react-router-dom/Link';
 import blogBg from '../media/blogBg.png';
 import blogBg2 from '../media/blogBg2.png';
