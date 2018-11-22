@@ -2,6 +2,7 @@ import React , {Component} from 'react';
 import Logo from './Logo';
 import Socials from './Socials';
 import '../Styles/Post.css';
+import Link from 'react-router-dom/Link'
 import Author from '../media/author.png';
 import Exit from '../media/exit.png';
 import Comments from '../media/comments.png';
@@ -40,7 +41,7 @@ export default class extends Component {
                                 <div className="post_actions">
                                     <img src={Comments} className="button_comments"/>
                                     <img src={Repost} className="button_repost"/>
-                                    <img src={Exit} className="button_exit"/>
+                                    <Link to="/seo"><img src={Exit} className="button_exit"/></Link>
                                 </div>
                                 <div className="post_info_subject">
                                     <h1>Namale,<br/>
