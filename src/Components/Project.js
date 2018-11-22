@@ -3,6 +3,7 @@ import Logo from '../Components/Logo';
 import Socials from '../Components/Socials';
 import '../Styles/Project.css';
 import {Redirect } from 'react-router-dom';
+import Exit from '../media/exit.png';
 
 export default class extends Component {
   constructor(props){
@@ -15,7 +16,7 @@ export default class extends Component {
     return(
       <div>
         <Logo/>
-        <div className="services-menu-exit" style={{top: '2vw'}}onClick={()=>this.goBack()}></div>
+        <img src={Exit} className="services-menu-exit" style={{top: '2vw'}}onClick={()=>this.goBack()}/>
         <div className="project_page">
         <div className="content_top">
           <div className="content_img"></div>
