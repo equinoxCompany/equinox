@@ -31,7 +31,7 @@ export default class extends Component {
           this.state.visibility ?(
             <div className="blog_canvas">
               <div className="blog_area">
-                <div className="post" >
+                <Link to="/post" className="post">
                   <div className="subject">
                     <div className="date">12.11</div>
                     <div className="post_title">
@@ -55,7 +55,7 @@ export default class extends Component {
                       </div>
                     </div>
                   </div>
-                </div>
+                </Link>
                 <div className="post">
                   <div className="subject">
                     <div className="date">12.11</div>

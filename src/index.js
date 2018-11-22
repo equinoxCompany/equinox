@@ -16,14 +16,11 @@ import Projects from './Components/Projects';
 import Project from './Components/Project';
 import SeoService from './Components/Services/Seo';
 import ServicesMenu from './Components/Services/ServicesMenu'
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import createBrowserHistory from "history/createBrowserHistory";
+import { HashRouter, Switch, Route } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 
-const history = createBrowserHistory();
-
 ReactDOM.render((
-  <BrowserRouter history={history}>
+  <HashRouter>
     <Switch>
       <Route exact path='/' component={Main}/>
       <Route path='/home' component={Main}/>
@@ -32,13 +29,14 @@ ReactDOM.render((
       <Route path='/join-the-crew' component={JoinCrew}/>
       <Route path='/blog' component={Blog}/>
       <Route path='/seo' component={Seo}/>
+      <Route path='/post' component={Post}/>
       <Route path='/admin' component={Admin}/>
       <Route path='/projects' component={Projects}/>
       <Route path='/project' component={Project}/>
       <Route path='/services' component={ServicesMenu}/>
       <Route path='/service' component={SeoService}/>
     </Switch>
-  </BrowserRouter>
+  </HashRouter>
 ), document.getElementById('root'))
 
 // If you want your app to work offline and load faster, you can change

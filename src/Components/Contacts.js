@@ -3,6 +3,7 @@ import Logo from '../Components/Logo';
 import Socials from '../Components/SocialsV2';
 import '../App.css';
 import Link from 'react-router-dom/Link';
+import Exit from '../media/exit.png';
 import { BrowserRouter } from 'react-router-dom';
 import '../Styles/Contacts.css';
 import VisibilitySensor from 'react-visibility-sensor';
@@ -257,8 +258,7 @@ export default class extends Component {
           { this.state.visibility ?(
             <div>
               <Logo/>
-              <div className="close_map" onClick={()=>this.setMap(false)}>
-              </div>
+              <img src={Exit} className="close_map" onClick={()=>this.setMap(false)}/>
               <div className="pulse"></div>
               <div className="ring_map"></div>
               <div className="text_we_are_here">
