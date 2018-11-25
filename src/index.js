@@ -19,6 +19,13 @@ import ServicesMenu from './Components/Services/ServicesMenu';
 import Map from './Components/Services/MapStrategy';
 import { HashRouter, Switch, Route } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
+import { createStore } from 'redux';
+
+function blog(state = []){
+  return state;
+}
+
+const store = createStore(blog);
 
 ReactDOM.render((
   <HashRouter>
