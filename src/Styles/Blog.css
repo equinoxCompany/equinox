@@ -113,3 +113,134 @@
 .middle_lower h1 {
   font-weight: 600;
 }
+
+@media (max-width: 768px){
+  body {
+    overflow: hidden;
+    background: rgb(231, 231, 231);
+    position: relative;
+    height: 100vh;
+  }
+
+  .mobile_blog{
+    color: #373737;
+  }
+
+  .mobile_blog_header{
+    padding: 2vw;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .mobile_blog_header h3{
+    margin:0;
+    line-height: 0;
+    font-size: 15vw;
+    text-align: center;
+    width: 66vw;
+    font-weight: 400;
+    color: #868686;
+  }
+
+  .mobile_blog_header img{
+    width: 15vw; 
+  }
+
+  .mobile_blog_content{
+    height: 80vh;
+    padding-top: 4vh;
+    overflow: scroll;
+  }
+
+  .mobile_blog_circles{
+    overflow: hidden;
+  }
+
+  .mobile_blog_circles div{
+    position: absolute;
+    top: 25vh;
+    background: #FF5D00;
+    height: 90vw;
+    width: 90vw;
+    border-radius: 50%;
+    box-shadow: inset 0vw 4vw 0vw 0vw #BD4100;
+  }
+
+  .mobile_blog_left_circle{
+    left: -75vw;
+  }
+
+  .mobile_blog_right_circle{
+    right: -75vw;
+  }
+
+
+  .mobile_blog_post_list>ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mobile_blog_post{
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4vw;
+  }
+
+  .mobile_blog_post_date{
+    margin-right: 5%;
+    font-weight: 500;
+  }
+
+  .mobile_blog_post h3, h2{
+    margin: 0;
+    font-weight: 500;
+  }
+  /*SMALL POST*/
+  .mobile_blog_post_small{
+    width:40vw;
+  }
+  .mobile_blog_post_small .mobile_blog_post_date{
+    font-size: 6vw;
+  }
+  .mobile_blog_post_small h3{
+    font-size: 4vw;
+  }
+  .mobile_blog_post_small h2{
+    line-height: 6vw;
+    font-size: 6vw;
+  }
+  /*AVERAGE POST*/
+  .mobile_blog_post_average{
+    width: 50vw;
+  }
+  .mobile_blog_post_average .mobile_blog_post_date{
+    font-size: 8vw;
+  }
+  .mobile_blog_post_average h3{
+    font-size: 6vw;
+  }
+  .mobile_blog_post_average h2{
+    line-height: 8vw;
+    font-size: 8vw;
+  }
+  /*LARGE POST*/
+  .mobile_blog_post_large{
+    width: 60vw;
+  }
+  .mobile_blog_post_large .mobile_blog_post_date{
+    font-size: 10vw;
+  }
+  .mobile_blog_post_large h3{
+    font-size: 8vw;
+  }  
+  .mobile_blog_post_large h2{
+    line-height: 10vw;
+    font-size: 10vw;
+  }
+
+
+}

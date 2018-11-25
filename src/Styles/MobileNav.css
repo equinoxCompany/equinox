@@ -1,19 +1,12 @@
-.mobile_nav ul{
-  position: relative;
-  width: 80%;
-  margin: 0;
-  padding: 0;
+.mobile_nav{
+    position: absolute;
+    left: 3vw;
+    top: 3vw;
+    width: 12vw;
+    height: 12vw;
+    margin: 0;
 }
 
-.mobile_nav li {
-  position: absolute;
-  display: inline-block;
-  padding-right: 20%;
-  padding-bottom: 0;
-  margin: 20%;
-  font-size: 4vw;
-}
-
-.mobile_nav_active {
-  border-bottom: 3px solid rgb(270, 92, 20);
+.mobile_nav img{
+    width: 100%;
 }

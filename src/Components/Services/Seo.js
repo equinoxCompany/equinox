@@ -13,7 +13,7 @@ export default class extends Component {
       <div className="services-seo">
         <Logo/>
         <div className="service_actions">
-          <Link to=""><img src={Map} className="button_service_map"/></Link>
+          <Link to="/map"><img src={Map} className="button_service_map"/></Link>
           <Link to="/services"><img src={Exit} className="button_service_exit"/></Link>
         </div>
         <div className="services-seo-title">

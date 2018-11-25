@@ -666,7 +666,7 @@ a:hover > .grey_container .grey_circle {
 }
 
 
-@media (max-width: 768px){
+/* @media (max-width: 768px){
   body {
     background: rgb(231, 231, 231);
     position: relative;
@@ -775,7 +775,7 @@ a:hover > .grey_container .grey_circle {
 
   .mobile_menu_wrapper_contacts {
     width: 90vw; /* arbitary for demo only */
-    margin-left: 5vw;
+    /* margin-left: 5vw;
     margin-top: 10%;
     white-space: nowrap;
     overflow-y: hidden;
@@ -1043,9 +1043,9 @@ a:hover > .grey_container .grey_circle {
   .mobile_blog_exit{
     position: fixed;
   }
-  
+   
 
-}
+} */
 
 .contacts {
   overflow: scroll !important;

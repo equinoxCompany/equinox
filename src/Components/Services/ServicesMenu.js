@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import Logo from '../Logo';
+import Exit from '../../media/exit.png';
+import Map from '../../media/map.png';
 import Socials from '../Socials';
 import '../../Styles/ServicesMenu.css';
-import MobileNav from '../MobileNav';
+import MobileBlogNav from '../MobileBlogNav';
 
 export default class extends Component {
   constructor(props){
@@ -19,6 +21,10 @@ export default class extends Component {
       {
         this.state.visibility ?( <div>
       <Logo/>
+      <div className="service_actions">
+          <Link to="map"><img src={Map} className="button_service_map"/></Link>
+          <Link to="home"><img src={Exit} className="button_service_exit"/></Link>
+      </div>
       <div className="services-menu-exit"></div>
       <div className="service-type-title">
       Digital Strategy

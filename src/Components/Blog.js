@@ -1,9 +1,11 @@
 import React , { Component } from 'react';
 import Logo from './Logo';
 import Socials from './SocialsV2';
-import MobileNav from './MobileNav'
-import Link from 'react-router-dom/Link'
-import '../Styles/Blog.css'
+import MobileBlogNav from './MobileBlogNav';
+import MobileNav from './MobileNav';
+import Link from 'react-router-dom/Link';
+import '../Styles/Blog.css';
+import Search_img from '../media/mobile_search.png';
 
 export default class extends Component {
   constructor(props){
@@ -38,54 +40,78 @@ export default class extends Component {
       </div>
         ) : (
           <div className="mobile_blog">
-            <h1>BLOG</h1>
-            <div className="mobile_blog_nav">
-              <ul>
-                <li className="mobile_blog blog_first">
-                <div className="mobile_blog_context">
-                  <div className="blog_date">12.11</div> <h1>HelloPeople<br/>
-                    stories</h1>
-                </div>
-                <div className="mobile_blog_circle"></div>
-                <div className="mobile_blog_circle_second"></div>
-                </li>
-                <li className="mobile_blog blog_second">
-                <Link to="seo">
-                <div className="mobile_blog_context">
-                <div className="blog_date">09.11</div><h1>SEO<br/>
-                Is<span style={{color: 'rgb(270, 92, 20)'}}>ART</span><br/>
-                  future</h1>
-                </div>
-                </Link>
-                </li>
-                <li className="mobile_blog blog_third"> 
-                <div className="mobile_blog_context">
-                <div className="blog_date">31.10</div><h1>Design<br/>
-                Is<span style={{color: 'rgb(270, 92, 20)'}}>About</span> <br/>
-                  stories</h1>
-                </div>
-                </li>
-                <li className="mobile_blog blog_fourth">
-                <div className="mobile_blog_context">
-                <div className="blog_date">12.11</div><h1>Done<br/>
-                  When<br/>
-                  stories</h1>
-                </div>
-                </li>
-                <li className="mobile_blog blog_fifth">
-                <div className="mobile_blog_context">
-                <div className="blog_date">09.11</div><h1>
-                  Design<br/>
-                  IsAbout<br/>
-                  stories<br/>
-                  </h1>
-                </div>
-                </li>
-              </ul>
-            </div>
             <MobileNav/>
-            <div className="mobile_contacts_exit mobile_blog_exit" onClick={()=>this.goBack()}><h1>X</h1>
+            <div className="mobile_blog_header">
+              <h3>BLOG</h3>
+              <img src={Search_img}/>
             </div>
+            <div className="mobile_blog_content">
+              <div className="mobile_blog_circles">
+                <div className="mobile_blog_left_circle"></div>
+                <div className="mobile_blog_right_circle"></div>
+              </div>
+              <div className="mobile_blog_post_list">
+                <ul>
+                  <li className="mobile_blog_post mobile_blog_post_small">
+                    <div className="mobile_blog_post_date">12.11</div>
+                    <div className="mobile_blog_post_data">
+                      <h3>SEO</h3>
+                      <h2>Hello<span className="c_color">People</span></h2>
+                      <h3>stories</h3>
+                    </div>
+                  </li>
+                  <li className="mobile_blog_post mobile_blog_post_average">
+                    <div className="mobile_blog_post_date">09.11</div>
+                    <div className="mobile_blog_post_data">
+                      <h3>SEO</h3>
+                      <h2>Is<span className="c_color">ART</span></h2>
+                      <h3>future</h3>
+                    </div>
+                  </li>
+                  <li className="mobile_blog_post mobile_blog_post_large">
+                    <div className="mobile_blog_post_date">31.10</div>
+                    <div className="mobile_blog_post_data">
+                      <h3>Design</h3>
+                      <h2>Is<span className="c_color">About</span></h2>
+                      <h3>stories</h3>
+                    </div>
+                  </li>
+                  <li className="mobile_blog_post mobile_blog_post_average">
+                    <div className="mobile_blog_post_date">12.11</div>
+                    <div className="mobile_blog_post_data">
+                      <h3>Done</h3>
+                      <h2><span className="c_color">When</span></h2>
+                      <h3>stories</h3>
+                    </div>
+                  </li>
+                  <li className="mobile_blog_post mobile_blog_post_small">
+                    <div className="mobile_blog_post_date">12.11</div>
+                    <div className="mobile_blog_post_data">
+                      <h3>Design</h3>
+                      <h2>Is<span className="c_color">About</span></h2>
+                      <h3>stories</h3>
+                    </div>
+                  </li>
+                  <li className="mobile_blog_post mobile_blog_post_small">
+                    <div className="mobile_blog_post_date">12.11</div>
+                    <div className="mobile_blog_post_data">
+                      <h3>Design</h3>
+                      <h2>Is<span className="c_color">About</span></h2>
+                      <h3>stories</h3>
+                    </div>
+                  </li>
+                  <li className="mobile_blog_post mobile_blog_post_small">
+                    <div className="mobile_blog_post_date">12.11</div>
+                    <div className="mobile_blog_post_data">
+                      <h3>Design</h3>
+                      <h2>Is<span className="c_color">About</span></h2>
+                      <h3>stories</h3>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <MobileBlogNav/>
           </div>
         )
       }

@@ -4,23 +4,12 @@ import Exit from '../../media/exit.png';
 import Socials from '../Socials';
 import '../../Styles/MapStrategy.css';
 import Db_studio from '../../media/db_studio.png';
-import Graf from '../../media/graf.png';
 import Circle_orange from '../../media/ring_orange.png';
 import Circle_white from '../../media/ring_white.png';
 import Circle_slit from '../../media/ring_slit.png';
 
 
 export default class extends Component {
-
-    componentDidMount(){
-        let test = document.getElementsByClassName('db_studio')[0];
-        console.log(`Coordinate x: ${test.getBoundingClientRect().left}\n
-        Coordinate y: ${test.getBoundingClientRect().top}`);
-    }
-
-    onMouseMove(){
-        console.log('fe');
-    }
 
     goBack(){
         this.props.history.goBack()
