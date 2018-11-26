@@ -10,3 +10,16 @@
 .mobile_nav img{
     width: 100%;
 }
+
+.mobile_exit{
+    position: fixed;
+    bottom: 4vw;
+    right: 4vw;
+    width: 9vw;
+    height: 9vw;
+}
+
+.mobile_exit img{
+    width: 100%;
+    height: 100%;
+}

@@ -1,6 +1,7 @@
 import React , { Component } from 'react';
 import Logo from './Logo';
 import Socials from './SocialsV2';
+import MobileExit from './MobileExit';
 import bgSeo from '../media/bgSeo.jpg';
 import '../Styles/Seo.css';
 import Link from 'react-router-dom/Link';
@@ -8,6 +9,10 @@ import blogBg from '../media/blogBg.png';
 import blogBg2 from '../media/blogBg2.png';
 import blog_img from '../media/blog_img.png';
 import search_img from '../media/search.png';
+import author_img from '../media/author.png';
+import MobileNav from './MobileNav';
+import Comments from '../media/comments.png';
+import Repost from '../media/repost.png';
 
 export default class extends Component {
   constructor(props){
@@ -146,22 +151,44 @@ export default class extends Component {
               <Logo/>
               <Socials/>
             </div>
-          ):( <div className="seo_mobile">
-          <h1>Namale,<br/> 
-            a <span style={{color: 'rgb(270, 92, 20)'}}>UnIQuE</span>  jewel from the<br/>
-            Fiji archipelago </h1>
-            <div className="blog_img"></div>
-            <div className="author_info">
-              <div className="mobile_seo_left">Author Name</div><div className="mobile_seo_right mobile_seo_first">23.245</div><div className="mobile_seo_right mobile_seo_second">13.273</div>
+          ):( <div className="post_mobile">
+            <div className="m_p_header m_p_header_scroll">
+              <MobileNav/>
+              <div className="m_p_date">12.11</div>
             </div>
-            <div className="mobile_seo_text">
-            <p>Arriving to Canada from Syria, Feda brought with her a 
-        passion that never left her. Making a childhood dream come 
-        true she founded, a few years ago, her own jewelry line: 
-        Créations Namale.Along with her creative vision, we 
-        DESIGNED an entire brand identity that is declined.</p>
-            </div>
-            <div className="mobile_contacts_exit mobile_blog_exit" onClick={()=>this.goBack()}><h1>X</h1>
+            <div className="m_p_content">
+              <h1 className="m_p_title">Namale,<br/>
+              a <span className="c_color">UnIQuE</span> jewel from the Fiji archipelago</h1>
+              <img className="m_p_image" src={blog_img}/>
+              <div className="m_p_main_info">
+                <div className="m_p_circles">
+                  <img src={author_img} className="m_p_author_photo"/>
+                  <div className="m_p_right_circle"></div>
+                  <div className="m_p_bottom_circle"></div>
+                  <h2 className="m_p_author_name">Author Name</h2>
+                </div>
+                <div className="m_p_views">
+                  <div className="m_p_views_circle"></div>
+                  <div className="m_p_number_views">
+                    <span className="m_p_large_digit">2</span>
+                    <span className="m_p_average_digit">3</span>
+                    <span className="c_color">.</span>
+                    245
+                  </div>
+                </div>
+              </div>
+              <p className="m_p_text">
+                Arriving to Canada from Syria, Feda brought with her a 
+passion that never left her. Making a childhood dream come 
+true she founded, a few years ago, her own jewelry line: 
+Créations Namale.Along with her creative vision, we 
+DESIGNED an entire brand identity that is declined. 
+              </p>
+              <div className="m_p_actions">
+                <img src={Comments} className="m_p_comments"/>
+                <img src={Repost} className="m_p_share"/>
+              </div>
+              <MobileExit/>
             </div>
           </div>
           )
