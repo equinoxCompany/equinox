@@ -31,23 +31,15 @@ export default class extends Component {
       sideMenu: false,
       offers: 0,
       start: 0,
-      sideMenuLinks: []
+      items: []
     }
   }
 
   componentDidMount(){
-    // fetch('/users')
-    //   .then(res => res.json())
-    //   .then(sideMenuLinks => this.setState({sideMenuLinks}))
+    fetch('/about-us')
+      .then(res => res.json())
+      .then(items => this.setState({items}))
   }
-  
-
-  redirectTo(props) {
-    console.log('s');
-    // return <Redirect to={this.props}/>
-  }
-
-  //New Comment
 
   mouseEnterHandler(){
     let tail = document.getElementsByClassName('tail');
@@ -475,8 +467,10 @@ export default class extends Component {
         </div>
         <div className="descrition_small_container">
           <div className="descrition_small">
-            <p>EQUINOX -  авторська група,що розробляє , впроваджує новітні стратегії  у сфері маркетингу та створює особливі концепції бренду.
-            Тисячі ідей, мрій, які  ми допоможемо вам втілити  по - особливому.
+            <p>
+            {
+              this.state.items[0]
+            }
             </p>
           </div>
         </div>

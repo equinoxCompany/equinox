@@ -8,14 +8,23 @@ import blogBg from '../media/blogBg.png';
 import blogBg2 from '../media/blogBg2.png';
 import blog_img from '../media/blog_img.png';
 import search_img from '../media/search.png';
+import BlogPost from './BlogPost';
 
 export default class extends Component {
+  componentDidMount(){
+    fetch('http://d29.default-host.net:3002/posts')
+      .then(res => res.json())
+      .then(posts => this.setState({posts}))
+  }
+
   constructor(props){
     super(props);
     this.state = {
       visibility: window.innerWidth >= 768 ? true : false,
+      posts: []
     }
   }
+
   goBack(){
     if(!this.state.map){
     this.props.history.goBack();
@@ -56,31 +65,11 @@ export default class extends Component {
                     </div>
                   </div>
                 </Link>
-                <div className="post">
-                  <div className="subject">
-                    <div className="date">12.11</div>
-                    <div className="post_title">
-                      <h2>Jewel</h2><br/>
-                      <h1><span className="c_color">FROM</span>the</h1><br/>
-                      <h2>archipelago</h2>
-                    </div>
-                  </div>
-                  <div className="post_preview" style={{background: `url(${blogBg}) no-repeat`, backgroundSize:'cover'}}>
-                    <div className="cover"></div>
-                    <div className="post_info">
-                      <div className="short_info">
-                        Design is the merging of the fields of art technology and societyait a......
-                      </div>
-                      <div className="addition">
-                        <div className="post_likes">
-                          <div className="likes_circle"></div>
-                          <div className="number_likes"><span className="upper_like">2</span>3.245</div>
-                        </div>
-                        <div className="read_more">Read more</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                {
+                  this.state && this.state.posts && this.state.posts.map(post => 
+                    <BlogPost item={post}/>
+                  )
+                }
                 <div className="post" >
                   <div className="subject">
                     <div className="date">12.11</div>

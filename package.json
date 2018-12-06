@@ -122,5 +122,5 @@
       "react-app"
     ]
   },
-  "proxy": "http://localhost:3001"
+  "proxy": "https://localhost:3001"
 }
