@@ -1,17 +1,17 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 const Post = (props) => { 
   return(
     <div className="post">
+    {console.log(props.item._id)}
+    <Link to={{pathname: '/post/'+props.item.url, state:{id: props.item._id}}} className="post">
       <div className="subject">
         <div className="date">{props.item.date}</div>
         <div className="post_title">
           <h2>{props.item.title}</h2><br/>
         </div>
       </div>
-      {
-        console.log(props.item.postImage)
-      }
       <div className="post_preview" style={{background:`url(${'http://d29.default-host.net:3002/'+props.item.postImage}) no-repeat`, backgroundSize:'cover'}}>
         <div className="cover"></div>
         <div className="post_info">
@@ -27,6 +27,7 @@ const Post = (props) => {
           </div>
         </div>
       </div>
+      </Link>
   </div>
   )
 }

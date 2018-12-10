@@ -30,13 +30,14 @@ ReactDOM.render((
       <Route path='/join-the-crew' component={JoinCrew}/>
       <Route path='/blog' component={Blog}/>
       <Route path='/seo' component={Seo}/>
-      <Route path='/post' component={Post}/>
-      <Route path='/admin' component={Admin}/>
+      {/* <Route path='/post' component={Post}/> */}
+      <Route path='/admin' component={Login}/>
       <Route path='/projects' component={Projects}/>
       <Route path='/project' component={Project}/>
       <Route path='/services' component={ServicesMenu}/>
       <Route path='/service' component={SeoService}/>
       <Route path='/map' component={Map}/>
+      <Route path='/:post' component={Post}/>
     </Switch>
   </HashRouter>
 ), document.getElementById('root'))

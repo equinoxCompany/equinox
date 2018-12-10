@@ -40,61 +40,12 @@ export default class extends Component {
           this.state.visibility ?(
             <div className="blog_canvas">
               <div className="blog_area">
-                <Link to="/post" className="post">
-                  <div className="subject">
-                    <div className="date">12.11</div>
-                    <div className="post_title">
-                      <h2>Design</h2><br/>
-                      <h1>Is<span className="c_color">About</span></h1><br/>
-                      <h2>stories</h2>
-                    </div>
-                  </div>
-                  <div className="post_preview" style={{background: `url(${blogBg2}) no-repeat`, backgroundSize:'cover'}}>
-                    <div className="cover"></div>
-                    <div className="post_info">
-                      <div className="short_info">
-                        Design is the merging of the fields of art technology and societyait a......
-                      </div>
-                      <div className="addition">
-                        <div className="post_likes">
-                          <div className="likes_circle"></div>
-                          <div className="number_likes"><span className="upper_like">2</span>3.245</div>
-                        </div>
-                        <div className="read_more">Read more</div>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
                 {
                   this.state && this.state.posts && this.state.posts.map(post => 
                     <BlogPost item={post}/>
                   )
                 }
-                <div className="post" >
-                  <div className="subject">
-                    <div className="date">12.11</div>
-                    <div className="post_title">
-                      <h2>Design</h2><br/>
-                      <h1>Is<span className="c_color">About</span></h1><br/>
-                      <h2>stories</h2>
-                    </div>
-                  </div>
-                  <div className="post_preview" style={{background: `url(${blogBg2}) no-repeat`, backgroundSize:'cover'}}>
-                    <div className="cover"></div>
-                    <div className="post_info">
-                      <div className="short_info">
-                        Design is the merging of the fields of art technology and societyait a......
-                      </div>
-                      <div className="addition">
-                        <div className="post_likes">
-                          <div className="likes_circle"></div>
-                          <div className="number_likes"><span className="upper_like">2</span>3.245</div>
-                        </div>
-                        <div className="read_more">Read more</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              
               </div>
               <div className="post_delimiter"></div>
               <div className="post_controller">
