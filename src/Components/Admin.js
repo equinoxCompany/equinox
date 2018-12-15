@@ -4,6 +4,7 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import Button from '@material-ui/core/Button';
 import RichTextEditor from 'react-rte';
+import '../Styles/Admin.css'
 
 export default class extends Component {
   constructor(props){
@@ -28,21 +29,16 @@ export default class extends Component {
       }))
   }
 
-  onChange = (value) => {
+  onChange = (editorState) => {
     this.setState({
       temp: {
         title: this.state.temp.title,
         date: this.state.temp.date,
         author: this.state.temp.author,
-        text: value,
+        text: editorState,
         url: this.state.temp.url
       }
     })
-    if (this.props.onChange) {
-      this.props.onChange(
-        value.toString('html')
-      );
-    }
   };
 
   onSubmit = (e) => {
@@ -62,7 +58,6 @@ export default class extends Component {
     let file = document.querySelector('.admin_img').files[0];
     const data = new FormData();
     for(let el in this.state.temp){
-      console.log(el);
       if(el !== 'text'){
       data.append(el, this.state.temp[el]);
       }
@@ -137,6 +132,7 @@ export default class extends Component {
   }
 
   handleChange = event => {
+    this.RichTextEditor = window.RichTextEditor
     this.setState({ currentPost: event.target.value });
     fetch('http://d29.default-host.net:3002/postId/' + event.target.value)
       .then(res => res.json())
@@ -145,12 +141,22 @@ export default class extends Component {
         let inputs = document.getElementsByClassName('admin');
         for(let el of inputs){
           if(el.className != 'admin admin_img'){
+            if(el.className === 'RichTextEditor__root___2QXK- admin admin_text'){
+              let curEl = el.className.slice(12);
+              let innerText =  this.state.currentPost[0].text;
+              this.setState({
+                temp: {
+                  text : RichTextEditor.createValueFromString(innerText,'html')
+                }
+              })
+              console.log(this.state.temp.text)
+            }
             let curEl = el.className.slice(12);
             el.value = this.state.currentPost[0][curEl]
             this.state.temp[curEl] = this.state.currentPost[0][curEl];
           }
         }
-        console.log(this.state.currentPost)
+        // console.log(this.state.currentPost)
       })
   };
 
@@ -207,7 +213,7 @@ export default class extends Component {
       },
     });
     return(
-      <div>
+      <div className="admin_panel">
         <form action="" onSubmit={this.onSubmit}>
         <Select
             value={this.state.currentPost}
@@ -223,26 +229,28 @@ export default class extends Component {
               )
             }
           </Select>
-          <h3 style={{padding: 0, margin: 0}}>Название статьи</h3>
+          <h3 style={{padding: 0, margin: 0, color: 'white'}}>Название статьи</h3>
           <input type="text" className="admin admin_title" value={this.state.temp.title} onChange={this.handleTitle}/><br/>
-          <h3 style={{padding: 0, margin: 0}}>Дата</h3>
+          <h3 style={{padding: 0, margin: 0, color: 'white'}}>Дата</h3>
           <input type="text" className="admin admin_date" value={this.state.temp.date} onChange={this.handleDate}/><br/>
-          <h3 style={{padding: 0, margin: 0}}> Автор</h3>
+          <h3 style={{padding: 0, margin: 0, color: 'white'}}> Автор</h3>
           <input type="text" className="admin admin_author" value={this.state.temp.author} onChange={this.handleAuthor}/><br/>
-          <h3 style={{padding: 0, margin: 0}}>Текст</h3>
+          <h3 style={{padding: 0, margin: 0, color: 'white'}}>Текст</h3>
           <RichTextEditor
+            style={{color: 'black'}}
+            className="admin admin_text"
             value={this.state.temp.text}
             onChange={this.onChange}
           />
           {/* <input type="text" className="admin admin_text" value={this.state.temp.text} onChange={this.handleText}/><br/> */}
-          <h3>Url</h3>
+          <h3 style={{color: 'white'}}>Url</h3>
           <input type="text" className="admin admin_url" value={this.state.temp.url} onChange={this.handleUrl}/><br/>
-          <h3 style={{padding: 0, margin: 0}}>Изображение</h3>
+          <h3 style={{padding: 0, margin: 0, color: 'white'}}>Изображение</h3>
           <input type="file" className="admin admin_img" name="myImage" accept="image/*"/><br/>
-          <Button onClick={this.onSubmit}>Добавить</Button>
+          <Button onClick={this.onSubmit} style={{color: 'white'}}>Добавить</Button><br/>
         </form>
-        <Button onClick={this.handleEdit}>Редактировать</Button>
-         <Button onClick={this.handleDelete}>Удалить</Button>
+        <Button onClick={this.handleEdit} style={{color: 'white'}}>Редактировать</Button><br/>
+         <Button onClick={this.handleDelete} style={{color: 'white'}}>Удалить</Button>
       </div>
     )
   }

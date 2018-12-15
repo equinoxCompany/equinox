@@ -19,6 +19,7 @@ import dev1 from '../media/dev1.jpg';
 import dev2 from '../media/dev2.jpg';
 import seo from '../media/seo.jpg';
 import StartProject from '../Components/StartProject.js';
+import MetaTags from 'react-meta-tags';
 
 export default class extends Component {
   
@@ -382,6 +383,11 @@ export default class extends Component {
       {
         this.state.visibility ?(
       <div className="about">
+      <MetaTags>
+        <title>Page 1</title>
+        <meta name="description" content={this.state.meta.description}/>
+        <meta property="og:title" content={this.state.meta.title} />
+      </MetaTags>
       <div onMouseEnter={()=> this.showSideMenu()}><Logo/></div>
       
       <div className="sidemenu_left">

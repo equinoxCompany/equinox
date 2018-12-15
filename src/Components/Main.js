@@ -59,11 +59,11 @@ componentDidMount(){
             <ul>
               <li>
                 <div className="subcontain">
-                <a href="" className="menu_projects" onMouseEnter={()=>this.mouseEnterHandler()} onMouseLeave={()=>this.mouseLeaveHandler()}>Projects
+                <Link to="/projects" className="menu_projects" onMouseEnter={()=>this.mouseEnterHandler()} onMouseLeave={()=>this.mouseLeaveHandler()}>Projects
                   <div className="underline" style={{backgroundColor:"rgb(58, 58, 58)"}}></div>
                   <div className="grey_container"><div className="grey_circle" style={{backgroundColor:"rgb(58, 58, 58)"}}></div>
                   </div>
-                </a>
+                </Link>
                 </div>
               </li>
               <li>

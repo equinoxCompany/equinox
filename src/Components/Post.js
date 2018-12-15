@@ -8,6 +8,7 @@ import Exit from '../media/exit.png';
 import Comments from '../media/comments.png';
 import Repost from '../media/repost.png';
 import Picture from '../media/post_img.png';
+import renderHTML from 'react-render-html';
 
 export default class extends Component {
     componentDidMount(){
@@ -56,7 +57,7 @@ export default class extends Component {
                                      </h1>
                                 </div>
                                 <div className="post_text">
-                                    <p>{this.state.post.text} </p>
+                                    <p>{this.state.post.text && renderHTML(this.state.post.text)} </p>
                                 </div>
                                 <div className="post_picture_box">
                                     <img style={{background:`url(${'http://d29.default-host.net:3002/'+this.state.post.postImage}) no-repeat`, borderRadius:'50%', backgroundSize:'contain'}} className="post_picture" />

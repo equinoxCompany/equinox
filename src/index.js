@@ -16,7 +16,9 @@ import Projects from './Components/Projects';
 import Project from './Components/Project';
 import SeoService from './Components/Services/Seo';
 import ServicesMenu from './Components/Services/ServicesMenu';
+import SeoAdmin from './Components/AdminSeo';
 import Map from './Components/Services/MapStrategy';
+import LoginSeo from './Components/LoginSeo';
 import { HashRouter, Switch, Route } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 
@@ -30,7 +32,7 @@ ReactDOM.render((
       <Route path='/join-the-crew' component={JoinCrew}/>
       <Route path='/blog' component={Blog}/>
       <Route path='/seo' component={Seo}/>
-      {/* <Route path='/post' component={Post}/> */}
+      <Route path='/seo-admin' component={LoginSeo}/>
       <Route path='/admin' component={Login}/>
       <Route path='/projects' component={Projects}/>
       <Route path='/project' component={Project}/>

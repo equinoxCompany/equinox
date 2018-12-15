@@ -6,15 +6,22 @@ import MobileNav from './MobileNav';
 import Link from 'react-router-dom/Link';
 import '../Styles/Blog.css';
 import Search_img from '../media/mobile_search.png';
+import MetaTags from 'react-meta-tags';
+
 
 export default class extends Component {
   constructor(props){
     super(props);
     this.state = {
       visibility: window.innerWidth >= 768 ? true : false,
-      posts: []
+      meta: ''
     }
-    
+  }
+
+  componentDidMount(){
+    fetch('http://d29.default-host.net:3002/seo/blog')
+      .then(res => res.json())
+      .then(meta => this.setState({meta}))
   }
 
   goBack(){
@@ -28,9 +35,17 @@ export default class extends Component {
       {
         this.state.visibility ? (
         <div>
+          <MetaTags>
+            <title>Page 1</title>
+            <meta name="description" content={this.state.meta.description}/>
+            <meta property="og:title" content={this.state.meta.title} />
+          </MetaTags>
         <Logo/>
           <div className="blog_upper"><h1 className="choose">CHOOSE</h1><h1 className="theme">THEME</h1></div>
           <div className="middle_upper">
+          {
+            console.log(this.state.meta.page)
+          }
             <ul>
               <Link to="/seo"><li><div className="middle_upper_line"></div>SEO</li></Link>
               <li><div className="middle_upper_line"></div>DESIGN</li>

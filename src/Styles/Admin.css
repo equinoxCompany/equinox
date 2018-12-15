@@ -1,0 +1,14 @@
+.admin_panel {
+  overflow-y: scroll !important;
+  margin-left: 10%;
+  margin-right: 25%;
+  height: 100vh;
+  width: 80vw;
+}
+
+.admin_panel input {
+  width: 97.5%;
+  padding: 1%;
+}
+
+
