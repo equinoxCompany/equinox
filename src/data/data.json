@@ -1,0 +1,26 @@
+{
+    "nodes": [
+      {"index": 0, "name": "Digital стратегия"},
+      {"index": 1, "name": "Целевая аудитория"},
+      {"index": 2, "name": "Уникальное предложение"},
+      {"index": 3, "name": "Анализ конкурентов"},
+      {"index": 4, "name": "Usability"},
+      {"index": 5, "name": "Контент-маркетинг"},
+      {"index": 6, "name": "SEO"},
+      {"index": 7, "name": "Контекстная реклама"},
+      {"index": 8, "name": "SMM"},
+      {"index": 9, "name": "YouTube продвижение"},
+      {"index": 10, "name": "Facebook Targeting"},
+      {"index": 11, "name": "E-mail marketing"},
+      {"index": 12, "name": "Мессенджеры и чат-боты"},
+      {"index": 13, "name": "Remarketing"},
+      {"index": 14, "name": "Уникальное предложение"},
+      {"index": 15, "name": "Уникальное предложение"},
+      {"index": 16, "name": "Уникальное предложение"}
+    ],
+    "links": [
+      {"index": 0, "source": 0 , "target": 1},
+      {"index": 1,"source": 1, "target": 2},
+      {"index": 2, "source": 0, "target": 3}
+    ]
+  }

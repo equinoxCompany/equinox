@@ -7,6 +7,10 @@
   height: 100vh;
 }
 
+.dark_gray{
+  color: #373737;
+}
+
 .again h1 {
   margin-left: -40%;
   z-index: -3;
@@ -599,7 +603,6 @@
 
 
 /* .list_hide_one {
-
   width: 100%;
   height: 100%;
   background: #000;
@@ -1018,290 +1021,531 @@ a{
 }
 
 @media (max-width: 768px){
-  .mobile_about {
-    overflow-y: scroll !important;
-    -webkit-overflow-scrolling: touch;
-    overflow-x: hidden !important;
-    position: relative;
+  
+  .m_about_content_box{
+    overflow-y: scroll;
+    width: 100%;
+    overflow-x: hidden;
     height: 100vh;
-  }
-
-  .mobile_about_circle_container{
-    position: fixed;
-    width: 100vw;
-    height: 20vh;
-    background: rgb(231, 231,231);
-  }
-
-  .mobile_about_circle {
-    position: fixed;
-    margin-top: 10%;
-    margin-left: 40%;
-    width: 20vw;
-    height: 20vw;
-    background: rgb(227, 93, 20);
-    border-radius: 50%;
-  }
-
-  .mobile_about_title {
-    margin-top: 40%;
-    text-align: center;
-  }
-
-  .mobile_about_title h1 {
-    font-size: 15vw;
-    font-weight: 500;
-    color: rgb(227, 93, 20);
-    margin: 0;
-    padding: 0;
-  }
-
-  .mobile_about_title h2 {
-    font-size: 5vw;
-    margin: 0;
-    font-weight: 500;
-  }
-
-  .mobile_about_shadow {
-    background: rgba(138, 138,138, 0.3);
-    margin-top: 10%;
-    margin-left: 10%;
-    width: 80vw;
-    height: 5vh;
-    border-radius: 50%;
-  }
-
-  .mobile_about_title_text {
-    text-align: center;
-    margin-left: 10%;
-  }
-
-  .mobile_about_title_text p {
-    width: 80vw;
-    font-size: 5vw;
-    color: black;
-  }
-
-  .mobile_about_title_second {
-    margin-top: 105%;
-    text-align: left;
-    margin-left: 5%;
-  }
-
-  .mobile_about_title_second > h1 {
-    color: black;
-    font-weight: 500;
-  }
-
-  .mobile_about_title_second > p {
-    color: black;
-    font-size: 4vw;
-    width: 85vw;
-  }
-  
-  .mobile_about_img {
-    background-size: contain;
-    width: 100vw;
-    height: 35vh;
-    margin-top: 50%;
-  }
-
-  .mobile_about_title_third {
-    margin-top: 40%;
-    text-align: left;
-    margin-left: 5%;
-  }
-
-  .mobile_about_title_third > h1 {
-    margin: 0;
-    font-size: 12vw;
-    color: black;
-    font-weight: 500;
-  }
-
-  .mobile_about_title_third > p {
-    color: black;
-    font-size: 4vw;
-    width: 85vw;
-  }
-
-  .mobile_services {
-    margin-top: 25%;
-    margin-left: 5%;
-  }
-
-  .mobile_serv_nav h2 {
-    color: rgb(227, 93, 20);
-    font-size: 6vw;
-    font-weight: 500;
-  }
-
-  .mobile_serv_nav ul {
-    display: block;
-    float: left;
-    width: 25%;
-    margin: 0;
-    padding: 0;
-  }
-
-  .mobile_serv_nav li {
-    font-size: 4vw;
-    width: 100%;
-    margin: 0;
-    padding-top: 2%;
-  }
-
-  .mobile_serv_nav li::before {
-    content: '';
-    display: inline-block;
-    width: 3vw;
-    height: 3vw;
-    background: rgb(227, 93, 20);
-    border-radius: 50%;
-    margin-right: 10%;
-  }
-
-  .mobile_serv_nav_img {
-    background-size: cover  !important;
-    background-repeat: no-repeat !important;
-    display: block;
-    float: right;
-    width: 70vw;
-    height: 20vh;
-  }
-
-  .mobile_about_title_fourth {
-    margin-top: 70%;
-    margin-left: 5%;
-  }
-
-  .mobile_about_title_fourth > h1{
-    margin: 0;
-    font-size: 12vw;
-    color: rgb(227, 93, 20);
-    font-weight: 500;
-  }
-
-  .mobile_about_title_fourth > p {
-    color: black;
-    font-size: 4vw;
-    width: 85vw;
-  }
-
-  .mobile_service_navs {
-    margin-top: 50%;
-    margin-left: 10%;
-  }
-
-  .mobile_service_navs h1{
-    margin: 0;
-    padding: 0;
-  }
-
-
-  .mobile_service_nav_one {
-    display: block;
-    width: 50%;
-    float: left;
-  }
-
-  .mobile_service_nav_two {
-    display: block;
-    width: 50%;
-    float: right;
-  }
-
-  .mobile_service_nav_one li, .mobile_service_nav_two li{
-    font-size: 5vw;
-    padding: 0;
-    padding-top: 7%;
-  }
-
-  .mobile_service_nav_one li::before, .mobile_service_nav_two li::before {
-    display: inline-block;
-    content: '';
-    margin-right: 5%;
-    width: 3vw;
-    height: 3vw;
-    background: rgb(227, 93, 20);
-    border-radius: 50%;
-  }
-  
-  .mobile_team h1{
-    margin-left: 30%;
-    margin-top: 130%;
-    font-weight: 500;
-  }
-
-  .mobile_team ul{
-    margin: 0;
-    padding: 0;
-  }
-
-  .mobile_team li {
-    display: inline-block;
-    padding-right: 6%;
-  }
-
-  .mobile_team li .mobile_member{
-    position: relative;
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 40vw;
-    height: 40vw;
-    margin-left: 15%;
-  }
-
-  .mobile_member_info {
     position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 20%;
-    background: rgba(0, 0, 0, 0.5);
+    top: 0;
   }
 
-
-  .mobile_member_info h1 {
-    font-size: 5vw;
-    margin: 0;
-    margin-left: 2%;
-    font-weight: 300;
-    color: white;
+  .m_about_us{
+    width: 100vw;
   }
 
-  .mobile_team p{
-    width: 90%;
-    font-size: 5vw;
-    color: black;
-    margin-left: 5%;
+  .m_ufo{
+    display: flex;
+    justify-content: center;
+    padding-top: 8vh;
+    z-index: 10;
   }
 
-  .mobile_join_button {
-    position: relative;
-    width: 30vw;
-    height: 30vw;
-    background: rgb(227, 93, 20);
-    margin-left: 50%;
-    margin-top:  20%;
-    transform: translateX(-50%);
-    border-radius: 50%;
-    -webkit-box-shadow: inset 1px 10px 0px 0px rgba(0,0,0,0.5);
-    -moz-box-shadow: inset 1px 10px 1px 0px rgba(0,0,0,0.5);
-    box-shadow: inset 1px 10px 1px 0px rgba(0,0,0,0.5);
-  }
-
-  .mobile_join_button h1{
-    text-align: center;
-    padding-top: 7vw;
-    padding-right: 10vw;
-    font-size: 5vw;
+  .m_main_ufo{
+    width: 13vw;
+    height: 13vw;
     z-index: 5;
-    color: white;
+    border-radius: 50%;
+    background: #FF5D00;
   }
+
+  .m_ufo div{
+    box-shadow: 0px 3px 6px 0px black;
+  }
+
+  .m_l_t_ufo{
+    width: 4vw;
+    height: 4vw;
+    z-index: 4;
+    position: fixed;
+    margin-left: -5vw;
+    margin-top: 0.5vh;
+    background-color: #898989;
+    border-radius: 50%; 
+  }
+
+  .m_l_b_ufo{
+    width: 4vw;
+    height: 4vw;
+    border-radius: 50%;
+    background: #898989;
+    position: absolute;
+    z-index: 6;
+    margin-left: -5vw;
+    margin-top: 4.5vh;
+  }
+
+  .m_r_t_ufo{
+    width: 4vw;
+    height: 4vw;
+    border-radius: 50%;
+    background: #898989;
+    position: absolute;
+    z-index: 4;
+    margin-left: 5vw;
+    margin-top: 0vh;
+  }
+
+  .m_r_b_ufo{
+    width: 2vw;
+    height: 2vw;
+    border-radius: 50%;
+    background: #898989;
+    position: absolute;
+    z-index: 4;
+    margin-left: 6vw;
+    margin-top: 5vh;
+  }
+
+  .m_c_b_ufo{
+    width: 4vw;
+    height: 4vw;
+    border-radius: 50%;
+    background: #898989;
+    position: absolute;
+    z-index: 6;
+    margin-left: 2vw;
+    margin-top: 6vh;
+  }
+
+  .m_c_c_ufo{
+    width: 2vw;
+    height: 2vw;
+    border-radius: 50%;
+    background: #898989;
+    position: absolute;
+    z-index: 6;
+    margin-left: 2.5vw;
+    margin-top: 3.5vh;
+  }
+
+  .m_about_us section{
+    margin: 0 auto;
+    height: auto;
+    display: flex;
+    margin-top: 30vh;
+    margin-bottom: 30vh;
+    flex-direction: column;
+  }
+
+  .m_about_company{
+    align-items: center;
+    width: 90vw;
+  }
+
+  .m_about_us h1{
+    color: #FF5D00;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 500;
+    font-size: 14vw;
+    margin: 0;
+  }
+
+  .m_about_us h2{
+    color: #FF5D00;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 500;
+    font-size: 12vw;
+    margin: 0;
+  }
+
+  .m_about_us h3{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 500;
+    margin: -2vh 0 0 0;
+  }
+
+  .m_about_ellipse{
+    width: 100%;
+    height: 3vh;
+    border-radius: 50%;
+    background: #D2D2D2;
+    margin-top: 4vh;
+  }
+
+  .m_about_us p{
+    padding: 0;
+    margin-top: 5vh;
+    color: black;
+    position: relative;
+    display: block;
+    font-size: 5vw;
+  }
+
+
+
+  .m_about_company p{
+    width: 75%;
+    text-align: center;
+  }
+
+  .m_about_topic p, .m_about_topic h2{
+    width: 90vw;
+    margin: 0 auto;
+  }
+
+  .m_about_topic p{
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+  }
+
+  .m_about_topic{
+    position: relative;
+    align-items: left;
+    width: 100vw;
+
+  }
+
+
+
+  .m_about_topic img{
+    width: 100vw;
+    
+    height: auto;
+    bottom: 0;
+  }
+
+  .m_about_service{
+    width: 90vw;
+  }
+
+  .m_about_service_types h3{
+    color: #FF5D00;
+  }
+
+  .m_about_service_types{
+    margin-left: 5vw;
+    margin-top: 7vh;
+  }
+
+  .m_about_service_types>div{
+    width: 19vw;
+  }
+
+  .m_about_service_types ul{
+    list-style-type: disc;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-top: 1vh;
+  }
+
+  .m_about_service_types h3{
+    font-size: 7vw;
+  }
+
+  .m_about_service_types li{
+    color: #FF5D00;
+    margin-top: 1vh;
+    word-wrap: break-word;
+  }
+
+  .m_about_service_types li span{
+    color: #3B3B3B;
+  }
+
+  .m_about_service_types{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .m_about_service_types img{
+    width: 70%;
+    height: auto;
+    position: absolute;
+    right: 0;
+  }
+
+  .m_about_services{
+    width: 90vw;
+    margin: 0 auto;
+  }
+
+  .m_about_services_list {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .m_about_services_list div{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .m_about_services_list h3{
+    color: #FF5D00;
+    font-size: 9vw;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+  }
+
+  .m_about_services_list ul{
+    list-style-type: disc;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-top: 1vh;
+    color: #FF5D00;
+  }
+
+  .m_about_services_list li{
+    font-size: 5vw;
+    margin-top: 1vh;
+  }
+
+  .m_about_services_list li>span{
+    color: #3B3B3B;
+  }
+
+  .m_about_team{
+    width: 90vw;
+    align-items: center;
+  }
+
+  .m_about_team h2{
+    text-align: center;
+    margin: 0;
+    margin-bottom: 3vh;
+  }
+
+  .m_about_team h2 span{
+    color: #3B3B3B;
+  }
+
+  .m_about_picture_line{
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    margin-top: 2vh;
+  }
+
+  .m_about_picture{
+    width: 48%;
+    position: relative;
+  }
+
+  .m_about_picture img{
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .m_about_picture div{
+    height: 30%;
+    width: 100%;
+    background: black;
+    opacity: 0.4;
+    position: absolute;
+    bottom: 1vh;
+  }
+
+  .m_about_picture p{
+    position: absolute;
+    width: 100%;
+    margin: 0;
+    bottom: 10.5%;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    color: white;
+    font-size: 6vw;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+
+  .m_about_team>p{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 5.5vw;
+  }
+
+  .company_color{
+    color: #FF5D00;
+  }
+
+  .m_about_join{
+    background: #FF5D00;
+    height: 35vw;
+    width: 35vw;
+    border-radius: 50%;
+    box-shadow: inset 0 .5vh 1vh black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .m_about_join>p{
+    color: white;
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 7vw;
+    font-weight: 300;
+    margin: 0;
+  }
+
+  .m_about_enjoy, .m_about_application{
+    width: 90vw;
+    align-items: center;
+  }
+
+  .m_about_enjoy p, .m_about_application p{
+    color: #3B3B3B;
+    width: 70vw;
+    text-align: left;
+    font-size: 6vw;
+    margin: 3vh 0 0 0;
+  }
+
+  .m_about_enjoy h3, .m_about_application h3{
+    font-size: 8vw;
+  }
+
+
+  .m_about_enjoy h4{
+    color: #6A6A6A;
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 400;
+  }
+
+  .m_about_enjoy img{
+    width: 100vw;
+    height: auto;
+    padding-left: 1vw;
+  }
+
+  .m_about_application img{
+    width: 100vw;
+    height: auto;
+    margin-top: -15vh;
+  }
+
+  .m_about_download{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10vh;
+    width: 90%;
+  }
+
+  .m_about_download img{
+    width: 48%;
+    height: auto;
+  }
+
+  /* .m_about_feedback h3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  } */
+
+  .m_about_feedback_title{
+    width: 70%;
+    position: relative;
+    margin: 0 auto;
+  }
+
+  .m_about_feedback_title h3{
+    font-family: 'Equinox Normal';
+    text-align: center;
+    font-size: 10vw;
+    margin: 0;
+  }
+  
+  .m_about_feedback_title img{
+    width: 10vw;
+    height: auto;
+    position: absolute;
+    right: 20%;
+    bottom: 1.2vh;
+  }
+
+  .m_about_customer_info{
+    height: 25vw;
+    width: 25vw;
+    background: #FF5D00;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0.3vh 2vw black;
+    margin-left: 2vw;
+  }
+
+  .m_about_customer_info h4{
+    margin: 0;
+    font-size: 4vw;
+    color: white;
+    font-weight: 300;
+  }
+
+  .m_about_customer_info p{
+    font-size: 2.5vw;
+    margin: 0;
+    text-align: justify;
+    width: 65%;
+  }
+
+  .m_about_customer_globus{
+    width: 4vw;
+  }
+
+  .m_about_customer_img{
+    height: 10vw;
+    width: 10vw;
+    position: absolute;
+    right: -2vw;
+    top: -1vh;
+    border: 0.5vw solid #FF5D00;
+    border-radius: 50%;
+  }
+
+  .m_about_chat_message{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 1vh;
+  }
+
+  .m_about_chat_message img{
+    width: 10vw;
+    margin-left: 2vw;
+    height: auto;
+  }
+
+  .m_about_message_info{
+    display: flex;
+    width: 85%;
+    height: auto;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .m_about_message_info p{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 3vw;
+    font-size: 3.5vw;
+    color: white;
+    font-weight: 300;
+  }
+
+.m_about_message_data{
+    border-radius: 5vw;
+    max-width: 80%;
+    box-shadow: 0px 0.3vw 1vw black;
+  }
+
+.m_about_message_date{
+  margin-right: 2vw;
+}
+
+.bg_gray{
+  background: #898989;
+}
+
+.bg_company_color{
+  background: #FF5D00;
+}
 
 }
 
-/* 626 87 = 7.19
-
-1400 213 = 6.5 */
 
