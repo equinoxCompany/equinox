@@ -326,6 +326,9 @@ module.exports = {
       // Make sure to add the new loader(s) before the "file" loader.
     ],
   },
+  devServer: {
+    historyApiFallback: true,
+  },
   plugins: [
     // Generates an `index.html` file with the <script> injected.
     new HtmlWebpackPlugin({
