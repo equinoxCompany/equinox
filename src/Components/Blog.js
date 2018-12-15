@@ -11,10 +11,12 @@ export default class extends Component {
   constructor(props){
     super(props);
     this.state = {
-      visibility: window.innerWidth >= 768 ? true : false
+      visibility: window.innerWidth >= 768 ? true : false,
+      posts: []
     }
     
   }
+
   goBack(){
     if(!this.state.map){
     this.props.history.goBack();

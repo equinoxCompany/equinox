@@ -3,7 +3,8 @@ import '../Styles/Login.css';
 import Main from '../Components/Main';
 import '../App.css';
 import pass from '../pas';
-import Loader from '../Components/Loader';
+import Admin from '../Components/Admin';
+
 
 class Login extends Component{
   constructor (props) {
@@ -21,10 +22,21 @@ class Login extends Component{
     }
   }
 
+
+
   handleSubmit(event) {
     event.preventDefault();
     if(this.state.value === pass.pas){
+      console.log(this.state.value)
     this.setState({ password: true })
+    fetch('http://d29.default-host.net:3002/login', {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({pass: this.state.value})
+    })
     }
   }
 
@@ -42,11 +54,11 @@ class Login extends Component{
     )
   } else if(this.device === 'full'){
     return(
-      <Loader/>
+      <Main/>
     )
   }else {
     return(
-      <Main/>
+      <Admin/>
     )
   }
   }

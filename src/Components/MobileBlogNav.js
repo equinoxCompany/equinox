@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Exit from '../media/mobile_exit.png';
-import '../Styles/MobileBlogNav.css'
+import '../Styles/MobileBottomNav.css'
 
 export default class extends Component {
   render(){
     return(
-        <div className="blog_nav">
+        <div className="m_bottom_nav">
           <ul>
             <li>All time</li>
             <li className="mobile_nav_active">Design</li>

@@ -1,7 +1,6 @@
 import React , { Component } from 'react';
 import Logo from './Logo';
 import Socials from './SocialsV2';
-import MobileExit from './MobileExit';
 import bgSeo from '../media/bgSeo.jpg';
 import '../Styles/Seo.css';
 import Link from 'react-router-dom/Link';
@@ -9,18 +8,23 @@ import blogBg from '../media/blogBg.png';
 import blogBg2 from '../media/blogBg2.png';
 import blog_img from '../media/blog_img.png';
 import search_img from '../media/search.png';
-import author_img from '../media/author.png';
-import MobileNav from './MobileNav';
-import Comments from '../media/comments.png';
-import Repost from '../media/repost.png';
+import BlogPost from './BlogPost';
 
 export default class extends Component {
+  componentDidMount(){
+    fetch('http://d29.default-host.net:3002/posts')
+      .then(res => res.json())
+      .then(posts => this.setState({posts}))
+  }
+
   constructor(props){
     super(props);
     this.state = {
       visibility: window.innerWidth >= 768 ? true : false,
+      posts: []
     }
   }
+
   goBack(){
     if(!this.state.map){
     this.props.history.goBack();
@@ -36,81 +40,12 @@ export default class extends Component {
           this.state.visibility ?(
             <div className="blog_canvas">
               <div className="blog_area">
-                <Link to="/post" className="post">
-                  <div className="subject">
-                    <div className="date">12.11</div>
-                    <div className="post_title">
-                      <h2>Design</h2><br/>
-                      <h1>Is<span className="c_color">About</span></h1><br/>
-                      <h2>stories</h2>
-                    </div>
-                  </div>
-                  <div className="post_preview" style={{background: `url(${blogBg2}) no-repeat`, backgroundSize:'cover'}}>
-                    <div className="cover"></div>
-                    <div className="post_info">
-                      <div className="short_info">
-                        Design is the merging of the fields of art technology and societyait a......
-                      </div>
-                      <div className="addition">
-                        <div className="post_likes">
-                          <div className="likes_circle"></div>
-                          <div className="number_likes"><span className="upper_like">2</span>3.245</div>
-                        </div>
-                        <div className="read_more">Read more</div>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-                <div className="post">
-                  <div className="subject">
-                    <div className="date">12.11</div>
-                    <div className="post_title">
-                      <h2>Jewel</h2><br/>
-                      <h1><span className="c_color">FROM</span>the</h1><br/>
-                      <h2>archipelago</h2>
-                    </div>
-                  </div>
-                  <div className="post_preview" style={{background: `url(${blogBg}) no-repeat`, backgroundSize:'cover'}}>
-                    <div className="cover"></div>
-                    <div className="post_info">
-                      <div className="short_info">
-                        Design is the merging of the fields of art technology and societyait a......
-                      </div>
-                      <div className="addition">
-                        <div className="post_likes">
-                          <div className="likes_circle"></div>
-                          <div className="number_likes"><span className="upper_like">2</span>3.245</div>
-                        </div>
-                        <div className="read_more">Read more</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="post" >
-                  <div className="subject">
-                    <div className="date">12.11</div>
-                    <div className="post_title">
-                      <h2>Design</h2><br/>
-                      <h1>Is<span className="c_color">About</span></h1><br/>
-                      <h2>stories</h2>
-                    </div>
-                  </div>
-                  <div className="post_preview" style={{background: `url(${blogBg2}) no-repeat`, backgroundSize:'cover'}}>
-                    <div className="cover"></div>
-                    <div className="post_info">
-                      <div className="short_info">
-                        Design is the merging of the fields of art technology and societyait a......
-                      </div>
-                      <div className="addition">
-                        <div className="post_likes">
-                          <div className="likes_circle"></div>
-                          <div className="number_likes"><span className="upper_like">2</span>3.245</div>
-                        </div>
-                        <div className="read_more">Read more</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                {
+                  this.state && this.state.posts && this.state.posts.map(post => 
+                    <BlogPost item={post}/>
+                  )
+                }
+              
               </div>
               <div className="post_delimiter"></div>
               <div className="post_controller">
@@ -151,44 +86,22 @@ export default class extends Component {
               <Logo/>
               <Socials/>
             </div>
-          ):( <div className="post_mobile">
-            <div className="m_p_header m_p_header_scroll">
-              <MobileNav/>
-              <div className="m_p_date">12.11</div>
+          ):( <div className="seo_mobile">
+          <h1>Namale,<br/> 
+            a <span style={{color: 'rgb(270, 92, 20)'}}>UnIQuE</span>  jewel from the<br/>
+            Fiji archipelago </h1>
+            <div className="blog_img"></div>
+            <div className="author_info">
+              <div className="mobile_seo_left">Author Name</div><div className="mobile_seo_right mobile_seo_first">23.245</div><div className="mobile_seo_right mobile_seo_second">13.273</div>
             </div>
-            <div className="m_p_content">
-              <h1 className="m_p_title">Namale,<br/>
-              a <span className="c_color">UnIQuE</span> jewel from the Fiji archipelago</h1>
-              <img className="m_p_image" src={blog_img}/>
-              <div className="m_p_main_info">
-                <div className="m_p_circles">
-                  <img src={author_img} className="m_p_author_photo"/>
-                  <div className="m_p_right_circle"></div>
-                  <div className="m_p_bottom_circle"></div>
-                  <h2 className="m_p_author_name">Author Name</h2>
-                </div>
-                <div className="m_p_views">
-                  <div className="m_p_views_circle"></div>
-                  <div className="m_p_number_views">
-                    <span className="m_p_large_digit">2</span>
-                    <span className="m_p_average_digit">3</span>
-                    <span className="c_color">.</span>
-                    245
-                  </div>
-                </div>
-              </div>
-              <p className="m_p_text">
-                Arriving to Canada from Syria, Feda brought with her a 
-passion that never left her. Making a childhood dream come 
-true she founded, a few years ago, her own jewelry line: 
-Créations Namale.Along with her creative vision, we 
-DESIGNED an entire brand identity that is declined. 
-              </p>
-              <div className="m_p_actions">
-                <img src={Comments} className="m_p_comments"/>
-                <img src={Repost} className="m_p_share"/>
-              </div>
-              <MobileExit/>
+            <div className="mobile_seo_text">
+            <p>Arriving to Canada from Syria, Feda brought with her a 
+        passion that never left her. Making a childhood dream come 
+        true she founded, a few years ago, her own jewelry line: 
+        Créations Namale.Along with her creative vision, we 
+        DESIGNED an entire brand identity that is declined.</p>
+            </div>
+            <div className="mobile_contacts_exit mobile_blog_exit" onClick={()=>this.goBack()}><h1>X</h1>
             </div>
           </div>
           )

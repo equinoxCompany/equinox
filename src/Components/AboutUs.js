@@ -1,16 +1,10 @@
 import React, {Component} from 'react';
 import Logo from '../Components/Logo';
 import Socials from '../Components/Socials';
-import Login from '../Components/Login';
 import { Link, Redirect } from 'react-router-dom';
 import '../Styles/AboutUs.css';
-import bg from '../media/bg.png'
-import mobile_img from '../media/mobile_about.png';
-import mobile_serv from '../media/mobile_services.png';
-import mobile_team from '../media/mobile_team.png';
 import '../Styles/SideMenu.css';
 import VisibilitySensor from 'react-visibility-sensor';
-import SideMenuLeft from '../Components/SideMenuLeft'
 import '../Styles/SideMenuLeft.css'
 import '../scripts/cursor.js';
 import ceo from '../media/ceo.jpg';
@@ -18,7 +12,19 @@ import design from '../media/design.jpg';
 import dev1 from '../media/dev1.jpg';
 import dev2 from '../media/dev2.jpg';
 import seo from '../media/seo.jpg';
-import StartProject from '../Components/StartProject.js';
+import MobileNav from './MobileNav';
+import MobileAboutNav from './MobileAboutNav';
+import AboutUsImg from '../media/about_us_img.jpg';
+import AboutUsService from '../media/about_us_service.jpg';
+import MobileTeam from '../media/mobile_team.png';
+import Graph from '../media/graph.png';
+import AppImg from '../media/equinox_application.png';
+import GetApp from '../media/get_it_app.png';
+import GetGoogle from '../media/get_it_google.png';
+import Comments from '../media/comments.png';
+import CustomerImg from '../media/customer.png';
+import CustomerGlobus from '../media/customer_globus.png';
+
 
 export default class extends Component {
   
@@ -31,23 +37,15 @@ export default class extends Component {
       sideMenu: false,
       offers: 0,
       start: 0,
-      sideMenuLinks: []
+      items: []
     }
   }
 
-  componentDidMount(){
-    // fetch('/users')
-    //   .then(res => res.json())
-    //   .then(sideMenuLinks => this.setState({sideMenuLinks}))
-  }
-  
-
-  redirectTo(props) {
-    console.log('s');
-    // return <Redirect to={this.props}/>
-  }
-
-  //New Comment
+  // componentDidMount(){
+  //   fetch('/about-us')
+  //     .then(res => res.json())
+  //     .then(items => this.setState({items}))
+  // }
 
   mouseEnterHandler(){
     let tail = document.getElementsByClassName('tail');
@@ -381,9 +379,7 @@ export default class extends Component {
 
   render(){
     return(
-      <div className="test" onScroll={() => {
-        this.visible(document.getElementsByClassName('description_container')[0]);
-      }}
+      <div className="test"
         onClick={() => this.hideSideMenu()}
         onMouseDown={() => this.mouseClick()}
         >
@@ -475,8 +471,10 @@ export default class extends Component {
         </div>
         <div className="descrition_small_container">
           <div className="descrition_small">
-            <p>EQUINOX -  авторська група,що розробляє , впроваджує новітні стратегії  у сфері маркетингу та створює особливі концепції бренду.
-            Тисячі ідей, мрій, які  ми допоможемо вам втілити  по - особливому.
+            <p>
+            {
+              this.state.items[0]
+            }
             </p>
           </div>
         </div>
@@ -751,7 +749,11 @@ export default class extends Component {
             <div className="grey_container_about"><div className="grey_circle_about" style={{backgroundColor:"rgb(58, 58, 58)"}}> <p>Start a project</p> </div></div>
             </span> <br/>
             <span className="start_txt start_s" onMouseEnter={()=>this.mouseEnterHandler()} onMouseLeave={()=>this.mouseLeaveHandler()} onClick={()=>this.mouseLeaveHandler()}>S
-            <div className="grey_container_about"><div className="grey_circle_about" style={{backgroundColor:"rgb(58, 58, 58)"}}> <p>Start a project</p> </div></div>
+            <div className="grey_container_about">
+              <div className="grey_circle_about" style={{backgroundColor:"rgb(58, 58, 58)"}}> 
+                <p>Start a project</p> 
+              </div>
+            </div>
             </span>
             <span className="start_txt_even start_t" onMouseEnter={()=>this.mouseEnterHandler()} onMouseLeave={()=>this.mouseLeaveHandler()} onClick={()=>this.mouseLeaveHandler()}>t
             <div className="grey_container_about"><div className="grey_circle_about" style={{backgroundColor:"rgb(58, 58, 58)"}}> <p>Start a project</p> </div></div>
@@ -775,133 +777,231 @@ export default class extends Component {
         </div>
         <Socials/>
         </div>
-        </div>) : ( <div className="mobile_about">
-        <div className="mobile_about_circle_container">
-          <div className="mobile_about_circle">
+        </div>) : ( 
+        <div className="m_about_us">
+          <MobileNav/>
+          <div className="m_ufo">
+            <div className="m_main_ufo"></div>
+            <div className="m_l_t_ufo"></div>
+            <div className="m_l_b_ufo"></div>
+            <div className="m_r_t_ufo"></div>
+            <div className="m_r_b_ufo"></div>
+            <div className="m_c_b_ufo"></div>
+            <div className="m_c_c_ufo"></div>
           </div>
-        </div>
-            <div className="mobile_about_title">
-             <h1>EQUINOX</h1>
-             <h2>EXAMPLE COMPANY</h2>
-             <div className="mobile_about_shadow">
-             </div>
-              <div className="mobile_about_title_text">
-              <p>Simple of description removed
-            from anywhere or writed by 
-            yourself or heared from friends 
-            or somebody another</p>
-              </div>
-              <div className="mobile_about_title_second">
-              <h1> <span style={{color: 'rgb(270, 92, 20)'}}>Title </span>NEW</h1>
-              <p>Let’s face it: the digital age has introduced 
-            a bunch of new players on the block. 
-            Hey, you might be literally going up against
-            a computer. That’s where we comes 
-            in–our team has winning visual and 
-            interactive combos at our fingertips to take 
-            brands and businesses to the next level, 
-            and we have fun doing it.</p>
-            </div>
-            <div className="mobile_about_img" style={{background: `url(${mobile_img})`}}></div>
-              </div>
-            <div className="mobile_about_title_third">
-              <h1> <span style={{color: 'rgb(270, 92, 20)'}}>TYPE </span>SERVICE</h1>
+          <div className="m_about_content_box">
+            <section className="m_about_company">
+              <h1>EQUINOX</h1>
+              <h3>EXAMPLE COMPANY</h3>
+              <div className="m_about_ellipse"></div>
+              <p>Simple of description removed from anywhere or writed by yourself or heared from friends or somebody another</p>
+            </section>
+            <section className="m_about_topic">
+              <h2>Title <span className="dark_gray">NEW</span></h2>
+              <p>Let’s face it: the digital age has introduced a bunch of new players on the block. Hey, you might be literally going up against a computer. That’s where we comes in–our team has winning visual and interactive combos at our fingertips to take brands and businesses to the next level, and we have fun doing it.</p>
+              <img src={AboutUsImg}/>
+            </section>
+            <section className="m_about_service">
+              <h2><span className="dark_gray">TYPE</span> SERVICE</h2>
               <p>Your brand is your avatar, and we’re in the
-                gameto make it the best it can be. 
-                WE CREATEadaptable brand identities 
-                that stand strong on all platforms...</p>
-            </div>
-            <div className="mobile_services">
-            <div className="mobile_serv_nav">
-            <h2>Type</h2>
-              <ul>
-                <li>Nice one</li>
-                <li>Nice one</li>
-                <li>Nice one</li>
-              </ul>
-            </div>
-            <div className="mobile_serv_nav_img" style={{background: `url(${mobile_serv})`}}></div>
-            </div>
-            <div className="mobile_about_title_fourth">
-              <h1>SERVICES</h1>
-              <p>Let’s face it: the digital age has introduced 
-          a bunch of new players on the block. 
-          Hey, you might be literally going up against
-          a computer. That’s where we comes 
-          in–our team has winning visual and 
-          interactive combos at our fingertips to take 
-          brands and businesses to the next level, 
-          and we have fun doing it.</p>
-            </div>
-            <div className="mobile_service_navs">
-              <ul className="mobile_service_nav_one">
-              <h1 style={{color: 'rgb(270, 92, 20)', fontWeight: '500'}}>TYPE</h1>
-                <li>Nice one</li>
-                <li>Nice one</li>
-                <li>Nice one</li>
-              </ul>
-              <ul className="mobile_service_nav_two">
-              <h1 style={{color: 'rgb(270, 92, 20)', fontWeight: '500'}}>TYPE</h1>
-                <li>Nice one</li>
-                <li>Nice one</li>
-                <li>Nice one</li>
-              </ul>
-            </div>
-            <div className="mobile_team">
-            <h1>OUR<br/> <span style={{color: 'rgb(270, 92, 20)'}}>INSANE</span><br/> TEAM</h1>
-            <ul>
-              <li>
-                <div className="mobile_member" style={{ backgroundImage: `url(${mobile_team})` }} > <div className="mobile_member_info">
-                <h1>Information</h1>  
+ gameto make it the best it can be. 
+WE CREATEadaptable brand identities 
+that stand strong on all platforms...</p>
+              <div className="m_about_service_types">
+                <div>
+                  <h3>Type</h3>
+                  <ul>
+                    <li><span>Nicezxvbzxbxzv one</span></li>
+                    <li><span>Nice one</span></li>
+                    <li><span>Nice one</span></li>
+                  </ul>
                 </div>
-                </div>
-              </li>
-              <li>
-                <div className="mobile_member" style={{ backgroundImage: `url(${mobile_team})` }} > <div className="mobile_member_info">
-                <h1>Information</h1>
-                </div>
-                </div>
-              </li>
-              <li>
-                <div className="mobile_member" style={{ backgroundImage: `url(${mobile_team})` }} > <div className="mobile_member_info">
-                <h1>Information</h1>
-                </div>
-                </div>
-              </li>
-              <li>
-                <div className="mobile_member" style={{ backgroundImage: `url(${mobile_team})` }} > <div className="mobile_member_info">
-                <h1>Information</h1>
-
-                </div>
-                </div>
-              </li>
-              <li>
-                <div className="mobile_member" style={{ backgroundImage: `url(${mobile_team})` }} > <div className="mobile_member_info">
-                <h1>Information</h1>
-                </div>
-                </div>
-              </li>
-              <li>
-                <div className="mobile_member" style={{ backgroundImage: `url(${mobile_team})` }} > <div className="mobile_member_info">
-                <h1>Information</h1>
-                </div>
-                </div>
-              </li>
-            </ul>
-            <p>You are passionate, curious, creative
-        and ready to step up your game?
-        Let’s talk! ...</p>
-              <div className="mobile_join_button">
-                <h1>Join the crew</h1>
+                <img src={AboutUsService}/>
               </div>
-              <p>From full-time jobs, to freelance 
-gigs and internships, we’re always
-on the lookout. So if the position 
-you’re looking for isn’t available at
-the moment, no worries–send
-us your stuff anyway....</p>
-            </div>
-            
+            </section>
+            <section className="m_about_services">
+              <h2>SERVICES</h2>
+              <p>Let’s face it: the digital age has introduced a bunch of new players on the block. Hey, you might be literally going up against a computer. That’s where we comes in–our team has winning visual and interactive combos at our fingertips to take brands and businesses to the next level, and we have fun doing it.</p>
+              <div className="m_about_services_list">
+                <div>
+                  <h3>Type</h3>
+                  <ul>
+                    <li><span>Nice one</span></li>
+                    <li><span>Nice one</span></li>
+                    <li><span>Nice one</span></li>
+                  </ul>
+                </div>
+                <div>
+                  <h3>Type</h3>
+                  <ul>
+                    <li><span>Nice one</span></li>
+                    <li><span>Nice one</span></li>
+                    <li><span>Nice one</span></li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+            <section className="m_about_team">
+              <h2><span>OUR</span><br/>Insane<br/><span>TEAM</span></h2>
+              <div className="m_about_picture_line">
+                <div className="m_about_picture">
+                  <img src={MobileTeam}/>
+                  <div></div>
+                  <p>Information...</p>
+                </div>
+                <div className="m_about_picture">
+                  <img src={MobileTeam}/>
+                  <div></div>
+                  <p>Information...</p>
+                </div>
+              </div>
+              <div className="m_about_picture_line">
+                <div className="m_about_picture">
+                  <img src={MobileTeam}/>
+                  <div></div>
+                  <p>Information...</p>
+                </div>
+                <div className="m_about_picture">
+                  <img src={MobileTeam}/>
+                  <div></div>
+                  <p>Information...</p>
+                </div>
+              </div>
+              <div className="m_about_picture_line">
+                <div className="m_about_picture">
+                  <img src={MobileTeam}/>
+                  <div></div>
+                  <p>Information...</p>
+                </div>
+                <div className="m_about_picture">
+                  <img src={MobileTeam}/>
+                  <div></div>
+                  <p>Information...</p>
+                </div>
+              </div>
+              <div className="m_about_picture_line">
+                <div className="m_about_picture">
+                  <img src={MobileTeam}/>
+                  <div></div>
+                  <p>Information...</p>
+                </div>
+                <div className="m_about_picture">
+                  <img src={MobileTeam}/>
+                  <div></div>
+                  <p>Information...</p>
+                </div>
+              </div>
+              <p className="m_about_team_text">
+                You are <span className="company_color">passionate</span>, curious, creative and ready to <span className="company_color">step up</span> your game? Let’s talk! ...
+              </p>
+              <div className="m_about_join">
+                <p>Join<br/>the<br/>crew</p>
+              </div>
+              <p>
+                From full-time jobs, to freelance gigs and internships, we’re always on the lookout. So if the position you’re looking for isn’t available at the moment, no worries–send us your stuff anyway....
+              </p>
+            </section>
+            <section className="m_about_enjoy">
+              <h3>ENJOY DESCRIPTION?</h3>
+              <p>So if the position you’re looking for isn’t available at the moment, no worries sendus your stuff anyway....</p>
+              <h4>Click to</h4>
+              <h3><span className="company_color">START A PROJECT</span></h3>
+              <h4>For new<br/>achivments</h4>
+              <img src={Graph}/>
+            </section>
+            <section className="m_about_application">
+              <h3>APPLICATION</h3>
+              <p>So if the position you’re looking for isn’t available at the moment, no worries sendus your stuff anyway....</p>
+              <img src={AppImg}/>
+              <div className="m_about_download">
+                <img src={GetApp}/>
+                <img src={GetGoogle}/>
+              </div>
+            </section>
+            <section className="m_about_feedback">
+              <div className="m_about_feedback_title">
+                <h3>Our customers said</h3>
+                <img src={Comments}/>
+              </div>
+              <div className="m_about_customer_info">
+                <img src={CustomerImg} className="m_about_customer_img"/>
+                <img src={CustomerGlobus} className="m_about_customer_globus"/>
+                <h4>John Maru</h4>
+                <p>Federal Bureau of Investigation</p>
+              </div>
+              <div className="m_about_chat">
+                <div className="m_about_chat_message">
+                  <img src={CustomerImg}/>
+                  <div className="m_about_message_info">
+                    <p className="m_about_message_data bg_company_color">
+                    Как же это удобно! Спасибо вам!                    </p>
+                    <div className="m_about_message_date">
+                      12.11.18
+                    </div>
+                  </div>
+                </div>
+                <div className="m_about_chat_message">
+                  <img src={CustomerImg}/>
+                  <div className="m_about_message_info">
+                    <p className="m_about_message_data bg_gray">
+                    У меня такие ощущения что я в раю))                    </p>
+                    <div className="m_about_message_date">
+                      12.11.18
+                    </div>
+                  </div>
+                </div>
+                <div className="m_about_chat_message">
+                  <img src={CustomerImg}/>
+                  <div className="m_about_message_info">
+                    <p className="m_about_message_data bg_company_color">
+                      Видел как выросла компания друга и искренне завидую, очень хочется так-же. Может быть мне скинут цену? Я буду хорошим покупателем длявас. Вообще у меня шок, круто!
+                    </p>
+                    <div className="m_about_message_date">
+                      12.11.18
+                    </div>
+                  </div>
+                </div>
+                <div className="m_about_chat_message">
+                  <img src={CustomerImg}/>
+                  <div className="m_about_message_info">
+                    <p className="m_about_message_data bg_company_color">
+                    Как же это удобно! Спасибо вам!    
+                    </p> 
+                    <div className="m_about_message_date">
+                      12.11.18
+                    </div>
+                  </div>
+                </div>
+                <div className="m_about_chat_message">
+                  <img src={CustomerImg}/>
+                  <div className="m_about_message_info">
+                    <p className="m_about_message_data bg_gray">
+                    У меня такие ощущения что я в раю))  
+                    </p>
+                    <div className="m_about_message_date">
+                      12.11.18
+                    </div>
+                  </div>
+                </div>
+                <div className="m_about_chat_message">
+                  <img src={CustomerImg}/>
+                  <div className="m_about_message_info">
+                    <p className="m_about_message_data bg_company_color">
+                    Видел как выросла компания друга и 
+искренне завидую, очень хочется так-же.
+ Может быть мне скинут цену? Я буду
+хорошим покупателем длявас. Вообще 
+у меня шок, круто!                    
+                      </p>
+                    <div className="m_about_message_date">
+                      12.11.18
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          <MobileAboutNav/>
         </div> ) 
       }
       </div>
