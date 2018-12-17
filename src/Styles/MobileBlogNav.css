@@ -1,0 +1,26 @@
+.blog_nav{
+  width: 100vw;
+  display: flex;
+  padding-left: 4vw;
+}
+
+.blog_nav>ul{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80vw;
+} 
+
+.blog_nav>ul>li{
+  width: auto;
+  font-size: 5vw;
+}
+
+.blog_nav img{
+  margin-left: 3vw;
+  height: 10vw;
+}
+
+.mobile_nav_active {
+  border-bottom: 3px solid rgb(270, 92, 20);
+}

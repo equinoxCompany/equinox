@@ -1,0 +1,246 @@
+.blog {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif !important;
+}
+
+.blog_upper {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 70%;
+  height: 25%;
+  transform: translateX(-50%);
+}
+
+.blog_upper .choose {
+  position: absolute;
+  top: 15%;
+  left: 0%;
+  vertical-align: text-bottom;
+  font-size: 9vw;
+  color: rgb(270, 92, 20);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.blog_upper .theme {
+  position: absolute;
+  left:55%;
+  top: -21%;
+  font-size: 14vw;
+  color: white;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.middle_upper {
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  left: 18%;
+  top: 35%;
+  width: 65%;
+  transform: translateY(-40%);
+}
+
+.middle_upper ul {
+  margin: 0;
+  padding: 0;
+}
+
+.middle_upper ul li {
+  display: inline-block;
+  font-size: 10vw;
+  width: 50%;
+  font-weight: 600;
+  color: white;
+}
+
+.middle_upper_line {
+  position: absolute;
+  top: 19%;
+  transform: translateX(-3vw);
+  height: 55%;
+  width: 3%;
+  background: rgb(270, 92, 20);
+}
+
+.middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 6vw;
+  transform: translate(-50%, -40%);
+  color: white;
+}
+
+.middle h1 {
+  font-weight: 600;
+}
+
+.middle_line {
+  position: absolute;
+  top: 37%;
+  transform: translateX(-3vw);
+  height: 29%;
+  width: 8%;
+  background: rgb(270, 92, 20);
+}
+
+.middle_lower .middle_line{
+  position: absolute;
+  top: 37%;
+  transform: translateX(-3vw);
+  height: 29%;
+  width: 6%;
+  background: rgb(270, 92, 20);
+}
+
+.middle_lower {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 6vw;
+  transform: translate(-50%, 0%);
+  color: white;
+}
+
+.middle_lower h1 {
+  font-weight: 600;
+}
+
+@media (max-width: 768px){
+  body {
+    overflow: hidden;
+    background: rgb(231, 231, 231);
+    position: relative;
+    height: 100vh;
+  }
+
+  .mobile_blog{
+    color: #373737;
+  }
+
+  .mobile_blog_header{
+    padding: 2vw;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .mobile_blog_header h3{
+    margin:0;
+    line-height: 0;
+    font-size: 15vw;
+    text-align: center;
+    width: 66vw;
+    font-weight: 400;
+    color: #868686;
+  }
+
+  .mobile_blog_header img{
+    width: 15vw; 
+  }
+
+  .mobile_blog_content{
+    height: 80vh;
+    padding-top: 4vh;
+    overflow: scroll;
+  }
+
+  .mobile_blog_circles{
+    overflow: hidden;
+  }
+
+  .mobile_blog_circles div{
+    position: absolute;
+    top: 25vh;
+    background: #FF5D00;
+    height: 90vw;
+    width: 90vw;
+    border-radius: 50%;
+    box-shadow: inset 0vw 4vw 0vw 0vw #BD4100;
+  }
+
+  .mobile_blog_left_circle{
+    left: -75vw;
+  }
+
+  .mobile_blog_right_circle{
+    right: -75vw;
+  }
+
+
+  .mobile_blog_post_list>ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mobile_blog_post{
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4vw;
+  }
+
+  .mobile_blog_post_date{
+    margin-right: 5%;
+    font-weight: 500;
+  }
+
+  .mobile_blog_post h3, h2{
+    margin: 0;
+    font-weight: 500;
+  }
+  /*SMALL POST*/
+  .mobile_blog_post_small{
+    width:40vw;
+  }
+  .mobile_blog_post_small .mobile_blog_post_date{
+    font-size: 6vw;
+  }
+  .mobile_blog_post_small h3{
+    font-size: 4vw;
+  }
+  .mobile_blog_post_small h2{
+    line-height: 6vw;
+    font-size: 6vw;
+  }
+  /*AVERAGE POST*/
+  .mobile_blog_post_average{
+    width: 50vw;
+  }
+  .mobile_blog_post_average .mobile_blog_post_date{
+    font-size: 8vw;
+  }
+  .mobile_blog_post_average h3{
+    font-size: 6vw;
+  }
+  .mobile_blog_post_average h2{
+    line-height: 8vw;
+    font-size: 8vw;
+  }
+  /*LARGE POST*/
+  .mobile_blog_post_large{
+    width: 60vw;
+  }
+  .mobile_blog_post_large .mobile_blog_post_date{
+    font-size: 10vw;
+  }
+  .mobile_blog_post_large h3{
+    font-size: 8vw;
+  }  
+  .mobile_blog_post_large h2{
+    line-height: 10vw;
+    font-size: 10vw;
+  }
+
+
+}

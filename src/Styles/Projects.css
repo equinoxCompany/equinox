@@ -1,0 +1,78 @@
+.projects_page { 
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 100%; 
+  height: 100vh;
+}
+
+.project {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+  height: 500px;
+}
+
+.first_project_img, .second_project_img, .third_project_img, .fourt_project_img {
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 40vw;
+  height: 50vh;
+}
+
+.first_project_img {
+  background-image: url('../media/planet_projects.png')
+}
+
+.project_text_body {
+  align-self: center;
+  float: right;
+  width: 23vw;
+  height: 30vh;
+}
+
+.project_title {
+  color: white;
+  font-size: 4vw;
+  border-bottom: 3px solid rgb(272, 90, 20);
+  margin-bottom: 3vh;
+}
+
+.project_text {
+  font-size: 1.8vw;
+  padding-left: 2vw;
+  color: white;
+}
+
+.project_date {
+  float: right;
+  font-size: 2vw;
+  color: white;
+}
+
+.project:nth-child(even){
+  padding-left: 30%;
+}
+
+.second_project_img {
+  margin-left: 5%;
+  background-image: url('../media/project_planet2.png');
+  width: 35vw;
+  height: 45vh;
+}
+
+.third_project_img {
+  margin-left: 15%;
+  background-image: url('../media/project_planet3.png');
+  width: 25vw;
+  height: 45vh;
+}
+
+.fourt_project_img {
+  background-image: url('../media/planet_projects.png');
+  transform: rotateX(180deg);
+}
+
+.circle_container > * {
+  z-index: -1;
+}

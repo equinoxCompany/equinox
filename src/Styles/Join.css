@@ -1,0 +1,125 @@
+/* .join_crew_text {
+  position: absolute;
+  top: 18%;
+  left: 10%;
+  width: 100%;
+}
+
+.join_crew_text h1 {
+  font-size: 5vw;
+  font-weight: 500;
+  color: white;
+  margin: 0;
+  line-height: 9vh;
+}
+
+.join_crew_text p {
+  margin: 0;
+  padding: 0;
+}
+
+#join_form {
+  position: absolute;
+  left: 10%;
+  top: 45%;
+  width: 48%;
+}
+
+#join_form ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#join_form ul li {
+  position: relative;
+  display: block;
+  margin-bottom: 7%;
+}
+
+#join_form ul li .field-split{
+  width: 50%;
+}
+
+#join_form ul li input.align-left {
+  float: left;
+  width: 48%;
+}
+
+#join_form ul li input.align-right {
+  float: right;
+  width: 39%;
+}
+
+
+
+#join_form input {
+  padding: 7px;
+  background: rgba(270, 92, 20, 0.5);
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-size: 20px;
+}
+
+#join_form label {
+  color: white;
+  font-size: 20px;
+  margin-left: 1%;
+}
+
+#join_form textarea {
+  margin-top: 1%;
+  margin-bottom: 5%;
+  cursor: none;
+  position: relative;
+  background: rgba(270, 92, 20, 0.5);
+  border: none;
+  border-radius: 50px;
+  width: 100%;
+  resize: none;
+  color: white;
+}
+
+#join_form textarea::placeholder {
+  padding-top: 5%;
+  text-align: center;
+  font-size: 25px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+#join_form input[type="submit"] {
+  width: 20%;
+}
+
+.circle_send {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  background: rgb(270, 92, 20);
+  border-radius: 50%;
+}
+
+.join_exit {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  width: 5vw;
+  height: 5vw;
+  border: 3px solid rgb(270, 92, 20);
+  border-radius: 50%;
+}
+
+.join_exit h1 {
+  padding: 0;
+  margin-top: 13%;
+  text-align: center;
+  color: white;
+  font-size: 3vw;
+  font-weight: 300;
+}
+
+.join_exit a {
+  text-decoration: none;
+}
+ */

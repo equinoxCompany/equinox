@@ -1,0 +1,32 @@
+.m_bottom_nav{
+  width: 100vw;
+  height: 8vh;
+  display: flex;
+  align-items: center;
+  padding-left: 4vw;
+  position: absolute;
+  bottom: 0vh;
+  z-index: 100;
+  background: #E7E7E7;
+}
+
+.m_bottom_nav>ul{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80vw;
+} 
+
+.m_bottom_nav>ul>li{
+  width: auto;
+  font-size: 5vw;
+}
+
+.m_bottom_nav img{
+  margin-left: 3vw;
+  height: 10vw;
+}
+
+.mobile_nav_active {
+  border-bottom: 3px solid rgb(270, 92, 20);
+}

@@ -1,0 +1,26 @@
+@font-face {
+  font-family: 'Equinox Normal';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./Fonts/Equinox-Regular.ttf'); /* IE9 Compat Modes */
+  src: local('EquinoxNormal'), local('EquinoxNormal'),
+}
+
+
+body {
+  resize: none;
+  margin: 0;
+  padding: 0;
+  background: rgb(41, 41, 41);
+  font-family: 'Equinox Normal',-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}

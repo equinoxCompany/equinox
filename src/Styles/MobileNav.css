@@ -1,0 +1,13 @@
+.mobile_nav{
+    position: absolute;
+    left: 3vw;
+    top: 3vw;
+    width: 12vw;
+    height: 12vw;
+    margin: 0;
+    z-index: 100;
+}
+
+.mobile_nav img{
+    width: 100%;
+}
