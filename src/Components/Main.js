@@ -3,6 +3,7 @@ import Logo from './Logo';
 import Socials from './Socials';
 import MobileMainMenuNav from './MobileMainMenuNav';
 import MobileLogo from '../media/equinox.png';
+import MainCompanyImg from '../media/logo_blank.png';
 import { Link } from 'react-router-dom';
 import '../scripts/cursor.js';
 import '../Styles/Main.css';
