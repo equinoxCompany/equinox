@@ -7,6 +7,12 @@
 # production
 /build
 
+<<<<<<< HEAD
+=======
+#ignore pas
+/src/pas.js
+
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
 # misc
 .DS_Store
 .env.local

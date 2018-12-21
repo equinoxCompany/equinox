@@ -4,36 +4,65 @@ import Socials from '../Components/Socials';
 import '../Styles/Project.css';
 import {Redirect } from 'react-router-dom';
 import Exit from '../media/exit.png';
+<<<<<<< HEAD
 import MobileNav from './MobileNav';
 import Planet from '../media/planet_projects.png';
 import MobileExit from '../media/mobile_exit.png';
 import Graph from '../media/graph.png';
 import { Link } from 'react-router-dom';
+=======
+import MetaTags from 'react-meta-tags';
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
 
 export default class extends Component {
   constructor(props){
     super(props);
     this.state = {
+<<<<<<< HEAD
       visibility: window.innerWidth >= 768 ? true : false,
       post: {}
     }
 }
+=======
+      meta: ''
+    }
+ }
+
+ componentDidMount(){
+  fetch('http://d29.default-host.net:3002/seo/project')
+    .then(res => res.json())
+    .then(meta => this.setState({meta: meta[0]}))
+}
+
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
   goBack(){
       this.props.history.goBack()
   }
   render(){
     return(
       <div>
+<<<<<<< HEAD
           {
               this.state.visibility?(
       <div>
+=======
+        <MetaTags>
+          <title>{this.state.meta.title}</title>
+          <meta name="description" content={this.state.meta.description}/>
+          <meta property="og:title" content={this.state.meta.title} />
+        </MetaTags>
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
         <Logo/>
         <img src={Exit} className="services-menu-exit" style={{top: '2vw'}}onClick={()=>this.goBack()}/>
         <div className="project_page">
         <div className="content_top">
           <div className="content_img"></div>
           <div className="content_title">
+<<<<<<< HEAD
           Project Namea sf afsadf asgrehgeshdrtsegfd aegeqwagew
+=======
+          Project Name
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
           <div className="content_title_date">12.11.2018</div>
           </div>
           <div className="side_menu">
@@ -62,6 +91,7 @@ export default class extends Component {
           </div>
         </div>
         <Socials/>
+<<<<<<< HEAD
       </div>):(
         <div className="m_sub_project">
           <MobileNav/>
@@ -117,6 +147,8 @@ deserunt mollit anim id est laborum.
             </section>
         </div>
       )}
+=======
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
       </div>
     )
   }

@@ -1,5 +1,6 @@
 .mobile_nav{
     position: absolute;
+<<<<<<< HEAD
     z-index: 100;
     top: 0;
     font-family: 'Equinox Normal';
@@ -135,3 +136,16 @@
     right: 2vw;
     bottom: 2vw;
 }
+=======
+    left: 3vw;
+    top: 3vw;
+    width: 12vw;
+    height: 12vw;
+    margin: 0;
+    z-index: 100;
+}
+
+.mobile_nav img{
+    width: 100%;
+}
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d

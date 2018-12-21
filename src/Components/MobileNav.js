@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { Component } from 'react';
 import '../Styles/MobileNav.css';
 import MobileNav from '../media/mobile_nav.png';
@@ -51,6 +52,17 @@ export default class extends Component {
               <span>Home</span>
             </li></Link>
           </ul>
+=======
+import React, { Component } from 'react'
+import '../Styles/MobileNav.css'
+import MobileNav from '../media/mobile_nav.png'
+
+export default class extends Component {
+  render(){
+    return(
+        <div className="mobile_nav">
+          <img src={MobileNav}/>
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
         </div>
     )
   }

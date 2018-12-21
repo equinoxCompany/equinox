@@ -2,13 +2,18 @@ import React , {Component} from 'react';
 import Logo from './Logo';
 import Socials from './Socials';
 import '../Styles/Post.css';
+<<<<<<< HEAD
 import Link from 'react-router-dom/Link';
+=======
+import Link from 'react-router-dom/Link'
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
 import Author from '../media/author.png';
 import Exit from '../media/exit.png';
 import Comments from '../media/comments.png';
 import Repost from '../media/repost.png';
 import Picture from '../media/post_img.png';
 import renderHTML from 'react-render-html';
+<<<<<<< HEAD
 import MobileExit from '../media/mobile_exit.png';
 import MobileNav from './MobileNav';
 import MobilePostImg from '../media/blog_img.png';
@@ -19,11 +24,25 @@ export default class extends Component {
     //     .then(res => res.json())
 	// 			.then(post => this.setState({post: post[0]}))
     // }
+=======
+import MetaTags from 'react-meta-tags';
+
+export default class extends Component {
+    componentDidMount(){
+      fetch('http://d29.default-host.net:3002/post/'+this.props.location.pathname.slice(6))
+        .then(res => res.json())
+        .then(post => this.setState({post: post[0]}))
+    fetch('http://d29.default-host.net:3002/seo/post')
+        .then(res => res.json())
+        .then(meta => this.setState({meta: meta[0]}))
+    }
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
 
     constructor(props){
         super(props);
         this.state = {
 					visibility: window.innerWidth >= 768 ? true : false,
+<<<<<<< HEAD
 					post: {}
         }
     }
@@ -36,11 +55,28 @@ export default class extends Component {
     render(){
         return(
             <div className="Post">
+=======
+                    post: {}
+        }
+    }
+
+    render(){
+        return(
+            <div className="Post">
+            <MetaTags>
+                <title>{this.state.post.title}</title>
+                <meta property="og:title" content={this.state.post.title} />
+            </MetaTags>
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
                 <div>
                     {
                         this.state.visibility?(
                             <div>
                                 <Logo/>
+<<<<<<< HEAD
+=======
+                                
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
                                 <div className="post_title_info">
                                     <div className="author_info">
                                         <div className="author_top_circle"></div>
@@ -60,9 +96,15 @@ export default class extends Component {
                                     <Link to="/seo"><img src={Exit} className="button_exit"/></Link>
                                 </div>
                                 <div className="post_info_subject">
+<<<<<<< HEAD
                                     <h1>{this.state.post.title}
                                      </h1>
                                      <span className="post_info_date">{this.state.post.date}</span>
+=======
+                                    <h1>{this.state.post.title}<br/>
+                                        <span className="post_info_date">{this.state.post.date}</span>
+                                     </h1>
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
                                 </div>
                                 <div className="post_text">
                                     <p>{this.state.post.text && renderHTML(this.state.post.text)} </p>
@@ -74,6 +116,7 @@ export default class extends Component {
                                 <Socials/>
                             </div>
                         ):(
+<<<<<<< HEAD
                             <div className="post_mobile">
                                 <MobileNav/>
                                 <div className="m_post_box">
@@ -116,6 +159,9 @@ DESIGNED an entire brand identity that is declined.
                                 <img src={Repost} className="m_post_repost"/>
                                 <img src={MobileExit} onClick={()=>this.goBack()} className="mobile_exit"/>
                             </div>
+=======
+                            <div></div>
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
                         )
                     }
                 </div>

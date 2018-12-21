@@ -8,11 +8,19 @@ import Login from './Components/Login';
 import Contacts from './Components/Contacts';
 import JoinCrew from './Components/JoinCrew';
 import Blog from './Components/Blog';
+<<<<<<< HEAD
+=======
+import Seo from './Components/Seo';
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
 import Post from './Components/Post';
 import Loader from './Components/Loader';
 import Admin from './Components/Admin';
 import Projects from './Components/Projects';
 import Project from './Components/Project';
+<<<<<<< HEAD
+=======
+import SeoService from './Components/Services/Seo';
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
 import ServicesMenu from './Components/Services/ServicesMenu';
 import SeoAdmin from './Components/AdminSeo';
 import Map from './Components/Services/MapStrategy';
@@ -29,11 +37,19 @@ ReactDOM.render((
       <Route path='/contacts' component={Contacts}/>
       <Route path='/join-the-crew' component={JoinCrew}/>
       <Route path='/blog' component={Blog}/>
+<<<<<<< HEAD
+=======
+      <Route path='/seo' component={Seo}/>
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
       <Route path='/seo-admin' component={LoginSeo}/>
       <Route path='/admin' component={Login}/>
       <Route path='/projects' component={Projects}/>
       <Route path='/project' component={Project}/>
       <Route path='/services' component={ServicesMenu}/>
+<<<<<<< HEAD
+=======
+      <Route path='/service' component={SeoService}/>
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
       <Route path='/map' component={Map}/>
       <Route path='/:post' component={Post}/>
     </Switch>

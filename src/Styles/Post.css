@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 @media (min-width: 768px){
+=======
+
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
 .post_title_info{
     position: absolute;
     left: 20vw;
@@ -171,6 +175,7 @@
       position: relative;
       font-size: 1.8vw;
       width: 100%;
+<<<<<<< HEAD
   }
 }
   
@@ -300,3 +305,6 @@
 
   }
   
+=======
+  }
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d

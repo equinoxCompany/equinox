@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 
 @media (min-width: 768px){
+=======
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
 .contacts {
   overflow: hidden !important; 
   position: relative;
@@ -1363,6 +1366,7 @@
   -webkit-animation-duration: 3s;
   animation-name: jump;
   animation-duration: 3s;
+<<<<<<< HEAD
 }
 }
 
@@ -1382,4 +1386,6 @@
     height: 100%;
   }
 
+=======
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
 }

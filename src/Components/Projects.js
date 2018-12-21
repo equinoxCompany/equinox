@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import '../Styles/Projects.css';
 import Logo from './Logo';
 import Socials from './Socials';
+<<<<<<< HEAD
 import MobileNav from './MobileNav';
 import MobileExit from '../media/mobile_exit.png';
 
@@ -27,6 +28,32 @@ goBack(){
           {
               this.state.visibility?(
       <div className="projects_page">
+=======
+import MetaTags from 'react-meta-tags';
+
+
+export default class extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      meta: ''
+    }
+ }
+ 
+  componentDidMount(){
+    fetch('http://d29.default-host.net:3002/seo/projects')
+      .then(res => res.json())
+      .then(meta => this.setState({meta: meta[0]}))
+  }
+  render(){
+    return(
+      <div className="projects_page">
+          <MetaTags>
+            <title>{this.state.meta.title}</title>
+            <meta name="description" content={this.state.meta.description}/>
+            <meta property="og:title" content={this.state.meta.title} />
+          </MetaTags>
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
         <Logo/>
         <div className="circle_container">
           <div className="bg_circle one"></div>
@@ -99,6 +126,7 @@ goBack(){
           <div className="fourt_project_img"></div>
           </div>
         <Socials/>
+<<<<<<< HEAD
       </div>):(
         <div className="m_projects">
           <MobileNav/>
@@ -247,6 +275,9 @@ goBack(){
         )}
         </div>
         </div>
+=======
+      </div>
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
     )
   }
 }

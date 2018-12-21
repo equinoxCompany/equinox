@@ -3,6 +3,7 @@ text {
     text-anchor: middle;
     font-size: 0px;
     font-weight: 900;
+<<<<<<< HEAD
 }
 
 .m_map_category_selector h1{
@@ -102,4 +103,6 @@ text {
     height: 0;
     border-radius: 10vw;
     border: 1vw solid #FF5D00;
+=======
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
 }

@@ -7,8 +7,13 @@ import Exit from '../media/exit.png';
 import { BrowserRouter } from 'react-router-dom';
 import '../Styles/Contacts.css';
 import VisibilitySensor from 'react-visibility-sensor';
+<<<<<<< HEAD
 import ReactDOM from 'react-dom';
 import MobileNav from './MobileNav';
+=======
+import ReactDOM from 'react-dom'
+import MetaTags from 'react-meta-tags';
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
 
 
 export default class extends Component {
@@ -19,11 +24,19 @@ export default class extends Component {
     super(props);
     this.state = {
       visibility: window.innerWidth >= 768 ? true : false,
+<<<<<<< HEAD
       map: false
     }
   }
 
 
+=======
+      map: false,
+      meta: ''
+    }
+  }
+
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
   openMap(){
     document.getElementsByClassName('map_folded')[0].style.height = '100vh'
     document.getElementsByClassName('click_to_open')[0].style.opacity = 0;
@@ -40,6 +53,12 @@ export default class extends Component {
   }
 
   componentDidMount(){
+<<<<<<< HEAD
+=======
+    fetch('http://d29.default-host.net:3002/seo/contacts')
+      .then(res => res.json())
+      .then(meta => this.setState({meta: meta[0]}))
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
     if(this.state.visibility){
     let contacts_address_bottom_text = document.getElementsByClassName("contacts_address_bottom_text")[0];
     let address_info_h1 = document.getElementsByClassName("contacts_address_info")[0].firstChild;
@@ -254,7 +273,19 @@ export default class extends Component {
 
   render(){
     return(
+<<<<<<< HEAD
       <div>
+=======
+      <div className="contacts">
+      {
+        console.log(this.state.meta)
+      }
+          <MetaTags>
+            <title>{this.state.meta.title}</title>
+            <meta name="description" content={this.state.meta.description}/>
+            <meta property="og:title" content={this.state.meta.title} />
+          </MetaTags>
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
         <div>
           { this.state.visibility ?(
             <div>
@@ -324,11 +355,38 @@ export default class extends Component {
             </div>
           ) :
         (<div>
+<<<<<<< HEAD
           <MobileNav/>
           <section className="m_contacts_map">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9320.197926172807!2d30.499148889390593!3d50.44227454843369!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cef6dad51cc5%3A0x5e55cbe0d15f7789!2z0KPQvdC40LLQtdGA0YHQuNGC0LXRgg!5e0!3m2!1sru!2sua!4v1545077764815" width="auto" height="auto" frameborder="0" ></iframe>
             
           </section>
+=======
+          <div className="mobile_contacts_container">
+            <div className="map_folded">
+              <h2>We <span style={{color: 'rgb(272, 90, 20)'}}>ARE<br/></span>HERE</h2>
+              <h1 onClick={()=>this.openMap()} className="click_to_open">click to open</h1>
+            </div>
+            <div className="map_info">
+              <div className="mobile_address">
+                <h1>
+                16, Big Vasylkivska st. , Kiev, 03150<br/>+380667680976<br/>equinox@gmail.com
+                </h1>
+              </div>
+              <div className="mobile_menu_wrapper_contacts">
+                <Link to="/join-the-crew" className="internal">Join the<br/>crew</Link>
+                <Link to="" className="internal">Strart a <br/> project</Link>
+                <Link to="" className="internal">Say Hi!</Link>
+              </div>
+              <div className="scroll_to_choose">Scroll to choose</div>
+            </div>
+            <div className="mobile_contacts_bottom">
+              <h1>CGQ9+X3 Kiev, city Kiev<br/>50.440093, 30.517538</h1>
+            </div>
+            <div className="mobile_contacts_exit" onClick={()=>this.goBack()}><h1>X</h1>
+            </div>
+          </div>
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
         </div>)
         }
       </div>

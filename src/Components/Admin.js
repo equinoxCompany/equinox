@@ -156,7 +156,10 @@ export default class extends Component {
             this.state.temp[curEl] = this.state.currentPost[0][curEl];
           }
         }
+<<<<<<< HEAD
         // console.log(this.state.currentPost)
+=======
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
       })
   };
 

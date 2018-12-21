@@ -3,27 +3,57 @@ import Logo from './Logo';
 import '../Styles/Join.css';
 import { Link } from 'react-router-dom';
 import {BrowserRouter} from 'react-router-dom';
+<<<<<<< HEAD
 import MobileExit from '../media/mobile_exit.png';
+=======
+import MetaTags from 'react-meta-tags';
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
 
 export default class extends Component {
   constructor(props){
     super(props);
     this.goBack = this.goBack.bind(this);
     this.state = {
+<<<<<<< HEAD
       visibility: window.innerWidth >= 768 ? true : false
     }
  }
 
+=======
+      visibility: window.innerWidth >= 768 ? true : false,
+      meta: ''
+    }
+ }
+
+ componentDidMount(){
+  fetch('http://d29.default-host.net:3002/seo/join-the-crew')
+    .then(res => res.json())
+    .then(meta => this.setState({meta: meta[0]}))
+}
+
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
  goBack(){
   this.props.history.goBack();
 }
   render(){
     return(
       <div>
+<<<<<<< HEAD
+=======
+        <MetaTags>
+            <title>{this.state.meta.title}</title>
+            <meta name="description" content={this.state.meta.description}/>
+            <meta property="og:title" content={this.state.meta.title} />
+          </MetaTags>
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
         {
           this.state.visibility ?(
       <div>
     <Logo/>
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
         <div className="join_crew_text">
           <h1>Ready to start a project?<br/><span style={{color:'rgb(270,92,20'}}>Let's chat!</span></h1>
           <p>Please take a few seconds to fill out this form. You can also send us a email if you prefer.</p>
@@ -49,6 +79,7 @@ export default class extends Component {
         </form>
         <div className="services-menu-exit" style={{top: '55vw'}}onClick={()=>this.goBack()}></div>
       </div>) : (
+<<<<<<< HEAD
         <div className="m_start_project">
           <h1>Ready to start a project? Let’s chat!</h1>
           <p>Please take a few seconds to fill out this form. 
@@ -83,6 +114,24 @@ You can also send us a email if you prefer.</p>
             </div>
           </form>
           <img src={MobileExit} onClick={()=>this.goBack()} className="mobile_exit"/>
+=======
+        <div className="mobile_join">
+          <h1>Ready to start a project? <br/>Let's chat!</h1>
+          <p>Please take a few seconds to fill out this form. 
+              You can also send us a email if you prefer.</p>
+          <form action="" className="mobile_form">
+            <input type="text" id="mobile_name" placeholder="Name*"/>
+            <input type="text" id="mobile_proj_name" placeholder="Name of Project"/>
+            <input type="text" id="mobile_phone" placeholder="Phone number"/>
+            <input type="text" id="mobile_email" placeholder="Email*"/>
+            <h1>Description...</h1>
+            <textarea id="mobile_description" cols="30" rows="10" placeholder="Dear EQUINOX, I would like to work with you on..."></textarea>
+          </form>
+          <div className="write_here"><h1>Write here</h1></div>
+          <button className="mobile_send">SEND</button>
+          <div className="mobile_join_exit"><h1>X</h1>
+            </div>
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
         </div>
       )}
       </div>

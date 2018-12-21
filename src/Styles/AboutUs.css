@@ -1026,7 +1026,11 @@ a{
     overflow-y: scroll;
     width: 100%;
     overflow-x: hidden;
+<<<<<<< HEAD
     height: 91vh;
+=======
+    height: 100vh;
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
     position: absolute;
     top: 0;
   }

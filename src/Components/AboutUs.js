@@ -14,7 +14,10 @@ import dev2 from '../media/dev2.jpg';
 import seo from '../media/seo.jpg';
 import MobileNav from './MobileNav';
 import MobileAboutNav from './MobileAboutNav';
+<<<<<<< HEAD
 import MobileExit from '../media/mobile_exit.png';
+=======
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
 import AboutUsImg from '../media/about_us_img.jpg';
 import AboutUsService from '../media/about_us_service.jpg';
 import MobileTeam from '../media/mobile_team.png';
@@ -25,6 +28,11 @@ import GetGoogle from '../media/get_it_google.png';
 import Comments from '../media/comments.png';
 import CustomerImg from '../media/customer.png';
 import CustomerGlobus from '../media/customer_globus.png';
+<<<<<<< HEAD
+=======
+import MetaTags from 'react-meta-tags';
+
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
 
 
 export default class extends Component {
@@ -38,6 +46,7 @@ export default class extends Component {
       sideMenu: false,
       offers: 0,
       start: 0,
+<<<<<<< HEAD
       items: []
     }
   }
@@ -48,6 +57,18 @@ export default class extends Component {
   //     .then(res => res.json())
   //     .then(items => this.setState({items}))
   // }
+=======
+      items: [],
+      meta: ''
+    }
+  }
+
+  componentDidMount(){
+    fetch('http://d29.default-host.net:3002/seo/about-us')
+      .then(res => res.json())
+      .then(meta => this.setState({meta: meta[0]}))
+  }
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
 
   mouseEnterHandler(){
     let tail = document.getElementsByClassName('tail');
@@ -377,9 +398,13 @@ export default class extends Component {
   }
   };
   
+<<<<<<< HEAD
   goBack(){
     this.props.history.goBack()
   }
+=======
+  
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
 
   render(){
     return(
@@ -390,6 +415,14 @@ export default class extends Component {
       {
         this.state.visibility ?(
       <div className="about">
+<<<<<<< HEAD
+=======
+      <MetaTags>
+        <title>{this.state.meta.title}</title>
+        <meta name="description" content={this.state.meta.description}/>
+        <meta property="og:title" content={this.state.meta.title} />
+      </MetaTags>
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
       <div onMouseEnter={()=> this.showSideMenu()}><Logo/></div>
       
       <div className="sidemenu_left">
@@ -1006,10 +1039,17 @@ that stand strong on all platforms...</p>
             </section>
           </div>
           <MobileAboutNav/>
+<<<<<<< HEAD
           <img src={MobileExit} onClick={()=>this.goBack()} className="mobile_exit"/>
+=======
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
         </div> ) 
       }
       </div>
     )
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d

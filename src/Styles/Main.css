@@ -384,6 +384,7 @@ a:hover > .grey_circle {
 } 
 
 @media (max-width: 768px){
+<<<<<<< HEAD
 
   .m_main{
     width: 90vw;
@@ -402,6 +403,81 @@ a:hover > .grey_circle {
     font-weight: 400;
     border: 1px solid red;
     padding: 0;
+=======
+  .main_mobile{
+    position: fixed;
+    overflow: hidden;
+  }
+
+  .mobile_menu_container {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .main_mobile::-webkit-scrollbar {
+    display: none;
+  }
+
+  .main_mobile_header {
+    margin-top: 2vh;
+    width: 80vw;
+    height: 35vh;
+    margin-left: 10vw;
+    padding-top: 20vh;
+    background: url('../media/equinox.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .main_header_logo {
+    width: 100vw;
+    height: 35vh;
+    margin-left: 10vw;
+    background: url('../media/logo_blank.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .main_mobile_header p{
+    margin-top: -10vh;
+    color: black;
+    font-size: 5vw;
+    width: 100vw;
+  }
+
+  .mobile_menu_wrapper {
+    width: 90vw; /* arbitary for demo only */
+    margin-left: 5vw;
+    margin-top: 10%;
+    white-space: nowrap;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .mobile_menu_wrapper_contacts {
+    overflow-x: none;
+  }
+
+  .mobile_menu_wrapper::-webkit-scrollbar, .mobile_menu_wrapper_contacts::-webkit-scrollbar{
+    display: none;
+  }
+  
+  .internal {
+    display: inline-block;
+    width: 35%;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    color: rgb(200, 200, 200);
+    font-size: 6vw;
+    scrollbar-face-color: transparent;
+  }
+
+  .internal::-webkit-scrollbar{
+    display: none;
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
   }
 
   .socials_mobile {

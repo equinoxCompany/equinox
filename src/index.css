@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
 @font-face {
   font-family: 'Equinox Normal';
   font-style: normal;
@@ -8,7 +11,11 @@
   src: local('EquinoxNormal'), local('EquinoxNormal'),
 }
 
+<<<<<<< HEAD
 @media (min-width: 768px){
+=======
+
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
 body {
   resize: none;
   margin: 0;
@@ -26,4 +33,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+<<<<<<< HEAD
 }
+=======
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d

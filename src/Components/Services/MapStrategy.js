@@ -4,6 +4,7 @@ import Exit from '../../media/exit.png';
 import Socials from '../Socials';
 import '../../Styles/MapStrategy.css';
 import * as d3 from "d3";
+<<<<<<< HEAD
 import MobileNav from '../MobileNav';
 import Arrow from '../../media/arrow.png';
 import MobileMapNav from '../MobileMapNav';
@@ -18,6 +19,13 @@ export default class extends Component {
           visibility: window.innerWidth >= 768 ? true : false
         }
       }
+=======
+
+
+
+export default class extends Component {
+
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
 
 
     componentDidMount(){
@@ -303,6 +311,7 @@ export default class extends Component {
         function showCircle(transition, r){
             transition.attr("r", r);
         }
+<<<<<<< HEAD
 
 
         d3.selectAll('.m_category_list_normal')
@@ -339,21 +348,32 @@ export default class extends Component {
             });
         });
 
+=======
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
         
     }
 
 
     goBack(){
         this.props.history.goBack()
+<<<<<<< HEAD
     }
     
+=======
+    };
+
+  
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
 
     render(){
         return(
         <div className="map_strategy">
+<<<<<<< HEAD
             { 
                 this.state.visibility ?(
             <div>
+=======
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
             <Logo/>
             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 1920 1080">
 	
@@ -640,6 +660,7 @@ export default class extends Component {
 
 </svg>
 
+<<<<<<< HEAD
     <Socials/>
     </div>):(
         <div>
@@ -758,5 +779,9 @@ export default class extends Component {
         </div>
         )}
     </div>)
+=======
+            <Socials/>
+        </div>)
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
     }
 }

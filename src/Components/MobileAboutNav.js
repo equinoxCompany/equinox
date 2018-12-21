@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+<<<<<<< HEAD
+=======
+import Exit from '../media/mobile_exit.png';
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
 import '../Styles/MobileBottomNav.css'
 
 export default class extends Component {
@@ -12,6 +16,10 @@ export default class extends Component {
             <li>Career</li>
             <li>Awards</li>
           </ul>
+<<<<<<< HEAD
+=======
+          <img src={Exit}/>
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
         </div>
     )
   }

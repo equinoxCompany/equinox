@@ -26,8 +26,12 @@ class Login extends Component{
 
   handleSubmit(event) {
     event.preventDefault();
+<<<<<<< HEAD
     if(this.state.value === pass.pas){
       console.log(this.state.value)
+=======
+    if(this.state.value === pass.passSeo){
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
     this.setState({ password: true })
     fetch('http://d29.default-host.net:3002/login', {
       method: 'post',

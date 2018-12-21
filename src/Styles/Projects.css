@@ -76,6 +76,7 @@
 .circle_container > * {
   z-index: -1;
 }
+<<<<<<< HEAD
 
 @media (max-width: 768px){
 
@@ -167,3 +168,5 @@
   }
 
 }
+=======
+>>>>>>> 810585ec3033f2509e86fed8344eed731109470d
