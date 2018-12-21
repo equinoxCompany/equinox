@@ -29,30 +29,17 @@ export default class extends Component {
       }))
   }
 
-  handleTitle = (e) => {
+  
+  handleTemp = e => {
     this.setState({
       temp: {
-        _id: this.state.temp._id,
-        page: this.state.temp.page,
-        title: e.target.value,
-        description: this.state.temp.description
-      }
-    })
-  }
-
-  handleDesc = (e) => {
-    this.setState({
-      temp: {
-        _id: this.state.temp._id,
-        page: this.state.temp.page,
-        title: this.state.temp.title,
-        description: e.target.value
+        ...this.state.temp,
+        [e.target.name] : e.target.value
       }
     })
   }
 
   handleChange = e => {
-    console.log()
     fetch('http://d29.default-host.net:3002/seo/' + e.target.value)
     .then(res => res.json())
     .then(currentPost => this.setState({temp: currentPost[0], page: currentPost[0].page}))
@@ -100,9 +87,9 @@ export default class extends Component {
           </Select>
           <h3 style={{color: 'white'}}>Страничка:  {this.state.temp.page}</h3>
           <h3 style={{color: 'white'}}>Title</h3>
-          <input type="text" name="title" value={this.state.temp.title} onChange={this.handleTitle}/>
+          <input type="text" name="title" value={this.state.temp.title} onChange={this.handleTemp}/>
           <h3 style={{color: 'white'}}>Description</h3>
-          <input type="text" name="description" value={this.state.temp.description} onChange={this.handleDesc}/>
+          <input type="text" name="description" value={this.state.temp.description} onChange={this.handleTemp}/>
           <Button style={{color: 'white', marginLeft: '40%', padding:'5%'}} onClick={this.onSubmit}>Редактировать</Button>
       </form>
       </div>

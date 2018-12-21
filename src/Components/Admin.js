@@ -17,7 +17,8 @@ export default class extends Component {
         url: ''
       },
       currentPost: '',
-      posts: []
+      posts: [],
+      imgs: []
     }
   }
 
@@ -71,65 +72,15 @@ export default class extends Component {
     .then(res => console.log(res));
   }
 
-  handleTitle = e => {
+  handleTemp = e => {
     this.setState({
       temp: {
-        title: e.target.value,
-        date: this.state.temp.date,
-        author: this.state.temp.author,
-        text: this.state.temp.text,
-        url: this.state.temp.url
+        ...this.state.temp,
+        [e.target.name] : e.target.value
       }
     })
   }
 
-  handleAuthor = e => {
-    this.setState({
-      temp: {
-        title: this.state.temp.title,
-        date: this.state.temp.date,
-        author: e.target.value,
-        text: this.state.temp.text,
-        url: this.state.temp.url
-      }
-    })
-  }
-
-  handleText = e => {
-    this.setState({
-      temp: {
-        title: this.state.temp.title,
-        date: this.state.temp.date,
-        author: this.state.temp.author,
-        text: e.target.value,
-        url: this.state.temp.url
-      }
-    })
-  }
-
-  handleDate = e => {
-    this.setState({
-      temp: {
-        title: this.state.temp.title,
-        date: e.target.value,
-        author: this.state.temp.author,
-        text: this.state.temp.text,
-        url: this.state.temp.url
-      }
-    })
-  }
-
-  handleUrl = e => {
-    this.setState({
-      temp: {
-        title: this.state.temp.title,
-        date: this.state.temp.date,
-        author: this.state.temp.author,
-        text: this.state.temp.text,
-        url: e.target.value
-      }
-    })
-  }
 
   handleChange = event => {
     this.RichTextEditor = window.RichTextEditor
@@ -149,7 +100,6 @@ export default class extends Component {
                   text : RichTextEditor.createValueFromString(innerText,'html')
                 }
               })
-              console.log(this.state.temp.text)
             }
             let curEl = el.className.slice(12);
             el.value = this.state.currentPost[0][curEl]
@@ -200,6 +150,13 @@ export default class extends Component {
     });
   }
 
+  loadImg = () => {
+    fetch('http://d29.default-host.net:3002/post-images', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'}
+    })
+  }
+
 
   render(){
     const styles = theme => ({
@@ -229,11 +186,11 @@ export default class extends Component {
             }
           </Select>
           <h3 style={{padding: 0, margin: 0, color: 'white'}}>Название статьи</h3>
-          <input type="text" className="admin admin_title" value={this.state.temp.title} onChange={this.handleTitle}/><br/>
+          <input type="text" name="title" className="admin admin_title" value={this.state.temp.title} onChange={this.handleTemp}/><br/>
           <h3 style={{padding: 0, margin: 0, color: 'white'}}>Дата</h3>
-          <input type="text" className="admin admin_date" value={this.state.temp.date} onChange={this.handleDate}/><br/>
+          <input type="text" name="date" className="admin admin_date" value={this.state.temp.date} onChange={this.handleTemp}/><br/>
           <h3 style={{padding: 0, margin: 0, color: 'white'}}> Автор</h3>
-          <input type="text" className="admin admin_author" value={this.state.temp.author} onChange={this.handleAuthor}/><br/>
+          <input type="text" name="author" className="admin admin_author" value={this.state.temp.author} onChange={this.handleTemp}/><br/>
           <h3 style={{padding: 0, margin: 0, color: 'white'}}>Текст</h3>
           <RichTextEditor
             style={{color: 'black'}}
@@ -241,9 +198,8 @@ export default class extends Component {
             value={this.state.temp.text}
             onChange={this.onChange}
           />
-          {/* <input type="text" className="admin admin_text" value={this.state.temp.text} onChange={this.handleText}/><br/> */}
           <h3 style={{color: 'white'}}>Url</h3>
-          <input type="text" className="admin admin_url" value={this.state.temp.url} onChange={this.handleUrl}/><br/>
+          <input type="text" name="url" className="admin admin_url" value={this.state.temp.url} onChange={this.handleTemp}/><br/>
           <h3 style={{padding: 0, margin: 0, color: 'white'}}>Изображение</h3>
           <input type="file" className="admin admin_img" name="myImage" accept="image/*"/><br/>
           <Button onClick={this.onSubmit} style={{color: 'white'}}>Добавить</Button><br/>
