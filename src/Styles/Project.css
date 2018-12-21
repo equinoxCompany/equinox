@@ -35,3 +35,147 @@
   font-size: 2vw;
   width: 68vw;
 }
+
+@media (max-width: 768px){
+
+  .m_sub_project{
+    height: 100vh;
+    width: 100vw;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+ .m_sub_project_info{
+   height: auto;
+   position: relative;
+   margin-top: 18vw;
+   font-family: "Equinox Normal";
+ }
+
+ .m_sub_project_img{
+   width: 90%;
+   margin: auto;
+   display: block;
+ }
+
+ .m_sub_projet_title{
+   width: 90%;
+   margin: 2vw auto;
+   color: #535353;
+   font-size: 10vw;
+   font-weight: 400;
+ }
+ .m_sub_project_types{
+   margin-top: 5vw;
+   position: relative;
+   width: 100vw;
+   align-items: center;
+   display: flex;
+   overflow-x: scroll;
+ }
+
+ .m_sub_project_type_circle{
+   flex-shrink: 0;
+   background: #FF5D00;
+   box-shadow: inset 0 0vw 1vw 0.1vw black;
+   border-radius: 50%;
+   height: 20vw;
+   width: 20vw;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-left: 3vw;
+ }
+
+
+ .m_sub_project_type_circle h2{
+   background: #E8E8E8;
+   width: 17.5vw;
+   height: 17.5vw;
+   border-radius: 50%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: absolute;
+   margin: 0;
+   font-size: 4vw;
+ }
+
+ .m_sub_project_scroll_box{
+   width: 80vw;
+   height: 1.5vw;
+   background: #7E7E7E;
+   border-radius: 2vw;
+   margin: 5vw auto;
+ }
+
+ .m_sub_project_scroll_button{
+   width: 20vw;
+   height: 1.5vw;
+   background: #FF5D00;
+   border-radius: 1vw;
+ }
+ .m_sub_project_text{
+   position: relative;
+   padding: 0;
+   color: #494949;
+   font-size: 4vw;
+   width: 90%;
+   margin: 0 auto;
+ }
+
+ .m_sub_project_enjoy{
+   padding-top: 20vw; 
+   padding-bottom: 20vw;
+   height: auto;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   color: #424242;
+ }
+
+ .m_sub_project_enjoy_title{
+  margin: 0;
+  font-size: 8vw;
+  font-weight: 500;
+  padding-left: 10vw;
+  padding-right: 10vw;
+  padding-bottom: 2vw;
+  border-bottom: 0.5vw solid #FF5D00;
+ }
+
+ .m_sub_project_start_project{
+   font-size: 7vw;
+   font-weight: 500;
+   margin: 0;
+ }
+
+  .m_sub_project_enjoy p {
+    position: relative;
+    color: #424242;
+    padding: 0;
+    width: 90%;
+    font-size: 4vw;
+  }
+
+  .m_sub_project_start_box{
+    margin-top: 20vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .m_sub_project_start_box h4{
+    text-align: center;
+    font-weight: 400;
+    color: #6A6A6A;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+  }
+
+  .m_sub_project_enjoy img{
+    width: 97vw;
+    padding-left: 3vw;
+  }
+
+}

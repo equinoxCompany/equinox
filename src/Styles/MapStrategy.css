@@ -4,3 +4,102 @@ text {
     font-size: 0px;
     font-weight: 900;
 }
+
+.m_map_category_selector h1{
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 400;
+    color: #868686;
+    font-size: 13vw;
+    line-height: 15vw;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    margin-bottom: 2vw;
+}
+
+.m_map_category_selector{
+    display: flex;
+    align-items: center;
+    margin-left: 18vw;
+    height: auto;
+}
+
+.m_map_category_selector img{
+    width: 5.5vw;
+}
+
+.m_category_global{
+    margin-bottom: 5vh;
+}
+
+.m_map_next_category{
+    transform: rotate(180deg);
+}
+
+.m_map_category_type_list{
+    height: 82vh;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    padding-top: 10vw;
+    overflow-y: scroll;
+}
+
+.m_category_list_normal{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 8vw;
+    font-weight: 500;
+    color: #3E3E3E;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.m_category_list_normal img{
+    width: 5vw;
+    margin-right: 2vw;
+}
+
+.m_category_list_normal span{
+    display: flex;
+    align-items: center;
+}
+
+.m_category_list_normal h2{
+    font-size: 10vw;
+    line-height: 7vw;
+}
+
+.m_category_drop_circle{
+    border-radius: 50%;
+    border: 1vw solid #FF5D00;
+    margin-right: 3vw;
+}
+
+.m_category_list_drop h3{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 400;
+    margin: 0;
+}
+
+.m_category_list_drop{
+    display: none;
+    overflow-y: hidden;
+    height: 100%;
+}
+
+.m_category_list_drop>ul>li{
+    display: flex;
+    align-items: center;
+    margin: 4vw 0 0 0;
+}
+
+.m_category_selected{
+    display: none;
+    width: 10vw;
+    height: 0;
+    border-radius: 10vw;
+    border: 1vw solid #FF5D00;
+}

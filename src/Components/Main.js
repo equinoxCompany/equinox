@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import Logo from './Logo';
 import Socials from './Socials';
+import MobileMainMenuNav from './MobileMainMenuNav';
+import MobileLogo from '../media/equinox.png';
 import { Link } from 'react-router-dom';
 import '../scripts/cursor.js';
 import '../Styles/Main.css';
@@ -18,6 +20,7 @@ componentDidMount(){
       visibility: window.innerWidth >= 768 ? true : false
     }
   }
+
 
   mouseEnterHandler(){
     let tail = document.getElementsByClassName('tail');
@@ -91,21 +94,11 @@ componentDidMount(){
         <Socials/>
         </div>
         ) : (
-        <div className="main_mobile">
-          <div className="main_mobile_header">
-            <p>
-              Digital and branding studio<br/>Wanna play?
-            </p>
-            <div className="main_header_logo"></div>
-          </div>
-          <div className="mobile_menu_container">
-            <div className="mobile_menu_wrapper">
-              <Link to="contacts" className="internal">Contacts</Link>
-              <Link to="" className="internal">Projects</Link>
-              <Link to="about-us" className="internal">About us</Link>
-              <Link to="blog" className="internal">Blog</Link>
-            </div>
-          </div>
+        <div className="m_main">
+          <img className="m_logo" src={MobileLogo}/>
+          <p className="m_main_title_img">Digital and branding studio <br/>
+Wanna play?</p>
+          <MobileMainMenuNav/>
           <div className="scroll_to_choose">Scroll to choose</div>
           <div className="socials_mobile">
           <ul>

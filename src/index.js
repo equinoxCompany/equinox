@@ -8,13 +8,11 @@ import Login from './Components/Login';
 import Contacts from './Components/Contacts';
 import JoinCrew from './Components/JoinCrew';
 import Blog from './Components/Blog';
-import Seo from './Components/Seo';
 import Post from './Components/Post';
 import Loader from './Components/Loader';
 import Admin from './Components/Admin';
 import Projects from './Components/Projects';
 import Project from './Components/Project';
-import SeoService from './Components/Services/Seo';
 import ServicesMenu from './Components/Services/ServicesMenu';
 import SeoAdmin from './Components/AdminSeo';
 import Map from './Components/Services/MapStrategy';
@@ -31,13 +29,11 @@ ReactDOM.render((
       <Route path='/contacts' component={Contacts}/>
       <Route path='/join-the-crew' component={JoinCrew}/>
       <Route path='/blog' component={Blog}/>
-      <Route path='/seo' component={Seo}/>
       <Route path='/seo-admin' component={LoginSeo}/>
       <Route path='/admin' component={Login}/>
       <Route path='/projects' component={Projects}/>
       <Route path='/project' component={Project}/>
       <Route path='/services' component={ServicesMenu}/>
-      <Route path='/service' component={SeoService}/>
       <Route path='/map' component={Map}/>
       <Route path='/:post' component={Post}/>
     </Switch>

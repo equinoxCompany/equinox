@@ -1,13 +1,137 @@
 .mobile_nav{
     position: absolute;
-    left: 3vw;
-    top: 3vw;
-    width: 12vw;
-    height: 12vw;
-    margin: 0;
     z-index: 100;
+    top: 0;
+    font-family: 'Equinox Normal';
+}
+
+.m_nav_list{
+    position: relative;
+    height: 100vh;
+    display: none;
+}
+
+.m_nav_list li{
+    position: absolute;
+}
+
+/* .m_nav_contacts_circle{
+    background: #272727;
+    width: 250vw;
+    height: 250vw;
+    border-radius: 50%;
+    top: -150.2vw;
+    left: -140vw;
+} */
+
+
+.m_nav_contacts_circle{
+    background: #272727;
+    width: 250vw;
+    height: 250vw;
+    border-radius: 45%;
+    top: -150.2vw;
+    left: -140vw;
+    z-index: 1;
+}
+
+.m_nav_contacts_circle span{
+    color: white;
+    position: absolute;
+    z-index: 5;
+    font-size: 8vw;
+    bottom: 30vw;
+    right: 36vw;
+    font-weight: 400;
+}
+
+.m_nav_blog_circle{
+    background:#FF5D00;
+    width: 200vw;
+    height: 200vw;
+    border-radius: 40%;
+    top: -127.2vw;
+    left: -120vw;
+    z-index: 2;
+    box-shadow: 0vw 2vw 5vw 0vw black;
+}
+
+.m_nav_blog_circle span{
+    color: white;
+    position: absolute;
+    z-index: 5;
+    font-size: 9vw;
+    bottom: 18vw;
+    right: 35vw;
+    font-weight: 400;
+}
+
+.m_nav_project_circle{
+    background:#898989;
+    width: 150vw;
+    height: 150vw;
+    z-index: 3;
+    border-radius: 40%;
+    top: -100.2vw;
+    left: -95vw;
+    box-shadow: 0vw 2vw 5vw 0vw black;
+}
+
+.m_nav_project_circle span{
+    color: white;
+    position: absolute;
+    z-index: 5;
+    font-size: 9vw;
+    bottom: 15vw;
+    right: 20vw;
+    font-weight: 400;
+}
+
+.m_nav_burger_circle{
+    background:#E8E8E8;
+    width: 50vw;
+    height: 50vw;
+    z-index: 4;
+    border-radius: 50%;
+    top: -27.2vw;
+    left: -23vw;
+    box-shadow: 0vw 2vw 5vw 0vw black;
 }
 
 .mobile_nav img{
-    width: 100%;
+    position: absolute;
+    z-index: 5;
+    top: 4vw;
+    left: 4vw;
+    width: 10vw;
+    height: auto;
+}
+
+.m_nav_home_circle{
+    position: absolute;
+    top: 70vh;
+    left: 35vw;
+    z-index: 10;
+    width: 30vw;
+    height: 30vw;
+    background: #272727;
+    border-radius: 50%;
+    border: 0.5vw solid #FF5D00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.m_nav_home_circle span{
+    color: white;
+    font-size: 9vw;
+}
+
+
+.mobile_exit{
+    z-index: 10;
+    position: absolute;
+    width: 10vw;
+    right: 2vw;
+    bottom: 2vw;
 }

@@ -14,6 +14,7 @@ import dev2 from '../media/dev2.jpg';
 import seo from '../media/seo.jpg';
 import MobileNav from './MobileNav';
 import MobileAboutNav from './MobileAboutNav';
+import MobileExit from '../media/mobile_exit.png';
 import AboutUsImg from '../media/about_us_img.jpg';
 import AboutUsService from '../media/about_us_service.jpg';
 import MobileTeam from '../media/mobile_team.png';
@@ -40,6 +41,7 @@ export default class extends Component {
       items: []
     }
   }
+
 
   // componentDidMount(){
   //   fetch('/about-us')
@@ -375,7 +377,9 @@ export default class extends Component {
   }
   };
   
-  
+  goBack(){
+    this.props.history.goBack()
+  }
 
   render(){
     return(
@@ -1002,10 +1006,10 @@ that stand strong on all platforms...</p>
             </section>
           </div>
           <MobileAboutNav/>
+          <img src={MobileExit} onClick={()=>this.goBack()} className="mobile_exit"/>
         </div> ) 
       }
       </div>
     )
   }
 }
-

@@ -1,3 +1,5 @@
+
+
 @font-face {
   font-family: 'Equinox Normal';
   font-style: normal;
@@ -6,7 +8,7 @@
   src: local('EquinoxNormal'), local('EquinoxNormal'),
 }
 
-
+@media (min-width: 768px){
 body {
   resize: none;
   margin: 0;
@@ -23,4 +25,5 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
 }

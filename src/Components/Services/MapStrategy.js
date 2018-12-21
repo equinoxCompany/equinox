@@ -4,11 +4,20 @@ import Exit from '../../media/exit.png';
 import Socials from '../Socials';
 import '../../Styles/MapStrategy.css';
 import * as d3 from "d3";
-
+import MobileNav from '../MobileNav';
+import Arrow from '../../media/arrow.png';
+import MobileMapNav from '../MobileMapNav';
+import MapPoint from '../../media/map_point.png';
+import MobileExit from '../../media/mobile_exit.png';
 
 
 export default class extends Component {
-
+    constructor(props){
+        super(props);
+        this.state = {
+          visibility: window.innerWidth >= 768 ? true : false
+        }
+      }
 
 
     componentDidMount(){
@@ -294,19 +303,57 @@ export default class extends Component {
         function showCircle(transition, r){
             transition.attr("r", r);
         }
+
+
+        d3.selectAll('.m_category_list_normal')
+        .each(function(){
+            d3.select(this)
+                .on("click", function(){
+                    d3.select(this.parentNode)
+                        .call(function(e){
+                            let flag = e.attr('data-door');
+                            if(flag == 'false'){
+                                e.select('.m_category_selected')
+                                    .style('display', 'block');
+                                e.select('img')
+                                    .style("display", "none");
+                                e.select('.m_category_list_normal')
+                                    .style("text-decoration", "line-through #FF5D00")
+                                    .style('color', '#FF5D00');
+                                e.select('.m_category_list_drop')
+                                    .style('display', 'block');
+                                e.attr('data-door','true');
+                            }else {
+                                e.select('.m_category_selected')
+                                    .style('display', 'none');
+                                e.select('img')
+                                    .style("display", "block");
+                                e.select('.m_category_list_normal')
+                                    .style("text-decoration", "none")
+                                    .style('color', '#3E3E3E');
+                                e.select('.m_category_list_drop')
+                                    .style('display', 'none');
+                                e.attr('data-door','false');
+                            }
+                });
+            });
+        });
+
         
     }
 
 
     goBack(){
         this.props.history.goBack()
-    };
-
-  
+    }
+    
 
     render(){
         return(
         <div className="map_strategy">
+            { 
+                this.state.visibility ?(
+            <div>
             <Logo/>
             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 1920 1080">
 	
@@ -593,7 +640,123 @@ export default class extends Component {
 
 </svg>
 
-            <Socials/>
-        </div>)
+    <Socials/>
+    </div>):(
+        <div>
+            <MobileNav/>
+            <div className="m_map_category_selector">
+                <img src={Arrow} className="m_map_prev_category"/>
+                <h1>BRANDING</h1>
+                <img src={Arrow} className="m_map_next_category"/>
+            </div>
+            <div className="m_map_category_type_list">
+                    <ul>
+                        <li className="m_category_global" data-door="false">
+                            <div className="m_category_list_normal">
+                                <span>
+                                    <img src={MapPoint}/>
+                                    <h2>Category title</h2>
+                                </span>
+                                <div className="m_category_selected"></div>
+                            </div>
+                            <div className="m_category_list_drop">
+                                <ul>
+                                    <li>
+                                        <div className="m_category_drop_circle"></div>
+                                        <h3>Nice one</h3>
+                                    </li>
+                                    <li>
+                                        <div className="m_category_drop_circle"></div>
+                                        <h3>Nice one</h3>
+                                    </li>
+                                    <li>
+                                        <div className="m_category_drop_circle"></div>
+                                        <h3>Nice one</h3>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li className="m_category_global" data-door="false">
+                            <div className="m_category_list_normal">
+                                <span>
+                                    <img src={MapPoint}/>
+                                    <h2>Category title</h2>
+                                </span>
+                                <div className="m_category_selected"></div>
+                            </div>
+                            <div className="m_category_list_drop">
+                                <ul>
+                                    <li>
+                                        <div className="m_category_drop_circle"></div>
+                                        <h3>Nice one</h3>
+                                    </li>
+                                    <li>
+                                        <div className="m_category_drop_circle"></div>
+                                        <h3>Nice one</h3>
+                                    </li>
+                                    <li>
+                                        <div className="m_category_drop_circle"></div>
+                                        <h3>Nice one</h3>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li className="m_category_global" data-door="false">
+                            <div className="m_category_list_normal">
+                                <span>
+                                    <img src={MapPoint}/>
+                                    <h2>Category title</h2>
+                                </span>
+                                <div className="m_category_selected"></div>
+                            </div>
+                            <div className="m_category_list_drop">
+                                <ul>
+                                    <li>
+                                        <div className="m_category_drop_circle"></div>
+                                        <h3>Nice one</h3>
+                                    </li>
+                                    <li>
+                                        <div className="m_category_drop_circle"></div>
+                                        <h3>Nice one</h3>
+                                    </li>
+                                    <li>
+                                        <div className="m_category_drop_circle"></div>
+                                        <h3>Nice one</h3>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li className="m_category_global" data-door="false">
+                            <div className="m_category_list_normal">
+                                <span>
+                                    <img src={MapPoint}/>
+                                    <h2>Category title</h2>
+                                </span>
+                                <div className="m_category_selected"></div>
+                            </div>
+                            <div className="m_category_list_drop">
+                                <ul>
+                                    <li>
+                                        <div className="m_category_drop_circle"></div>
+                                        <h3>Nice one</h3>
+                                    </li>
+                                    <li>
+                                        <div className="m_category_drop_circle"></div>
+                                        <h3>Nice one</h3>
+                                    </li>
+                                    <li>
+                                        <div className="m_category_drop_circle"></div>
+                                        <h3>Nice one</h3>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+            </div>
+            <MobileMapNav/>
+            <img src={MobileExit} onClick={()=>this.goBack()} className="mobile_exit"/>
+        </div>
+        )}
+    </div>)
     }
 }

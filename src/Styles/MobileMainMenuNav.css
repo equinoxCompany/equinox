@@ -1,0 +1,17 @@
+
+.m_main_menu_nav{
+    display: flex;
+    justify-content: center;
+    font-size: 7vw;
+    height: 30vw;
+}
+
+.m_main_menu_nav li{
+    width: 33vw;
+    height: 33vw;
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    color: #CCCCCC;
+}

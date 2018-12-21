@@ -76,3 +76,94 @@
 .circle_container > * {
   z-index: -1;
 }
+
+@media (max-width: 768px){
+
+  .m_projects{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .m_projects_header{
+    position: absolute;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .m_projects_header h3{
+    margin:0;
+    line-height: 15vw;
+    font-size: 14vw;
+    text-align: center;
+    width: 66vw;
+    font-weight: 400;
+    color: #868686;
+  }
+
+  .m_projects_scroll_bar{
+    position: absolute;
+    overflow-y: scroll;
+    height: 89vh;
+    width: 100vw;
+    top: 20vw;
+  }
+
+  .m_project_box{
+    padding-left: 5%;
+    padding-right: 5%;
+    margin: 0vw auto;
+    display: flex;
+    flex-direction: column;
+    padding-top: 4vw;
+    padding-bottom: 4vw;
+  }
+
+  .m_project_box:nth-child(2n){
+    background: #D8D8D8;
+  }
+
+  .m_project_header{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .m_project_name h2{
+    font-size: 9vw;
+    font-weight: 400;
+    line-height: 9vw;
+  }
+
+  .m_project_name{
+    font-family: 'Equinox Normal';
+    color: #535353;
+  }
+
+  .m_project_date h2{
+    font-size: 7vw;
+    line-height: 7vw;
+    font-weight: 400;
+  }
+
+  .m_project_date{
+    color: #FF5D00;
+  }
+
+  .m_project_bottom p{
+    padding: 0; 
+    position: relative;
+    color: #535353;
+    font-size: 4vw;
+    margin: 0;
+    width: 55%;
+  }
+
+  .m_project_info_delemiter{
+    margin: 2vw auto;
+    width: 95%;
+    border: 0.2vw solid #FF5D00;
+  }
+
+}

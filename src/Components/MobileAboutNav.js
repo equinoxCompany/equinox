@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Exit from '../media/mobile_exit.png';
 import '../Styles/MobileBottomNav.css'
 
 export default class extends Component {
@@ -13,7 +12,6 @@ export default class extends Component {
             <li>Career</li>
             <li>Awards</li>
           </ul>
-          <img src={Exit}/>
         </div>
     )
   }

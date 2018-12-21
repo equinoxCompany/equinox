@@ -2,20 +2,23 @@ import React , {Component} from 'react';
 import Logo from './Logo';
 import Socials from './Socials';
 import '../Styles/Post.css';
-import Link from 'react-router-dom/Link'
+import Link from 'react-router-dom/Link';
 import Author from '../media/author.png';
 import Exit from '../media/exit.png';
 import Comments from '../media/comments.png';
 import Repost from '../media/repost.png';
 import Picture from '../media/post_img.png';
 import renderHTML from 'react-render-html';
+import MobileExit from '../media/mobile_exit.png';
+import MobileNav from './MobileNav';
+import MobilePostImg from '../media/blog_img.png';
 
 export default class extends Component {
-    componentDidMount(){
-      fetch('http://d29.default-host.net:3002/post/'+this.props.location.pathname.slice(6))
-        .then(res => res.json())
-				.then(post => this.setState({post: post[0]}))
-    }
+    // componentDidMount(){
+    //   fetch('http://d29.default-host.net:3002/post/'+this.props.location.pathname.slice(6))
+    //     .then(res => res.json())
+	// 			.then(post => this.setState({post: post[0]}))
+    // }
 
     constructor(props){
         super(props);
@@ -24,6 +27,11 @@ export default class extends Component {
 					post: {}
         }
     }
+
+    goBack(){
+        this.props.history.goBack()
+      }
+    
 
     render(){
         return(
@@ -52,9 +60,9 @@ export default class extends Component {
                                     <Link to="/seo"><img src={Exit} className="button_exit"/></Link>
                                 </div>
                                 <div className="post_info_subject">
-                                    <h1>{this.state.post.title}<br/>
-                                        <span className="post_info_date">{this.state.post.date}</span>
+                                    <h1>{this.state.post.title}
                                      </h1>
+                                     <span className="post_info_date">{this.state.post.date}</span>
                                 </div>
                                 <div className="post_text">
                                     <p>{this.state.post.text && renderHTML(this.state.post.text)} </p>
@@ -66,7 +74,48 @@ export default class extends Component {
                                 <Socials/>
                             </div>
                         ):(
-                            <div></div>
+                            <div className="post_mobile">
+                                <MobileNav/>
+                                <div className="m_post_box">
+                                    <h1>Namale,<br/> a <span className="c_color">UnIQuE</span> jewel from the Fiji archipelago </h1>
+                                    <img src={MobilePostImg} className="m_post_img"/>
+                                    <div className="m_post_info">
+                                        <div className="m_post_author_info_box">
+                                            <div className="m_post_info_circles">
+                                                <img src={Author} className="m_post_author_circle"/>
+                                                <div className="m_post_right_circle"></div>
+                                                <div className="m_post_bottom_circle"></div>
+                                            </div>
+                                            <div className="m_post_author_name">
+                                                <h2>Author Name</h2>
+                                            </div>
+                                        </div>
+                                        <div className="m_post_likes_box">
+                                            <div className="m_post_likes_left_circle"></div>
+                                            <h4><span className="hight_digit">2</span><span className="average_digit">3</span><span className="c_color">.</span>345</h4>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        Arriving to Canada from Syria, Feda brought with her a 
+passion that never left her. Making a childhood dream come 
+true she founded, a few years ago, her own jewelry line: 
+Créations Namale.Along with her creative vision, we 
+DESIGNED an entire brand identity that is declined.
+Arriving to Canada from Syria, Feda brought with her a 
+passion that never left her. Making a childhood dream come 
+true she founded, a few years ago, her own jewelry line: 
+Créations Namale.Along with her creative vision, we 
+DESIGNED an entire brand identity that is declined.
+Arriving to Canada from Syria, Feda brought with her a 
+passion that never left her. Making a childhood dream come 
+true she founded, a few years ago, her own jewelry line: 
+Créations Namale.Along with her creative vision, we 
+DESIGNED an entire brand identity that is declined.
+                                        </p>
+                                </div>
+                                <img src={Repost} className="m_post_repost"/>
+                                <img src={MobileExit} onClick={()=>this.goBack()} className="mobile_exit"/>
+                            </div>
                         )
                     }
                 </div>

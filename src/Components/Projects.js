@@ -3,11 +3,29 @@ import {Link} from 'react-router-dom';
 import '../Styles/Projects.css';
 import Logo from './Logo';
 import Socials from './Socials';
-
+import MobileNav from './MobileNav';
+import MobileExit from '../media/mobile_exit.png';
 
 export default class extends Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      visibility: window.innerWidth >= 768 ? true : false,
+      post: {}
+    }
+}
+
+goBack(){
+  this.props.history.goBack()
+}
+
   render(){
     return(
+      <div className="Post">
+      <div>
+          {
+              this.state.visibility?(
       <div className="projects_page">
         <Logo/>
         <div className="circle_container">
@@ -81,7 +99,154 @@ export default class extends Component {
           <div className="fourt_project_img"></div>
           </div>
         <Socials/>
-      </div>
+      </div>):(
+        <div className="m_projects">
+          <MobileNav/>
+          <div className="m_projects_header">
+            <h3>PROJECTS</h3>
+          </div>
+          <ul className="m_projects_scroll_bar">
+          <Link to="project"><li className="m_project_box">
+              <div className="m_project_header">
+                <div className="m_project_name">
+                  <h2>Project name</h2>
+                </div>
+                <div className="m_project_date">
+                  <h2>12.11.18</h2>
+                </div>
+              </div>
+              <span className="m_project_info_delemiter"></span>
+              <div className="m_project_bottom">
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                </p>
+              </div>
+            </li></Link>
+            <li className="m_project_box">
+              <div className="m_project_header">
+                <div className="m_project_name">
+                  <h2>Project name</h2>
+                </div>
+                <div className="m_project_date">
+                  <h2>12.11.18</h2>
+                </div>
+              </div>
+              <span className="m_project_info_delemiter"></span>
+              <div className="m_project_bottom">
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                </p>
+              </div>
+            </li>
+            <li className="m_project_box">
+              <div className="m_project_header">
+                <div className="m_project_name">
+                  <h2>Project name</h2>
+                </div>
+                <div className="m_project_date">
+                  <h2>12.11.18</h2>
+                </div>
+              </div>
+              <span className="m_project_info_delemiter"></span>
+              <div className="m_project_bottom">
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                </p>
+              </div>
+            </li>
+            <li className="m_project_box">
+              <div className="m_project_header">
+                <div className="m_project_name">
+                  <h2>Project name</h2>
+                </div>
+                <div className="m_project_date">
+                  <h2>12.11.18</h2>
+                </div>
+              </div>
+              <span className="m_project_info_delemiter"></span>
+              <div className="m_project_bottom">
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                </p>
+              </div>
+            </li>
+            <li className="m_project_box">
+              <div className="m_project_header">
+                <div className="m_project_name">
+                  <h2>Project name</h2>
+                </div>
+                <div className="m_project_date">
+                  <h2>12.11.18</h2>
+                </div>
+              </div>
+              <span className="m_project_info_delemiter"></span>
+              <div className="m_project_bottom">
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                </p>
+              </div>
+            </li>
+            <li className="m_project_box">
+              <div className="m_project_header">
+                <div className="m_project_name">
+                  <h2>Project name</h2>
+                </div>
+                <div className="m_project_date">
+                  <h2>12.11.18</h2>
+                </div>
+              </div>
+              <span className="m_project_info_delemiter"></span>
+              <div className="m_project_bottom">
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                </p>
+              </div>
+            </li>
+            <li className="m_project_box">
+              <div className="m_project_header">
+                <div className="m_project_name">
+                  <h2>Project name</h2>
+                </div>
+                <div className="m_project_date">
+                  <h2>12.11.18</h2>
+                </div>
+              </div>
+              <span className="m_project_info_delemiter"></span>
+              <div className="m_project_bottom">
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                </p>
+              </div>
+            </li>
+            <li className="m_project_box">
+              <div className="m_project_header">
+                <div className="m_project_name">
+                  <h2>Project name</h2>
+                </div>
+                <div className="m_project_date">
+                  <h2>12.11.18</h2>
+                </div>
+              </div>
+              <span className="m_project_info_delemiter"></span>
+              <div className="m_project_bottom">
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                </p>
+              </div>
+            </li>
+            <li className="m_project_box">
+              <div className="m_project_header">
+                <div className="m_project_name">
+                  <h2>Project name</h2>
+                </div>
+                <div className="m_project_date">
+                  <h2>12.11.18</h2>
+                </div>
+              </div>
+              <span className="m_project_info_delemiter"></span>
+              <div className="m_project_bottom">
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                </p>
+              </div>
+            </li>
+          </ul>
+          <img src={MobileExit} onClick={()=>this.goBack()} className="mobile_exit"/>
+        </div>
+        )}
+        </div>
+        </div>
     )
   }
 }
