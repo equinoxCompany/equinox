@@ -1,17 +1,32 @@
 
 .m_main_menu_nav{
+    margin-top: 4vw;
     display: flex;
-    justify-content: center;
-    font-size: 7vw;
-    height: 30vw;
+    justify-content: left;
+    flex-direction: row;
+    font-size: 5vw;
+    height: auto;
+    overflow-x: scroll;
 }
 
+/* хром, сафари */
+.m_main_menu_nav::-webkit-scrollbar { width: 0; }
+
+/* ie 10+ */
+.m_main_menu_nav { -ms-overflow-style: none; }
+
+/* фф (свойство больше не работает, других способов тоже нет)*/
+.m_main_menu_nav { overflow: -moz-scrollbars-none; }
+
 .m_main_menu_nav li{
+    flex-shrink: 0;
     width: 33vw;
     height: 33vw;
-    border: 1px solid red;
     display: flex;
     justify-content: center;
     align-items: flex-end;
     color: #CCCCCC;
+    text-align: center;
 }
+
+

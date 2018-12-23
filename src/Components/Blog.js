@@ -9,13 +9,64 @@ import MobileExit from '../media/mobile_exit.png';
 import MobileBlogNav from './MobileBlogNav';
 import MobileNav from './MobileNav';
 import {Link} from 'react-router-dom';
+import * as d3 from "d3";
 
 export default class extends Component {
   componentDidMount(){
     fetch('http://d29.default-host.net:3002/posts')
       .then(res => res.json())
-      .then(posts => this.setState({posts}))
+      .then(posts => this.setState({posts}));
+
+
+      function getOffset(el) {
+        return el.getBoundingClientRect();
+    }
+    
+  
+    d3.select('.mobile_blog_content')
+      .on('scroll', scrollAnimation)
+    
+    scrollAnimation();
+   
+      function scrollAnimation(){
+        let scroll_box = d3.select('.mobile_blog_content').node();
+        let scroll_box_sizes = scroll_box.getBoundingClientRect();
+        let scroll_box_width = scroll_box_sizes.right;
+        let scroll_box_height = scroll_box_sizes.bottom - scroll_box_sizes.top;
+        let section_heigh = (scroll_box_width * 28)/100;
+        let center_box = Math.round((scroll_box_height/2) + scroll_box_sizes.top);
+        let second_section = section_heigh/3;
+        let third_section = section_heigh;
+
+        d3.selectAll('.mobile_blog_post_list li')
+          .each(function(){
+            let e = d3.select(this).node();
+            let e_sizes = getOffset(e);
+            let e_top = e_sizes.top;
+            let e_bottom = e_sizes.bottom;
+            if(e_bottom < center_box - third_section || e_top > center_box + third_section){
+              d3.select(this)
+              .classed('mobile_blog_post_average', false)
+              .classed('mobile_blog_post_large', false)
+              .classed('mobile_blog_post_small', true);
+            } else if(e_bottom <= center_box - second_section || e_top >= center_box + second_section/2){
+              d3.select(this)
+              .classed('mobile_blog_post_small', false)
+              .classed('mobile_blog_post_large', false)
+              .classed('mobile_blog_post_average', true);
+            } else if(e_top < center_box && e_bottom > center_box ){
+              d3.select(this)
+              .classed('mobile_blog_post_large', true)
+              .classed('mobile_blog_post_small', false)
+              .classed('mobile_blog_post_average', false);
+            }
+        });
+      }
+  
+
   }
+
+
 
   constructor(props){
     super(props);
@@ -100,7 +151,7 @@ export default class extends Component {
   </div>
   <div className="mobile_blog_post_list">
     <ul>
-      <li className="mobile_blog_post mobile_blog_post_small">
+      <li className="mobile_blog_post">
         <div className="mobile_blog_post_date">12.11</div>
         <div className="mobile_blog_post_data">
           <h3>SEO</h3>
@@ -108,51 +159,179 @@ export default class extends Component {
           <h3>stories</h3>
         </div>
       </li>
-      <li className="mobile_blog_post mobile_blog_post_average">
-        <div className="mobile_blog_post_date">09.11</div>
+      <li className="mobile_blog_post">
+        <div className="mobile_blog_post_date">12.11</div>
         <div className="mobile_blog_post_data">
           <h3>SEO</h3>
-          <h2>Is<span className="c_color">ART</span></h2>
-          <h3>future</h3>
-        </div>
-      </li>
-      <Link to="post"><li className="mobile_blog_post mobile_blog_post_large">
-        <div className="mobile_blog_post_date">31.10</div>
-        <div className="mobile_blog_post_data">
-          <h3>Design</h3>
-          <h2>Is<span className="c_color">About</span></h2>
-          <h3>stories</h3>
-        </div>
-      </li></ Link>
-      <li className="mobile_blog_post mobile_blog_post_average">
-        <div className="mobile_blog_post_date">12.11</div>
-        <div className="mobile_blog_post_data">
-          <h3>Done</h3>
-          <h2><span className="c_color">When</span></h2>
+          <h2>Hello<span className="c_color">People</span></h2>
           <h3>stories</h3>
         </div>
       </li>
-      <li className="mobile_blog_post mobile_blog_post_small">
+      <li className="mobile_blog_post">
         <div className="mobile_blog_post_date">12.11</div>
         <div className="mobile_blog_post_data">
-          <h3>Design</h3>
-          <h2>Is<span className="c_color">About</span></h2>
+          <h3>SEO</h3>
+          <h2>Hello<span className="c_color">People</span></h2>
           <h3>stories</h3>
         </div>
       </li>
-      <li className="mobile_blog_post mobile_blog_post_small">
+      <li className="mobile_blog_post">
         <div className="mobile_blog_post_date">12.11</div>
         <div className="mobile_blog_post_data">
-          <h3>Design</h3>
-          <h2>Is<span className="c_color">About</span></h2>
+          <h3>SEO</h3>
+          <h2>Hello<span className="c_color">People</span></h2>
           <h3>stories</h3>
         </div>
       </li>
-      <li className="mobile_blog_post mobile_blog_post_small">
+      <li className="mobile_blog_post">
         <div className="mobile_blog_post_date">12.11</div>
         <div className="mobile_blog_post_data">
-          <h3>Design</h3>
-          <h2>Is<span className="c_color">About</span></h2>
+          <h3>SEO</h3>
+          <h2>Hello<span className="c_color">People</span></h2>
+          <h3>stories</h3>
+        </div>
+      </li>
+      <li className="mobile_blog_post">
+        <div className="mobile_blog_post_date">12.11</div>
+        <div className="mobile_blog_post_data">
+          <h3>SEO</h3>
+          <h2>Hello<span className="c_color">People</span></h2>
+          <h3>stories</h3>
+        </div>
+      </li>
+      <li className="mobile_blog_post">
+        <div className="mobile_blog_post_date">12.11</div>
+        <div className="mobile_blog_post_data">
+          <h3>SEO</h3>
+          <h2>Hello<span className="c_color">People</span></h2>
+          <h3>stories</h3>
+        </div>
+      </li>
+      <li className="mobile_blog_post">
+        <div className="mobile_blog_post_date">12.11</div>
+        <div className="mobile_blog_post_data">
+          <h3>SEO</h3>
+          <h2>Hello<span className="c_color">People</span></h2>
+          <h3>stories</h3>
+        </div>
+      </li>
+      <li className="mobile_blog_post">
+        <div className="mobile_blog_post_date">12.11</div>
+        <div className="mobile_blog_post_data">
+          <h3>SEO</h3>
+          <h2>Hello<span className="c_color">People</span></h2>
+          <h3>stories</h3>
+        </div>
+      </li>
+      <li className="mobile_blog_post">
+        <div className="mobile_blog_post_date">12.11</div>
+        <div className="mobile_blog_post_data">
+          <h3>SEO</h3>
+          <h2>Hello<span className="c_color">People</span></h2>
+          <h3>stories</h3>
+        </div>
+      </li>
+      <li className="mobile_blog_post">
+        <div className="mobile_blog_post_date">12.11</div>
+        <div className="mobile_blog_post_data">
+          <h3>SEO</h3>
+          <h2>Hello<span className="c_color">People</span></h2>
+          <h3>stories</h3>
+        </div>
+      </li>
+      <li className="mobile_blog_post">
+        <div className="mobile_blog_post_date">12.11</div>
+        <div className="mobile_blog_post_data">
+          <h3>SEO</h3>
+          <h2>Hello<span className="c_color">People</span></h2>
+          <h3>stories</h3>
+        </div>
+      </li>
+      <li className="mobile_blog_post">
+        <div className="mobile_blog_post_date">12.11</div>
+        <div className="mobile_blog_post_data">
+          <h3>SEO</h3>
+          <h2>Hello<span className="c_color">People</span></h2>
+          <h3>stories</h3>
+        </div>
+      </li>
+      <li className="mobile_blog_post">
+        <div className="mobile_blog_post_date">12.11</div>
+        <div className="mobile_blog_post_data">
+          <h3>SEO</h3>
+          <h2>Hello<span className="c_color">People</span></h2>
+          <h3>stories</h3>
+        </div>
+      </li>
+      <li className="mobile_blog_post">
+        <div className="mobile_blog_post_date">12.11</div>
+        <div className="mobile_blog_post_data">
+          <h3>SEO</h3>
+          <h2>Hello<span className="c_color">People</span></h2>
+          <h3>stories</h3>
+        </div>
+      </li>
+      <li className="mobile_blog_post">
+        <div className="mobile_blog_post_date">12.11</div>
+        <div className="mobile_blog_post_data">
+          <h3>SEO</h3>
+          <h2>Hello<span className="c_color">People</span></h2>
+          <h3>stories</h3>
+        </div>
+      </li>
+      <li className="mobile_blog_post">
+        <div className="mobile_blog_post_date">12.11</div>
+        <div className="mobile_blog_post_data">
+          <h3>SEO</h3>
+          <h2>Hello<span className="c_color">People</span></h2>
+          <h3>stories</h3>
+        </div>
+      </li>
+      <li className="mobile_blog_post">
+        <div className="mobile_blog_post_date">12.11</div>
+        <div className="mobile_blog_post_data">
+          <h3>SEO</h3>
+          <h2>Hello<span className="c_color">People</span></h2>
+          <h3>stories</h3>
+        </div>
+      </li>
+      <li className="mobile_blog_post">
+        <div className="mobile_blog_post_date">12.11</div>
+        <div className="mobile_blog_post_data">
+          <h3>SEO</h3>
+          <h2>Hello<span className="c_color">People</span></h2>
+          <h3>stories</h3>
+        </div>
+      </li>
+      <li className="mobile_blog_post">
+        <div className="mobile_blog_post_date">12.11</div>
+        <div className="mobile_blog_post_data">
+          <h3>SEO</h3>
+          <h2>Hello<span className="c_color">People</span></h2>
+          <h3>stories</h3>
+        </div>
+      </li>
+      <li className="mobile_blog_post">
+        <div className="mobile_blog_post_date">12.11</div>
+        <div className="mobile_blog_post_data">
+          <h3>SEO</h3>
+          <h2>Hello<span className="c_color">People</span></h2>
+          <h3>stories</h3>
+        </div>
+      </li>
+      <li className="mobile_blog_post">
+        <div className="mobile_blog_post_date">12.11</div>
+        <div className="mobile_blog_post_data">
+          <h3>SEO</h3>
+          <h2>Hello<span className="c_color">People</span></h2>
+          <h3>stories</h3>
+        </div>
+      </li>
+      <li className="mobile_blog_post">
+        <div className="mobile_blog_post_date">12.11</div>
+        <div className="mobile_blog_post_data">
+          <h3>SEO</h3>
+          <h2>Hello<span className="c_color">People</span></h2>
           <h3>stories</h3>
         </div>
       </li>

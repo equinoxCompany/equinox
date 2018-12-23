@@ -385,13 +385,24 @@ a:hover > .grey_circle {
 
 @media (max-width: 768px){
 
+  .m_main_img_box{
+    width: 100vw;
+    position: relative;
+    margin-left: -5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .m_main{
-    width: 90vw;
-    margin: 5vw auto;
+    margin: 5vw 5vw ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .m_logo{
-    width: 100%;
+    width: 90%;
     height: auto;
   }
 
@@ -400,11 +411,45 @@ a:hover > .grey_circle {
     color: #202020;
     font-size: 5vw;
     font-weight: 400;
-    border: 1px solid red;
     padding: 0;
   }
 
-  .socials_mobile {
+
+  .m_main_img{
+    position: relative;
+    width: 100%;
+  }
+
+  .m_main_socials{
+    display: flex;
+    justify-content: center;
+  }
+
+  .m_main_socials>ul{
+    padding-bottom: 1vw;
+    width: 40vw;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1vw solid #FF5D00;
+  }
+
+  .m_main_socials li{
+    width: 10vw;
+    text-align: center;
+  }
+
+  .m_main_socials a{
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: 7vw;
+  }
+
+  .m_main_socials a:hover{
+    color: #FF5D00;
+  }
+
+  /* .socials_mobile {
     position: relative;
     visibility: visible !important;
     margin: 0 auto;
@@ -449,16 +494,14 @@ a:hover > .grey_circle {
     -webkit-backface-visibility: hidden;
     -webkit-transform: translateZ(0) scale(1.0, 1.0);
     transform: translateZ(0);
-  }
+  } */
 
-  .scroll_to_choose {
-    margin: 10% 32%;
-    margin-bottom: 2%;
-    width: 100%;
+  .m_main_scroll_to_choose {
+    text-align: center;
+    margin-top: -10vw;
     font-size: 5vw;
     color: rgb(200, 200, 200);
   }
-
 
 }
 

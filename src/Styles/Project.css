@@ -74,6 +74,16 @@
    overflow-x: scroll;
  }
 
+ /* хром, сафари */
+.m_sub_project_types::-webkit-scrollbar { width: 0; }
+
+/* ie 10+ */
+.m_sub_project_types { -ms-overflow-style: none; }
+
+/* фф (свойство больше не работает, других способов тоже нет)*/
+.m_sub_project_types { overflow: -moz-scrollbars-none; }
+
+
  .m_sub_project_type_circle{
    flex-shrink: 0;
    background: #FF5D00;

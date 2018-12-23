@@ -9,6 +9,7 @@ import '../Styles/Contacts.css';
 import VisibilitySensor from 'react-visibility-sensor';
 import ReactDOM from 'react-dom';
 import MobileNav from './MobileNav';
+import MobileContactsMenuNav from './MobileContactsMenuNav';
 
 
 export default class extends Component {
@@ -327,8 +328,16 @@ export default class extends Component {
           <MobileNav/>
           <section className="m_contacts_map">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9320.197926172807!2d30.499148889390593!3d50.44227454843369!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cef6dad51cc5%3A0x5e55cbe0d15f7789!2z0KPQvdC40LLQtdGA0YHQuNGC0LXRgg!5e0!3m2!1sru!2sua!4v1545077764815" width="auto" height="auto" frameborder="0" ></iframe>
-            
           </section>
+          <section className="m_contacts_address">
+            <p>16, Big Vasylkivska st., Kiev, 03150</p>
+            <p>+380667680976</p>
+            <p>equinox@gmail.com</p>
+          </section>
+          <MobileContactsMenuNav/>
+          <div className="m_contacts_address_circle">
+            <p>CGQ9+X3 Kiev, city Kiev <br/>50.440093, 30.517538</p>
+          </div>
         </div>)
         }
       </div>

@@ -1372,14 +1372,54 @@
   }
 
   .m_contacts_map{
+    position: relative;
     height: 70vw;
     border: 1px solid black;
+    box-shadow: 0 1vw 0vw 1vw #727272;
+    z-index: 10;
   }
 
   .m_contacts_map iframe{
-    border: 1px solid red;
     width: 100%;
     height: 100%;
+  }
+
+  .m_contacts_address{
+    z-index: 5;
+    width: 100vw;
+    background: #898989;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 3vw;
+    padding-bottom: 3vw;
+  }
+
+  .m_contacts_address p {
+    padding: 0;
+    margin: 0;
+    line-height: 8vw;
+    position: relative;
+    color: white;
+    font-size: 4vw;
+  }
+
+  .m_contacts_address_circle{
+    margin: 10vw auto;
+    border-radius: 50%;
+    height: 80vw;
+    width: 90vw;
+    background: #898989;
+    display: flex;
+    justify-content: center;
+  }
+
+  .m_contacts_address_circle p{
+    font-size: 4vw;
+    padding: 0;
+    margin: 5vw 0 0 0;
+    text-align: center;
+
   }
 
 }

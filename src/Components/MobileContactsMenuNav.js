@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import '../Styles/MobileMainMenuNav.css';
 import Link from 'react-router-dom/Link';
 import * as d3 from "d3";
-import { posix } from 'path';
 
 export default class extends Component {
 
@@ -79,10 +78,9 @@ export default class extends Component {
         <div>
             <ul className="m_main_menu_nav">
               <li></li>
-              <Link to='contacts'><li>Contacts</li></Link>
-              <Link to='projects'><li>Projects</li></Link>
-              <Link to='about-us'><li>About us</li></Link>
-              <Link to='blog'><li>Blog</li></Link>
+              <Link to='join-the-crew'><li>Join the Crew</li></Link>
+              <Link to='join-the-crew'><li>Start a project</li></Link>
+              <Link to='join-the-crew'><li>Say Hi!</li></Link>
               <li></li>
             </ul>
             <div className="m_main_scroll_to_choose">Scroll to choose</div>

@@ -358,11 +358,12 @@
   }
 
   .mobile_blog_post{
+    flex-shrink: 0;
+    height: 28vw;
     width: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 4vw;
   }
 
   .mobile_blog_post_date{
