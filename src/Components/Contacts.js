@@ -10,7 +10,7 @@ import VisibilitySensor from 'react-visibility-sensor';
 import ReactDOM from 'react-dom';
 import MobileNav from './MobileNav';
 import MobileContactsMenuNav from './MobileContactsMenuNav';
-
+import MobileExit from '../media/mobile_exit.png';
 
 export default class extends Component {
 
@@ -338,6 +338,7 @@ export default class extends Component {
           <div className="m_contacts_address_circle">
             <p>CGQ9+X3 Kiev, city Kiev <br/>50.440093, 30.517538</p>
           </div>
+          <img src={MobileExit} onClick={()=>this.goBack()} className="mobile_exit"/>
         </div>)
         }
       </div>

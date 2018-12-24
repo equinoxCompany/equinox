@@ -18,10 +18,7 @@ export default class extends Component {
       .then(posts => this.setState({posts}));
       function getOffset(el) {
         return el.getBoundingClientRect();
-    }
-    
-    var timer = 0;
-
+      
     scrollAnimation();
 
     d3.select('.mobile_blog_content')
@@ -69,9 +66,10 @@ export default class extends Component {
               d3.select(this).call(postTransform, 60, 10, 8);
         });
       }
-  
 
   }
+    }
+
 
 
 
