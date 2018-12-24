@@ -898,9 +898,9 @@ that stand strong on all platforms...</p>
               <p className="m_about_team_text">
                 You are <span className="company_color">passionate</span>, curious, creative and ready to <span className="company_color">step up</span> your game? Let’s talk! ...
               </p>
-              <div className="m_about_join">
+              <Link to="join-the-crew"><div className="m_about_join">
                 <p>Join<br/>the<br/>crew</p>
-              </div>
+              </div></Link>
               <p>
                 From full-time jobs, to freelance gigs and internships, we’re always on the lookout. So if the position you’re looking for isn’t available at the moment, no worries–send us your stuff anyway....
               </p>

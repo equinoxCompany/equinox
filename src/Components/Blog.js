@@ -16,50 +16,57 @@ export default class extends Component {
     fetch('http://d29.default-host.net:3002/posts')
       .then(res => res.json())
       .then(posts => this.setState({posts}));
-
-
       function getOffset(el) {
         return el.getBoundingClientRect();
     }
     
-  
-    d3.select('.mobile_blog_content')
-      .on('scroll', scrollAnimation)
-    
+    var timer = 0;
+
     scrollAnimation();
+
+    d3.select('.mobile_blog_content')
+      .on('scroll', scrollAnimation);
+
+
+
+
+    function postTransform(e, w, s_1, s_2){
+      e
+        .transition().duration(50).ease(d3.easeLinear)
+        .style('width', `${w}vw`);
+      e.select('.mobile_blog_post_date')
+        .transition().duration(50).ease(d3.easeLinear)
+        .style('font-size', `${s_1}vw`);
+      e.select('h3')
+        .transition().duration(50).ease(d3.easeLinear)
+        .style('font-size', `${s_2}vw`);
+      e.select('h2')
+        .transition().duration(50).ease(d3.easeLinear)
+        .style('line-height', `${s_1}vw`)
+        .style('font-size', `${s_1}vw`);
+      } 
    
       function scrollAnimation(){
-        let scroll_box = d3.select('.mobile_blog_content').node();
-        let scroll_box_sizes = scroll_box.getBoundingClientRect();
-        let scroll_box_width = scroll_box_sizes.right;
-        let scroll_box_height = scroll_box_sizes.bottom - scroll_box_sizes.top;
-        let section_heigh = (scroll_box_width * 28)/100;
-        let center_box = Math.round((scroll_box_height/2) + scroll_box_sizes.top);
-        let second_section = section_heigh/3;
-        let third_section = section_heigh;
-
+        let scroll_box = d3.select('.mobile_blog_content').node(),
+            scroll_box_sizes = scroll_box.getBoundingClientRect(),
+            scroll_box_width = scroll_box_sizes.right,
+            scroll_box_height = scroll_box_sizes.bottom - scroll_box_sizes.top,
+            section_heigh = (scroll_box_width * 28)/100,
+            center_box = (scroll_box_height/2) + scroll_box_sizes.top,
+            second_section = section_heigh*1.3,
+            third_section = section_heigh*1.5;
         d3.selectAll('.mobile_blog_post_list li')
           .each(function(){
-            let e = d3.select(this).node();
-            let e_sizes = getOffset(e);
-            let e_top = e_sizes.top;
-            let e_bottom = e_sizes.bottom;
-            if(e_bottom < center_box - third_section || e_top > center_box + third_section){
-              d3.select(this)
-              .classed('mobile_blog_post_average', false)
-              .classed('mobile_blog_post_large', false)
-              .classed('mobile_blog_post_small', true);
-            } else if(e_bottom <= center_box - second_section || e_top >= center_box + second_section/2){
-              d3.select(this)
-              .classed('mobile_blog_post_small', false)
-              .classed('mobile_blog_post_large', false)
-              .classed('mobile_blog_post_average', true);
-            } else if(e_top < center_box && e_bottom > center_box ){
-              d3.select(this)
-              .classed('mobile_blog_post_large', true)
-              .classed('mobile_blog_post_small', false)
-              .classed('mobile_blog_post_average', false);
-            }
+            let e = d3.select(this).node(),
+                e_sizes = getOffset(e),
+                e_top = e_sizes.top,
+                e_bottom = e_sizes.bottom;
+            if(e_bottom < center_box - third_section || e_top > center_box + third_section)
+              d3.select(this).call(postTransform, 40, 6, 4);
+            else if(e_top < center_box - second_section || e_bottom > center_box + second_section/2)
+              d3.select(this).call(postTransform, 50, 8, 6);
+            else if(e_top < center_box && e_bottom > center_box )
+              d3.select(this).call(postTransform, 60, 10, 8);
         });
       }
   
