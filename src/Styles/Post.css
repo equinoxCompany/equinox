@@ -1,177 +1,199 @@
 @media (min-width: 768px){
-.post_title_info{
-    position: absolute;
-    left: 20vw;
-    top: 3vh;
-    color: white;
-    display: relative;
-}
-
-.post_title_info h3{
-    font-size: 1.5vw;
-    font-family: 'helvetica';
-    font-weight: 300;
-    margin: 0;
-}
-
-.author_info{
-    position: relative;
-}
-
-.author_name{
-    position: absolute;
-    top: 2vh;
-    left: 3vw;
-}
-
-.author_top_circle{
-    position: absolute;
-    left: 1.5vw;
-    width: 6vw;
-    height: 6vw;
-    background: #FF5D00;
-    border-radius: 50%;
-    z-index: 0;
-}
-
-.author_photo_circle{
-    position: absolute;
-    width: 6vw;
-    height: 6vw;
-    border-radius: 50%;
-    top: 6vh;
-    z-index: 1;
-}
-
-.author_right_circle{
-    position: absolute;
-    top: 8vh;
-    left: 5vw;
-    width: 3vw;
-    height: 3vw;
-    background: #898989;
-    border-radius: 50%;
-    z-index: 2;
-}
-
-.visits_info{
-    position: relative;
-    top: 9vh;
-    left: -1vw;
-    margin-left: 10vw;
-    display: flex;
-    align-items: center;
-}
-
-.visits_circle{
-    width: 0.5vw;
-    height: 0.5vw;
-    margin-left: .5vw;
-    margin-right: .5vw;
-    background: #FF5D00;
-    border-radius: 50%;
-}
-
-.number_visitors{
-    margin-top: .7vh;
-    line-height: 0;
-    font-size: 2vw;
-}
-
-.upper_visitors:nth-child(1){
-    font-size: 3vw;
-}
-.upper_visitors:nth-child(2){
-    font-size: 2.5vw;
-}
-
-.post_actions{
-    position: absolute;
-    top: 4vh;
-    display: flex;
-    align-items: center;
-    width: auto;
-    right: 2vw;
-}
-
-.post_actions img{
-    margin-left: 3vw;
-}
-
-.button_comments, .button_repost{
-    width: 4vw;
-    height: 4vw;
-}
-
-.button_exit{
-    width: 5vw;
-    height: 5vw;
-}
-
-.post_info_subject{
-    position: absolute;
-    left: 2vw;
-    border-left: 0.8vw solid #FF5D00;
-    width: 50vw;
-    color: white;
-    top: 29vh;
-    padding-left: 1vw;
-  }
-
-  .post_info_subject h1{
-      line-height: 8vh;
-      position: relative;
-      font-size: 3.5vw;
-      font-weight: 300;  
-      margin: 0;
-  }
-
-  .post_info_date{
+    .post_title_info{
+        position: relative;
+        left: 20vw;
+        top: 3vh;
+        color: white;
+        display: relative;
+        z-index: 5;
+    }
+     
+    .post_title_info h3{
+        font-size: 1.5vw;
+        font-family: 'helvetica';
+        font-weight: 300;
+        margin: 0;
+    }
+     
+    .author_info{
+        position: relative;
+    }
+     
+    .author_name{
         position: absolute;
-        top: -4vh;
-        left: 14vw;
-        color: #636363;
+        top: 2vh;
+        left: 3vw;
+    }
+     
+    .author_top_circle{
+        position: absolute;
+        left: 1.5vw;
+        width: 6vw;
+        height: 6vw;
+        background: #FF5D00;
+        border-radius: 50%;
+        z-index: 0;
+    }
+     
+    .author_photo_circle{
+        position: absolute;
+        width: 6vw;
+        height: 6vw;
+        border-radius: 50%;
+        top: 6vh;
+        z-index: 1;
+    }
+     
+    .author_right_circle{
+        position: absolute;
+        top: 8vh;
+        left: 5vw;
+        width: 3vw;
+        height: 3vw;
+        background: #898989;
+        border-radius: 50%;
+        z-index: 2;
+    }
+     
+    .visits_info{
+        position: relative;
+        top: 9vh;
+        left: -1vw;
+        margin-left: 10vw;
+        display: flex;
+        align-items: center;
+    }
+     
+    .visits_circle{
+        width: 0.5vw;
+        height: 0.5vw;
+        margin-left: .5vw;
+        margin-right: .5vw;
+        background: #FF5D00;
+        border-radius: 50%;
+    }
+     
+    .number_visitors{
+        margin-top: .7vh;
+        line-height: 0;
+        font-size: 2vw;
+    }
+     
+    .upper_visitors:nth-child(1){
+        font-size: 3vw;
+    }
+    .upper_visitors:nth-child(2){
         font-size: 2.5vw;
-        font-weight: 900;
-  }
-
-  .post_picture_box{
-      position: absolute;
-      right: 2vw;
-      top: 23vh;
-      color: #696767;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-  }
-
-  .post_picture_box h2{
-    font-family: 'helvetica';
-    font-weight: 300;
-  }
-
-  .post_picture{
-      width: 22vw;
-      height: 22vw;
-  }
-
-  .post_text{
-      position: absolute;
-      bottom: 25vh;
-      left: 5vw;
-      width: 70vw;
-      height: auto;
-  }
-
-  .post_text p{
-      margin: 0;
-      line-height: 4.4vh;
-      font-weight: 300;
-      font-family: 'helvetica';
-      position: relative;
-      font-size: 1.8vw;
-      width: 100%;
-  }
+    }
+     
+    .post_actions{
+        position: absolute;
+        top: 4vh;
+        display: flex;
+        align-items: center;
+        width: auto;
+        right: 2vw;
+    }
+     
+    .post_actions img{
+        margin-left: 3vw;
+    }
+     
+    .button_comments, .button_repost{
+        width: 4vw;
+        height: 4vw;
+    }
+     
+    .button_exit{
+        width: 5vw;
+        height: 5vw;
+    }
+     
+    .d_post{
+        height: 100vh;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+     
+    .post_info_subject{
+        position: relative;
+        left: 2vw;
+        border-left: 0.8vw solid #FF5D00;
+        width: 50vw;
+        color: white;
+        top: 29vh;
+        padding-left: 1vw;
+      }
+     
+      .post_info_subject h1{
+          line-height: 8vh;
+          position: relative;
+          font-size: 3.5vw;
+          font-weight: 300;  
+          margin: 0;
+      }
+     
+      .post_info_date{
+            position: absolute;
+            top: -4vh;
+            left: 14vw;
+            color: #636363;
+            font-size: 2.5vw;
+            font-weight: 900;
+      }
+     
+      .post_picture_box {
+          position: absolute;
+          right: 2vw;
+          top: 23vh;
+          color: #696767;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+      }
+     
+      .post_picture{
+          border-radius: 50%;
+          background-size: cover;
+         }
+     
+     
+     
+      .post_picture_box h2{
+        font-family: 'helvetica';
+        font-weight: 300;
+      }
+     
+      .post_picture{
+          width: 22vw;
+          height: 22vw;
+      }
+     
+      .post_text{
+          position: relative;
+          top: 35vh;
+          left: 5vw;
+          width: 65vw;
+          height: auto;
+      }
+     
+     
+    .post_text img{
+        max-width: 100%;
+        height: auto;
+    }
+     
+      .post_text p{
+          margin: 0;
+          line-height: 4.4vh;
+          font-weight: 300;
+          font-family: 'helvetica';
+          position: relative;
+          font-size: 1.8vw;
+          width: 100%;
+          height: auto;
+      }
+    
 }
   
 @media (max-width: 768px){

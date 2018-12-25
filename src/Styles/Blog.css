@@ -330,6 +330,7 @@
 
   .mobile_blog_circles{
     overflow: hidden;
+    z-index: 0;
   }
 
   .mobile_blog_circles div{
@@ -357,13 +358,25 @@
     align-items: center;
   }
 
+  .mobile_blog_post_data{
+    display: flex;
+    flex-direction: column;
+    width: auto;
+  }
+
   .mobile_blog_post{
     flex-shrink: 0;
-    height: 28vw;
+    height: auto;
     width: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-left: -10vw;
+    z-index: 10;
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
   }
 
   .mobile_blog_post_date{
@@ -374,49 +387,11 @@
   .mobile_blog_post h3, h2{
     margin: 0;
     font-weight: 500;
+    z-index: 100;
+    white-space: nowrap;
   }
-  /*SMALL POST*/
-  .mobile_blog_post_small{
-    width:40vw;
-  }
-  .mobile_blog_post_small .mobile_blog_post_date{
-    font-size: 6vw;
-  }
-  .mobile_blog_post_small h3{
-    font-size: 4vw;
-  }
-  .mobile_blog_post_small h2{
-    line-height: 6vw;
-    font-size: 6vw;
-  }
-  /*AVERAGE POST*/
-  .mobile_blog_post_average{
-    width: 50vw;
-  }
-  .mobile_blog_post_average .mobile_blog_post_date{
-    font-size: 8vw;
-  }
-  .mobile_blog_post_average h3{
-    font-size: 6vw;
-  }
-  .mobile_blog_post_average h2{
-    line-height: 8vw;
-    font-size: 8vw;
-  }
-  /*LARGE POST*/
-  .mobile_blog_post_large{
-    width: 60vw;
-  }
-  .mobile_blog_post_large .mobile_blog_post_date{
-    font-size: 10vw;
-  }
-  .mobile_blog_post_large h3{
-    font-size: 8vw;
-  }  
-  .mobile_blog_post_large h2{
-    line-height: 10vw;
-    font-size: 10vw;
-  }
+
+  
 
 
 }

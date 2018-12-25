@@ -15,9 +15,9 @@ componentDidMount(){
   document.addEventListener('touchmove', function (event) {
     if (event.scale !== 1) { event.preventDefault(); }
   }, false);
-    fetch('http://d29.default-host.net:3002/seo/main')
-      .then(res => res.json())
-      .then(meta => this.setState({meta: meta[0]}))
+    // fetch('http://d29.default-host.net:3002/seo/main')
+    //   .then(res => res.json())
+    //   .then(meta => this.setState({meta: meta[0]}))
 }
 
   constructor(props){

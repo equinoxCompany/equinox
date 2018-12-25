@@ -12,6 +12,7 @@ import renderHTML from 'react-render-html';
 import MobileExit from '../media/mobile_exit.png';
 import MobileNav from './MobileNav';
 import MobilePostImg from '../media/blog_img.png';
+import MetaTags from 'react-meta-tags';
 
 export default class extends Component {
     // componentDidMount(){
@@ -36,11 +37,16 @@ export default class extends Component {
     render(){
         return(
             <div className="Post">
+            <MetaTags>
+                <title>{this.state.post.title}</title>
+                <meta property="og:title" content={this.state.post.title} />
+            </MetaTags>
                 <div>
                     {
                         this.state.visibility?(
-                            <div>
+                            <div className="d_post">
                                 <Logo/>
+                               
                                 <div className="post_title_info">
                                     <div className="author_info">
                                         <div className="author_top_circle"></div>
@@ -60,15 +66,15 @@ export default class extends Component {
                                     <Link to="/seo"><img src={Exit} className="button_exit"/></Link>
                                 </div>
                                 <div className="post_info_subject">
-                                    <h1>{this.state.post.title}
+                                    <h1>{this.state.post.title}<br/>
+                                        <span className="post_info_date">{this.state.post.date}</span>
                                      </h1>
-                                     <span className="post_info_date">{this.state.post.date}</span>
                                 </div>
                                 <div className="post_text">
-                                    <p>{this.state.post.text && renderHTML(this.state.post.text)} </p>
+                                    {this.state.post.text && renderHTML(this.state.post.text)}
                                 </div>
                                 <div className="post_picture_box">
-                                    <img style={{background:`url(${'http://d29.default-host.net:3002/'+this.state.post.postImage}) no-repeat`, borderRadius:'50%', backgroundSize:'contain'}} className="post_picture" />
+                                    <img src={'http://d29.default-host.net:3002/' + this.state.post.postImage} className="post_picture" />
                                     <h2>About photo text</h2>
                                 </div>
                                 <Socials/>

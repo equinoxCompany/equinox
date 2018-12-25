@@ -12,21 +12,32 @@ import {Link} from 'react-router-dom';
 import * as d3 from "d3";
 
 export default class extends Component {
-  componentDidMount(){
-    fetch('http://d29.default-host.net:3002/posts')
-      .then(res => res.json())
-      .then(posts => this.setState({posts}));
-      function getOffset(el) {
-        return el.getBoundingClientRect();
-      
-    scrollAnimation();
 
+  constructor(props){
+    super(props);
+    this.state = {
+      visibility: window.innerWidth >= 768 ? true : false,
+      posts: []
+    }
+  }
+
+  goBack(){
+    if(!this.state.map){
+    this.props.history.goBack();
+    }
+  }
+
+
+  componentDidMount(){
+    // fetch('http://d29.default-host.net:3002/posts')
+    //   .then(res => res.json())
+    //   .then(posts => this.setState({posts}));
+
+    if(window.innerWidth < 768){
+      scrollAnimation();
     d3.select('.mobile_blog_content')
       .on('scroll', scrollAnimation);
-
-
-
-
+    }
     function postTransform(e, w, s_1, s_2){
       e
         .transition().duration(50).ease(d3.easeLinear)
@@ -42,10 +53,15 @@ export default class extends Component {
         .style('line-height', `${s_1}vw`)
         .style('font-size', `${s_1}vw`);
       } 
-   
+      
+      function getOffset(el) {
+        return el.getBoundingClientRect();
+      }
+
       function scrollAnimation(){
+        console.log(window.innerWidth);
         let scroll_box = d3.select('.mobile_blog_content').node(),
-            scroll_box_sizes = scroll_box.getBoundingClientRect(),
+            scroll_box_sizes = getOffset(scroll_box),
             scroll_box_width = scroll_box_sizes.right,
             scroll_box_height = scroll_box_sizes.bottom - scroll_box_sizes.top,
             section_heigh = (scroll_box_width * 28)/100,
@@ -61,31 +77,13 @@ export default class extends Component {
             if(e_bottom < center_box - third_section || e_top > center_box + third_section)
               d3.select(this).call(postTransform, 40, 6, 4);
             else if(e_top < center_box - second_section || e_bottom > center_box + second_section/2)
-              d3.select(this).call(postTransform, 50, 8, 6);
+              d3.select(this).call(postTransform, 50, 8, 5);
             else if(e_top < center_box && e_bottom > center_box )
-              d3.select(this).call(postTransform, 60, 10, 8);
+              d3.select(this).call(postTransform, 60, 10, 5);
         });
       }
-
-  }
-    }
-
-
-
-
-  constructor(props){
-    super(props);
-    this.state = {
-      visibility: window.innerWidth >= 768 ? true : false,
-      posts: []
-    }
   }
 
-  goBack(){
-    if(!this.state.map){
-    this.props.history.goBack();
-    }
-  }
 
 
   render(){
@@ -156,11 +154,11 @@ export default class extends Component {
   </div>
   <div className="mobile_blog_post_list">
     <ul>
-      <li className="mobile_blog_post">
+    <li className="mobile_blog_post">
         <div className="mobile_blog_post_date">12.11</div>
         <div className="mobile_blog_post_data">
           <h3>SEO</h3>
-          <h2>Hello<span className="c_color">People</span></h2>
+          <h2>Hello People </h2>
           <h3>stories</h3>
         </div>
       </li>
@@ -168,7 +166,7 @@ export default class extends Component {
         <div className="mobile_blog_post_date">12.11</div>
         <div className="mobile_blog_post_data">
           <h3>SEO</h3>
-          <h2>Hello<span className="c_color">People</span></h2>
+          <h2>Hello People </h2>
           <h3>stories</h3>
         </div>
       </li>
@@ -176,7 +174,7 @@ export default class extends Component {
         <div className="mobile_blog_post_date">12.11</div>
         <div className="mobile_blog_post_data">
           <h3>SEO</h3>
-          <h2>Hello<span className="c_color">People</span></h2>
+          <h2>Hello People </h2>
           <h3>stories</h3>
         </div>
       </li>
@@ -184,7 +182,7 @@ export default class extends Component {
         <div className="mobile_blog_post_date">12.11</div>
         <div className="mobile_blog_post_data">
           <h3>SEO</h3>
-          <h2>Hello<span className="c_color">People</span></h2>
+          <h2>Hello People </h2>
           <h3>stories</h3>
         </div>
       </li>
@@ -192,7 +190,7 @@ export default class extends Component {
         <div className="mobile_blog_post_date">12.11</div>
         <div className="mobile_blog_post_data">
           <h3>SEO</h3>
-          <h2>Hello<span className="c_color">People</span></h2>
+          <h2>Hello People </h2>
           <h3>stories</h3>
         </div>
       </li>
@@ -200,7 +198,7 @@ export default class extends Component {
         <div className="mobile_blog_post_date">12.11</div>
         <div className="mobile_blog_post_data">
           <h3>SEO</h3>
-          <h2>Hello<span className="c_color">People</span></h2>
+          <h2>Hello People </h2>
           <h3>stories</h3>
         </div>
       </li>
@@ -208,7 +206,7 @@ export default class extends Component {
         <div className="mobile_blog_post_date">12.11</div>
         <div className="mobile_blog_post_data">
           <h3>SEO</h3>
-          <h2>Hello<span className="c_color">People</span></h2>
+          <h2>Hello People </h2>
           <h3>stories</h3>
         </div>
       </li>
@@ -216,7 +214,7 @@ export default class extends Component {
         <div className="mobile_blog_post_date">12.11</div>
         <div className="mobile_blog_post_data">
           <h3>SEO</h3>
-          <h2>Hello<span className="c_color">People</span></h2>
+          <h2>Hello People </h2>
           <h3>stories</h3>
         </div>
       </li>
@@ -224,7 +222,7 @@ export default class extends Component {
         <div className="mobile_blog_post_date">12.11</div>
         <div className="mobile_blog_post_data">
           <h3>SEO</h3>
-          <h2>Hello<span className="c_color">People</span></h2>
+          <h2>Hello People </h2>
           <h3>stories</h3>
         </div>
       </li>
@@ -232,7 +230,7 @@ export default class extends Component {
         <div className="mobile_blog_post_date">12.11</div>
         <div className="mobile_blog_post_data">
           <h3>SEO</h3>
-          <h2>Hello<span className="c_color">People</span></h2>
+          <h2>Hello People </h2>
           <h3>stories</h3>
         </div>
       </li>
@@ -240,7 +238,7 @@ export default class extends Component {
         <div className="mobile_blog_post_date">12.11</div>
         <div className="mobile_blog_post_data">
           <h3>SEO</h3>
-          <h2>Hello<span className="c_color">People</span></h2>
+          <h2>Hello People </h2>
           <h3>stories</h3>
         </div>
       </li>
@@ -248,7 +246,7 @@ export default class extends Component {
         <div className="mobile_blog_post_date">12.11</div>
         <div className="mobile_blog_post_data">
           <h3>SEO</h3>
-          <h2>Hello<span className="c_color">People</span></h2>
+          <h2>Hello People </h2>
           <h3>stories</h3>
         </div>
       </li>
@@ -256,7 +254,7 @@ export default class extends Component {
         <div className="mobile_blog_post_date">12.11</div>
         <div className="mobile_blog_post_data">
           <h3>SEO</h3>
-          <h2>Hello<span className="c_color">People</span></h2>
+          <h2>Hello People </h2>
           <h3>stories</h3>
         </div>
       </li>
@@ -264,7 +262,7 @@ export default class extends Component {
         <div className="mobile_blog_post_date">12.11</div>
         <div className="mobile_blog_post_data">
           <h3>SEO</h3>
-          <h2>Hello<span className="c_color">People</span></h2>
+          <h2>Hello People </h2>
           <h3>stories</h3>
         </div>
       </li>
@@ -272,7 +270,7 @@ export default class extends Component {
         <div className="mobile_blog_post_date">12.11</div>
         <div className="mobile_blog_post_data">
           <h3>SEO</h3>
-          <h2>Hello<span className="c_color">People</span></h2>
+          <h2>Hello People </h2>
           <h3>stories</h3>
         </div>
       </li>
@@ -280,7 +278,7 @@ export default class extends Component {
         <div className="mobile_blog_post_date">12.11</div>
         <div className="mobile_blog_post_data">
           <h3>SEO</h3>
-          <h2>Hello<span className="c_color">People</span></h2>
+          <h2>Hello People </h2>
           <h3>stories</h3>
         </div>
       </li>
@@ -288,7 +286,7 @@ export default class extends Component {
         <div className="mobile_blog_post_date">12.11</div>
         <div className="mobile_blog_post_data">
           <h3>SEO</h3>
-          <h2>Hello<span className="c_color">People</span></h2>
+          <h2>Hello People </h2>
           <h3>stories</h3>
         </div>
       </li>
@@ -296,7 +294,7 @@ export default class extends Component {
         <div className="mobile_blog_post_date">12.11</div>
         <div className="mobile_blog_post_data">
           <h3>SEO</h3>
-          <h2>Hello<span className="c_color">People</span></h2>
+          <h2>Hello People </h2>
           <h3>stories</h3>
         </div>
       </li>
@@ -304,7 +302,7 @@ export default class extends Component {
         <div className="mobile_blog_post_date">12.11</div>
         <div className="mobile_blog_post_data">
           <h3>SEO</h3>
-          <h2>Hello<span className="c_color">People</span></h2>
+          <h2>Hello People </h2>
           <h3>stories</h3>
         </div>
       </li>
@@ -312,7 +310,7 @@ export default class extends Component {
         <div className="mobile_blog_post_date">12.11</div>
         <div className="mobile_blog_post_data">
           <h3>SEO</h3>
-          <h2>Hello<span className="c_color">People</span></h2>
+          <h2>Hello People </h2>
           <h3>stories</h3>
         </div>
       </li>
@@ -320,7 +318,7 @@ export default class extends Component {
         <div className="mobile_blog_post_date">12.11</div>
         <div className="mobile_blog_post_data">
           <h3>SEO</h3>
-          <h2>Hello<span className="c_color">People</span></h2>
+          <h2>Hello People </h2>
           <h3>stories</h3>
         </div>
       </li>
@@ -328,15 +326,7 @@ export default class extends Component {
         <div className="mobile_blog_post_date">12.11</div>
         <div className="mobile_blog_post_data">
           <h3>SEO</h3>
-          <h2>Hello<span className="c_color">People</span></h2>
-          <h3>stories</h3>
-        </div>
-      </li>
-      <li className="mobile_blog_post">
-        <div className="mobile_blog_post_date">12.11</div>
-        <div className="mobile_blog_post_data">
-          <h3>SEO</h3>
-          <h2>Hello<span className="c_color">People</span></h2>
+          <h2>Hello People</h2>
           <h3>stories</h3>
         </div>
       </li>
