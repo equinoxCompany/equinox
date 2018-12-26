@@ -4,7 +4,6 @@ import Socials from '../Components/Socials';
 import { Link, Redirect } from 'react-router-dom';
 import '../Styles/AboutUs.css';
 import '../Styles/SideMenu.css';
-import VisibilitySensor from 'react-visibility-sensor';
 import '../Styles/SideMenuLeft.css'
 import '../scripts/cursor.js';
 import MobileNav from './MobileNav';
@@ -43,64 +42,56 @@ export default class extends Component {
     // fetch('/about-us')
     //   .then(res => res.json())
     //   .then(items => this.setState({items}))
-    d3.selectAll('line, polyline')
-      .style('stroke', '#FF5D00')
-      .style('stroke-width', '2');
-    d3.selectAll('circle')
-      .style('fill', '#FF5D00')
+    d3.selectAll('line, polyline').style('stroke', '#FF5D00').style('stroke-width', '2');
+    d3.selectAll('circle').style('fill', '#FF5D00')
 
     d3.timeout(function(){
-      d3.select('.d_about_sub_title_text h4')
-      .style('display', 'block')
+      d3.select('.d_about_sub_title_text h4').style('display', 'block')
       .classed('d_about_sub_title_animation', true);
     }, 1000);
 
-    var window_bottom,
-        section_services_part_1_top,
-        section_services_part_2_top,
-        section_team_top, 
-        section_project_top, 
-        section_join_top,
-        flags;
+    let window_bottom,
+        section_services_part_1,
+        section_services_part_2,
+        section_services_part_3,
+        section_team, 
+        section_project, 
+        section_join;
+    let flags = {
+          services_part_1: false,
+          services_part_2: false,
+          services_part_3: false,
+          team: false,
+          project: false,
+          join: false
+        }
 
     d3.select('.d_about')
       .on("scroll", function(){
-        window_bottom = d3.select(this).node().getBoundingClientRect().bottom;
-        section_services_part_1_top = d3.select('.d_about_services_title_box').node().getBoundingClientRect().top;
-        section_services_part_2_top = d3.select('.d_about_services_studio_types').node().getBoundingClientRect().top;
-        section_team_top = d3.select('.d_about_team').node().getBoundingClientRect().top;
-        section_project_top = d3.select('.d_about_start_project').node().getBoundingClientRect().top;
-        section_join_top = d3.select('.d_about_join').node().getBoundingClientRect().top;
-        flags = {
-          services_part_1_top: false,
-          services_part_2_top: false,
-          team_top: false,
-          project_top: false,
-          join_top: false
-        }
+        window_bottom = d3.select(this).node().getBoundingClientRect().bottom * 0.3;
+        section_services_part_1 = d3.select('.d_about_services_title_box').node().getBoundingClientRect().top;
+        section_services_part_2 = d3.select('.d_about_services_studio_types').node().getBoundingClientRect().top;
+        section_services_part_3 = d3.select('.d_about_services_title_box_lagre').node().getBoundingClientRect().top;
+        section_team = d3.select('.d_about_team').node().getBoundingClientRect().top;
+        section_project = d3.select('.d_about_start_project').node().getBoundingClientRect().top;
+        section_join = d3.select('.d_about_join').node().getBoundingClientRect().top;
 
-
-        if(window_bottom > section_services_part_1_top && flags.services_part_1_top == false){
-          d3.selectAll('.d_about_services_title_box')
-          .style('display', 'block')
+        if(window_bottom > section_services_part_1 && flags.services_part_1 == false){
+          d3.selectAll('.d_about_services_title_box').style('display', 'block')
           .classed('d_about_services_title_box_animation', true);
           d3.timeout(function(){
-            d3.selectAll('.d_about_services_title_box_animation h2')
-            .style('display', 'block')
+            d3.selectAll('.d_about_services_title_box_animation h2').style('display', 'block')
             .classed('d_abot_services_title_text_animation', true);
-            d3.selectAll('.d_about_sevices_text_box p')
-            .style('display', 'block')
+            d3.selectAll('.d_about_sevices_text_box p').style('display', 'block')
             .classed('d_about_sevices_text_box_animation', true);
           }, 500);
-          flags.services_part_1_top = true;
+          flags.services_part_1 = true;
         }
-        if(window_bottom > section_services_part_2_top && flags.services_part_2_top == false){
-          d3.selectAll('.d_about_services_studio_type_box')
-          .style('display', 'block')
+        if(window_bottom > section_services_part_2 && flags.services_part_2 == false){
+          d3.selectAll('.d_about_services_studio_type_box').style('display', 'block')
           .classed('studio_type_column_animation', true);
           d3.timeout(function(){
-            d3.selectAll('.d_about_services_studio_type_box h3')
-            .style('display', 'block')
+            d3.selectAll('.d_about_services_studio_type_box h3').style('display', 'block')
             .classed('studio_type_title_animation', true);
           }, 1000)
           d3.selectAll('.d_about_services_studio_types')
@@ -112,22 +103,115 @@ export default class extends Component {
                     d3.select(this)
                       .call(function(e){
                         d3.timeout(function(){
-                          e.select('span')
-                            .style('display', 'block')
-                            .classed('studio_types_li_animation', true);
-                          e.select('h4')
-                            .style('display', 'block')
-                            .classed('studio_types_li_animation', true);
+                          e.select('span').style('display', 'block')
+                          .classed('studio_types_li_animation', true);
+                          e.select('h4').style('display', 'block')
+                          .classed('studio_types_li_animation', true);
                         }, time);
                       });
                       counter++;
                    });
             }); 
-            flags.services_part_2_top = true;
+            flags.services_part_2 = true;
+        }
+        if(window_bottom*1.5 > section_services_part_3 && flags.services_part_3 == false){
+          d3.select('.d_about_services_title_box_lagre h2').style('display', 'block')
+            .classed('services_title_box_lagre_animation', true);
+          d3.select('.d_about_services_text_box_lagre p').style('visibility', 'visible')
+            .classed('services_text_box_lagre_animation', true);
+          flags.services_part_3 = true;
+        }
+        if(window_bottom*0.5 > section_team && flags.team == false){
+            d3.select('.d_about_team_title').style('visibility', 'visible')
+            .classed('about_team_title_box_animation', true);
+          d3.timeout(function(){
+            d3.select('.d_about_team_title h2').style('visibility', 'visible')
+            .classed('about_team_title_text_animation', true);
+          }, 1000);
+          d3.select('.d_about_team_icons')
+            .each(function(){
+              let counter = 0;
+              d3.select(this).selectAll('.d_about_team_box')
+              .each(function(){
+                  let time = counter*500;
+                  d3.select(this)
+                    .call(function(e){
+                      d3.timeout(function(){
+                        e.select('img').style('visibility', 'visible').classed('team_box_img_animation', true);
+                        e.select('.d_about_box_underline').style('visibility', 'visible').classed('team_box_underline_animation', true);
+                        e.select('.d_about_box_info_job').style('visibility', 'visible').classed('about_box_info_animation', true);
+                        e.select('.d_about_box_info p').style('visibility', 'visible').classed('about_box_info_animation', true);
+                      }, time);
+                    });
+
+                    counter++;
+                 });
+          }); 
+          flags.team = true;
+        }
+        if(window_bottom*1.4 > section_project && flags.project == false){
+          d3.select('.d_about_start_text_box p').style('visibility', 'visible')
+            .classed('start_text_box_animation', true);
+          d3.select('.d_about_start_button').style('visibility', 'visible')
+            .classed('start_text_box_animation', true);
+          d3.select('.d_about_start_final_text_box p').style('visibility', 'visible')
+            .classed('start_text_box_animation', true);
+          flags.project = true;
         }
       });
 
+      d3.selectAll('circle')
+        .each(function(){
+          let start_bias = parseInt(d3.select(this).attr('cy'));
+          let end_bias = parseInt(start_bias + 20.);
+          d3.selectAll('line')
+              .each(function(){
+                let y1 = parseInt(d3.select(this).attr('y1'));
+                let y2 = parseInt(d3.select(this).attr('y2'));
+                if(y1 == start_bias){
+                  d3.select(this).call(line_animate_y1, start_bias, end_bias)
+                }
+                if(y2 == start_bias){
+                  d3.select(this).call(line_animate_y2, start_bias, end_bias)
+                }
+            });
+          d3.select(this)
+            .call(circle_animate, start_bias, end_bias);
+        });
+
+
+      function line_animate_y1(element, start, end) {
+          element.transition()
+              .duration(2000)
+              .ease(d3.easeCubic)
+              .attr('y1', end)
+              .on("end", function () {
+              d3.select(this).call(line_animate_y1, end, start);
+          });
+      }
+
+      function line_animate_y2(element, start, end) {
+        element.transition()
+            .duration(2000)
+            .ease(d3.easeCubic)
+            .attr('y2', end)
+            .on("end", function () {
+            d3.select(this).call(line_animate_y2, end, start);
+        });
+    }
+
+      function circle_animate(element, start, end) {
+        element.transition()
+            .duration(2000)
+            .ease(d3.easeCubic)
+            .attr('cy', end)
+            .on("end", function () {
+            d3.select(this).call(circle_animate, end, start);
+        });
+    }
   }
+
+
 
   goBack(){
     this.props.history.goBack()
@@ -139,7 +223,7 @@ export default class extends Component {
       {
         this.state.visibility ?(
         <div className="d_about">
-          <Logo/>
+          {/* <Logo/> */}
           <Socials/>
           <div className="d_about_left_menu">
           </div>
@@ -157,52 +241,52 @@ export default class extends Component {
           <section className="d_about_preview">
           <svg className="d_about_parallax" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080'>
     <g id='Layer_4'>
-        <line x1='39' y1='100' x2='344' y2='262' />
-        <line x1='344.5' y1='261.5' x2='694.5' y2='36.5' />
-        <line x1='344.5' y1='261.5' x2='540.5' y2='230.5' />
-        <line x1='540.5' y1='231.5' x2='661.5' y2='337.5' />
-        <line x1='661.5' y1='337.5' x2='870.5' y2='171.5' />
-        <line x1='870.5' y1='170.5' x2='837.5' y2='379.5' />
-        <line x1='870.5' y1='170.5' x2='1090.5' y2='337.5' />
-        <line x1='1090.5' y1='337.5' x2='1156.5' y2='47.5' />
-        <line x1='1156.5' y1='47.5' x2='1018.5' y2='138.5' />
-        <line x1='1089.5' y1='338.5' x2='1345.5' y2='195.5' />
-        <line x1='1346.5' y1='194.5' x2='1373.5' y2='438.5' />
-        <line x1='1373.5' y1='439.5' x2='1169.5' y2='537.5' />
-        <line x1='1346.5' y1='194.5' x2='1543.5' y2='94.5' />
-        <line x1='1542.5' y1='93.5' x2='1704.5' y2='146.5' />
-        <line x1='1704.5' y1='147.5' x2='1883.5' y2='37.5' />
-        <line x1='1704.5' y1='146.5' x2='1816.5' y2='277.5' />
-        <line x1='1816.5' y1='277.5' x2='1539.5' y2='217.5' />
-        <line x1='1539.5' y1='217.5' x2='1504.5' y2='310.5' />
-        <line x1='661.5' y1='336.5' x2='387.5' y2='590.5' />
-        <line x1='0.5' y1='327.5' x2='387.5' y2='590.5' />
-        <line x1='169.5' y1='703.5' x2='387.5' y2='590.5' />
-        <line x1='387.5' y1='590.5' x2='405.5' y2='764.5' />
-        <line x1='660.5' y1='336.5' x2='621.5' y2='795.5' />
-        <line x1='621.5' y1='795.5' x2='778.5' y2='733.5' />
-        <line x1='621.5' y1='795.5' x2='546.5' y2='962.5' />
+        <line x1='39' y1='100' x2='344' y2='262' strokeWidth="3" stroke="white"/>
+        <line x1='344' y1='262' x2='540' y2='230' />
+        <line x1='540' y1='230' x2='661' y2='337' />
+        <line x1='661' y1='337' x2='870' y2='171' />
+        <line x1='870' y1='171' x2='837' y2='379' />
+        <line x1='1090' y1='337' x2='1156' y2='47.5' />
+        <line x1='1156' y1='47.5' x2='1019' y2='139' />
+        <line x1='1090' y1='338' x2='1346' y2='195' />
+        <line x1='1346' y1='195' x2='1373' y2='439' />
+        <line x1='344' y1='262' x2='694' y2='36' />
+        <line x1='1373' y1='439' x2='1169.5' y2='537.5' />
+        <line x1='1346' y1='195' x2='1543' y2='94' />
+        <line x1='1543' y1='94' x2='1704' y2='147' />
+        <line x1='1704' y1='147' x2='1816' y2='277' />
+        <line x1='1816' y1='277' x2='1539.5' y2='217.5' />
         <line x1='621.5' y1='795.5' x2='869.5' y2='975.5' />
+        <line x1='1539.5' y1='217.5' x2='1504' y2='310' />
+        <line x1='661' y1='337' x2='387.5' y2='590.5' />
+        <line x1='387.5' y1='590.5' x2='406' y2='765' />
+        <line x1='661' y1='337' x2='621.5' y2='795.5' />
+        <line x1='870' y1='171' x2='1090' y2='337' />
+        <line x1='621.5' y1='795.5' x2='546.5' y2='962.5' />
         <line x1='869.5' y1='975.5' x2='1100.5' y2='679.5' />
-        <line x1='837.5' y1='379.5' x2='1100.5' y2='679.5' />
-        <line x1='1100.5' y1='679.5' x2='1299.5' y2='716.5' />
-        <line x1='1299.5' y1='716.5' x2='1211.5' y2='1010.5' />
-        <line x1='1211.5' y1='1010.5' x2='1360.5' y2='917.5' />
-        <line x1='1361.5' y1='917.5' x2='1474.5' y2='605.5' />
-        <line x1='546.5' y1='962.5' x2='406.5' y2='764.5' />
-        <line x1='227.5' y1='993.5' x2='406.5' y2='764.5' />
+        <line x1='621.5' y1='795.5' x2='778.5' y2='733.5' />
+        <line x1='837' y1='379' x2='1100.5' y2='679.5' />
+        <line x1='1100.5' y1='679.5' x2='1299' y2='717' />
+        <line x1='1299' y1='717' x2='1211.5' y2='1010.5' />
+        <line x1='169.5' y1='703.5' x2='387.5' y2='590.5' />
+        <line x1='1211.5' y1='1010.5' x2='1361' y2='918' />
+        <line x1='1361' y1='918' x2='1474' y2='606' />
+        <line x1='546.5' y1='962.5' x2='406' y2='765' />
+        <line x1='1704' y1='147' x2='1883.5' y2='37' />
+        <line x1='227.5' y1='993.5' x2='406' y2='765' />
+        <line x1='0.5' y1='328' x2='387.5' y2='590.5' />
     </g>
     <g id='Layer_3'>
-        <circle cy='328' r='68' />
-        <circle cx='39.5' cy='99.5' r='50.5' />
+        <circle cx ='0.5' cy='328' r='68' />
+        <circle cx='39' cy='100' r='50.5' />
         <circle cx='344' cy='262' r='68' />
-        <circle cx='694.5' cy='36.5' r='78.5' />
-        <circle cx='540' cy='231' r='37' />
+        <circle cx='694' cy='36' r='78.5' />
+        <circle cx='540' cy='230' r='37' />
         <circle cx='661' cy='337' r='27' />
         <circle cx='870' cy='171' r='43' />
         <circle cx='1019' cy='139' r='11' />
-        <circle cx='1156.5' cy='47.5' r='30.5' />
-        <circle cx='837.5' cy='379.5' r='42.5' />
+        <circle cx='1156' cy='47.5' r='30.5' />
+        <circle cx='837' cy='379' r='42.5' />
         <circle cx='1090' cy='338' r='80' />
         <circle cx='1346' cy='195' r='45' />
         <circle cx='1543' cy='94' r='16' />
@@ -351,7 +435,11 @@ export default class extends Component {
           </section>
           <section className="d_about_team">
             <div className="d_about_team_title">
-              <h2>OUR <span className="c_color">INSANE</span> TEAM</h2>
+              <h2>
+                  <span className="team_title_large_text">OUR</span> 
+                  <span className="c_color">INSANE</span>
+                  <span className="team_title_large_text">TEAM</span>
+                </h2>
             </div>
             <div className="d_about_team_icons">
               <div className="d_about_team_line">
@@ -362,7 +450,7 @@ export default class extends Component {
                     <div className="d_about_box_info_job">
                       <span></span><h4>Designer</h4>
                     </div>
-                    <p>some more info</p>
+                    <p>some more info </p>
                   </div>
                 </div>
                 <div className="d_about_team_box">

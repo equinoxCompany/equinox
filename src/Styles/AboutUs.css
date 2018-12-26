@@ -27,7 +27,7 @@
   top: 15vw;
   background: #292929;
   z-index: 0;
-  opacity: .7;
+  opacity: .8;
 }
 
 .d_about_title_text{
@@ -126,7 +126,7 @@
   width: 60vw;
   height: 19vw;
   background: #292929;
-  opacity: .7;
+  opacity: .8;
   z-index: 0;
   overflow: hidden;
 }
@@ -367,7 +367,6 @@
   justify-content: left;
   align-items: center;
   margin-top: 1vw;
-  
 }
 
 .d_about_services_studio_types ul>li>span{
@@ -468,24 +467,71 @@
   margin-left: 5vw;
   margin-top: 5vw;
   padding-left: 2vw;
+  overflow: hidden;
   border-left: 1vw solid #FF5D00;
 }
 
 .d_about_services_title_box_lagre h2{
+  display: none;
+  position: relative;
+  left: 0vw;
   font-size: 4vw;
   margin: 0;
   line-height: 5vw;
 }
 
+.services_title_box_lagre_animation{
+  -webkit-animation-name: title_box_lagre_animation;
+  -webkit-animation-duration: 2s;
+  animation-name: title_box_lagre_animation;
+  animation-duration: 2s;
+}
+
+@-webkit-keyframes title_box_lagre_animation{
+  0%{   line-height: 0vw;
+        left: -30vw;}
+  50%{  line-height: 5vw;
+        left: -30vw;}
+  100%{ left: 0vw;}
+}
+@keyframes title_box_lagre_animation{
+  0%{   line-height: 0vw;
+    left: -30vw;}
+50%{  line-height: 5vw;
+    left: -30vw;}
+100%{ left: 0vw;}
+}
+
 .d_about_services_text_box_lagre{
+  position: relative;
   width: 55vw;
-  margin-left: 20vw;
+  left: 20vw;
   margin-top: 2vw;
+  overflow: hidden;
 }
 
 .d_about_services_text_box_lagre p{
+  visibility: hidden;
+  position: relative;
+  bottom: 0vw;
   margin: 0;
   font-size: 2vw;
+}
+
+.services_text_box_lagre_animation{
+  -webkit-animation-name: text_box_lagre_animation;
+  -webkit-animation-duration: 2s;
+  animation-name: text_box_lagre_animation;
+  animation-duration: 2s;
+}
+
+@-webkit-keyframes text_box_lagre_animation{
+  0%{  bottom: -10vw;}
+  100%{ bottom: 0vw;}
+}
+@keyframes text_box_lagre_animation{
+  0%{ bottom: -10vw;}
+  100%{ bottom: 0vw;}
 }
 
 .d_about_team{
@@ -493,16 +539,70 @@
 }
 
 .d_about_team_title{
+  position: relative;
+  visibility: hidden;
+  overflow: hidden;
   width: 20vw;
+  left: 4vw;
   padding-right: 2vw;
+  height: 20vw;
   border-right: 1vw solid #FF5D00;
+  margin-bottom: 1vw;
 }
 
 .d_about_team_title h2{
+  visibility: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
   font-size: 5vw;
   text-align: right;
-  line-height: 4vw;
+  line-height: 6vw;
+  bottom: 2vw;
 }
+
+.team_title_large_text{
+  font-size: 8vw;
+  line-height: 6vw;
+}
+
+.about_team_title_box_animation{
+  -webkit-animation-name: team_title_box_animation;
+  -webkit-animation-duration: 1s;
+  animation-name: team_title_box_animation;
+  animation-duration: 1s;
+}
+
+@-webkit-keyframes team_title_box_animation{
+  0%{  
+    height: 0;}
+  100%{ height: 20vw;}
+}
+@keyframes team_title_box_animation{
+  0%{
+    height: 0;}
+  100%{ height: 20vw;}
+}
+
+.about_team_title_text_animation{
+  -webkit-animation-name: team_title_text_animation;
+  -webkit-animation-duration: 1s;
+  animation-name: team_title_text_animation;
+  animation-duration: 1s;
+}
+
+@-webkit-keyframes team_title_text_animation{
+  0%{  
+    bottom: -15vw;}
+  100%{ bottom: 2vw;}
+}
+@keyframes team_title_text_animation{
+  0%{
+    bottom: -15vw;}
+  100%{ bottom: 2vw;}
+}
+
+
 
 .d_about_team_line{
   display: flex;
@@ -519,30 +619,79 @@
 .d_about_team_box{
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   justify-content: flex-start;
   width: 20vw;
+  overflow: hidden;  
 }
+
+
 
 .d_about_team_box img{
+  visibility: hidden;
+  position: relative;
+  margin: 0 auto;
   width: 90%;
   height: auto;
+  bottom: 0vw;
 }
 
+.team_box_img_animation{
+  -webkit-animation-name: team_box_img_animation;
+  -webkit-animation-duration: 1s;
+  animation-name: team_box_img_animation;
+  animation-duration: 1s;
+}
+
+@-webkit-keyframes team_box_img_animation{
+  0%{  
+    bottom: -30vw;}
+  100%{ bottom: 0vw;}
+}
+@keyframes team_box_img_animation{
+  0%{
+    bottom: -30vw;}
+  100%{ bottom: 0vw;}
+}
+
+
 .d_about_box_underline{
-  width: 100%;
+  visibility: hidden;
+  position: relative;
+  width: 20vw;
+  left: 0;
   height: 0.5vw;
   background: #898989;
   border-radius: 1vw;
 }
 
+.team_box_underline_animation{
+  -webkit-animation-name: team_box_underline_animation;
+  -webkit-animation-duration: 2s;
+  animation-name: team_box_underline_animation;
+  animation-duration: 2s;
+}
+
+@-webkit-keyframes team_box_underline_animation{
+  0%{  width: 0}
+  100%{ width: 20vw}
+}
+@keyframes team_box_underline_animation{
+  0%{  width: 0}
+  100%{ width: 20vw}
+}
+
 .d_about_box_info{
   margin-top: 0.5vw;
   width: 100%;
+  overflow: hidden;
 }
 
 .d_about_box_info_job {
+  visibility: hidden;
+  position: relative;
   display: flex;
+  bottom: 0vw;
   justify-content: left;
   align-items: center;
 }
@@ -561,39 +710,80 @@
 }
 
 .d_about_box_info p{
+  visibility: hidden;
+  position: relative;
+  bottom: 0;
   margin: 0;
   margin-left: 1.5vw;
   font-size: 1.5vw;
   color: #5B5B5B;
 }
 
+.about_box_info_animation{
+  -webkit-animation-name: about_box_info_animation;
+  -webkit-animation-duration: 2s;
+  animation-name: about_box_info_animation;
+  animation-duration: 2s;
+}
+
+@-webkit-keyframes about_box_info_animation{
+  0%{  bottom: -20vw}
+  100%{ bottom: 0vw}
+}
+@keyframes about_box_info_animation{
+  0%{  bottom: -20vw}
+  100%{ bottom: 0vw}
+}
+
 .d_about_start_text_box{
-  position: relative;
   width: 35vw;
   margin-left: 4vw;
   margin-top: 10vw;
-  margin-bottom: 10vw;
+  margin-bottom: 5vw;
+  overflow: hidden;
 }
 
 .d_about_start_text_box p{
+  visibility: hidden;
+  position: relative;
+  bottom: 0vw;
   font-size: 2vw;
   margin: 0;
 }
 
+.start_text_box_animation{
+  -webkit-animation-name: start_text_box_animation;
+  -webkit-animation-duration: 2s;
+  animation-name: start_text_box_animation;
+  animation-duration: 2s;
+}
+
+@-webkit-keyframes start_text_box_animation{
+  0%{  bottom: -20vw}
+  100%{ bottom: 0vw}
+}
+@keyframes start_text_box_animation{
+  0%{  bottom: -20vw}
+  100%{ bottom: 0vw}
+}
+
+
 .d_about_start_button{
-  width: 7vw;
   font-size: 1.2vw;
-  bottom: -3vw;
-  position: absolute;
+  visibility: hidden;
+  width: 8vw;
+  position: relative;
+  margin: 0 auto;
+  bottom: 0;
   border: 1px solid #FF5D00;
   border-radius: 2vw;
-  padding: 0.5vw 1.5vw 0.5vw 1.5vw;
+  padding: 0.6vw 3vw 0.6vw 3vw;
   background: #171717;
-  left: 12vw;
   transition: 0.3s;
   display: flex;
   justify-content: center;
   align-items:center;
+  margin-bottom: 1vw;
 }
 .d_about_start_button:hover{
   background: #FF5D00;
@@ -602,14 +792,15 @@
 .d_about_start_final_text_box{
   width: 55vw;
   margin-left: 4vw;
+  overflow: hidden;
 }
 
 .d_about_start_final_text_box p{
+  visibility: hidden;
   font-size: 2vw;
+  position: relative;
+  bottom: 0vw;
 }
-
-
-
 
 
 }
