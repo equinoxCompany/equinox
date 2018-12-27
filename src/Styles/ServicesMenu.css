@@ -98,6 +98,10 @@
   overflow-x: scroll;
 }
 
+.service_type_scroll_selector::-webkit-scrollbar { 
+  display: none; 
+}
+
 .service_type_jobs{
   display: flex;
   flex-direction: column;
@@ -181,6 +185,7 @@
 
 .service_job_info_box{
   position: relative;
+  color: white;
 }
 
 .service_job_info h1{
@@ -188,8 +193,8 @@
   border-left: 1vw solid #FF5D00;
   font-size: 4vw;
   padding-left: 5vw;
-  color: white;
   font-weight: 300;
+  color: white;
 }
 
 .service_job_info{

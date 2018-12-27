@@ -355,6 +355,9 @@ export default class extends Component {
                 this.state.visibility ?(
             <div>
             <Logo/>
+            <div className="post_actions">
+                <img src={Exit} onClick={()=>this.goBack()} className="button_exit"/>
+            </div>
             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 1920 1080">
 	
     

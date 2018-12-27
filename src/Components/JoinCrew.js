@@ -4,6 +4,7 @@ import '../Styles/Join.css';
 import { Link } from 'react-router-dom';
 import {BrowserRouter} from 'react-router-dom';
 import MobileExit from '../media/mobile_exit.png';
+import Exit from '../media/exit.png';
 import * as d3 from "d3";
 
 export default class extends Component {
@@ -47,7 +48,11 @@ export default class extends Component {
           this.state.visibility ?(
       <div>
         <Logo/>
+        
         <div className="d_start_project">
+        <div className="post_actions">
+          <img src={Exit} onClick={()=>this.goBack()} className="button_exit"/>
+        </div>
           <h1>Ready to start aproject? <br/><span className="c_color">Let’s chat!</span></h1>
           <h3>Please take a few seconds to fill out this form. You can also send us a email if you prefer.</h3>
           <form action="#" method="post" className="d_form_start_project">

@@ -1,40 +1,117 @@
-.content_top {
-  display: flex;
-  align-items: top;
-  width: 100vw;
-  height: 60vh;
+
+@media (min-width: 768px){
+  .project_page{
+    color: white;
+    overflow-x: hidden;
+    height: auto;
+    width: 100vw;
+    height: 100vh;
+    border: 1px solid pink;
+  }
+
+  .project_page section{
+    height: auto;
+    position: relative;
+    width: 80vw;
+  }
+
+  .project_page_info{
+    margin: 0 auto;
+  }
+
+  .project_page_enjoy{
+    margin: 5vw auto;
+    margin-top: 5vw;
+    margin-bottom: 5vw;
+  }
+
+  .project_page_enjoy_underline{
+    background: #FF5D00;
+    height: 0.3vw;
+    width: 60vw;
+  }
+
+  .project_page_enjoy p{
+    font-size: 2vw;
+    width: 70vw;
+  }
+
+  .project_page_start_project_button{
+    border: 0.1vw solid #FF5D00;
+    height: 3vw;
+    width: 15vw;
+    border-radius: 2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5vw;
+    background: #171717;
+    transition: 0.3s;
+  }
+
+  .project_page_start_project_button:hover{
+    background: #FF5D00;
+  }
+
+  .project_page::-webkit-scrollbar { 
+    display: none; 
 }
 
-.content_img {
-  background-image: url('../media/planet_projects.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  margin: 2%;
-  width: 40vw;
-  height: 50vh;
+  .project_page p{
+    position: relative;
+  }
+
+  .project_page_img{
+    margin-top: 4vw;
+    left: 0vw;
+    width: 40vw;
+    height: auto;
+  }
+
+  .project_page_title{
+    position: absolute;
+    top: 4vw;
+    left: 42vw;
+    max-width: 45vw;
+  }
+  .project_page_title h1{
+    margin: 0 auto;
+    font-size: 5vw;
+  }
+
+  .project_page_title h3{
+    position: relative;
+    margin: 0;
+    right: 0;
+    text-align: right;
+  }
+
+  .project_page_text{
+    width: 70vw;
+    height: auto;
+    left: 0;
+    font-size: 2vw;
+  }
+
+  .project_page_enjoy{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .project_page_enjoy h2{
+    font-size: 5vw;
+    margin: 0;
+  }
+
+  .project_page_engoy_picture{
+    margin-top: 3vw;
+    width: 40vw;
+    height: auto;
+  }
+
 }
 
-
-
-.content_title {
-  margin-top: 2%;
-  font-size: 5vw;
-  color: white;
-  float: right;
-}
-
-.content_title_date {
-  text-align: right;
-  font-size: 2vw;
-}
-
-.content_text {
-  margin: 0;
-  padding-left: 5%;
-  color: white;
-  font-size: 2vw;
-  width: 68vw;
-}
 
 @media (max-width: 768px){
 
@@ -80,10 +157,9 @@
 /* ie 10+ */
 .m_sub_project_types { -ms-overflow-style: none; }
 
-/* фф (свойство больше не работает, других способов тоже нет)*/
 .m_sub_project_types { overflow: -moz-scrollbars-none; }
 
-
+ 
  .m_sub_project_type_circle{
    flex-shrink: 0;
    background: #FF5D00;
