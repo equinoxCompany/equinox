@@ -1,5 +1,111 @@
 
+@media (min-width: 768px){
+  .d_start_project{
+    display: flex;
+    width: 65%;
+    padding-top: 2vw;
+    margin: 0 auto;
+    align-items: left;
+    flex-direction: column;
+    color: white;
+  }
 
+  .d_start_project h1{
+    font-size: 5vw;
+    margin: 0;
+  }
+
+  .d_start_project h3{
+    font-size: 1.7vw;
+    margin: 0;
+  }
+
+  .d_form_start_project{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+  }
+
+  .d_start_project_input_line{
+    display: flex;
+    justify-content: space-between;
+    width: 45vw;
+    margin-top: 2vw;
+  }
+
+  .d_start_project_input_line input{
+    background: #75381B;
+    width: 40%;
+    border: 0;
+    border-radius: 1.5vw;
+    color: white;
+    padding: 0.5vw 1vw 0.5vw 1vw;
+    font-size: 1.2vw;
+    outline: none;
+  }
+
+  .d_start_project_input_line input::-webkit-input-placeholder {
+    color: white;}
+  .d_start_project_input_line input::-moz-placeholder          {color: white;}/* Firefox 19+ */
+  .d_start_project_input_line input:-moz-placeholder           {color: white;}/* Firefox 18- */
+  .d_start_project_input_line input:-ms-input-placeholder      {color: white;}
+
+    .d_start_project_description{
+      display: flex;
+      flex-direction: column;
+      align-items: left;
+    }
+
+    .d_start_project_description h3{
+      margin-top: 2vw;
+      margin-bottom: 2vw;
+    }
+
+    .d_start_project_description textarea{
+      background: #75381B;
+      width: 39vw;
+      border: 0;
+      border-radius: 8vw;
+      padding: 2vw 3vw 2vw 3vw;
+      height: 8vw;
+      font-size: 1.2vw;
+      color: white;
+      resize: none;
+      outline: none;
+    }
+
+    .d_start_project_description textarea::-webkit-scrollbar { 
+      display: none; 
+  }
+
+    .d_button_send{
+      position: relative;
+      width: 10vw;
+      height: 2.2vw;
+      background: #75381B;
+      border: 0;
+      border-radius: 2.2vw;
+      color: white;
+      font-size: 1.2vw;
+      margin-top: 2vw;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      outline: none;
+    }
+
+    .d_button_send_slider{
+      height: 2.2vw;
+      width: 2.8vw;
+      background: #FF5D00;
+      border-radius: 2.2vw;
+      position: absolute;
+      left: 0;
+    }
+
+
+}
 @media (max-width: 768px){
 
   input, textarea, button{

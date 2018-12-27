@@ -4,6 +4,7 @@ import '../Styles/Join.css';
 import { Link } from 'react-router-dom';
 import {BrowserRouter} from 'react-router-dom';
 import MobileExit from '../media/mobile_exit.png';
+import * as d3 from "d3";
 
 export default class extends Component {
   constructor(props){
@@ -14,6 +15,28 @@ export default class extends Component {
     }
  }
 
+ componentDidMount(){
+   d3.select('.d_button_send')
+    .on('mouseover', function(){
+      d3.select(this).select('.d_button_send_slider')
+        .transition()
+        .duration(200)
+        .style('left', '1vw')
+    })
+    .on('mouseleave', function(){
+      d3.select(this).select('.d_button_send_slider')
+        .transition()
+        .duration(200)
+        .style('left', '0vw')
+    });
+    d3.select('textarea')
+      .on('click', function(){
+        d3.select(this).node().value = "";
+      })
+ }
+
+
+
  goBack(){
   this.props.history.goBack();
 }
@@ -23,31 +46,30 @@ export default class extends Component {
         {
           this.state.visibility ?(
       <div>
-    <Logo/>
-        <div className="join_crew_text">
-          <h1>Ready to start a project?<br/><span style={{color:'rgb(270,92,20'}}>Let's chat!</span></h1>
-          <p>Please take a few seconds to fill out this form. You can also send us a email if you prefer.</p>
+        <Logo/>
+        <div className="d_start_project">
+          <h1>Ready to start aproject? <br/><span className="c_color">Let’s chat!</span></h1>
+          <h3>Please take a few seconds to fill out this form. You can also send us a email if you prefer.</h3>
+          <form action="#" method="post" className="d_form_start_project">
+            <div className="d_start_project_input_line">
+              <input type="text" name="name_customer" placeholder="Name*"/>
+              <input type="text" name="name_project" placeholder="Name of project"/>
+            </div>
+            <div className="d_start_project_input_line">
+              <input type="tel" name="phone_number" placeholder="Phone number"/>
+              <input type="email" name="email" placeholder="Email*"/>
+            </div>
+            <div className="d_start_project_description">
+              <h3>Description*</h3>
+              <textarea defaultValue="Dear EQUINOX, I would like to work with you
+ on..."></textarea>
+              <button type="submit" className="d_button_send">
+                <span className="d_button_send_slider"></span>
+                SEND
+              </button>
+            </div>
+          </form>
         </div>
-        <form action="" id="join_form">
-          <ul>
-            <li>
-              <input className="field_name field-split align-left" value="Name*" type="text">
-              </input>
-              <input className="field_project_name field-split align-right" value="Project name" type="text">
-              </input>
-            </li>
-            <li>
-            <input className="field_phone field-split align-left" value="Phone number" type="tel">
-              </input>
-              <input className="field_email field-split align-right" value="Email*" type="email">
-              </input>
-            </li>
-            <label for="textarea">Description*<br/></label>
-            <textarea rows="10" cols="45" id="textarea" placeholder="Dear EQUINOX, I would like to work with you on ..."></textarea>
-            <div className="circle_send"></div><input type="submit" value="SEND"></input>
-          </ul>
-        </form>
-        <div className="services-menu-exit" style={{top: '55vw'}}onClick={()=>this.goBack()}></div>
       </div>) : (
         <div className="m_start_project">
           <h1>Ready to start a project? Let’s chat!</h1>

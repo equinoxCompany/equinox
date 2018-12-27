@@ -66,6 +66,68 @@ export default class extends Component {
           join: false
         }
 
+    let ufo_parts = {
+      d_l_t_ufo: d3.select('.d_l_t_ufo'),
+      d_l_b_ufo: d3.select('.d_l_b_ufo'),
+      d_c_c_ufo: d3.select('.d_c_c_ufo'),
+      d_r_t_ufo: d3.select('.d_r_t_ufo'),
+      d_r_b_ufo: d3.select('.d_r_b_ufo'),
+      d_c_b_ufo: d3.select('.d_c_b_ufo'),
+      animation_state: false
+    }
+
+    let ufo_coordinates = {
+      d_l_t_ufo:{
+        start_top: parseFloat(ufo_parts.d_l_t_ufo.style('top')),
+        start_left: parseFloat(ufo_parts.d_l_t_ufo.style('left')),
+        start_size: parseFloat(ufo_parts.d_l_t_ufo.style('width')),
+        end_top: parseFloat(ufo_parts.d_l_t_ufo.style('top')) - 20,
+        end_left: parseFloat(ufo_parts.d_l_t_ufo.style('left')) - 20,
+        end_size: parseFloat(ufo_parts.d_l_t_ufo.style('width')) - 10
+      },
+      d_l_b_ufo:{
+        start_top: parseFloat(ufo_parts.d_l_b_ufo.style('top')),
+        start_left: parseFloat(ufo_parts.d_l_b_ufo.style('left')),
+        start_size: parseFloat(ufo_parts.d_l_b_ufo.style('width')),
+        end_top: parseFloat(ufo_parts.d_l_b_ufo.style('top')) + 20,
+        end_left: parseFloat(ufo_parts.d_l_b_ufo.style('left')) - 20,
+        end_size: parseFloat(ufo_parts.d_l_b_ufo.style('width')) + 10
+      },
+      d_c_c_ufo:{
+        start_top: parseFloat(ufo_parts.d_c_c_ufo.style('top')),
+        start_left: parseFloat(ufo_parts.d_c_c_ufo.style('left')),
+        start_size: parseFloat(ufo_parts.d_c_c_ufo.style('width')),
+        end_top: parseFloat(ufo_parts.d_c_c_ufo.style('top')) + 5,
+        end_left: parseFloat(ufo_parts.d_c_c_ufo.style('left')) + 10,
+        end_size: parseFloat(ufo_parts.d_c_c_ufo.style('width')) + 5
+      },
+      d_r_t_ufo:{
+        start_top: parseFloat(ufo_parts.d_r_t_ufo.style('top')),
+        start_left: parseFloat(ufo_parts.d_r_t_ufo.style('left')),
+        start_size: parseFloat(ufo_parts.d_r_t_ufo.style('width')),
+        end_top: parseFloat(ufo_parts.d_r_t_ufo.style('top')) - 25,
+        end_left: parseFloat(ufo_parts.d_r_t_ufo.style('left')) + 25,
+        end_size: parseFloat(ufo_parts.d_r_t_ufo.style('width')) - 15
+      },
+      d_r_b_ufo:{
+        start_top: parseFloat(ufo_parts.d_r_b_ufo.style('top')),
+        start_left: parseFloat(ufo_parts.d_r_b_ufo.style('left')),
+        start_size: parseFloat(ufo_parts.d_r_b_ufo.style('width')),
+        end_top: parseFloat(ufo_parts.d_r_b_ufo.style('top')) + 15,
+        end_left: parseFloat(ufo_parts.d_r_b_ufo.style('left')) + 15,
+        end_size: parseFloat(ufo_parts.d_r_b_ufo.style('width')) - 15
+      },
+      d_c_b_ufo:{
+        start_top: parseFloat(ufo_parts.d_c_b_ufo.style('top')),
+        start_left: parseFloat(ufo_parts.d_c_b_ufo.style('left')),
+        start_size: parseFloat(ufo_parts.d_c_b_ufo.style('width')),
+        end_top: parseFloat(ufo_parts.d_c_b_ufo.style('top')) + 10,
+        end_left: parseFloat(ufo_parts.d_c_b_ufo.style('left')) + 5,
+        end_size: parseFloat(ufo_parts.d_c_b_ufo.style('width')) + 10
+      }
+
+    }
+
     d3.select('.d_about')
       .on("scroll", function(){
         window_bottom = d3.select(this).node().getBoundingClientRect().bottom * 0.3;
@@ -158,6 +220,34 @@ export default class extends Component {
             .classed('start_text_box_animation', true);
           flags.project = true;
         }
+      
+        if(ufo_parts.animation_state == false){
+          ufo_animation(ufo_parts.d_l_t_ufo, ufo_coordinates.d_l_t_ufo);
+          ufo_animation(ufo_parts.d_l_b_ufo, ufo_coordinates.d_l_b_ufo);
+          ufo_animation(ufo_parts.d_c_c_ufo, ufo_coordinates.d_c_c_ufo);
+          ufo_animation(ufo_parts.d_r_t_ufo, ufo_coordinates.d_r_t_ufo);
+          ufo_animation(ufo_parts.d_r_b_ufo, ufo_coordinates.d_r_b_ufo);
+          ufo_animation(ufo_parts.d_c_b_ufo, ufo_coordinates.d_c_b_ufo);
+        }
+        function ufo_animation(element, coordinates){
+
+            element.call(function(e){
+              let t = d3.transition().duration(500).ease(d3.easeLinear);
+              e
+                .on('start', function(){ufo_parts.animation_state = true})
+                .transition(t)
+                .style('top', `${coordinates.end_top}px`)
+                .style('left', `${coordinates.end_left}px`)
+                .style('width', `${coordinates.end_size}px`)
+                .style('height', `${coordinates.end_size}px`)
+                .transition(t)
+                .style('top', `${coordinates.start_top}px`)
+                .style('left', `${coordinates.start_left}px`)
+                .style('width', `${coordinates.start_size}px`)
+                .style('height', `${coordinates.start_size}px`)
+                .on('end', function(){ufo_parts.animation_state = false})
+            });
+          }
       });
 
       d3.selectAll('circle')
@@ -223,7 +313,7 @@ export default class extends Component {
       {
         this.state.visibility ?(
         <div className="d_about">
-          {/* <Logo/> */}
+          <Logo/>
           <Socials/>
           <div className="d_about_left_menu">
           </div>

@@ -33,6 +33,28 @@ export default class extends Component {
     //   .then(res => res.json())
     //   .then(posts => this.setState({posts}));
 
+    d3.selectAll('.post_type_selector h3')
+      .on('click', function(){
+        let type = d3.select(this).attr('data');
+        d3.selectAll('.post_type_selector h3')
+          .each(function(){
+            let e = d3.select(this);
+            if(e.attr('data') == type){
+              e.select('span').style('box-shadow', 'none');
+              e.transition().duration(200).ease(d3.easeLinear)
+                .style('background', '#FF5D00')
+                .style('box-shadow', '0.2vw 0.5vw 0vw black')
+                .style('color', 'black');
+            }else{
+              e.select('span').style('box-shadow', '0.2vw 0.5vw 0vw black');
+              e.transition().duration(200).ease(d3.easeLinear)
+                .style('background', 'none')
+                .style('box-shadow', 'none')
+                .style('color', 'white');
+            }
+          })
+      });
+
     if(window.innerWidth < 768){
       scrollAnimation();
     d3.select('.mobile_blog_content')
@@ -104,9 +126,16 @@ export default class extends Component {
               <div className="post_delimiter"></div>
               <div className="post_controller">
                 <div className="post_type_selector">
-                  <span className="first_type">DESIGN</span>
-                  <span className="second_type active">SEO</span>
-                  <span className="third_type">WEB</span>
+                  <div>
+                    <h3 data="seo"><span></span>SEO</h3>
+                    <h3 data="design"><span></span>DESIGN</h3>
+                  </div>
+                  <div>
+                    <h3 data="web"><span></span>WEB</h3>
+                  </div>
+                  <div>
+                    <h3 data="news"><span></span>NEWS</h3>
+                  </div>
                 </div>
                 <div className="post_search">
                   <input type="text" placeholder="Search"/>

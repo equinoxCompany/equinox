@@ -46,7 +46,7 @@ export default class extends Component {
                         this.state.visibility?(
                             <div className="d_post">
                                 <Logo/>
-                               
+            
                                 <div className="post_title_info">
                                     <div className="author_info">
                                         <div className="author_top_circle"></div>
@@ -63,7 +63,7 @@ export default class extends Component {
                                 <div className="post_actions">
                                     <img src={Comments} className="button_comments"/>
                                     <img src={Repost} className="button_repost"/>
-                                    <Link to="/seo"><img src={Exit} className="button_exit"/></Link>
+                                    <img src={Exit} onClick={()=>this.goBack()} className="button_exit"/>
                                 </div>
                                 <div className="post_info_subject">
                                     <h1>{this.state.post.title}<br/>
