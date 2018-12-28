@@ -30,6 +30,21 @@ export default class extends Component {
     }
   }
 
+  searchText = () => {
+    let word = document.getElementById('search_blog').value;
+    console.log(word);
+    if(word === ''){
+      fetch('http://d29.default-host.net:3002/posts')
+      .then(res => res.json())
+      .then(posts => this.setState({posts}))
+    } else {
+      fetch('http://d29.default-host.net:3002/post-search/'+word)
+      .then(res => res.json())
+      .then(posts => this.setState({posts}))
+    }
+    
+  }
+
   goBack(){
     if(!this.state.map){
     this.props.history.goBack();
@@ -65,8 +80,8 @@ export default class extends Component {
                   <span className="third_type">WEB</span>
                 </div>
                 <div className="post_search">
-                  <input type="text" placeholder="Search"/>
-                  <img src={search_img}/>
+                  <input type="text" id="search_blog" placeholder="Search"/>
+                  <button onClick={this.searchText}><img src={search_img}/></button>
                 </div>
                 <div className="posts_selector">
                   <span>Show for...</span>

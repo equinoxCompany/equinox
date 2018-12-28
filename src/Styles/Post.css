@@ -1,10 +1,11 @@
 
 .post_title_info{
-    position: absolute;
+    position: relative;
     left: 20vw;
     top: 3vh;
     color: white;
     display: relative;
+    z-index: 5;
 }
 
 .post_title_info h3{
@@ -108,8 +109,14 @@
     height: 5vw;
 }
 
+.d_post{
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
 .post_info_subject{
-    position: absolute;
+    position: relative;
     left: 2vw;
     border-left: 0.8vw solid #FF5D00;
     width: 50vw;
@@ -135,7 +142,7 @@
         font-weight: 900;
   }
 
-  .post_picture_box{
+  .post_picture_box {
       position: absolute;
       right: 2vw;
       top: 23vh;
@@ -144,6 +151,13 @@
       flex-direction: column;
       align-items: center;
   }
+
+  .post_picture{
+      border-radius: 50%;
+      background-size: cover;
+     }
+
+  
 
   .post_picture_box h2{
     font-family: 'helvetica';
@@ -156,12 +170,18 @@
   }
 
   .post_text{
-      position: absolute;
-      bottom: 25vh;
+      position: relative;
+      top: 35vh;
       left: 5vw;
-      width: 70vw;
+      width: 65vw;
       height: auto;
   }
+
+
+.post_text img{
+    max-width: 100%;
+    height: auto;
+}
 
   .post_text p{
       margin: 0;
@@ -171,4 +191,5 @@
       position: relative;
       font-size: 1.8vw;
       width: 100%;
+      height: auto;
   }

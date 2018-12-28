@@ -11,4 +11,9 @@
   padding: 1%;
 }
 
+.preview_container::-webkit-scrollbar {
+display: none;
+}
+
+
 

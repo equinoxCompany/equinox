@@ -129,5 +129,5 @@
       "react-app"
     ]
   },
-  "proxy": "https://localhost:3001"
+  "proxy": "http://d29.default-host.net:3002"
 }

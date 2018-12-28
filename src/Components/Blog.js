@@ -37,6 +37,7 @@ export default class extends Component {
             <meta name="description" content={this.state.meta.description}/>
             <meta property="og:title" content={this.state.meta.title} />
           </MetaTags>
+          {console.log(window.location.href)}
       {
         this.state.visibility ? (
         <div>

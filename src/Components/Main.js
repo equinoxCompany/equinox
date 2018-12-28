@@ -48,6 +48,7 @@ componentDidMount(){
             <meta name="description" content={this.state.meta.description}/>
             <meta property="og:title" content={this.state.meta.title} />
           </MetaTags>
+          
       {
         this.state.visibility ? (
 <div id="main">
@@ -70,7 +71,7 @@ componentDidMount(){
             <ul>
               <li>
                 <div className="subcontain">
-                <Link to="/projects" className="menu_projects" onMouseEnter={()=>this.mouseEnterHandler()} onMouseLeave={()=>this.mouseLeaveHandler()}>Projects
+                <Link to="/projects" className="menu_projects" onMouseEnter={()=>this.mouseEnterHandler()} onMouseLeave={()=>this.mouseLeaveHandler() } onClick={()=>this.mouseLeaveHandler()}>Projects
                   <div className="underline" style={{backgroundColor:"rgb(58, 58, 58)"}}></div>
                   <div className="grey_container"><div className="grey_circle" style={{backgroundColor:"rgb(58, 58, 58)"}}></div>
                   </div>
