@@ -9,7 +9,7 @@
   color: white;
 }
 
-.d_about_preview, .d_about_services, .d_about_team{
+.d_about_preview, .d_about_services, .d_about_team, .d_about_app{
   position: relative;
   height: auto;
 }
@@ -802,6 +802,125 @@
   font-size: 2vw;
   position: relative;
   bottom: 0vw;
+}
+
+.d_about_application{
+}
+
+.d_about_app_box{
+  display: flex;
+  justify-content: space-between;
+  width: 75vw;
+  padding-bottom: 10vw;
+}
+
+.d_about_app_box_right img{
+  width: 100%;
+  height: auto;
+}
+
+.d_about_download_app{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+  margin: 5vw auto;
+}
+
+.d_about_app_box_left p{
+  font-size: 2.5vw;
+}
+
+.d_about_app_title_box{
+  position: relative;
+  left: 30%;
+  margin-bottom: 5vw;
+  overflow: hidden;
+  visibility: hidden;
+  border-left: 1vw solid #FF5D00;
+}
+
+
+
+.d_about_app h2{
+  visibility: hidden;
+  margin: 0;
+  position: relative;
+  left: 0;
+  font-size: 4vw;
+  font-weight: 300;
+  line-height: 3.5vw;
+  margin-left: 1vw;
+ 
+}
+
+.d_about_app_title_animation{
+  -webkit-animation-name: d_about_app_title_animation;
+  -webkit-animation-duration: 2s;
+  animation-name: d_about_app_title_animation;
+  animation-duration: 2s;
+}
+
+@-webkit-keyframes d_about_app_title_animation{
+  0%{  line-height: 0vw;
+        left: -20vw}
+  50%{ line-height: 3.5vw;
+        left: -20vw}
+  100%{ left: 0vw}
+}
+@keyframes d_about_app_title_animation{
+  0%{  line-height: 0vw;
+    left: -20vw}
+50%{ line-height: 3.5vw;
+    left: -20vw}
+100%{ left: 0vw}
+}
+
+.d_about_download_app img{
+  width: 12vw;
+}
+
+.d_about_app_box{
+  position: relative;
+  left: 4vw;
+}
+
+.d_about_app_box_left{
+  width: 50%;
+  margin-top: 10vw;
+}
+.d_about_app_text_box{
+  overflow: hidden;
+}
+
+.d_about_app_text_box p{
+  visibility: hidden;
+  margin: 0;
+  position: relative; 
+  bottom: 0vw;
+}
+
+.d_about_app_text_animation{
+  -webkit-animation-name: d_about_app_text_animation;
+  -webkit-animation-duration: 2s;
+  animation-name: d_about_app_text_animation;
+  animation-duration: 2s;
+}
+
+@-webkit-keyframes d_about_app_text_animation{
+  0%{  bottom: -20vw;}
+  100%{ bottom: 0vw}
+}
+@keyframes d_about_app_text_animation{
+  0%{  bottom: -20vw;}
+  100%{ bottom: 0vw}
+}
+
+.d_about_app_box_right{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 }

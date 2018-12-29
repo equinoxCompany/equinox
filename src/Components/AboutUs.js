@@ -42,7 +42,11 @@ export default class extends Component {
     // fetch('/about-us')
     //   .then(res => res.json())
     //   .then(items => this.setState({items}))
-    d3.selectAll('line, polyline').style('stroke', '#FF5D00').style('stroke-width', '2');
+
+    if(window.innerWidth > 768){
+    d3.selectAll('line').style('stroke', '#FF5D00');
+    d3.selectAll('.d_about_parallax line').style('stroke-width', '2');
+    d3.selectAll('.d_about_join_svg line').style('stroke-width', '1');
     d3.selectAll('circle').style('fill', '#FF5D00')
 
     d3.timeout(function(){
@@ -56,14 +60,17 @@ export default class extends Component {
         section_services_part_3,
         section_team, 
         section_project, 
-        section_join;
+        section_join,
+        section_app;
+
     let flags = {
           services_part_1: false,
           services_part_2: false,
           services_part_3: false,
           team: false,
           project: false,
-          join: false
+          join: false,
+          app: false
         }
 
     let ufo_parts = {
@@ -137,6 +144,7 @@ export default class extends Component {
         section_team = d3.select('.d_about_team').node().getBoundingClientRect().top;
         section_project = d3.select('.d_about_start_project').node().getBoundingClientRect().top;
         section_join = d3.select('.d_about_join').node().getBoundingClientRect().top;
+        section_app = d3.select('.d_about_app').node().getBoundingClientRect().top;
 
         if(window_bottom > section_services_part_1 && flags.services_part_1 == false){
           d3.selectAll('.d_about_services_title_box').style('display', 'block')
@@ -220,6 +228,13 @@ export default class extends Component {
             .classed('start_text_box_animation', true);
           flags.project = true;
         }
+        if(window_bottom > section_app && flags.app == false){
+          d3.select('.d_about_app_title_box').style('visibility', 'visible');
+          d3.select('.d_about_app h2').style('visibility', 'visible')
+            .classed('d_about_app_title_animation', true);
+          d3.select('.d_about_app_text_box p').style('visibility', 'visible')
+            .classed('d_about_app_text_animation', true);
+        }
       
         if(ufo_parts.animation_state == false){
           ufo_animation(ufo_parts.d_l_t_ufo, ufo_coordinates.d_l_t_ufo);
@@ -230,7 +245,6 @@ export default class extends Component {
           ufo_animation(ufo_parts.d_c_b_ufo, ufo_coordinates.d_c_b_ufo);
         }
         function ufo_animation(element, coordinates){
-
             element.call(function(e){
               let t = d3.transition().duration(500).ease(d3.easeLinear);
               e
@@ -300,6 +314,7 @@ export default class extends Component {
         });
     }
   }
+  }
 
 
 
@@ -330,7 +345,7 @@ export default class extends Component {
           </div>
           <section className="d_about_preview">
           <svg className="d_about_parallax" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080'>
-    <g id='Layer_4'>
+    <g>
         <line x1='39' y1='100' x2='344' y2='262' strokeWidth="3" stroke="white"/>
         <line x1='344' y1='262' x2='540' y2='230' />
         <line x1='540' y1='230' x2='661' y2='337' />
@@ -366,7 +381,7 @@ export default class extends Component {
         <line x1='227.5' y1='993.5' x2='406' y2='765' />
         <line x1='0.5' y1='328' x2='387.5' y2='590.5' />
     </g>
-    <g id='Layer_3'>
+    <g>
         <circle cx ='0.5' cy='328' r='68' />
         <circle cx='39' cy='100' r='50.5' />
         <circle cx='344' cy='262' r='68' />
@@ -646,80 +661,76 @@ ooking for isn’t available at the moment, no worries–send
             </div>
           </section>
           <section className="d_about_join">
-          <svg id='Layer_2' data-name='Layer 2' xmlns='http://www.w3.org/2000/svg'
-viewBox='0 0 2560.34 1552.22'>
-    <defs />
-    <polyline points='0.15 259.16 456.29 409.78 622.79 464.76 791.61 520.51'
-    />
-    <polyline points='812.97 603.76 701.21 653.4 699.05 654.36 489.71 747.34 415.5 780.31 130.97 906.69 0.15 964.79'
-    />
-    <polyline points='0.15 498.64 692.69 652.94 699.05 654.36 810.06 679.09 850.49 688.1 1044.76 731.38 1207.53 767.65'
-    />
-    <polyline points='2560.15 95.96 2346.37 209.45 2030.66 377.05 1560.81 626.47 1560.81 626.48 1412.79 705.05 1380.55 722.17 1376.1 724.53'
-    />
-    <polyline points='2560.15 260.03 2412.84 292.58 2412.83 292.59 2030.67 377.04 2030.66 377.05 1627.47 466.15'
-    />
-    <polyline points='0.15 389.62 456.29 409.78 1234.25 444.18 1449.98 453.72 1556.16 458.41'
-    />
-    <polyline points='0.15 432.82 622.79 464.76 984.72 483.33'
-    />
-    <polyline points='2560.15 1110.14 1951.79 895.35 1513.42 740.58 1493.47 733.54 1412.79 705.05 1374.13 691.4 1282.91 659.2 1282.91 659.19 1111.51 598.68 1064.32 582.02'
-    />
-    <polyline points='2560.15 944.47 2162.7 888.18 2162.69 888.18 1844.32 843.09'
-    />
-    <polyline points='1841.69 1551.9 1841.46 1550.1 1808.52 1296.2 1778.73 1066.59 1767.91 983.17'
-    />
-    <polyline points='0.15 746.18 415.5 780.31 684.22 802.39 684.23 802.39 758.84 808.52 763.24 808.88 996.15 828.02 1289.48 852.12 1405.05 861.62 1409.77 862.01 1412.52 862.23 1441.44 864.61 1681.86 884.36 1818.85 895.62'
-    />
-    <polyline points='0.15 1230.93 501.12 1147.12 650.22 1122.17 866.38 1086.01 914.68 1077.93'
-    />
-    <polyline points='0.15 899.32 130.97 906.69 661.37 936.57 716.07 939.65 866.93 948.15'
-    />
-    <polyline points='2560.15 219.21 2412.83 292.59 1513.42 740.58 1477.91 758.26 1477.91 758.27 1437.99 778.15 1396.56 798.78 1373.94 810.05 1361.06 816.47 1289.48 852.12 956.07 1018.19'
-    />
-    <polyline points='808.55 1550.1 1122.55 1141.5 1196.74 1044.97 1196.74 1044.96 1207.53 1030.92'
-    />
-    <polyline points='632.93 1550.1 866.38 1086.01 891.87 1035.33 901.83 1015.54 968.57 882.85 996.15 828.02 1044.76 731.38 1073.87 673.51 1096.13 629.25 1111.51 598.68 1143.91 534.27'
-    />
-    <polyline points='194.41 1550.1 501.12 1147.12 563.27 1065.47 661.37 936.57 749.45 820.84 749.46 820.84 758.83 808.52 758.84 808.52 767.46 797.19 850.49 688.1 869.96 662.51 869.97 662.51 914.68 603.76'
-    />
-    <polyline points='1553.52 1550.1 1514.94 1365.43 1435.56 985.47 1412.14 873.38 1410.49 865.46 1409.77 862.01 1405.86 843.3 1396.56 798.78 1387.67 756.23 1380.55 722.17 1374.13 691.4 1341.3 534.27'
-    />
-    <polyline points='2560.15 874.67 2162.7 888.18 1951.79 895.35 1724.81 903.07 1522.77 909.94'
-    />
-    <polyline points='0.15 1117.11 563.27 1065.47 674.35 1055.28 891.87 1035.33 930.34 1031.81 1208.29 1006.32 1324.94 995.62 1328.84 995.26 1435.56 985.47 1460.69 983.17'
-    />
-    <polyline points='1324.94 995.62 1325.39 1000.74 1325.39 1000.75 1349.37 1270.94 1374.14 1550.1'
-    />
-    <polyline points='0.15 615.58 29.68 617.17 692.69 652.94 701.21 653.4 817.07 659.65 869.97 662.51 1073.87 673.51 1207.53 680.72'
-    />
-    <polyline points='2560.15 0.36 1234.25 444.18 1234.24 444.18 1207.53 453.12'
-    />
-    <polyline points='1982.4 1550.1 1808.52 1296.2 1626.85 1030.92'
-    />
-    <polyline points='2560.15 1534.54 1778.73 1066.59 1441.45 864.61 1441.44 864.61 1419.35 851.38 1405.86 843.3 1387.28 832.18 1387.27 832.17 1361.06 816.47 1207.53 724.53'
-    />
-    <polyline points='979.85 1550.1 1105.35 1350.59 1105.35 1350.58 1206.67 1189.5 1325.39 1000.75 1328.84 995.26 1328.85 995.26 1408.9 867.99 1410.49 865.46 1412.52 862.23 1419.35 851.38 1459.51 787.52 1477.91 758.26 1493.47 733.54 1560.81 626.47 1588.77 582.02'
-    />
-    <polyline points='2560.15 151.19 2346.37 209.45 1449.98 453.72 1449.96 453.72 1341.3 483.33'
-    />
-    <polyline points='1820.48 1550.1 1810.99 1534.38 1412.14 873.38 1412.14 873.36 1408.9 867.99 1405.05 861.62 1387.28 832.18 1373.94 810.05 1324.98 728.92 1282.91 659.2 1207.53 534.27'
-    />
-    <polyline points='689.45 1550.1 1042.86 1096.02 1080.61 1047.52'
-    />
-    <polyline points='0.15 608.81 29.68 617.17 489.71 747.34 684.23 802.39 749.45 820.84 758.05 823.28 968.57 882.85 1064.32 909.94'
-    />
-    <polyline points='2560.15 1266.9 2056.93 1047.73 1724.81 903.07 1681.86 884.36 1681.85 884.36 1459.51 787.52 1437.99 778.15 1387.67 756.23 1324.98 728.92 1096.13 629.25 878.07 534.27'
-    />
-    <polyline points='2560.15 1164.4 2056.93 1047.73 1627.47 948.15'
-    />
-    <polyline points='1841.69 1551.9 1838.54 1550.1 1810.99 1534.38 1514.94 1365.43 1349.37 1270.94 1206.67 1189.5 1161.26 1163.59 1122.55 1141.5 1042.86 1096.02 930.34 1031.81 901.83 1015.54 866.93 995.62'
-    />
-    <polyline points='1045.69 1550.1 1105.35 1350.59 1161.26 1163.59 1196.74 1044.97 1208.29 1006.32 1237.37 909.08'
-    />
-    <polyline points='495.85 1550.1 650.22 1122.17 650.23 1122.17 674.35 1055.28 674.36 1055.28 716.07 939.65 758.05 823.28 763.24 808.88 767.46 797.19 810.06 679.09 817.07 659.65 817.08 659.65 824.2 639.9'
-    />
-</svg>
+          <svg className="d_about_join_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1922.36 1081.94">
+					<line class="cls-1" x1="606.27" y1="337.5" x2="0.27" y2="117.5"/>
+					<line class="cls-1" x1="606.27" y1="390.5" x2="0.27" y2="651.5"/>
+					<line class="cls-1" x1="914.77" y1="350" x2="1436.77" y2="1081"/>
+					<line class="cls-1" x1="452.77" y1="1081" x2="673.77" y2="416"/>
+					<line class="cls-1" x1="623.77" y1="440" x2="258.77" y2="1081"/>
+					<line class="cls-1" x1="661.27" y1="350.5" x2="1921.27" y2="815.5"/>
+					<line class="cls-1" x1="762.27" y1="415.5" x2="829.27" y2="1081.5"/>
+					<line class="cls-1" x1="787.27" y1="359.5" x2="1921.27" y2="727.5"/>
+					<line class="cls-1" x1="739.27" y1="329.5" x2="1.27" y2="288.5"/>
+					<line class="cls-1" x1="787.27" y1="316.5" x2="1920.27" y2="296.5"/>
+					<line class="cls-1" x1="749.27" y1="359.5" x2="0.27" y2="845.5"/>
+					<line class="cls-1" x1="857.27" y1="369.5" x2="538.27" y2="1081.5"/>
+					<line class="cls-1" x1="1012.27" y1="369.5" x2="1175.27" y2="1081.5"/>
+					<line class="cls-1" x1="1055.27" y1="296.5" x2="1921.27" y2="95.5"/>
+					<line class="cls-1" x1="1012.27" y1="329.5" x2="0.27" y2="390.5"/>
+					<line class="cls-1" x1="1075.27" y1="359.5" x2="1744.27" y2="1081.5"/>
+					<line class="cls-1" x1="1192.27" y1="390.5" x2="990.27" y2="1081.5"/>
+					<line class="cls-1" x1="1218.39" y1="316.5" x2="1920.27" y2="161.5"/>
+					<line class="cls-1" x1="1168.51" y1="316.5" x2="0.27" y2="175.5"/>
+					<line class="cls-1" x1="907.27" y1="474.5" x2="0.27" y2="474.5"/>
+					<line class="cls-1" x1="914.27" y1="564.5" x2="0.27" y2="1081.5"/>
+					<line class="cls-1" x1="932.27" y1="491.5" x2="1921.27" y2="239.5"/>
+					<line class="cls-1" x1="974.27" y1="564.5" x2="400.27" y2="1081.5"/>
+					<line class="cls-1" x1="960.27" y1="504.5" x2="0.27" y2="504.5"/>
+					<line class="cls-1" x1="1031.27" y1="501.5" x2="1921.27" y2="58.5"/>
+					<line class="cls-1" x1="680.27" y1="651.5" x2="1.27" y2="540.5"/>
+					<line class="cls-1" x1="687.27" y1="765.77" x2="0.27" y2="1021.5"/>
+					<line class="cls-1" x1="709.61" y1="715.5" x2="1354.27" y2="1081.5"/>
+					<line class="cls-1" x1="811.27" y1="736.5" x2="644.27" y2="1081.5"/>
+					<line class="cls-1" x1="795.77" y1="639.96" x2="0.27" y2="691.5"/>
+					<line class="cls-1" x1="823.27" y1="658.5" x2="1921.27" y2="639.5"/>
+					<line class="cls-1" x1="914.27" y1="736.5" x2="901.27" y2="1081.5"/>
+					<line class="cls-1" x1="932.27" y1="632.5" x2="1921.27" y2="141.5"/>
+					<line class="cls-1" x1="990.27" y1="715.5" x2="1270.27" y2="1081.5"/>
+					<line class="cls-1" x1="914.27" y1="672.5" x2="0.27" y2="765.5"/>
+					<line class="cls-1" x1="1144.27" y1="639.5" x2="1921.27" y2="893.5"/>
+					<line class="cls-1" x1="1031.27" y1="555.5" x2="1920.27" y2="691.5"/>
+					<line class="cls-1" x1="1094.27" y1="679.5" x2="316.27" y2="1081.5"/>
+					<line class="cls-1" x1="1100.27" y1="665.5" x2="1596.27" y2="1081.5"/>
+					<line class="cls-1" x1="1222.27" y1="727.5" x2="1642.27" y2="1081.5"/>
+					<line class="cls-1" x1="1332.27" y1="691.5" x2="1082.27" y2="1081.5"/>
+					<line class="cls-1" x1="1213.27" y1="672.5" x2="0.27" y2="583.5"/>
+					<line class="cls-1" x1="1379.27" y1="595.5" x2="1920.77" y2="1"/>
+					<line x1="1920.77" y1="1" x2="900.77" y2="307"/>
+          <div className="d_about_join_text">
+
+          </div>
+				</svg>
+          </section>
+          <section className="d_about_app">
+            <div className="d_about_app_box">
+              <div className="d_about_app_box_left">
+                <div className="d_about_app_title_box">
+                  <h2>Application</h2>
+                </div>
+                <div className="d_about_app_text_box">
+                  <p>
+                    From full-time jobs, to freelance gigs and internships, we’re always on the lookout. So if the position you’re looking for isn’t available at the moment, no worries–send us your stuff anyway...
+                  </p>
+                </div>
+                <div className="d_about_download_app">
+                  <img src={GetApp}/>
+                  <img src={GetGoogle}/>
+                </div>
+              </div>
+              <div className="d_about_app_box_right">
+                <img src={AppImg}/>
+              </div>
+            </div>
           </section>
         </div>
         ) : ( 

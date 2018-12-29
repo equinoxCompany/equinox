@@ -1,4 +1,8 @@
 
+a{
+  color: white;
+}
+
 @media (min-width: 768px){
   .project_page{
     color: white;
@@ -6,7 +10,6 @@
     height: auto;
     width: 100vw;
     height: 100vh;
-    border: 1px solid pink;
   }
 
   .project_page section{
@@ -34,6 +37,7 @@
   .project_page_enjoy p{
     font-size: 2vw;
     width: 70vw;
+    font-weight: 300;
   }
 
   .project_page_start_project_button{
@@ -77,6 +81,7 @@
   .project_page_title h1{
     margin: 0 auto;
     font-size: 5vw;
+    font-weight: 300;
   }
 
   .project_page_title h3{
@@ -84,6 +89,7 @@
     margin: 0;
     right: 0;
     text-align: right;
+    font-weight: 300;
   }
 
   .project_page_text{
@@ -102,6 +108,7 @@
   .project_page_enjoy h2{
     font-size: 5vw;
     margin: 0;
+    font-weight: 300;
   }
 
   .project_page_engoy_picture{

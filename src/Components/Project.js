@@ -46,9 +46,9 @@ export default class extends Component {
             <h2>Enjoy our job?</h2>
             <div className="project_page_enjoy_underline"></div>
             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.  </p>
-            <div className="project_page_start_project_button">
+            <Link to="join-the-crew"><div className="project_page_start_project_button">
                 Start a project
-            </div>
+            </div></Link>
             <img className="project_page_engoy_picture" src={EnjoyImg} />
           </section>
 

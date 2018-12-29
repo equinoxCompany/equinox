@@ -45,6 +45,8 @@ text {
     align-items: left;
     padding-top: 10vw;
     overflow-y: scroll;
+    position: relative;
+    z-index: 0;
 }
 
 .m_category_list_normal{
