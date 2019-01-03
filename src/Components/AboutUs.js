@@ -21,6 +21,7 @@ import CustomerImg from '../media/customer.png';
 import CustomerGlobus from '../media/customer_globus.png';
 import * as d3 from "d3";
 import TeamPicture from '../media/team_picture.png';
+import MetaTags from 'react-meta-tags';
 
 
 export default class extends Component {
@@ -39,9 +40,9 @@ export default class extends Component {
   }
 
   componentDidMount(){
-    // fetch('/about-us')
-    //   .then(res => res.json())
-    //   .then(items => this.setState({items}))
+    fetch('http://91.225.165.43:3001/seo/about-us')
+      .then(res => res.json())
+      .then(meta => this.setState({meta: meta[0]}))
 
     if(window.innerWidth > 768){
     d3.selectAll('line').style('stroke', '#FF5D00');
@@ -329,6 +330,12 @@ export default class extends Component {
   render(){
     return(
       <div>
+          <MetaTags>
+            <title>{this.state.meta.title}</title>
+            <meta name="description" content={this.state.meta.description}/>
+            <meta property="og:title" content={this.state.meta.title} />
+          </MetaTags>
+
       {
         this.state.visibility ?(
         <div className="d_about">

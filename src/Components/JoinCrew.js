@@ -6,17 +6,22 @@ import {BrowserRouter} from 'react-router-dom';
 import MobileExit from '../media/mobile_exit.png';
 import Exit from '../media/exit.png';
 import * as d3 from "d3";
+import MetaTags from 'react-meta-tags';
 
 export default class extends Component {
   constructor(props){
     super(props);
     this.goBack = this.goBack.bind(this);
     this.state = {
-      visibility: window.innerWidth >= 768 ? true : false
+      visibility: window.innerWidth >= 768 ? true : false,
+      meta: ''
     }
  }
 
  componentDidMount(){
+  fetch('http://91.225.165.43:3001/seo/join-the-crew')
+    .then(res => res.json())
+    .then(meta => this.setState({meta: meta[0]}))
    d3.select('.d_button_send')
     .on('mouseover', function(){
       d3.select(this).select('.d_button_send_slider')
@@ -44,6 +49,12 @@ export default class extends Component {
   render(){
     return(
       <div>
+          <MetaTags>
+            <title>{this.state.meta.title}</title>
+            <meta name="description" content={this.state.meta.description}/>
+            <meta property="og:title" content={this.state.meta.title} />
+          </MetaTags>
+
         {
           this.state.visibility ?(
       <div>

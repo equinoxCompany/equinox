@@ -5,6 +5,7 @@ import Logo from './Logo';
 import Socials from './Socials';
 import MobileNav from './MobileNav';
 import MobileExit from '../media/mobile_exit.png';
+import MetaTags from 'react-meta-tags';
 
 export default class extends Component {
 
@@ -14,6 +15,12 @@ export default class extends Component {
       visibility: window.innerWidth >= 768 ? true : false,
       post: {}
     }
+ }
+ 
+  componentDidMount(){
+    fetch('http://91.225.165.43:3001/seo/projects')
+      .then(res => res.json())
+      .then(meta => this.setState({meta: meta[0]}))
 }
 
 goBack(){
@@ -23,6 +30,12 @@ goBack(){
   render(){
     return(
       <div className="Post">
+        <MetaTags>
+            <title>{this.state.meta.title}</title>
+            <meta name="description" content={this.state.meta.description}/>
+            <meta property="og:title" content={this.state.meta.title} />
+          </MetaTags>
+
       <div>
           {
               this.state.visibility?(
