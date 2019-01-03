@@ -54,6 +54,10 @@ export default class extends Component {
       .classed('d_about_sub_title_animation', true);
     }, 1000);
 
+    window.addEventListener("resize", function(){
+      // console.log('sgasfd');
+    });
+
     let window_bottom,
         section_services_part_1,
         section_services_part_2,
@@ -732,6 +736,82 @@ ooking for isn’t available at the moment, no worries–send
               </div>
             </div>
           </section>
+          <section className="d_about_feedback">
+             <div className="d_about_feedback_box">
+              <div className="d_about_feedback_title_box">
+                <h2>Our customers said</h2>
+              </div>
+              <div className="d_about_feedback_sub_title_box">
+                <h4>Comments left in our application</h4>
+              </div>
+              <div className="d_about_feedback_list">
+                <ul>
+                  <li className="d_feedback_first">
+                      <div className="d_feedback_first_circle">
+                        <img className="d_feedback_globus" src={CustomerGlobus}/>
+                        <img className="d_feedback_customer_img" src={CustomerImg}/>
+                        <h4>Jogn Maru</h4>
+                        <p>Federal Bureau of investigation</p>
+                      </div>
+                    <p className="d_feedback_text_first">
+                      Как же это удобно! Спасибо вам!
+                    </p>
+                    <div className="d_feedback_date">
+                      12.11.18
+                    </div>
+                  </li>
+                  <li className="d_feedback">
+                    <div className="d_feedback_main_info">
+                      <img className="d_feedback_cutomer_picture" src={CustomerImg}/>
+                      <p className="d_feedback_text">
+                      У меня такие ощущения что я в раю))
+                      </p>
+                    </div>
+                    <div className="d_feedback_date">
+                      12.11.18
+                    </div>
+                  </li>
+                  <li className="d_feedback">
+                    <div className="d_feedback_main_info">
+                      <img className="d_feedback_cutomer_picture" src={CustomerImg}/>
+                      <p className="d_feedback_text">
+                      Я бы написал более независимое мнение если бы у меня 
+было больше денег и я смог заказать у этих ребят хоть 
+что-то. Видел как выросла компания друга и искренне 
+завидую, очень хочется так-же. Может быть мне скинут
+цену?
+                      </p>
+                    </div>
+                    <div className="d_feedback_date">
+                      12.11.18
+                    </div>
+                  </li>
+                  <li className="d_feedback">
+                    <div className="d_feedback_main_info">
+                      <img className="d_feedback_cutomer_picture" src={CustomerImg}/>
+                      <p className="d_feedback_text">
+                      Как же это удобно! Спасибо вам!
+                      </p>
+                    </div>
+                    <div className="d_feedback_date">
+                      12.11.18
+                    </div>
+                  </li>
+                  <li className="d_feedback">
+                    <div className="d_feedback_main_info">
+                      <img className="d_feedback_cutomer_picture" src={CustomerImg}/>
+                      <p className="d_feedback_text">
+                      У меня такие ощущения что я в раю))
+                      </p>
+                    </div>
+                    <div className="d_feedback_date">
+                      12.11.18
+                    </div>
+                  </li>
+                </ul>
+              </div>
+             </div>
+            </section>
         </div>
         ) : ( 
         <div className="m_about_us">
