@@ -204,10 +204,6 @@
 
 .d_l_t_ufo{
   position: absolute;
-  top: 0;
-  left: -1vw;
-  width: 4.5vw;
-  height: 4.5vw;
   border-radius: 50%;
   background: #898989;
   z-index: 0;
@@ -215,10 +211,6 @@
 
 .d_l_b_ufo{
   position: absolute;
-  bottom: 1vw;
-  left: -0.5vw;
-  width: 4.5vw;
-  height: 4.5vw;
   border-radius: 50%;
   background: #898989;
   z-index: 2;
@@ -226,10 +218,6 @@
 
 .d_c_c_ufo{
   position: absolute;
-  bottom: 4vw;
-  right: 3vw;
-  width: 2vw;
-  height: 2vw;
   border-radius: 50%;
   background: #898989;
   z-index: 2;
@@ -237,10 +225,6 @@
 
 .d_r_t_ufo{
   position: absolute;
-  top: 0;
-  right: -1vw;
-  width: 5vw;
-  height: 5vw;
   border-radius: 50%;
   background: #898989;
   z-index: 0;
@@ -248,10 +232,6 @@
 
 .d_r_b_ufo{
   position: absolute;
-  bottom: 1.5vw;
-  right: 0vw;
-  width: 2vw;
-  height: 2vw;
   border-radius: 50%;
   background: #898989;
   z-index: 0;
@@ -259,10 +239,6 @@
 
 .d_c_b_ufo{
   position: absolute;
-  bottom: -1.2vw;
-  right: 3vw;
-  width: 3.5vw;
-  height: 3.5vw;
   border-radius: 50%;
   background: #898989;
   z-index: 2;

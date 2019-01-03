@@ -87,57 +87,91 @@ export default class extends Component {
       animation_state: false
     }
 
+    ufo_parts.d_l_t_ufo
+      .style('top', '0vw')
+      .style('left', '-1vw')
+      .style('width', '4.5vw')
+      .style('height', '4.5vw');
+    ufo_parts.d_l_b_ufo
+      .style('top', '6.6vw')
+      .style('left', '-0.7vw')
+      .style('width', '4.5vw')
+      .style('height', '4.5vw');
+    ufo_parts.d_c_c_ufo
+      .style('top', '5.5vw')
+      .style('left', '6.5vw')
+      .style('width', '2vw')
+      .style('height', '2vw');
+    ufo_parts.d_r_t_ufo
+      .style('top', '0vw')
+      .style('left', '8vw')
+      .style('width', '5vw')
+      .style('height', '5vw');
+    ufo_parts.d_r_b_ufo
+      .style('top', '8.5vw')
+      .style('left', '10vw')
+      .style('width', '2vw')
+      .style('height', '2vw');
+    ufo_parts.d_c_b_ufo
+      .style('top', '10vw')
+      .style('left', '5vw')
+      .style('width', '3.5vw')
+      .style('height', '3.5vw');
+
+    console.log(parseFloat(ufo_parts.d_l_t_ufo.style('top')));
+
     let ufo_coordinates = {
       d_l_t_ufo:{
         start_top: parseFloat(ufo_parts.d_l_t_ufo.style('top')),
         start_left: parseFloat(ufo_parts.d_l_t_ufo.style('left')),
         start_size: parseFloat(ufo_parts.d_l_t_ufo.style('width')),
-        end_top: parseFloat(ufo_parts.d_l_t_ufo.style('top')) - 20,
-        end_left: parseFloat(ufo_parts.d_l_t_ufo.style('left')) - 20,
-        end_size: parseFloat(ufo_parts.d_l_t_ufo.style('width')) - 10
+        end_top: parseFloat(ufo_parts.d_l_t_ufo.style('top')) - 1,
+        end_left: parseFloat(ufo_parts.d_l_t_ufo.style('left')) - 1,
+        end_size: parseFloat(ufo_parts.d_l_t_ufo.style('width')) - 1
       },
       d_l_b_ufo:{
         start_top: parseFloat(ufo_parts.d_l_b_ufo.style('top')),
         start_left: parseFloat(ufo_parts.d_l_b_ufo.style('left')),
         start_size: parseFloat(ufo_parts.d_l_b_ufo.style('width')),
-        end_top: parseFloat(ufo_parts.d_l_b_ufo.style('top')) + 20,
-        end_left: parseFloat(ufo_parts.d_l_b_ufo.style('left')) - 20,
-        end_size: parseFloat(ufo_parts.d_l_b_ufo.style('width')) + 10
+        end_top: parseFloat(ufo_parts.d_l_b_ufo.style('top')) + 2,
+        end_left: parseFloat(ufo_parts.d_l_b_ufo.style('left')) - 2,
+        end_size: parseFloat(ufo_parts.d_l_b_ufo.style('width')) + 1
       },
       d_c_c_ufo:{
         start_top: parseFloat(ufo_parts.d_c_c_ufo.style('top')),
         start_left: parseFloat(ufo_parts.d_c_c_ufo.style('left')),
         start_size: parseFloat(ufo_parts.d_c_c_ufo.style('width')),
-        end_top: parseFloat(ufo_parts.d_c_c_ufo.style('top')) + 5,
-        end_left: parseFloat(ufo_parts.d_c_c_ufo.style('left')) + 10,
-        end_size: parseFloat(ufo_parts.d_c_c_ufo.style('width')) + 5
+        end_top: parseFloat(ufo_parts.d_c_c_ufo.style('top')) + 0.5,
+        end_left: parseFloat(ufo_parts.d_c_c_ufo.style('left')) + 1,
+        end_size: parseFloat(ufo_parts.d_c_c_ufo.style('width')) + 0.5
       },
       d_r_t_ufo:{
         start_top: parseFloat(ufo_parts.d_r_t_ufo.style('top')),
         start_left: parseFloat(ufo_parts.d_r_t_ufo.style('left')),
         start_size: parseFloat(ufo_parts.d_r_t_ufo.style('width')),
-        end_top: parseFloat(ufo_parts.d_r_t_ufo.style('top')) - 25,
-        end_left: parseFloat(ufo_parts.d_r_t_ufo.style('left')) + 25,
-        end_size: parseFloat(ufo_parts.d_r_t_ufo.style('width')) - 15
+        end_top: parseFloat(ufo_parts.d_r_t_ufo.style('top')) - 2.5,
+        end_left: parseFloat(ufo_parts.d_r_t_ufo.style('left')) + 2.5,
+        end_size: parseFloat(ufo_parts.d_r_t_ufo.style('width')) - 1.5
       },
       d_r_b_ufo:{
         start_top: parseFloat(ufo_parts.d_r_b_ufo.style('top')),
         start_left: parseFloat(ufo_parts.d_r_b_ufo.style('left')),
         start_size: parseFloat(ufo_parts.d_r_b_ufo.style('width')),
-        end_top: parseFloat(ufo_parts.d_r_b_ufo.style('top')) + 15,
-        end_left: parseFloat(ufo_parts.d_r_b_ufo.style('left')) + 15,
-        end_size: parseFloat(ufo_parts.d_r_b_ufo.style('width')) - 15
+        end_top: parseFloat(ufo_parts.d_r_b_ufo.style('top')) + 1.5,
+        end_left: parseFloat(ufo_parts.d_r_b_ufo.style('left')) + 1.5,
+        end_size: parseFloat(ufo_parts.d_r_b_ufo.style('width')) - 1.5
       },
       d_c_b_ufo:{
         start_top: parseFloat(ufo_parts.d_c_b_ufo.style('top')),
         start_left: parseFloat(ufo_parts.d_c_b_ufo.style('left')),
         start_size: parseFloat(ufo_parts.d_c_b_ufo.style('width')),
-        end_top: parseFloat(ufo_parts.d_c_b_ufo.style('top')) + 10,
-        end_left: parseFloat(ufo_parts.d_c_b_ufo.style('left')) + 5,
-        end_size: parseFloat(ufo_parts.d_c_b_ufo.style('width')) + 10
+        end_top: parseFloat(ufo_parts.d_c_b_ufo.style('top')) + 1,
+        end_left: parseFloat(ufo_parts.d_c_b_ufo.style('left')) + 0.5,
+        end_size: parseFloat(ufo_parts.d_c_b_ufo.style('width')) + 1
       }
-
     }
+
+
 
     d3.select('.d_about')
       .on("scroll", function(){
@@ -254,15 +288,15 @@ export default class extends Component {
               e
                 .on('start', function(){ufo_parts.animation_state = true})
                 .transition(t)
-                .style('top', `${coordinates.end_top}px`)
-                .style('left', `${coordinates.end_left}px`)
-                .style('width', `${coordinates.end_size}px`)
-                .style('height', `${coordinates.end_size}px`)
+                .style('top', `${coordinates.end_top}vw`)
+                .style('left', `${coordinates.end_left}vw`)
+                .style('width', `${coordinates.end_size}vw`)
+                .style('height', `${coordinates.end_size}vw`)
                 .transition(t)
-                .style('top', `${coordinates.start_top}px`)
-                .style('left', `${coordinates.start_left}px`)
-                .style('width', `${coordinates.start_size}px`)
-                .style('height', `${coordinates.start_size}px`)
+                .style('top', `${coordinates.start_top}vw`)
+                .style('left', `${coordinates.start_left}vw`)
+                .style('width', `${coordinates.start_size}vw`)
+                .style('height', `${coordinates.start_size}vw`)
                 .on('end', function(){ufo_parts.animation_state = false})
             });
           }
