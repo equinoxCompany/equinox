@@ -947,7 +947,8 @@
 
 .d_feedback_main_info{
   display:flex;
-  flex-direction: row;
+  align-items: flex-start;
+  justify-content: left;
 }
 
 .d_feedback_first_circle{
@@ -1012,6 +1013,7 @@
 
 .d_feedback_text{
   padding: 1vw;
+  max-width: 85%;
   font-size: 1.5vw;
   border-radius: 2vw; 
   margin: 0;
@@ -1035,6 +1037,7 @@
 }
 
 .d_feedback_cutomer_picture{
+  flex-shrink: none;
   width: 4.5vw;
   height: 4.5vw;
   border-radius: 50%;
@@ -1047,6 +1050,7 @@
   font-size: 1.5vw;
   margin-left: 2vw;
 }
+
 
 }
 

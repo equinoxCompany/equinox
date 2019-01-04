@@ -50,6 +50,13 @@
   .d_start_project_input_line input:-moz-placeholder           {color: white;}/* Firefox 18- */
   .d_start_project_input_line input:-ms-input-placeholder      {color: white;}
 
+  .d_start_project_description textarea::-webkit-input-placeholder {
+    color: white;}
+  .d_start_project_description textarea::-moz-placeholder          {color: white;}/* Firefox 19+ */
+  .d_start_project_description textarea:-moz-placeholder           {color: white;}/* Firefox 18- */
+  .d_start_project_description textarea:-ms-input-placeholder      {color: white;}
+
+
     .d_start_project_description{
       display: flex;
       flex-direction: column;

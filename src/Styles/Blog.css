@@ -371,6 +371,14 @@
     right: -75vw;
   }
 
+  .mobile_blog_post_list{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height:  100vh;
+    width: 100vw;
+
+  }
+
 
   .mobile_blog_post_list>ul{
     display: flex;

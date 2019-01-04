@@ -48,6 +48,7 @@ export default class extends Component {
     d3.selectAll('.d_about_parallax line').style('stroke-width', '2');
     d3.selectAll('.d_about_join_svg line').style('stroke-width', '1');
     d3.selectAll('circle').style('fill', '#FF5D00')
+    d3.selectAll('.d_about_join text').style('font-size', '200px');
 
     d3.timeout(function(){
       d3.select('.d_about_sub_title_text h4').style('display', 'block')
@@ -87,36 +88,20 @@ export default class extends Component {
       animation_state: false
     }
 
-    ufo_parts.d_l_t_ufo
-      .style('top', '0vw')
-      .style('left', '-1vw')
-      .style('width', '4.5vw')
-      .style('height', '4.5vw');
-    ufo_parts.d_l_b_ufo
-      .style('top', '6.6vw')
-      .style('left', '-0.7vw')
-      .style('width', '4.5vw')
-      .style('height', '4.5vw');
-    ufo_parts.d_c_c_ufo
-      .style('top', '5.5vw')
-      .style('left', '6.5vw')
-      .style('width', '2vw')
-      .style('height', '2vw');
-    ufo_parts.d_r_t_ufo
-      .style('top', '0vw')
-      .style('left', '8vw')
-      .style('width', '5vw')
-      .style('height', '5vw');
-    ufo_parts.d_r_b_ufo
-      .style('top', '8.5vw')
-      .style('left', '10vw')
-      .style('width', '2vw')
-      .style('height', '2vw');
-    ufo_parts.d_c_b_ufo
-      .style('top', '10vw')
-      .style('left', '5vw')
-      .style('width', '3.5vw')
-      .style('height', '3.5vw');
+    ufo_parts.d_l_t_ufo.call(ufo_styles, 0, -1, 4.5);
+    ufo_parts.d_l_b_ufo.call(ufo_styles, 6.6, -0.7, 4.5);
+    ufo_parts.d_c_c_ufo.call(ufo_styles, 5.5, 6.5, 2);
+    ufo_parts.d_r_t_ufo.call(ufo_styles, 0, 8, 5);
+    ufo_parts.d_r_b_ufo.call(ufo_styles, 8.5, 10, 2);
+    ufo_parts.d_c_b_ufo.call(ufo_styles, 10, 5, 3.5);
+
+    function ufo_styles(element, top, left, size){
+      element
+        .style('top', `${top}vw`)
+        .style('left', `${left}vw`)
+        .style('width', `${size}vw`)
+        .style('height', `${size}vw`);
+    }
 
     console.log(parseFloat(ufo_parts.d_l_t_ufo.style('top')));
 
@@ -185,22 +170,27 @@ export default class extends Component {
         section_app = d3.select('.d_about_app').node().getBoundingClientRect().top;
 
         if(window_bottom > section_services_part_1 && flags.services_part_1 == false){
-          d3.selectAll('.d_about_services_title_box').style('display', 'block')
-          .classed('d_about_services_title_box_animation', true);
+          d3.selectAll('.d_about_services_title_box')
+            .style('display', 'block')
+            .classed('d_about_services_title_box_animation', true);
           d3.timeout(function(){
-            d3.selectAll('.d_about_services_title_box_animation h2').style('display', 'block')
-            .classed('d_abot_services_title_text_animation', true);
-            d3.selectAll('.d_about_sevices_text_box p').style('display', 'block')
-            .classed('d_about_sevices_text_box_animation', true);
+            d3.selectAll('.d_about_services_title_box_animation h2')
+              .style('display', 'block')
+              .classed('d_abot_services_title_text_animation', true);
+            d3.selectAll('.d_about_sevices_text_box p')
+              .style('display', 'block')
+              .classed('d_about_sevices_text_box_animation', true);
           }, 500);
           flags.services_part_1 = true;
         }
         if(window_bottom > section_services_part_2 && flags.services_part_2 == false){
-          d3.selectAll('.d_about_services_studio_type_box').style('display', 'block')
-          .classed('studio_type_column_animation', true);
+          d3.selectAll('.d_about_services_studio_type_box')
+            .style('display', 'block')
+            .classed('studio_type_column_animation', true);
           d3.timeout(function(){
-            d3.selectAll('.d_about_services_studio_type_box h3').style('display', 'block')
-            .classed('studio_type_title_animation', true);
+            d3.selectAll('.d_about_services_studio_type_box h3')
+              .style('display', 'block')
+              .classed('studio_type_title_animation', true);
           }, 1000)
           d3.selectAll('.d_about_services_studio_types')
             .each(function(){
@@ -251,7 +241,6 @@ export default class extends Component {
                         e.select('.d_about_box_info p').style('visibility', 'visible').classed('about_box_info_animation', true);
                       }, time);
                     });
-
                     counter++;
                  });
           }); 
@@ -302,11 +291,11 @@ export default class extends Component {
           }
       });
 
-      d3.selectAll('circle')
+      d3.selectAll('.d_about_parallax circle')
         .each(function(){
           let start_bias = parseInt(d3.select(this).attr('cy'));
           let end_bias = parseInt(start_bias + 20.);
-          d3.selectAll('line')
+          d3.selectAll('.d_about_parallax line')
               .each(function(){
                 let y1 = parseInt(d3.select(this).attr('y1'));
                 let y2 = parseInt(d3.select(this).attr('y2'));
@@ -699,55 +688,60 @@ ooking for isn’t available at the moment, no worries–send
             </div>
           </section>
           <section className="d_about_join">
-          <svg className="d_about_join_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1922.36 1081.94">
-					<line class="cls-1" x1="606.27" y1="337.5" x2="0.27" y2="117.5"/>
-					<line class="cls-1" x1="606.27" y1="390.5" x2="0.27" y2="651.5"/>
-					<line class="cls-1" x1="914.77" y1="350" x2="1436.77" y2="1081"/>
-					<line class="cls-1" x1="452.77" y1="1081" x2="673.77" y2="416"/>
-					<line class="cls-1" x1="623.77" y1="440" x2="258.77" y2="1081"/>
-					<line class="cls-1" x1="661.27" y1="350.5" x2="1921.27" y2="815.5"/>
-					<line class="cls-1" x1="762.27" y1="415.5" x2="829.27" y2="1081.5"/>
-					<line class="cls-1" x1="787.27" y1="359.5" x2="1921.27" y2="727.5"/>
-					<line class="cls-1" x1="739.27" y1="329.5" x2="1.27" y2="288.5"/>
-					<line class="cls-1" x1="787.27" y1="316.5" x2="1920.27" y2="296.5"/>
-					<line class="cls-1" x1="749.27" y1="359.5" x2="0.27" y2="845.5"/>
-					<line class="cls-1" x1="857.27" y1="369.5" x2="538.27" y2="1081.5"/>
-					<line class="cls-1" x1="1012.27" y1="369.5" x2="1175.27" y2="1081.5"/>
-					<line class="cls-1" x1="1055.27" y1="296.5" x2="1921.27" y2="95.5"/>
-					<line class="cls-1" x1="1012.27" y1="329.5" x2="0.27" y2="390.5"/>
-					<line class="cls-1" x1="1075.27" y1="359.5" x2="1744.27" y2="1081.5"/>
-					<line class="cls-1" x1="1192.27" y1="390.5" x2="990.27" y2="1081.5"/>
-					<line class="cls-1" x1="1218.39" y1="316.5" x2="1920.27" y2="161.5"/>
-					<line class="cls-1" x1="1168.51" y1="316.5" x2="0.27" y2="175.5"/>
-					<line class="cls-1" x1="907.27" y1="474.5" x2="0.27" y2="474.5"/>
-					<line class="cls-1" x1="914.27" y1="564.5" x2="0.27" y2="1081.5"/>
-					<line class="cls-1" x1="932.27" y1="491.5" x2="1921.27" y2="239.5"/>
-					<line class="cls-1" x1="974.27" y1="564.5" x2="400.27" y2="1081.5"/>
-					<line class="cls-1" x1="960.27" y1="504.5" x2="0.27" y2="504.5"/>
-					<line class="cls-1" x1="1031.27" y1="501.5" x2="1921.27" y2="58.5"/>
-					<line class="cls-1" x1="680.27" y1="651.5" x2="1.27" y2="540.5"/>
-					<line class="cls-1" x1="687.27" y1="765.77" x2="0.27" y2="1021.5"/>
-					<line class="cls-1" x1="709.61" y1="715.5" x2="1354.27" y2="1081.5"/>
-					<line class="cls-1" x1="811.27" y1="736.5" x2="644.27" y2="1081.5"/>
-					<line class="cls-1" x1="795.77" y1="639.96" x2="0.27" y2="691.5"/>
-					<line class="cls-1" x1="823.27" y1="658.5" x2="1921.27" y2="639.5"/>
-					<line class="cls-1" x1="914.27" y1="736.5" x2="901.27" y2="1081.5"/>
-					<line class="cls-1" x1="932.27" y1="632.5" x2="1921.27" y2="141.5"/>
-					<line class="cls-1" x1="990.27" y1="715.5" x2="1270.27" y2="1081.5"/>
-					<line class="cls-1" x1="914.27" y1="672.5" x2="0.27" y2="765.5"/>
-					<line class="cls-1" x1="1144.27" y1="639.5" x2="1921.27" y2="893.5"/>
-					<line class="cls-1" x1="1031.27" y1="555.5" x2="1920.27" y2="691.5"/>
-					<line class="cls-1" x1="1094.27" y1="679.5" x2="316.27" y2="1081.5"/>
-					<line class="cls-1" x1="1100.27" y1="665.5" x2="1596.27" y2="1081.5"/>
-					<line class="cls-1" x1="1222.27" y1="727.5" x2="1642.27" y2="1081.5"/>
-					<line class="cls-1" x1="1332.27" y1="691.5" x2="1082.27" y2="1081.5"/>
-					<line class="cls-1" x1="1213.27" y1="672.5" x2="0.27" y2="583.5"/>
-					<line class="cls-1" x1="1379.27" y1="595.5" x2="1920.77" y2="1"/>
-					<line x1="1920.77" y1="1" x2="900.77" y2="307"/>
-          <div className="d_about_join_text">
+          <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1922.82 1081.93'>
+    <line x1='606.42' y1='337.5' x2='0.42' y2='117.5' />
+    <line x1='606.42' y1='390.5' x2='0.42' y2='651.5' />
+    <line x1='661.42' y1='350.5' x2='1921.42' y2='815.5' />
+    <line x1='787.42' y1='359.5' x2='1921.42' y2='727.5' />
+    <line x1='739.42' y1='329.5' x2='1.42' y2='288.5' />
+    <line x1='787.42' y1='316.5' x2='1920.42' y2='296.5' />
+    <line x1='749.42' y1='359.5' x2='0.42' y2='845.5' />
+    <line x1='1055.42' y1='296.5' x2='1921.42' y2='95.5' />
+    <line x1='1012.42' y1='329.5' x2='0.42' y2='390.5' />
+    <line x1='1218.52' y1='316.5' x2='1920.42' y2='161.5' />
+    <line x1='1168.62' y1='316.5' x2='0.42' y2='175.5' />
+    <line x1='907.42' y1='474.5' x2='0.42' y2='474.5' />
+    <line x1='914.42' y1='564.5' x2='0.42' y2='1081.5' />
+    <line x1='932.42' y1='491.5' x2='1921.42' y2='239.5' />
+    <line x1='960.42' y1='504.5' x2='0.42' y2='504.5' />
+    <line x1='1031.42' y1='501.5' x2='1921.42' y2='58.5' />
+    <line x1='680.42' y1='651.5' x2='1.42' y2='540.5' />
+    <line x1='687.42' y1='765.8' x2='0.42' y2='1021.5' />
+    <line x1='795.92' y1='640' x2='0.42' y2='691.5' />
+    <line x1='823.42' y1='658.5' x2='1921.42' y2='639.5' />
+    <line x1='932.42' y1='632.5' x2='1921.42' y2='141.5' />
+    <line x1='914.42' y1='672.5' x2='0.42' y2='765.5' />
+    <line x1='1144.42' y1='639.5' x2='1921.42' y2='893.5' />
+    <line x1='1031.42' y1='555.5' x2='1920.42' y2='691.5' />
+    <line x1='1213.42' y1='672.5' x2='0.42' y2='583.5' />
 
-          </div>
-				</svg>
+    <line x1='1379.42' y1='595.5' x2='1920.92' y2='1'/>
+    <line x1='1920.92' y1='1' x2='900.92' y2='307'/>
+    <line x1='718.92' y1='744.5' x2='1920.42' y2='1053.2' />
+    <line x1='816.32' y1='736.26' x2='1922.52' y2='766.5' />
+    <line x1='795.92' y1='698.3' x2='0.12' y2='898.9' />
+    <line x1='983.92' y1='698.3' x2='1920.42' y2='975' />
+    <line x1='1093.02' y1='685.3' x2='0.12' y2='805.2' />
+    <line x1='1109.12' y1='628' x2='1.42' y2='350.5' />
+    <line x1='1218.52' y1='639.5' x2='1922.52' y2='117.6' />
+    <line x1='1218.52' y1='708.1' x2='1921.42' y2='1080.4' />
+    
+    <text fill="#FF5D00" x='535.93' y='560.83' transform="rotate(-13.99)">R</text>
+    <text fill="#FFFFFF" x='655.86' y='555.84' transform="rotate(-13.99)">E</text>
+    <text fill="#FF5D00" x='895.17' y='392.5' transform="rotate(-2.31)">a</text>
+    <text fill="#FFFFFF" x='1045.33' y='395.56' >D</text>
+    <text fill="#FF5D00" x='1200.93' y='423.78'>Y</text>
+    <text fill="#FFFFFF" x='933.19' y='579.77' transform="rotate(1.01)">t</text>
+    <text fill="#FFFFFF" x='999.07' y='578'>o</text>
+
+
+    <text fill="#FF5D00" x='500.75' y='920.86' transform="rotate(-13.99)">S</text>
+    <text fill="#FFFFFF" x='805.95' y='732.55' transform="rotate(0.94)">t</text>
+    <text fill="#FF5D00" x='640.92' y='1050.5' transform="rotate(-20)">A</text>
+    <text fill="#FFFFFF" x='1300.5' y='50.38'  transform="rotate(30)">r</text>
+    <text fill="#FFFFFF" x='1222.39' y='696.25' transform="rotate(1.01)">t</text>
+    <text fill="#FFFFFF" x='1493.69' y='343.04' transform="rotate(15)">?</text>
+</svg>
           </section>
           <section className="d_about_app">
             <div className="d_about_app_box">
@@ -806,7 +800,7 @@ ooking for isn’t available at the moment, no worries–send
                     </div>
                   </li>
                   <li className="d_feedback">
-                    <div className="d_feedback_main_info">
+                  <div className="d_feedback_main_info">
                       <img className="d_feedback_cutomer_picture" src={CustomerImg}/>
                       <p className="d_feedback_text">
                       Я бы написал более независимое мнение если бы у меня 

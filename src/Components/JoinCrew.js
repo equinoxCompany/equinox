@@ -30,10 +30,6 @@ export default class extends Component {
         .duration(200)
         .style('left', '0vw')
     });
-    d3.select('textarea')
-      .on('click', function(){
-        d3.select(this).node().value = "";
-      })
  }
 
 
@@ -53,7 +49,7 @@ export default class extends Component {
         <div className="post_actions">
           <img src={Exit} onClick={()=>this.goBack()} className="button_exit"/>
         </div>
-          <h1>Ready to start aproject? <br/><span className="c_color">Let’s chat!</span></h1>
+          <h1>Ready to start a project? <br/><span className="c_color">Let’s chat!</span></h1>
           <h3>Please take a few seconds to fill out this form. You can also send us a email if you prefer.</h3>
           <form action="#" method="post" className="d_form_start_project">
             <div className="d_start_project_input_line">
@@ -66,7 +62,7 @@ export default class extends Component {
             </div>
             <div className="d_start_project_description">
               <h3>Description*</h3>
-              <textarea defaultValue="Dear EQUINOX, I would like to work with you
+              <textarea placeholder="Dear EQUINOX, I would like to work with you
  on..."></textarea>
               <button type="submit" className="d_button_send">
                 <span className="d_button_send_slider"></span>
