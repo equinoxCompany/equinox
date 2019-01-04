@@ -46,9 +46,47 @@ export default class extends Component {
     if(window.innerWidth > 768){
     d3.selectAll('line').style('stroke', '#FF5D00');
     d3.selectAll('.d_about_parallax line').style('stroke-width', '2');
-    d3.selectAll('.d_about_join_svg line').style('stroke-width', '1');
-    d3.selectAll('circle').style('fill', '#FF5D00')
-    d3.selectAll('.d_about_join text').style('font-size', '200px');
+    d3.selectAll('.d_about_join line').style('stroke-width', '1');
+    d3.selectAll('.d_about_parallax circle').style('fill', '#FF5D00');
+
+
+    d3.selectAll('.d_about_join_svg_text .d_about_join_svg_letter').style('font-size', '200px');
+ 
+    d3.selectAll('.d_about_join_svg_text')
+      .on('mouseover', function(){
+        let current_node = d3.select(this).node();
+        let svg = d3.select(".d_about_join svg").node();
+        d3.select(this).node().remove();
+        svg.appendChild(current_node);
+        d3.select(this)
+          .select('circle')
+          .attr('r', '0')
+          .transition()
+          .duration(300)
+          .ease(d3.easeLinear)
+          .attr('r', '90')
+          .style('fill', 'rgba(15,15,15,0.5)');
+        d3.select(this).select('.d_about_join_svg_start')
+        .transition()
+        .duration(300)
+        .ease(d3.easeLinear)
+        .style('font-size', '25px')
+        .style('fill','white');
+      })
+      .on('mouseleave', function(){
+        d3.select(this).select('circle')
+        .transition()
+        .duration(300)
+        .ease(d3.easeLinear)
+        .attr('r', '0');
+        d3.select(this).select('.d_about_join_svg_start')
+        .transition()
+        .duration(300)
+        .ease(d3.easeLinear)
+        .style('font-size', '0px')
+        .style('fill','white');
+      })
+
 
     d3.timeout(function(){
       d3.select('.d_about_sub_title_text h4').style('display', 'block')
@@ -183,7 +221,7 @@ export default class extends Component {
           }, 500);
           flags.services_part_1 = true;
         }
-        if(window_bottom > section_services_part_2 && flags.services_part_2 == false){
+        if(window_bottom*1.5 > section_services_part_2 && flags.services_part_2 == false){
           d3.selectAll('.d_about_services_studio_type_box')
             .style('display', 'block')
             .classed('studio_type_column_animation', true);
@@ -212,14 +250,14 @@ export default class extends Component {
             }); 
             flags.services_part_2 = true;
         }
-        if(window_bottom*1.5 > section_services_part_3 && flags.services_part_3 == false){
+        if(window_bottom*2 > section_services_part_3 && flags.services_part_3 == false){
           d3.select('.d_about_services_title_box_lagre h2').style('display', 'block')
             .classed('services_title_box_lagre_animation', true);
           d3.select('.d_about_services_text_box_lagre p').style('visibility', 'visible')
             .classed('services_text_box_lagre_animation', true);
           flags.services_part_3 = true;
         }
-        if(window_bottom*0.5 > section_team && flags.team == false){
+        if(window_bottom*1.5 > section_team && flags.team == false){
             d3.select('.d_about_team_title').style('visibility', 'visible')
             .classed('about_team_title_box_animation', true);
           d3.timeout(function(){
@@ -246,7 +284,7 @@ export default class extends Component {
           }); 
           flags.team = true;
         }
-        if(window_bottom*1.4 > section_project && flags.project == false){
+        if(window_bottom*1.6 > section_project && flags.project == false){
           d3.select('.d_about_start_text_box p').style('visibility', 'visible')
             .classed('start_text_box_animation', true);
           d3.select('.d_about_start_button').style('visibility', 'visible')
@@ -676,7 +714,7 @@ export default class extends Component {
             <div className="d_about_start_text_box">
               <p>Equinoх –  це стихія  різних   уподобань та вмінь, це команда, націлена  на винятковість, це мрія, що прагне реалізації.
               </p>
-              <div className="d_about_start_button">Join the crew</div>
+              <Link to='join-the-crew'><div className="d_about_start_button">Join the crew</div></Link>
             </div>
             <div className="d_about_start_final_text_box">
               <p>
@@ -725,22 +763,97 @@ ooking for isn’t available at the moment, no worries–send
     <line x1='1109.12' y1='628' x2='1.42' y2='350.5' />
     <line x1='1218.52' y1='639.5' x2='1922.52' y2='117.6' />
     <line x1='1218.52' y1='708.1' x2='1921.42' y2='1080.4' />
-    
-    <text fill="#FF5D00" x='535.93' y='560.83' transform="rotate(-13.99)">R</text>
-    <text fill="#FFFFFF" x='655.86' y='555.84' transform="rotate(-13.99)">E</text>
-    <text fill="#FF5D00" x='895.17' y='392.5' transform="rotate(-2.31)">a</text>
-    <text fill="#FFFFFF" x='1045.33' y='395.56' >D</text>
-    <text fill="#FF5D00" x='1200.93' y='423.78'>Y</text>
-    <text fill="#FFFFFF" x='933.19' y='579.77' transform="rotate(1.01)">t</text>
-    <text fill="#FFFFFF" x='999.07' y='578'>o</text>
-
-
-    <text fill="#FF5D00" x='500.75' y='920.86' transform="rotate(-13.99)">S</text>
-    <text fill="#FFFFFF" x='805.95' y='732.55' transform="rotate(0.94)">t</text>
-    <text fill="#FF5D00" x='640.92' y='1050.5' transform="rotate(-20)">A</text>
-    <text fill="#FFFFFF" x='1300.5' y='50.38'  transform="rotate(30)">r</text>
-    <text fill="#FFFFFF" x='1222.39' y='696.25' transform="rotate(1.01)">t</text>
-    <text fill="#FFFFFF" x='1493.69' y='343.04' transform="rotate(15)">?</text>
+    <Link to='join-the-crew'>
+    <g className='d_about_join_svg_text' transform="rotate(-13.99)">
+      <text className='d_about_join_svg_letter' fill="#FF5D00" x='535.93' y='560.83'>R</text>
+      <circle cx='535.93' cy='490.83'/>
+      <text className='d_about_join_svg_start' x='535.93' y='490.83'>Start a project</text>
+    </g>
+    </Link>
+    <Link to='join-the-crew'>
+    <g className='d_about_join_svg_text' transform="rotate(-13.99)">
+      <text className='d_about_join_svg_letter' fill="#FFFFFF" x='655.86' y='555.84'>E</text>
+      <circle cx='655.86' cy='495.84'/>
+      <text className='d_about_join_svg_start' x='655.86' y='495.84'>Start a project</text>
+    </g>
+    </Link>
+    <Link to='join-the-crew'>
+    <g className='d_about_join_svg_text' transform="rotate(-2.31)">
+      <text className='d_about_join_svg_letter' fill="#FF5D00" x='895.17' y='392.5'>a</text>
+      <circle cx='895.17' cy='352.5'/>
+      <text className='d_about_join_svg_start' x='895.17' y='352.5'>Start a project</text>
+    </g>
+    </Link>
+    <Link to='join-the-crew'>
+    <g className='d_about_join_svg_text'>
+      <text className='d_about_join_svg_letter' fill="#FFFFFF" x='1045.33' y='395.56' >D</text>
+      <circle cx='1045.33' cy='335.56'/>
+      <text className='d_about_join_svg_start' x='1045.33' y='335.56'>Start a project</text>
+    </g>
+    </Link>
+    <Link to='join-the-crew'>
+    <g className='d_about_join_svg_text'>
+      <text className='d_about_join_svg_letter' fill="#FF5D00" x='1200.93' y='423.78'>Y</text>
+      <circle cx='1200.93' cy='355.78'/>
+      <text className='d_about_join_svg_start' x='1200.93' y='355.78'>Start a project</text>
+    </g>
+    </Link>
+    <Link to='join-the-crew'>
+    <g className='d_about_join_svg_text'>
+      <text className='d_about_join_svg_letter' fill="#FFFFFF" x='933.19' y='579.77'>t</text>
+      <circle cx='933.19' cy='529.77'/>
+      <text className='d_about_join_svg_start' x='933.19' y='529.77'>Start a project</text>
+    </g>
+    </Link>
+    <Link to='join-the-crew'>
+    <g className='d_about_join_svg_text'>
+      <text className='d_about_join_svg_letter' fill="#FFFFFF" x='1005.07' y='578'>o</text>
+      <circle cx='1005.07' cy='528'/>
+      <text className='d_about_join_svg_start' x='1005.07' y='528'>Start a project</text>
+    </g>
+    </Link>
+    <Link to='join-the-crew'>
+    <g className='d_about_join_svg_text' transform="rotate(-13.99)">
+      <text className='d_about_join_svg_letter' fill="#FF5D00" x='500.75' y='920.86'>S</text>
+      <circle cx='500.75' cy='850.86'/>
+      <text className='d_about_join_svg_start' x='500.75' y='850.86'>Start a project</text>
+    </g>
+    </Link>
+    <Link to='join-the-crew'>
+    <g className='d_about_join_svg_text'transform="rotate(0.94)">
+      <text className='d_about_join_svg_letter' fill="#FFFFFF" x='805.95' y='732.55'>t</text>
+      <circle cx='805.95' cy='682.55'/>
+      <text className='d_about_join_svg_start' x='805.95' y='682.55'>Start a project</text>
+    </g>
+    </Link>
+    <Link to='join-the-crew'>
+    <g className='d_about_join_svg_text' transform="rotate(-20)">
+      <text className='d_about_join_svg_letter' fill="#FF5D00" x='640.92' y='1050.5'>A</text>
+      <circle cx='640.92' cy='980.5'/>
+      <text className='d_about_join_svg_start' x='640.92' y='980.5'>Start a project</text>
+    </g>
+    </Link>
+    <Link to='join-the-crew'>
+    <g className='d_about_join_svg_text'  transform="rotate(30)">
+      <text className='d_about_join_svg_letter' fill="#FFFFFF" x='1300.5' y='50.38'>r</text>
+      <circle cx='1300.5' cy='0.38'/>
+      <text className='d_about_join_svg_start' x='1300.5' y='0.38'>Start a project</text>
+    </g>
+    </Link>
+    <Link to='join-the-crew'>
+    <g className='d_about_join_svg_text' transform="rotate(1.01)">
+      <text className='d_about_join_svg_letter' fill="#FFFFFF" x='1222.39' y='696.25'>t</text>
+      <circle cx='1222.39' cy='646.25'/>
+      <text className='d_about_join_svg_start' x='1222.39' y='646.25'>Start a project</text>
+    </g>
+    </Link>
+    <Link to='join-the-crew'>
+    <g className='d_about_join_svg_text' transform="rotate(15)">
+      <text fill="#FFFFFF" x='1493.69' y='343.04' style={{fontSize: '350px'}}>?</text>
+      <circle cx='1493.69' cy='223.04'/>
+      <text className='d_about_join_svg_start' x='1493.69' y='223.04'>Start a project</text>
+    </g>
+    </Link>
 </svg>
           </section>
           <section className="d_about_app">

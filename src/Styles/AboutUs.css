@@ -9,6 +9,10 @@
   color: white;
 }
 
+.d_about::-webkit-scrollbar { 
+  display: none; 
+}
+
 .d_about_preview, .d_about_services, .d_about_team, .d_about_app{
   position: relative;
   height: auto;
@@ -753,7 +757,7 @@
   position: relative;
   margin: 0 auto;
   bottom: 0;
-  border: 1px solid #FF5D00;
+  border: 0.1vw solid #FF5D00;
   border-radius: 2vw;
   padding: 0.6vw 3vw 0.6vw 3vw;
   background: #171717;
