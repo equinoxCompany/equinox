@@ -53,7 +53,7 @@ export default class extends Component {
 
         {
           this.state.visibility ?(
-      <div>
+      <div className="d_start_project_body">
         <Logo/>
         
         <div className="d_start_project">

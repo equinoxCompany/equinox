@@ -1,13 +1,25 @@
 
 @media (min-width: 768px){
+
+  .d_start_project_body{
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+
   .d_start_project{
     display: flex;
-    width: 65%;
-    padding-top: 2vw;
-    margin: 0 auto;
+    width: 60%;
+    height: auto;
+    margin: 2vw auto;
     align-items: left;
     flex-direction: column;
     color: white;
+  }
+
+  .d_start_project_body::-webkit-scrollbar { 
+    display: none; 
   }
 
   .d_start_project h1{
@@ -24,6 +36,7 @@
     display: flex;
     flex-direction: column;
     align-items: left;
+    justify-content: space-between;
   }
 
   .d_start_project_input_line{
@@ -36,6 +49,7 @@
   .d_start_project_input_line input{
     background: #75381B;
     width: 40%;
+    height: 1.5vw;
     border: 0;
     border-radius: 1.5vw;
     color: white;
