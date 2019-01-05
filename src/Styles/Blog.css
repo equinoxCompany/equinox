@@ -6,12 +6,12 @@
 .blog_canvas{
   display: flex;
   height: 100vh;
-  padding-top: 7vh;
+  padding-top: 2vw;
 }
 
 
 .blog_area{
-  height: 80vh;
+  height: 85vh;
   width: 77vw;
   overflow-y: scroll;
   z-index: 0; 
@@ -24,25 +24,25 @@
 
 .post_controller{
   width: 23vw;
-  height: 80vh;
+  height: 85vh;
   z-index: 1;
   background-color: #292929;
 }
 
 .post_delimiter{
-  height: 80vh;
+  height: 85vh;
   border: .15vw solid #FF5D00;
   border-radius: 4vw;
 }
 
-.post{
+.blog_post{
   overflow: hidden;
-  height: 35vh;
+  height: 20vw;
   display: flex;
   margin-bottom: 1vw;
 }
 
-.subject{
+.blog_post_subject{
   overflow: hidden;
   width: 47vw;
   overflow: hidden;
@@ -50,7 +50,7 @@
   position: relative;
 }
 
-.post_preview{
+.blog_post_preview{
   width: 30vw;
   height: 100%;
   position: relative;
@@ -59,7 +59,7 @@
 .date{
   font-size: 13vw;
   right: 1vw;
-  top: 5vh;
+  top: 2.5vw;
   position: absolute;
   color: transparent;
   font-weight: 600;
@@ -68,10 +68,11 @@
 
 .post_title{
   position: absolute;
-  left: 30vw;
+  left: 25vw;
+  padding-right: 2vw;
   color: white;
-  line-height: 3vh;
-  top: 12vh;
+  line-height: 2vw;
+  top: 7vw;
 }
 
 .post_title h2{
@@ -86,22 +87,23 @@
   font-size: 3.5vw;
 }
 
-.cover{
+.blog_post_info{
   position: absolute;
-  background: #1B1B1B;
-  opacity: 0.5;
-  height: 10vh;
-  width: 100%;
+  background: rgba(15, 15,15, 0.5);
+  padding: 1vw;
   bottom: 0;
+  transition: .3s
+}
+
+.blog_post_info:hover{
+  background: rgba(15, 15,15, 0.8);
 }
 
 .short_info{
-  color: #CCCCCC;
-  position: absolute;
-  font-size: 1.2vw;
-  padding: 2vh;
+  color: white;
+  font-size: 1vw;
   bottom:0;
-  width: 80%;
+  width: 85%;
 }
 
 .addition{
@@ -109,7 +111,7 @@
   position: absolute;
   bottom: 0;
   right: 0;
-  height: 10vh;
+  height: 100%;
   overflow-y: hidden;
   font-size: 1.1vw;
 }
@@ -125,7 +127,7 @@
 }
 
 .number_likes{
-  top: 1vh;
+  top: 0.6vw;
   color: white;
   position: absolute;
   left: 2vw;
@@ -133,8 +135,12 @@
 
 .read_more{
   position: absolute;
-  bottom: 1vh;
+  bottom: 0.6vw;
   color: #FF5D00;
+}
+
+.read_more:hover{
+  font-weight: 600;
 }
 
 .upper_like{
@@ -144,7 +150,7 @@
 .post_type_selector{
   width: 90%;
   margin: 0 auto;
-  font-size: 3vw;
+  font-size: 3vw;s
   color: #626262;
 }
 
@@ -189,7 +195,7 @@
 .post_search{
   border-bottom: 0.3vh solid #FF5D00;
   width: 15vw;
-  margin: 5vh auto;
+  margin: 3vw auto;
   display: flex;
   justify-content: center;
 }
@@ -217,7 +223,7 @@ input, button{
 
 .posts_selector{
   width: 15vw;
-  margin: 5vh auto;
+  margin: 3vw auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -226,7 +232,7 @@ input, button{
 }
 
 .posts_calendar{
-  margin: 5vh auto;
+  margin: 3vw auto;
   width: 15vw;
   color: white;
   font-size: 1.5vw;
