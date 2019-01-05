@@ -51,8 +51,7 @@ export default class extends Component {
                     {
                         this.state.visibility?(
                             <div className="d_post">
-                                <Logo/>
-                                
+                                <Logo/> 
                                 <div className="post_title_info">
                                     <div className="author_info">
                                         <div className="author_top_circle"></div>
@@ -71,16 +70,18 @@ export default class extends Component {
                                     <img src={Repost} className="button_repost"/>
                                     <Link to="/blog"><img src={Exit} className="button_exit"/></Link>
                                 </div>
-                                <div className="post_info_subject">
+                                <div className="post_info">
                                     <h1>{this.state.post.title}<br/>
                                         <span className="post_info_date">{this.state.post.date && this.state.post.date.slice(5, 10).replace('-', '.')}</span>
                                      </h1>
-                                </div>
-                                <div className="post_text">
-                                    {this.state.post.post_text && renderHTML(this.state.post.post_text)}
+                                     <div className="post_text">
+                                        {this.state.post.post_text && renderHTML(this.state.post.post_text)}
+                                    </div>
                                 </div>
                                 <div className="post_picture_box">
-                                    <img src={'http://91.225.165.43:3001/' + this.state.post.postImage} className="post_picture" />
+                                    <div className="post_picture_wrap">
+                                        <img src={'http://91.225.165.43:3001/' + this.state.post.postImage} className="post_picture" />
+                                    </div>
                                     <h2>About photo text</h2>
                                 </div>
                                 <Socials/>

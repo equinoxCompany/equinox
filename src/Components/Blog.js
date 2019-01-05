@@ -11,7 +11,7 @@ import MobileNav from './MobileNav';
 import {Link} from 'react-router-dom';
 
 import MetaTags from 'react-meta-tags';
-import Calendar from 'react-calendar/dist/entry.nostyle'
+// import Calendar from 'react-calendar/dist/entry.nostyle'
 
 
 import * as d3 from "d3";
@@ -83,7 +83,6 @@ export default class extends Component {
       }
 
       function scrollAnimation(){
-        console.log(window.innerWidth);
         let scroll_box = d3.select('.mobile_blog_content').node(),
             scroll_box_sizes = getOffset(scroll_box),
             scroll_box_width = scroll_box_sizes.right,

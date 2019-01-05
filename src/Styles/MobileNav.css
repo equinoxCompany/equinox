@@ -1,9 +1,10 @@
 .mobile_nav{
     position: absolute;
-    z-index: 100;
+    z-index: 1000;
     top: 0;
     font-family: 'Equinox Normal';
 }
+
 
 .m_nav_list{
     position: relative;
@@ -24,6 +25,13 @@
     left: -140vw;
 } */
 
+.m_nav_reset_wrap{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    background: rgba(15,15,15,0.5);
+}
 
 .m_nav_contacts_circle{
     background: #272727;
@@ -129,8 +137,8 @@
 
 
 .mobile_exit{
-    z-index: 10;
-    position: absolute;
+    z-index: 2000;
+    position: fixed;
     width: 10vw;
     right: 2vw;
     bottom: 2vw;

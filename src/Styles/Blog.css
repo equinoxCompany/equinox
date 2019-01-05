@@ -1,4 +1,4 @@
-
+@media (min-width: 768px){
 .c_color{
   color: #FF5D00;
 }
@@ -173,11 +173,6 @@
   margin-bottom: 1vw;
 }
 
-
-
-.active{
-}
-
 .first_type{
   transform-origin: 50% 50%;
   transform: rotate3d(1, 9, 0, -60deg);
@@ -199,12 +194,21 @@
   justify-content: center;
 }
 
+input, button{
+  outline:none;
+}
+
 .post_search input{
   border: 0;
   width: 90%;
   background-color: transparent;
   color: white;
   font-size: 1.5vw;
+}
+
+.post_search button{
+  background: transparent;
+  border: 0;
 }
 
 .post_search img{
@@ -295,7 +299,7 @@
   border:0;
 }
 
-
+}
 
 @media (max-width: 768px){
 
@@ -412,7 +416,7 @@
     font-weight: 500;
   }
 
-  .mobile_blog_post h3, h2{
+  .mobile_blog_post h3, .mobile_blog_post h2{
     margin: 0;
     font-weight: 500;
     z-index: 100;

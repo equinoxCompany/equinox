@@ -391,11 +391,11 @@ export default class extends Component {
   render(){
     return(
       <div>
-          <MetaTags>
+          {/* <MetaTags>
             <title>{this.state.meta.title}</title>
             <meta name="description" content={this.state.meta.description}/>
             <meta property="og:title" content={this.state.meta.title} />
-          </MetaTags>
+          </MetaTags> */}
 
       {
         this.state.visibility ?(

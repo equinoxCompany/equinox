@@ -2,7 +2,7 @@
     .post_title_info{
         position: relative;
         left: 20vw;
-        top: 3vh;
+        top: 2vw;
         color: white;
         display: relative;
         z-index: 5;
@@ -21,7 +21,7 @@
      
     .author_name{
         position: absolute;
-        top: 2vh;
+        top: 1.2vw;
         left: 3vw;
     }
      
@@ -40,13 +40,13 @@
         width: 6vw;
         height: 6vw;
         border-radius: 50%;
-        top: 6vh;
+        top: 3vw;
         z-index: 1;
     }
      
     .author_right_circle{
         position: absolute;
-        top: 8vh;
+        top: 4vw;
         left: 5vw;
         width: 3vw;
         height: 3vw;
@@ -57,7 +57,7 @@
      
     .visits_info{
         position: relative;
-        top: 9vh;
+        top: 4.5vw;
         left: -1vw;
         margin-left: 10vw;
         display: flex;
@@ -74,7 +74,7 @@
     }
      
     .number_visitors{
-        margin-top: .7vh;
+        margin-top: .5vw;
         line-height: 0;
         font-size: 2vw;
     }
@@ -88,7 +88,7 @@
      
     .post_actions{
         position: absolute;
-        top: 4vh;
+        top: 2vw;
         display: flex;
         align-items: center;
         width: auto;
@@ -114,28 +114,34 @@
         overflow-y: scroll;
         overflow-x: hidden;
     }
+    
+    .d_post::-webkit-scrollbar { 
+        display: none; 
+      }
      
-    .post_info_subject{
+    .post_info{
         position: relative;
         left: 2vw;
-        border-left: 0.8vw solid #FF5D00;
         width: 50vw;
         color: white;
-        top: 29vh;
+        top: 15vw;
         padding-left: 1vw;
       }
      
-      .post_info_subject h1{
-          line-height: 8vh;
+      .post_info h1{
+          line-height: 5vw;
           position: relative;
           font-size: 3.5vw;
-          font-weight: 300;  
+          font-weight: 300;
           margin: 0;
+          margin-left: 2vw;  
+          padding-left: 2vw;
+          border-left: 1vw solid #FF5D00;
       }
      
       .post_info_date{
             position: absolute;
-            top: -4vh;
+            top: -4vw;
             left: 14vw;
             color: #636363;
             font-size: 2.5vw;
@@ -145,16 +151,29 @@
       .post_picture_box {
           position: absolute;
           right: 2vw;
-          top: 23vh;
+          top: 15vw;
           color: #696767;
           display: flex;
           flex-direction: column;
           align-items: center;
+          overflow: hidden;
       }
+
+      .post_picture_wrap{
+          position: relative;
+          border-radius: 50%;
+          height: 22vw;
+          width: 22vw;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          overflow: hidden;
+        }
      
       .post_picture{
-          border-radius: 50%;
-          background-size: cover;
+          position: absolute;
+          height: 22vw;
+          width: auto;
          }
      
      
@@ -164,17 +183,12 @@
         font-weight: 300;
       }
      
-      .post_picture{
-          width: 22vw;
-          height: 22vw;
-      }
-     
       .post_text{
           position: relative;
-          top: 35vh;
           left: 5vw;
           width: 65vw;
           height: auto;
+          color: white;
       }
      
      
@@ -185,13 +199,15 @@
      
       .post_text p{
           margin: 0;
-          line-height: 4.4vh;
+          line-height: 2.5vw;
           font-weight: 300;
           font-family: 'helvetica';
           position: relative;
           font-size: 1.8vw;
           width: 100%;
           height: auto;
+          margin-top: 2vw;
+          margin-bottom: 2vw;
       }
     
 }

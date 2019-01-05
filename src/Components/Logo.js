@@ -48,7 +48,7 @@ export default class extends Component {
         .ease(d3.easeLinear)
         .style('opacity', '1')
         .style('left', '6.15vw')
-        .call(function(){
+        .on('end', function(){
           flag = true;
         });
     }, 2000);
@@ -62,12 +62,27 @@ export default class extends Component {
           .ease(d3.easeLinear)
           .style('width', '44vw')
           .style('height', '37vw');
-        d3.selectAll('.d_logo_language_selector, .d_logo_daily_selector, .d_logo_daily_text')
-          .style('visibility', 'visible')
+        d3.selectAll('.d_logo_language_selector, .d_logo_daily_text')
           .transition()
-          .duration(500)
+          .duration(300)
           .ease(d3.easeLinear)
+          .on('start', function(){
+            d3.select(this).style('display', 'block');
+          })
           .style('opacity', '1');
+        d3.selectAll('.d_logo_daily_selector')
+          .transition()
+          .duration(300)
+          .ease(d3.easeLinear)
+          .on('start', function(){
+            d3.select(this).style('display', 'flex');
+          })
+          .style('opacity', '1');
+        d3.select('.d_logo_text')
+          .transition()
+          .duration(300)
+          .ease(d3.easeLinear)
+          .style('left', '17vw');
         }
       })
       .on('mouseleave', function(){
@@ -78,11 +93,18 @@ export default class extends Component {
           .style('width', '35vw')
           .style('height', '30vw')
         d3.selectAll('.d_logo_language_selector, .d_logo_daily_selector, .d_logo_daily_text')
-          .style('visibility', 'visible')
           .transition()
           .duration(100)
           .ease(d3.easeLinear)
-          .style('opacity', '0');
+          .style('opacity', '0')
+          .on('end', function(){
+            d3.select(this).style('display', 'none');
+          });
+        d3.select('.d_logo_text')
+          .transition()
+          .duration(300)
+          .ease(d3.easeLinear)
+          .style('left', '6.15vw');
       });
 
       d3.select('.d_logo_daily_selector')
