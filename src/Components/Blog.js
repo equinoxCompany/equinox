@@ -9,6 +9,11 @@ import MobileExit from '../media/mobile_exit.png';
 import MobileBlogNav from './MobileBlogNav';
 import MobileNav from './MobileNav';
 import {Link} from 'react-router-dom';
+
+import MetaTags from 'react-meta-tags';
+import Calendar from 'react-calendar/dist/entry.nostyle'
+
+
 import * as d3 from "d3";
 
 export default class extends Component {
@@ -21,17 +26,14 @@ export default class extends Component {
     }
   }
 
-  goBack(){
-    if(!this.state.map){
-    this.props.history.goBack();
-    }
-  }
-
-
   componentDidMount(){
-    // fetch('http://d29.default-host.net:3002/posts')
-    //   .then(res => res.json())
-    //   .then(posts => this.setState({posts}));
+    fetch('http://91.225.165.43:3001/posts')
+      .then(res => res.json())
+      .then(posts => this.setState({posts}))
+    fetch('http://91.225.165.43:3001/seo/blog')
+      .then(res => res.json())
+      .then(meta => this.setState({meta: meta[0]}))
+
 
     d3.selectAll('.post_type_selector h3')
       .on('click', function(){
@@ -104,13 +106,54 @@ export default class extends Component {
               d3.select(this).call(postTransform, 60, 10, 5);
         });
       }
+    }
+
+
+  goBack(){
+    if(!this.state.map){
+    this.props.history.goBack();
+    }
   }
 
+  searchDate = (selectedDate) => {
+    if(selectedDate){
+      this.setState({
+        posts: [],
+        meta: ''
+      })
+      console.log(selectedDate.getHours())
+      fetch('http://91.225.165.43:3001/date-search/' + selectedDate.toISOString()
+    )
+      .then(res => res.json())
+      .then(posts => this.setState({posts}))
+    }
+  }
+
+  searchText = () => {
+    let word = document.getElementById('search_blog').value;
+    console.log(word);
+    if(word === ''){
+      fetch('http://91.225.165.43:3001/posts')
+      .then(res => res.json())
+      .then(posts => this.setState({posts}))
+    } else {
+      fetch('http://91.225.165.43:3001/post-search/'+word)
+      .then(res => res.json())
+      .then(posts => this.setState({posts}))
+    }
+    
+  }
 
 
   render(){
     return(
       <div className="Seo">
+         <MetaTags>
+            <title>{this.state.meta && this.state.meta.title}</title>
+            <meta name="description" content={this.state.meta && this.state.meta.description}/>
+            <meta property="og:title" content={this.state.meta && this.state.meta.title} />
+          </MetaTags>
+
       <div>
         {
           this.state.visibility ?(
@@ -138,8 +181,9 @@ export default class extends Component {
                   </div>
                 </div>
                 <div className="post_search">
-                  <input type="text" placeholder="Search"/>
-                  <img src={search_img}/>
+                  <input type="text" id="search_blog" placeholder="Search"/>
+                  <button onClick={this.searchText}><img src={search_img}/></button>
+                  {/* <img src={search_img}/> */}
                 </div>
                 <div className="posts_selector">
                   <span>Show for...</span>
@@ -165,6 +209,11 @@ export default class extends Component {
                   <h2>1 2 3 4 5 6 7<br/> 8 9 10 11 12 13 14<br/>
                 15 16 17 18 19 20 21 <br/>22 23 24 25 26 27 28<br/>29 30</h2>
                 </div>
+                {/* <div>
+                  <Calendar onClickDay={this.searchDate}/>
+                </div> */}
+
+                {/* </div> */}
               </div>
               <Logo/>
               <Socials/>

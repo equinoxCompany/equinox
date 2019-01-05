@@ -17,11 +17,11 @@ import ServicesMenu from './Components/Services/ServicesMenu';
 import SeoAdmin from './Components/AdminSeo';
 import Map from './Components/Services/MapStrategy';
 import LoginSeo from './Components/LoginSeo';
-import { HashRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render((
-  <HashRouter>
+  <BrowserRouter>
     <Switch>
       <Route exact path='/' component={Main}/>
       <Route path='/home' component={Main}/>
@@ -37,7 +37,7 @@ ReactDOM.render((
       <Route path='/map' component={Map}/>
       <Route path='/:post' component={Post}/>
     </Switch>
-  </HashRouter>
+  </BrowserRouter>
 ), document.getElementById('root'))
 
 // If you want your app to work offline and load faster, you can change

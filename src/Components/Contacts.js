@@ -11,6 +11,7 @@ import ReactDOM from 'react-dom';
 import MobileNav from './MobileNav';
 import MobileContactsMenuNav from './MobileContactsMenuNav';
 import MobileExit from '../media/mobile_exit.png';
+import MetaTags from 'react-meta-tags';
 
 export default class extends Component {
 
@@ -20,7 +21,8 @@ export default class extends Component {
     super(props);
     this.state = {
       visibility: window.innerWidth >= 768 ? true : false,
-      map: false
+      map: false,
+      meta: ''
     }
   }
 
@@ -41,6 +43,9 @@ export default class extends Component {
   }
 
   componentDidMount(){
+    fetch('http://91.225.165.43:3001/seo/contacts')
+      .then(res => res.json())
+      .then(meta => this.setState({meta: meta[0]}))
     if(this.state.visibility){
     let contacts_address_bottom_text = document.getElementsByClassName("contacts_address_bottom_text")[0];
     let address_info_h1 = document.getElementsByClassName("contacts_address_info")[0].firstChild;
@@ -256,6 +261,12 @@ export default class extends Component {
   render(){
     return(
       <div>
+          <MetaTags>
+            <title>{this.state.meta.title}</title>
+            <meta name="description" content={this.state.meta.description}/>
+            <meta property="og:title" content={this.state.meta.title} />
+          </MetaTags>
+
         <div>
           { this.state.visibility ?(
             <div>
