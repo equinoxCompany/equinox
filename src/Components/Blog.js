@@ -12,8 +12,6 @@ import {Link} from 'react-router-dom';
 
 import MetaTags from 'react-meta-tags';
 // import Calendar from 'react-calendar/dist/entry.nostyle'
-
-
 import * as d3 from "d3";
 
 export default class extends Component {
@@ -26,14 +24,88 @@ export default class extends Component {
     }
   }
 
+
   componentDidMount(){
     fetch('http://91.225.165.43:3001/posts')
       .then(res => res.json())
       .then(posts => this.setState({posts}))
     fetch('http://91.225.165.43:3001/seo/blog')
       .then(res => res.json())
-      .then(meta => this.setState({meta: meta[0]}))
+      .then(meta => this.setState({meta: meta[0]}));
+  
 
+      let first_check = false;
+      d3.select('.size_posts_custom_selector').style('height', '2vw');
+      
+    d3.select('.size_posts_custom_selector')
+      .on('click', function(){
+        let flag = d3.select(this).attr('data-flag');
+        console.log(flag);
+        if(flag === 'false'){
+          d3.select(this)
+          .transition()
+          .duration(300)
+          .ease(d3.easeLinear)
+          .style('height', '6vw')
+          .on('end', function(){
+            d3.select(this).attr('data-flag', 'true');
+          });
+        }else{
+          d3.select(this)
+          .transition()
+          .duration(300)
+          .ease(d3.easeLinear)
+          .style('height', '2vw')
+          .on('end', function(){
+            d3.select(this).attr('data-flag', 'false');
+          })
+        }
+      });
+
+
+
+      d3.selectAll('.size_posts_custom_selector span')
+        .on('click', function(){
+            if(first_check == false){
+              d3.selectAll('.blog_post').style('height', '20vw');
+              d3.selectAll('.blog_post_date').style('font-size', '13vw');
+              d3.selectAll('.blog_post_title').style('line-height', '3.5vw');
+              d3.selectAll('.blog_post_title h2').style('font-size', '3.5vw');
+              first_check = true;
+            }
+            let current_select = d3.select(this).attr('data-size');
+            let first_select = d3.select('.size_posts_custom_selector span').attr('data-size');
+            if(current_select != first_select){
+              d3.select(this)
+                .attr('data-size', first_select)
+                .node().innerHTML = first_select;
+              d3.select('.size_posts_custom_selector span')
+                .attr('data-size', current_select)
+                .node().innerHTML = current_select;
+              let t = d3.transition().duration(300).ease(d3.easeLinear);
+                switch(current_select){
+                  case 'Small':
+                    d3.selectAll('.blog_post').transition(t).style('height', '10vw');
+                    d3.selectAll('.blog_post_date').transition(t).style('font-size', '5vw');
+                    d3.selectAll('.blog_post_title').transition(t).style('line-height', '2vw')
+                    d3.selectAll('.blog_post_title h2').transition(t).style('font-size', '2vw');
+                  break;
+                  case 'Average':
+                    d3.selectAll('.blog_post').transition(t).style('height', '15vw');
+                    d3.selectAll('.blog_post_date').transition(t).style('font-size', '10vw');
+                    d3.selectAll('.blog_post_title').transition(t).style('line-height', '3vw')
+                    d3.selectAll('.blog_post_title h2').transition(t).style('font-size', '3vw');
+                  break;
+                  case 'Large':
+                    d3.selectAll('.blog_post').transition(t).style('height', '20vw');
+                    d3.selectAll('.blog_post_date').transition(t).style('font-size', '13vw');
+                    d3.selectAll('.blog_post_title').transition(t).style('line-height', '3.5vw')
+                    d3.selectAll('.blog_post_title h2').transition(t).style('font-size', '3.5vw');
+                  break;
+                }
+            }
+           
+        });
 
     d3.selectAll('.post_type_selector h3')
       .on('click', function(){
@@ -198,9 +270,11 @@ export default class extends Component {
                   <span>Tabs per page...</span>
                   <div className="size_posts_selector">
                     <div className="selector_circle"></div>
-                    <select>
-                      <option>Two</option>
-                    </select>
+                    <div className="size_posts_custom_selector" data-flag="false">
+                      <span data-size='Large'>Large</span>
+                      <span data-size='Average'>Average</span>
+                      <span data-size='Small'>Small</span>
+                    </div>
                   </div>
                 </div>
                 <div className="posts_calendar">

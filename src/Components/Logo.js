@@ -64,7 +64,7 @@ export default class extends Component {
           .style('height', '37vw');
         d3.selectAll('.d_logo_language_selector, .d_logo_daily_text')
           .transition()
-          .duration(300)
+          .duration(600)
           .ease(d3.easeLinear)
           .on('start', function(){
             d3.select(this).style('display', 'block');
@@ -72,7 +72,7 @@ export default class extends Component {
           .style('opacity', '1');
         d3.selectAll('.d_logo_daily_selector')
           .transition()
-          .duration(300)
+          .duration(600)
           .ease(d3.easeLinear)
           .on('start', function(){
             d3.select(this).style('display', 'flex');
@@ -114,14 +114,14 @@ export default class extends Component {
             .transition()
             .duration(100)
             .ease(d3.easeLinear)
-            .style('left', '1vw')
+            .style('left', '1vw');
         })
         .on('mouseleave', function(){
           d3.select('.d_logo_daily_selector_point')
             .transition()
             .duration(100)
             .ease(d3.easeLinear)
-            .style('left', '0vw')
+            .style('left', '0vw');
         });
   }
 
