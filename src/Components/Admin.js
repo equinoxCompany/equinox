@@ -28,6 +28,7 @@ export default class extends Component {
       },
       seo: ''
     }
+    this.baseState = this.state;
   }
 
   componentDidMount(){
@@ -44,12 +45,8 @@ export default class extends Component {
   onChange = (editorState) => {
     this.setState({
       temp: {
-        title: this.state.temp.title,
-        date: this.state.temp.date,
-        author: this.state.temp.author,
-        post_text: editorState,
-        url: this.state.temp.url,
-        preview_text: this.state.temp.preview_text
+        ...this.state.temp,
+        post_text: editorState
       }
     })
   };
@@ -83,27 +80,17 @@ export default class extends Component {
       fetch('http://91.225.165.43:3001/new-meta', {
         method: 'post',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(this.state.seo)
-    }).then(res => res.json())
-      .then(() => {
-         this.setState({
-      temp: {
-        title: '',
-        date: '',
-        author: '',
-        post_text: RichTextEditor.createEmptyValue(),
-        image: '',
-        url: '',
-        category: ''
-      },
-      seo: {
-        ...this.state.seo,
-        page: this.state.seo.title,
-        url: this.state.temp.url
-      },
-      currentPost: '',
-      posts: [...this.state.posts, this.state.temp]
+        body: JSON.stringify({
+          ...this.state.seo,
+          page: this.state.temp.title,
+          url: this.state.temp.url
+        })
     })
+      .then(() => {
+        this.setState({
+          posts: [...this.state.posts, this.state.temp]
+        })
+        this.clearState();
       })
     })
   }
@@ -132,54 +119,47 @@ export default class extends Component {
     this.setState({ currentPost: event.target.value });
     fetch('http://91.225.165.43:3001/postId/' + event.target.value)
       .then(res => res.json())
-      .then(currentPost => {
-        this.setState({currentPost: currentPost[0]})
-        return this.state.currentPost
-      })
-      .then(post => {
-        fetch('http://91.225.165.43:3001/seo-url/'+this.state.currentPost.url)
+      .then(temp => {
+        this.setState({
+          temp: {
+            ...temp,
+            post_text: RichTextEditor.createValueFromString(temp.post_text,'html')
+          }
+        })
+      }).then(() => {
+        fetch('http://91.225.165.43:3001/seo-url/'+this.state.temp.url)
         .then(res => res.json())
         .then(meta => {
           this.setState({
-          currentPost: {
-            ...post,
-            meta: meta[0]
-          }
+            seo:{
+              ...meta[0]
+            }
+          })
         })
-       })
-       return this.state.currentPost
       })
-    .then((post) => {
-      console.log(post)
-      let inputs = document.getElementsByClassName('admin');
-      for(let el of inputs){
-        if(el.className != 'admin admin_img'){
-          if(el.className === 'RichTextEditor__root___2QXK- admin admin_text'){
-            let curEl = el.className.slice(12);
-            let innerText =  post.post_text;
-            this.setState({
-              temp: {
-                post_text : RichTextEditor.createValueFromString(innerText,'html')
-              }
-            })
-          }
-          let curEl = el.className.slice(12);
-          el.value = post[curEl]
-          this.state.temp[curEl] = post[curEl];
-        }
-      }
-    })
-  };
+    }
 
   handleEdit = () => {
-    fetch('http://91.225.165.43:3001/postEdit/' + this.state.currentPost._id, {
+    fetch('http://91.225.165.43:3001/postEdit/' + this.state.temp._id, {
       method: 'PUT',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(this.state.temp)
+      body: JSON.stringify({
+        ...this.state.temp,
+        post_text: this.state.temp.post_text.toString('html')
+      })
     })
-    .then(res => res.json())
-    .then(data => console.log(data))
-    this.clearState()
+    .then(res => {
+      if(!res.ok){
+        throw Error(res.statusText);
+      }
+      return res
+    }).then(() => {
+      fetch('http://91.225.165.43:3001/seoEdit/'+this.state.seo._id,{
+        method: 'PUT',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(this.state.seo)
+      }).then(this.clearState())
+    })
   }
 
   handleDelete = () => {
@@ -188,14 +168,14 @@ export default class extends Component {
       headers: {'Content-Type': 'application/json'}
     })
     .then(res => res.text())
-    .then(data => console.log(data))
     .then(() => {
+      if(this.state.currentPost.meta){
       fetch('http://91.225.165.43:3001/seoDelete/'+this.state.currentPost.meta._id,{
         method: 'DELETE',
         headers: {'Content-Type': 'application/json'}
       })
-
-    })
+    }
+  })
     this.clearState();
   }
 
@@ -242,7 +222,10 @@ export default class extends Component {
       },
       imgs: [],
       currentPost: '',
-      seo: ''
+      seo: {
+        title: '',
+        description: ''
+      }
     });
   }
 
@@ -282,7 +265,7 @@ export default class extends Component {
         ...this.state.seo,
         [e.target.name]: e.target.value
       }
-    }, () => console.log(this.state.seo))
+    })
   }
 
   submitProfile = e => {
@@ -303,8 +286,6 @@ export default class extends Component {
       }
       return res
     }).then(res => res.json())
-      .then(data => console.log(data))
-    
   }
 
 
@@ -331,7 +312,7 @@ export default class extends Component {
           >
             {
               this.state.posts.map(post =>
-                <MenuItem value={post.title}>{post.title}</MenuItem>
+                <MenuItem value={post._id}>{post.title}</MenuItem>
               )
             }
           </Select>
@@ -341,7 +322,7 @@ export default class extends Component {
           <input type="text" name="date" className="admin admin_date" value={this.state.temp.date} onChange={this.handleTemp}/><br/>
           <h3 style={{padding: 0, margin: 0, color: 'white'}}>Автор</h3>
           <Select
-            value={this.state.authors}
+            value={this.state.temp.author}
             onChange={this.handleTemp}
             inputProps={{
               name: 'author',
@@ -356,7 +337,7 @@ export default class extends Component {
           </Select>
           <h3 style={{padding: 0, margin: 0, color: 'white'}}>Изображения для поста</h3>
           <input type="file" className="postImages" name="postImages" accept="image/*" multiple onChange={this.loadImg}/>
-          <div  className="preview_container" style={{display: 'flex', justifyContent: 'center', height: 'auto', overflowX: 'scroll'}}>
+          <div  className="preview_container" style={{display: 'flex', justifyContent: 'left', height: 'auto', overflowX: 'scroll'}}>
           {
               this.state.imgs.map(img =>
               <div className="post_imgs" style={{width: '30vw', height:'auto', display: 'flex', flexDirection: 'column',flexShrink: 'none', alignItems: 'center'}}>
@@ -372,7 +353,7 @@ export default class extends Component {
           }
           </div>
           <h3 style={{color: 'white'}}>Текст для превью</h3>
-          <input type="text" name="preview_text" className="admin admin_preview" value={this.state.temp.preview_text} onChange={this.handleTemp}/><br/><br/>
+          <input type="text" name="preview_text" className="admin admin_preview_text" value={this.state.temp.preview_text} onChange={this.handleTemp}/><br/><br/>
           <h3 style={{padding: 0, margin: 0, color: 'white'}}>Текст</h3>
           <RichTextEditor
             style={{color: 'black'}}

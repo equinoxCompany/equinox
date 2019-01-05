@@ -13,8 +13,8 @@ import MetaTags from 'react-meta-tags';
 
 export default class extends Component {
     componentWillMount(){
-        let url = this.props.location.pathname.slice(6);
-    fetch('http://91.225.165.43:3001/post/'+url)
+        let url = this.props.location.pathname;
+    fetch('http://91.225.165.43:3001/post'+url)
         .then(res => res.json())
         .then(post => this.setState({post: post[0]}))
         .then(() => {
@@ -22,7 +22,7 @@ export default class extends Component {
             .then(res => res.json())
             .then(author => this.setState({author: author[0]}))
         })
-    fetch('http://91.225.165.43:3001/seo-url/'+url)
+    fetch('http://91.225.165.43:3001/seo-url'+url)
         .then(res => res.json())
         .then(meta => this.setState({meta: meta[0]}))
     }
@@ -76,7 +76,7 @@ export default class extends Component {
                                         <span className="post_info_date">{this.state.post.date && this.state.post.date.slice(5, 10).replace('-', '.')}</span>
                                      </h1>
                                 </div>
-                                <div className="post_text">
+                                <div className="post_text" style={{color: 'white'}}>
                                     {this.state.post.post_text && renderHTML(this.state.post.post_text)}
                                 </div>
                                 <div className="post_picture_box">

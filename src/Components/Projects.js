@@ -31,9 +31,9 @@ goBack(){
     return(
       <div className="Post">
         <MetaTags>
-            <title>{this.state.meta.title}</title>
-            <meta name="description" content={this.state.meta.description}/>
-            <meta property="og:title" content={this.state.meta.title} />
+            <title>{this.state.meta && this.state.meta.title}</title>
+            <meta name="description" content={this.state.meta && this.state.meta.description}/>
+            <meta property="og:title" content={this.state.meta && this.state.meta.title} />
           </MetaTags>
 
       <div>

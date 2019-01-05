@@ -5,7 +5,7 @@ import MobileMainMenuNav from './MobileMainMenuNav';
 import MobileLogo from '../media/equinox.png';
 import MainImg from '../media/main_img.png';
 import { Link } from 'react-router-dom';
-import '../scripts/cursor.js';
+// import '../scripts/cursor.js';
 import '../Styles/Main.css';
 import MetaTags from 'react-meta-tags';
 
@@ -29,18 +29,18 @@ componentDidMount(){
   }
 
   mouseEnterHandler(){
-    let tail = document.getElementsByClassName('tail');
+    // let tail = document.getElementsByClassName('tail');
   //  let circle = document.getElementsByClassName('inner_circle');
   //  circle[0].style.animationPlayState = 'running';
-    tail[0].style.opacity = 0;
-    tail[1].style.opacity = 0;
+    // tail[0].style.opacity = 0;
+    // tail[1].style.opacity = 0;
   }
 
   mouseLeaveHandler(){
     //let circle = document.getElementsByClassName('inner_circle');
-    let tail = document.getElementsByClassName('tail');
-    tail[0].style.opacity = 1;
-    tail[1].style.opacity = 1;
+    // let tail = document.getElementsByClassName('tail');
+    // tail[0].style.opacity = 1;
+    // tail[1].style.opacity = 1;
    // circle[0].style.animationPlayState = 'paused';
   }
   render(){

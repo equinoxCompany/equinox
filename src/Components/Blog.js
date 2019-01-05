@@ -11,7 +11,6 @@ import MobileNav from './MobileNav';
 import {Link} from 'react-router-dom';
 
 import MetaTags from 'react-meta-tags';
-import Calendar from 'react-calendar/dist/entry.nostyle'
 
 
 import * as d3 from "d3";
@@ -118,14 +117,23 @@ export default class extends Component {
   searchDate = (selectedDate) => {
     if(selectedDate){
       this.setState({
-        posts: [],
-        meta: ''
-      })
-      console.log(selectedDate.getHours())
-      fetch('http://91.225.165.43:3001/date-search/' + selectedDate.toISOString()
-    )
+        posts: []
+      });
+      console.log(selectedDate.getHours());
+      fetch('http://91.225.165.43:3001/date-search/' + selectedDate.toISOString())
       .then(res => res.json())
-      .then(posts => this.setState({posts}))
+      .then(posts => this.setState({posts}));
+    }
+  }
+
+  searchCategory = function(type){
+    if(type) {
+      this.setState({
+        posts: []
+      });
+      fetch('http://91.225.165.43:3001/category-search/' + type)
+      .then(res => res.json())
+      .then(posts => this.setState({posts}));
     }
   }
 
@@ -170,14 +178,14 @@ export default class extends Component {
               <div className="post_controller">
                 <div className="post_type_selector">
                   <div>
-                    <h3 data="seo"><span></span>SEO</h3>
-                    <h3 data="design"><span></span>DESIGN</h3>
+                    <h3 data="seo" onClick={() =>this.searchCategory('SEO')}><span></span>SEO</h3>
+                    <h3 data="design" onClick={() => this.searchCategory('DESIGN')}><span></span>DESIGN</h3>
                   </div>
                   <div>
-                    <h3 data="web"><span></span>WEB</h3>
+                    <h3 data="web" onClick={() => this.searchCategory('WEB')}><span></span>WEB</h3>
                   </div>
                   <div>
-                    <h3 data="news"><span></span>NEWS</h3>
+                    <h3 data="news" onClick={() => this.searchCategory('NEWS')}><span></span>NEWS</h3>
                   </div>
                 </div>
                 <div className="post_search">

@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 const Post = (props) => {
   return(
     <div className="post">
-    <Link to={{pathname: '/post/'+props.item.url, state:{id: props.item._id}}} className="post">
+    <Link to={{pathname: '/'+props.item.url, state:{id: props.item._id}}} className="post">
       <div className="subject">
         <time className="date" datetime={props.item.date}>{props.item.date.slice(5, 10).replace('-', '.')}</time>
         <div className="post_title">

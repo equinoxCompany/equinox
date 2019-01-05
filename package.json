@@ -128,6 +128,5 @@
     "presets": [
       "react-app"
     ]
-  },
-  "proxy": "https://localhost:3001"
+  }
 }

@@ -26,10 +26,9 @@ class Login extends Component{
 
   handleSubmit(event) {
     event.preventDefault();
-    if(this.state.value === pass.pas){
-      console.log(this.state.value)
+    if(this.state.value === pass.passSeo){
     this.setState({ password: true })
-    fetch('http://d29.default-host.net:3002/login', {
+    fetch('http://91.225.165.43:3001/login', {
       method: 'post',
       headers: {
         'Accept': 'application/json',

@@ -1,4 +1,9 @@
+body {
+  cursor: default !important;
+}
+
 .admin_panel {
+  cursor: default !important;
   overflow-y: scroll !important;
   margin-left: 10%;
   margin-right: 25%;
