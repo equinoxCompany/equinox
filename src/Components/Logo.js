@@ -86,6 +86,7 @@ export default class extends Component {
         }
       })
       .on('mouseleave', function(){
+        if(flag == true){
         d3.select(this)
           .transition()
           .duration(300)
@@ -105,9 +106,11 @@ export default class extends Component {
           .duration(300)
           .ease(d3.easeLinear)
           .style('left', '6.15vw');
+        }
       });
-
+      if(flag == true){
       d3.select('.d_logo_daily_selector')
+        
         .on('mouseover', function(){
           d3.select('.d_logo_daily_selector_point')
             .transition()
@@ -122,6 +125,7 @@ export default class extends Component {
             .ease(d3.easeLinear)
             .style('left', '0vw')
         });
+      }
   }
 
   render(){
