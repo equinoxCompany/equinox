@@ -24,7 +24,6 @@ export default class extends Component {
       imgs: [],
       imgTags: [],
       imgWithTags: {
-        text: ''
       },
       seo: ''
     }
@@ -48,7 +47,7 @@ export default class extends Component {
         ...this.state.temp,
         post_text: editorState
       }
-    })
+    }, () => console.log(this.state.temp.post_text.toString('html')))
   };
 
   onSubmit = (e) => {
@@ -76,7 +75,9 @@ export default class extends Component {
       }
       return res
     })
-    .then((res) => {
+    .then(res => res.json())
+    .then(data => this.setState({currentPost: data._id}))
+    .then(() => {
       fetch('http://91.225.165.43:3001/new-meta', {
         method: 'post',
         headers: {'Content-Type': 'application/json'},
@@ -86,6 +87,24 @@ export default class extends Component {
           url: this.state.temp.url
         })
     })
+      .then(res => {
+        if(!res.ok){
+          throw Error(res.statusText)
+        }
+        return res
+      })
+      .then(res => res.json())
+      .then(() =>{
+        let _id = this.state.temp.author;
+        fetch('http://91.225.165.43:3001/author/'+_id, {
+          method: 'PUT',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({
+            _id,
+            post: this.state.currentPost
+          })
+        })
+      })
       .then(() => {
         this.setState({
           posts: [...this.state.posts, this.state.temp]
@@ -125,7 +144,7 @@ export default class extends Component {
             ...temp,
             post_text: RichTextEditor.createValueFromString(temp.post_text,'html')
           }
-        })
+        }, () => console.log(this.state.temp))
       }).then(() => {
         fetch('http://91.225.165.43:3001/seo-url/'+this.state.temp.url)
         .then(res => res.json())
@@ -140,12 +159,14 @@ export default class extends Component {
     }
 
   handleEdit = () => {
+    console.log(this.state)
+    let post_text = this.state.imgTags ? this.appendTags() : this.state.temp.post_text.toString('html');
     fetch('http://91.225.165.43:3001/postEdit/' + this.state.temp._id, {
       method: 'PUT',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
         ...this.state.temp,
-        post_text: this.state.temp.post_text.toString('html')
+        post_text
       })
     })
     .then(res => {
@@ -163,20 +184,32 @@ export default class extends Component {
   }
 
   handleDelete = () => {
-    fetch('http://91.225.165.43:3001/postDelete/' + this.state.currentPost._id, {
+    console.log(this.state)
+    fetch('http://91.225.165.43:3001/postDelete/' + this.state.temp._id, {
       method: 'DELETE',
       headers: {'Content-Type': 'application/json'}
     })
     .then(res => res.text())
     .then(() => {
-      if(this.state.currentPost.meta){
-      fetch('http://91.225.165.43:3001/seoDelete/'+this.state.currentPost.meta._id,{
+      if(this.state.currentPost){
+      console.log('called delete')
+      fetch('http://91.225.165.43:3001/seoDelete/'+this.state.currentPost,{
         method: 'DELETE',
         headers: {'Content-Type': 'application/json'}
-      })
+      }).then(res => res.json())
+        .then(data => console.log(data))
     }
+  }).then(() => {
+    fetch('http://91.225.165.43:3001/author-delete-post/'+this.state.temp.author, {
+      method: 'PUT',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        _id: this.state.temp.author,
+        post: this.state.currentPost
+      })
+    })
   })
-    this.clearState();
+    .then(() => this.clearState())
   }
 
   loadImg = () => {
@@ -193,6 +226,10 @@ export default class extends Component {
         method: 'GET',
         headers: {'Content-Type': 'application/json'}
       }).then(res => res.json())
+        .then(data => {
+          console.log(data);
+          return data
+        })
         .then(data => this.setState({
           imgs: data.pop().postImages
         }))
@@ -242,6 +279,7 @@ export default class extends Component {
   }
 
   appendTags = () => {
+    console.log('called append')
     function insert(str, index, value) {
       return str.substr(0, index) + value + str.substr(index);
     }
@@ -259,6 +297,8 @@ export default class extends Component {
     return setText(state, 0)
   }
 
+
+
   handleSeo = (e) => {
     this.setState({
       seo: {
@@ -273,8 +313,8 @@ export default class extends Component {
     for(let el in this.state.profile){
       data.append(el, this.state.profile[el]);
     }
-    let file = document.querySelector('.profile_img').files[0];   
-    data.append('profile_img', file);
+    let file = document.querySelector('.img').files[0];   
+    data.append('img', file);
     data.append('posts', ['']);
     data.append('position', this.state.temp.category);
     fetch('http://91.225.165.43:3001/new-author', {
@@ -286,6 +326,7 @@ export default class extends Component {
       }
       return res
     }).then(res => res.json())
+    .then(data => console.log(data));
   }
 
 
@@ -302,6 +343,11 @@ export default class extends Component {
     return(
       <div className="admin_panel">
         <form action="" onSubmit={(e) => e.preventDefault()}>
+        {/* <br/>
+        <br/>
+        <div className="texteditor">
+        <TextEditor/>
+        </div> */}
           <Select
             value={this.state.currentPost}
             onChange={this.handleChange}
@@ -378,6 +424,7 @@ export default class extends Component {
             <MenuItem value='WEB'>WEB</MenuItem>
             <MenuItem value='SEO'>SEO</MenuItem>
             <MenuItem value='DESIGN'>DESIGN</MenuItem>
+            <MenuItem value='NEWS'>NEWS</MenuItem>
             <MenuItem value='OTHER'>OTHER</MenuItem>
           </Select><br/><br/>
           <h3 style={{padding: 0, margin: 0, color: 'white'}}>Изображение</h3>
@@ -386,13 +433,13 @@ export default class extends Component {
           {/* <h3 style={{padding: 0, margin: 0, color: 'white'}}>Name</h3>
           <input type="text" className="admin admin_profile_name" name="profile name" value={this.state.profile.name} onChange={(e) => this.setState({
             profile: {
-              ...this.state.profile,
-              name: e.target.value
+             ...this.state.profile,
+             name: e.target.value
             }
-          })}/><br/>
+         })}/><br/>
           <h3 style={{padding: 0, margin: 0, color: 'white'}}>Аватарка</h3>
-          <input type="file" className="profile_img" name="profile_img" accept="image/*"/><br/>
-          <Button onClick={this.submitProfile} style={{color: 'white'}}>Профиль</Button><br/> */}
+          <input type="file" className="img" name="img" accept="image/*"/><br/>
+         <Button onClick={this.submitProfile} style={{color: 'white'}}>Профиль</Button><br/> */}
 
           <Button onClick={this.onSubmit} style={{color: 'white'}}>Добавить</Button><br/>
         </form>

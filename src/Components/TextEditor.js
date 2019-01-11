@@ -1,33 +1,85 @@
-import React, {Component, PropTypes} from 'react';
-import RichTextEditor from 'react-rte';
+import React, {Component, PropTypes, Fragment} from 'react';
+import { Editor } from 'slate-react';
+import { Value } from 'slate';
 
-export default class extends Component {
-  static propTypes = {
-    onChange: PropTypes.func
-  };
+import BoldMark from './BoldMark';
+import ItalicMark from './ItalicMark';
 
+import Icon from 'react-icons-kit';
+import { bold } from 'react-icons-kit/feather/bold';
+import { italic } from 'react-icons-kit/feather/italic';
+import FormatToolBar from './FormatToolBar';
+
+
+const initalValue = Value.fromJSON({
+  document: {
+    nodes : [{
+      object: 'block',
+      type: 'paragraph',
+      nodes: [
+        {
+          object: 'text',
+          leaves: [
+            {
+              text: 'Test',
+            },
+          ],
+        },
+      ],
+    },
+    ],
+  },
+})
+
+export default class TextEditor extends Component {
   state = {
-    value: RichTextEditor.createEmptyValue()
+    value: initalValue
   }
 
-  onChange = (value) => {
-    this.setState({value});
-    if (this.props.onChange) {
-      // Send the changes up to the parent component as an HTML string.
-      // This is here to demonstrate using `.toString()` but in a real app it
-      // would be better to avoid generating a string on each change.
-      this.props.onChange(
-        value.toString('html')
-      );
-    }
+  onChange = ({ value }) => {
+    this.setState({ value })
   };
+
+  renderMark = props => {
+    switch(props.mark.type) {
+      case 'bold': 
+        return <BoldMark {...props}/>
+      case 'italic': 
+        return <ItalicMark {...props}/>
+    }
+  }
+
+  onMarkClick = (e, type) => {
+    e.preventDefault();
+    this.editor.change().toggleMark(type);
+    // const change = e.change().toggleMark(type);
+
+    // this.onChange(change);
+  }
 
   render () {
     return (
-      <RichTextEditor
+      <Fragment>
+        <FormatToolBar>
+          <button 
+            onPointerDown={(e) => this.onMarkClick(e, 'bold')}
+            className="tooltip-icon-button"
+          >
+            <Icon icon={italic}/>
+          </button>
+          <button 
+            onPointerDown={(e) => this.onMarkClick(e, 'bold')}
+            className="tooltip-icon-button"
+          >
+            <Icon icon={bold}/>
+          </button>
+        </FormatToolBar>
+      <Editor ref = {editor => this.editor = editor}
         value={this.state.value}
         onChange={this.onChange}
-      />
+        renderMark={this.renderMark}
+        />
+      </Fragment>  
     );
   }
 }

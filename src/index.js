@@ -16,6 +16,7 @@ import Project from './Components/Project';
 import ServicesMenu from './Components/Services/ServicesMenu';
 import SeoAdmin from './Components/AdminSeo';
 import Map from './Components/Services/MapStrategy';
+import Temp from './Components/Temp';
 import LoginSeo from './Components/LoginSeo';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
@@ -24,6 +25,7 @@ ReactDOM.render((
   <BrowserRouter>
     <Switch>
       <Route exact path='/' component={Main}/>
+      <Route path='/temp' component={Temp}/>
       <Route path='/home' component={Main}/>
       <Route path='/about-us' component={AboutUs}/>
       <Route path='/contacts' component={Contacts}/>

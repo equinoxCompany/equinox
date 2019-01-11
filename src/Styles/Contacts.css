@@ -296,11 +296,11 @@
 .contact_address_h1{
   visibility: hidden;
   opacity: 1;
-  position: absolute;
-  transform: translateX(75%);
+  position: relative;
   margin-top: 0;
   font-weight: 300;
   font-size: 2vw;
+  left: -24vw;
   color: white;
   -webkit-animation-name: jump;
   -webkit-animation-duration: 2s;
@@ -454,13 +454,13 @@
 .map {
   margin-left: 1vw;
   position: absolute;
-  left: 7vw;
+  left: 10vw;
   content: '';
-  width: 5vw;
+  width: 3vw;
   height: .5vw;
   background: rgb(270, 92, 20);
   border-radius: 5px;
-  -webkit-animation-name: line_resize;
+  -webkit-animation-name: map_resize;
   -webkit-animation-duration: 3s;
   animation-name: map_resize;
   animation-duration: 3s;
@@ -1037,12 +1037,11 @@
   color: white;
 }
 
-.increaseCircleLi{
+.increaseCircleLi, .increaseUpperCircleLi{
   text-decoration: none;
   overflow: hidden;
   white-space: nowrap;
   height: auto;
-  width: 10vw;
   border-radius: 15px;
   padding-top: 0.5vh;
   padding-bottom: 0.2vh;
@@ -1054,9 +1053,21 @@
   margin-bottom: 5px;
   font-size: 1.4vw;
   font-weight: 500;
+}
+
+.increaseCircleLi{
+  width: 10vw;
   -webkit-animation-name: increaseCircleLi;
   -webkit-animation-duration: 3s;
   animation-name: increaseCircleLi;
+  animation-duration: 3s;
+}
+
+.increaseUpperCircleLi{
+  width: 12vw;
+  -webkit-animation-name: increaseUpperCircleLi;
+  -webkit-animation-duration: 3s;
+  animation-name: increaseUpperCircleLi;
   animation-duration: 3s;
 }
 
@@ -1067,7 +1078,6 @@
   overflow: hidden;
   white-space: nowrap;
   height: auto;
-  width: 1vw;
   border-radius: 15px;
   padding-top: 0.5vh;
   padding-bottom: 0.2vh;
@@ -1085,6 +1095,14 @@
 }
 
 
+@-webkit-keyframes increaseUpperCircleLi {
+  0%{ width: 1vw;}
+  100%{width: 12vw;}
+}
+@keyframes increaseUpperCircleLi{
+  0%{width: 1vw;}
+ 100%{width: 12vw;}
+}
 
 @-webkit-keyframes increaseCircleLi {
     0%{ width: 1vw;}
@@ -1354,6 +1372,8 @@
   animation-name: jump;
   animation-duration: 3s;
 }
+
+
 
 .third_line{
   visibility: hidden;

@@ -74,7 +74,7 @@ componentDidMount(){
             <ul>
               <li>
                 <div className="subcontain">
-                <Link to="/projects" className="menu_projects" onMouseEnter={()=>this.mouseEnterHandler()} onMouseLeave={()=>this.mouseLeaveHandler()}>Projects
+                <Link to="/projects" className="menu_projects" >Projects
                   <div className="underline" style={{backgroundColor:"rgb(58, 58, 58)"}}></div>
                   <div className="grey_container"><div className="grey_circle" style={{backgroundColor:"rgb(58, 58, 58)"}}></div>
                   </div>
@@ -82,20 +82,20 @@ componentDidMount(){
                 </div>
               </li>
               <li>
-                <Link to="/blog" className="blog" onMouseEnter={()=>this.mouseEnterHandler()} onMouseLeave={()=>this.mouseLeaveHandler()} onClick={()=>this.mouseLeaveHandler()}>Blog
+                <Link to="/blog" className="blog" >Blog
                   <div className="underline"  style={{backgroundColor:"rgb(58, 58, 58)"}}></div>
                   <div className="grey_container"><div className="grey_circle" style={{backgroundColor:"rgb(58, 58, 58)"}}></div>
                   </div>
                 </Link>
               </li>
               <li>
-                <Link to="about-us" onMouseEnter={()=>this.mouseEnterHandler()} onMouseLeave={()=>this.mouseLeaveHandler()} onClick={()=>this.mouseLeaveHandler()  }>About us
+                <Link to="about-us" >About us
                   <div className="underline" style={{zIndex: "100"}}></div>
                   <div className="grey_container"><div className="grey_circle" style={{backgroundColor:"rgb(58, 58, 58)"}}></div></div>
                 </Link>
               </li>
               <li>
-                <Link to="contacts" className="menu_contacts" onMouseEnter={()=>this.mouseEnterHandler()} onMouseLeave={()=>this.mouseLeaveHandler()} onClick={()=>this.mouseLeaveHandler()  }>Contacts
+                <Link to="contacts" className="menu_contacts">Contacts
                   <div className="underline" style={{zIndex: "100"}}></div>
                   <div className="grey_container"><div className="grey_circle" style={{backgroundColor:"rgb(58, 58, 58)"}}></div></div>
                 </Link>

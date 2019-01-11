@@ -1,11 +1,11 @@
 .m_bottom_nav{
   width: 100vw;
-  height: 7vh;
+  height: 8vh;
   display: flex;
   align-items: center;
   position: fixed;
   bottom: 0;
-  z-index: 5;
+  z-index: 1000;
   background: #E7E7E7;
 }
 
@@ -19,11 +19,7 @@
 
 .m_bottom_nav>ul>li{
   width: auto;
-  font-size: 5vw;
+  font-size: 4vw;
   margin-right: 1vw;
   border-bottom: 0.5vh solid transparent;
-}
-
-.mobile_nav_active {
-  border-color: green;
 }

@@ -47,8 +47,47 @@ export default class extends Component {
     if(window.innerWidth > 768){
     d3.selectAll('line').style('stroke', '#FF5D00');
     d3.selectAll('.d_about_parallax line').style('stroke-width', '2');
-    d3.selectAll('.d_about_join_svg line').style('stroke-width', '1');
-    d3.selectAll('circle').style('fill', '#FF5D00')
+    d3.selectAll('.d_about_join line').style('stroke-width', '1');
+    d3.selectAll('.d_about_parallax circle').style('fill', '#FF5D00');
+
+
+    d3.selectAll('.d_about_join_svg_text .d_about_join_svg_letter').style('font-size', '200px');
+ 
+    d3.selectAll('.d_about_join_svg_text')
+      .on('mouseover', function(){
+        let current_node = d3.select(this).node();
+        let svg = d3.select(".d_about_join svg").node();
+        d3.select(this).node().remove();
+        svg.appendChild(current_node);
+        d3.select(this)
+          .select('circle')
+          .attr('r', '0')
+          .transition()
+          .duration(300)
+          .ease(d3.easeLinear)
+          .attr('r', '90')
+          .style('fill', 'rgba(15,15,15,0.5)');
+        d3.select(this).select('.d_about_join_svg_start')
+        .transition()
+        .duration(300)
+        .ease(d3.easeLinear)
+        .style('font-size', '25px')
+        .style('fill','white');
+      })
+      .on('mouseleave', function(){
+        d3.select(this).select('circle')
+        .transition()
+        .duration(300)
+        .ease(d3.easeLinear)
+        .attr('r', '0');
+        d3.select(this).select('.d_about_join_svg_start')
+        .transition()
+        .duration(300)
+        .ease(d3.easeLinear)
+        .style('font-size', '0px')
+        .style('fill','white');
+      })
+
 
     d3.timeout(function(){
       d3.select('.d_about_sub_title_text h4').style('display', 'block')
@@ -88,57 +127,75 @@ export default class extends Component {
       animation_state: false
     }
 
+    ufo_parts.d_l_t_ufo.call(ufo_styles, 0, -1, 4.5);
+    ufo_parts.d_l_b_ufo.call(ufo_styles, 6.6, -0.7, 4.5);
+    ufo_parts.d_c_c_ufo.call(ufo_styles, 5.5, 6.5, 2);
+    ufo_parts.d_r_t_ufo.call(ufo_styles, 0, 8, 5);
+    ufo_parts.d_r_b_ufo.call(ufo_styles, 8.5, 10, 2);
+    ufo_parts.d_c_b_ufo.call(ufo_styles, 10, 5, 3.5);
+
+    function ufo_styles(element, top, left, size){
+      element
+        .style('top', `${top}vw`)
+        .style('left', `${left}vw`)
+        .style('width', `${size}vw`)
+        .style('height', `${size}vw`);
+    }
+
+    console.log(parseFloat(ufo_parts.d_l_t_ufo.style('top')));
+
     let ufo_coordinates = {
       d_l_t_ufo:{
         start_top: parseFloat(ufo_parts.d_l_t_ufo.style('top')),
         start_left: parseFloat(ufo_parts.d_l_t_ufo.style('left')),
         start_size: parseFloat(ufo_parts.d_l_t_ufo.style('width')),
-        end_top: parseFloat(ufo_parts.d_l_t_ufo.style('top')) - 20,
-        end_left: parseFloat(ufo_parts.d_l_t_ufo.style('left')) - 20,
-        end_size: parseFloat(ufo_parts.d_l_t_ufo.style('width')) - 10
+        end_top: parseFloat(ufo_parts.d_l_t_ufo.style('top')) - 1,
+        end_left: parseFloat(ufo_parts.d_l_t_ufo.style('left')) - 1,
+        end_size: parseFloat(ufo_parts.d_l_t_ufo.style('width')) - 1
       },
       d_l_b_ufo:{
         start_top: parseFloat(ufo_parts.d_l_b_ufo.style('top')),
         start_left: parseFloat(ufo_parts.d_l_b_ufo.style('left')),
         start_size: parseFloat(ufo_parts.d_l_b_ufo.style('width')),
-        end_top: parseFloat(ufo_parts.d_l_b_ufo.style('top')) + 20,
-        end_left: parseFloat(ufo_parts.d_l_b_ufo.style('left')) - 20,
-        end_size: parseFloat(ufo_parts.d_l_b_ufo.style('width')) + 10
+        end_top: parseFloat(ufo_parts.d_l_b_ufo.style('top')) + 2,
+        end_left: parseFloat(ufo_parts.d_l_b_ufo.style('left')) - 2,
+        end_size: parseFloat(ufo_parts.d_l_b_ufo.style('width')) + 1
       },
       d_c_c_ufo:{
         start_top: parseFloat(ufo_parts.d_c_c_ufo.style('top')),
         start_left: parseFloat(ufo_parts.d_c_c_ufo.style('left')),
         start_size: parseFloat(ufo_parts.d_c_c_ufo.style('width')),
-        end_top: parseFloat(ufo_parts.d_c_c_ufo.style('top')) + 5,
-        end_left: parseFloat(ufo_parts.d_c_c_ufo.style('left')) + 10,
-        end_size: parseFloat(ufo_parts.d_c_c_ufo.style('width')) + 5
+        end_top: parseFloat(ufo_parts.d_c_c_ufo.style('top')) + 0.5,
+        end_left: parseFloat(ufo_parts.d_c_c_ufo.style('left')) + 1,
+        end_size: parseFloat(ufo_parts.d_c_c_ufo.style('width')) + 0.5
       },
       d_r_t_ufo:{
         start_top: parseFloat(ufo_parts.d_r_t_ufo.style('top')),
         start_left: parseFloat(ufo_parts.d_r_t_ufo.style('left')),
         start_size: parseFloat(ufo_parts.d_r_t_ufo.style('width')),
-        end_top: parseFloat(ufo_parts.d_r_t_ufo.style('top')) - 25,
-        end_left: parseFloat(ufo_parts.d_r_t_ufo.style('left')) + 25,
-        end_size: parseFloat(ufo_parts.d_r_t_ufo.style('width')) - 15
+        end_top: parseFloat(ufo_parts.d_r_t_ufo.style('top')) - 2.5,
+        end_left: parseFloat(ufo_parts.d_r_t_ufo.style('left')) + 2.5,
+        end_size: parseFloat(ufo_parts.d_r_t_ufo.style('width')) - 1.5
       },
       d_r_b_ufo:{
         start_top: parseFloat(ufo_parts.d_r_b_ufo.style('top')),
         start_left: parseFloat(ufo_parts.d_r_b_ufo.style('left')),
         start_size: parseFloat(ufo_parts.d_r_b_ufo.style('width')),
-        end_top: parseFloat(ufo_parts.d_r_b_ufo.style('top')) + 15,
-        end_left: parseFloat(ufo_parts.d_r_b_ufo.style('left')) + 15,
-        end_size: parseFloat(ufo_parts.d_r_b_ufo.style('width')) - 15
+        end_top: parseFloat(ufo_parts.d_r_b_ufo.style('top')) + 1.5,
+        end_left: parseFloat(ufo_parts.d_r_b_ufo.style('left')) + 1.5,
+        end_size: parseFloat(ufo_parts.d_r_b_ufo.style('width')) - 1.5
       },
       d_c_b_ufo:{
         start_top: parseFloat(ufo_parts.d_c_b_ufo.style('top')),
         start_left: parseFloat(ufo_parts.d_c_b_ufo.style('left')),
         start_size: parseFloat(ufo_parts.d_c_b_ufo.style('width')),
-        end_top: parseFloat(ufo_parts.d_c_b_ufo.style('top')) + 10,
-        end_left: parseFloat(ufo_parts.d_c_b_ufo.style('left')) + 5,
-        end_size: parseFloat(ufo_parts.d_c_b_ufo.style('width')) + 10
+        end_top: parseFloat(ufo_parts.d_c_b_ufo.style('top')) + 1,
+        end_left: parseFloat(ufo_parts.d_c_b_ufo.style('left')) + 0.5,
+        end_size: parseFloat(ufo_parts.d_c_b_ufo.style('width')) + 1
       }
-
     }
+
+
 
     d3.select('.d_about')
       .on("scroll", function(){
@@ -152,22 +209,27 @@ export default class extends Component {
         section_app = d3.select('.d_about_app').node().getBoundingClientRect().top;
 
         if(window_bottom > section_services_part_1 && flags.services_part_1 == false){
-          d3.selectAll('.d_about_services_title_box').style('display', 'block')
-          .classed('d_about_services_title_box_animation', true);
+          d3.selectAll('.d_about_services_title_box')
+            .style('display', 'block')
+            .classed('d_about_services_title_box_animation', true);
           d3.timeout(function(){
-            d3.selectAll('.d_about_services_title_box_animation h2').style('display', 'block')
-            .classed('d_abot_services_title_text_animation', true);
-            d3.selectAll('.d_about_sevices_text_box p').style('display', 'block')
-            .classed('d_about_sevices_text_box_animation', true);
+            d3.selectAll('.d_about_services_title_box_animation h2')
+              .style('display', 'block')
+              .classed('d_abot_services_title_text_animation', true);
+            d3.selectAll('.d_about_sevices_text_box p')
+              .style('display', 'block')
+              .classed('d_about_sevices_text_box_animation', true);
           }, 500);
           flags.services_part_1 = true;
         }
-        if(window_bottom > section_services_part_2 && flags.services_part_2 == false){
-          d3.selectAll('.d_about_services_studio_type_box').style('display', 'block')
-          .classed('studio_type_column_animation', true);
+        if(window_bottom*1.5 > section_services_part_2 && flags.services_part_2 == false){
+          d3.selectAll('.d_about_services_studio_type_box')
+            .style('display', 'block')
+            .classed('studio_type_column_animation', true);
           d3.timeout(function(){
-            d3.selectAll('.d_about_services_studio_type_box h3').style('display', 'block')
-            .classed('studio_type_title_animation', true);
+            d3.selectAll('.d_about_services_studio_type_box h3')
+              .style('display', 'block')
+              .classed('studio_type_title_animation', true);
           }, 1000)
           d3.selectAll('.d_about_services_studio_types')
             .each(function(){
@@ -189,14 +251,14 @@ export default class extends Component {
             }); 
             flags.services_part_2 = true;
         }
-        if(window_bottom*1.5 > section_services_part_3 && flags.services_part_3 == false){
+        if(window_bottom*2 > section_services_part_3 && flags.services_part_3 == false){
           d3.select('.d_about_services_title_box_lagre h2').style('display', 'block')
             .classed('services_title_box_lagre_animation', true);
           d3.select('.d_about_services_text_box_lagre p').style('visibility', 'visible')
             .classed('services_text_box_lagre_animation', true);
           flags.services_part_3 = true;
         }
-        if(window_bottom*0.5 > section_team && flags.team == false){
+        if(window_bottom*1.5 > section_team && flags.team == false){
             d3.select('.d_about_team_title').style('visibility', 'visible')
             .classed('about_team_title_box_animation', true);
           d3.timeout(function(){
@@ -218,13 +280,12 @@ export default class extends Component {
                         e.select('.d_about_box_info p').style('visibility', 'visible').classed('about_box_info_animation', true);
                       }, time);
                     });
-
                     counter++;
                  });
           }); 
           flags.team = true;
         }
-        if(window_bottom*1.4 > section_project && flags.project == false){
+        if(window_bottom*1.6 > section_project && flags.project == false){
           d3.select('.d_about_start_text_box p').style('visibility', 'visible')
             .classed('start_text_box_animation', true);
           d3.select('.d_about_start_button').style('visibility', 'visible')
@@ -255,25 +316,25 @@ export default class extends Component {
               e
                 .on('start', function(){ufo_parts.animation_state = true})
                 .transition(t)
-                .style('top', `${coordinates.end_top}px`)
-                .style('left', `${coordinates.end_left}px`)
-                .style('width', `${coordinates.end_size}px`)
-                .style('height', `${coordinates.end_size}px`)
+                .style('top', `${coordinates.end_top}vw`)
+                .style('left', `${coordinates.end_left}vw`)
+                .style('width', `${coordinates.end_size}vw`)
+                .style('height', `${coordinates.end_size}vw`)
                 .transition(t)
-                .style('top', `${coordinates.start_top}px`)
-                .style('left', `${coordinates.start_left}px`)
-                .style('width', `${coordinates.start_size}px`)
-                .style('height', `${coordinates.start_size}px`)
+                .style('top', `${coordinates.start_top}vw`)
+                .style('left', `${coordinates.start_left}vw`)
+                .style('width', `${coordinates.start_size}vw`)
+                .style('height', `${coordinates.start_size}vw`)
                 .on('end', function(){ufo_parts.animation_state = false})
             });
           }
       });
 
-      d3.selectAll('circle')
+      d3.selectAll('.d_about_parallax circle')
         .each(function(){
           let start_bias = parseInt(d3.select(this).attr('cy'));
           let end_bias = parseInt(start_bias + 20.);
-          d3.selectAll('line')
+          d3.selectAll('.d_about_parallax line')
               .each(function(){
                 let y1 = parseInt(d3.select(this).attr('y1'));
                 let y2 = parseInt(d3.select(this).attr('y2'));
@@ -660,7 +721,7 @@ export default class extends Component {
             <div className="d_about_start_text_box">
               <p>Equinoх –  це стихія  різних   уподобань та вмінь, це команда, націлена  на винятковість, це мрія, що прагне реалізації.
               </p>
-              <div className="d_about_start_button">Join the crew</div>
+              <Link to='join-the-crew'><div className="d_about_start_button">Join the crew</div></Link>
             </div>
             <div className="d_about_start_final_text_box">
               <p>
@@ -672,55 +733,135 @@ ooking for isn’t available at the moment, no worries–send
             </div>
           </section>
           <section className="d_about_join">
-          <svg className="d_about_join_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1922.36 1081.94">
-					<line class="cls-1" x1="606.27" y1="337.5" x2="0.27" y2="117.5"/>
-					<line class="cls-1" x1="606.27" y1="390.5" x2="0.27" y2="651.5"/>
-					<line class="cls-1" x1="914.77" y1="350" x2="1436.77" y2="1081"/>
-					<line class="cls-1" x1="452.77" y1="1081" x2="673.77" y2="416"/>
-					<line class="cls-1" x1="623.77" y1="440" x2="258.77" y2="1081"/>
-					<line class="cls-1" x1="661.27" y1="350.5" x2="1921.27" y2="815.5"/>
-					<line class="cls-1" x1="762.27" y1="415.5" x2="829.27" y2="1081.5"/>
-					<line class="cls-1" x1="787.27" y1="359.5" x2="1921.27" y2="727.5"/>
-					<line class="cls-1" x1="739.27" y1="329.5" x2="1.27" y2="288.5"/>
-					<line class="cls-1" x1="787.27" y1="316.5" x2="1920.27" y2="296.5"/>
-					<line class="cls-1" x1="749.27" y1="359.5" x2="0.27" y2="845.5"/>
-					<line class="cls-1" x1="857.27" y1="369.5" x2="538.27" y2="1081.5"/>
-					<line class="cls-1" x1="1012.27" y1="369.5" x2="1175.27" y2="1081.5"/>
-					<line class="cls-1" x1="1055.27" y1="296.5" x2="1921.27" y2="95.5"/>
-					<line class="cls-1" x1="1012.27" y1="329.5" x2="0.27" y2="390.5"/>
-					<line class="cls-1" x1="1075.27" y1="359.5" x2="1744.27" y2="1081.5"/>
-					<line class="cls-1" x1="1192.27" y1="390.5" x2="990.27" y2="1081.5"/>
-					<line class="cls-1" x1="1218.39" y1="316.5" x2="1920.27" y2="161.5"/>
-					<line class="cls-1" x1="1168.51" y1="316.5" x2="0.27" y2="175.5"/>
-					<line class="cls-1" x1="907.27" y1="474.5" x2="0.27" y2="474.5"/>
-					<line class="cls-1" x1="914.27" y1="564.5" x2="0.27" y2="1081.5"/>
-					<line class="cls-1" x1="932.27" y1="491.5" x2="1921.27" y2="239.5"/>
-					<line class="cls-1" x1="974.27" y1="564.5" x2="400.27" y2="1081.5"/>
-					<line class="cls-1" x1="960.27" y1="504.5" x2="0.27" y2="504.5"/>
-					<line class="cls-1" x1="1031.27" y1="501.5" x2="1921.27" y2="58.5"/>
-					<line class="cls-1" x1="680.27" y1="651.5" x2="1.27" y2="540.5"/>
-					<line class="cls-1" x1="687.27" y1="765.77" x2="0.27" y2="1021.5"/>
-					<line class="cls-1" x1="709.61" y1="715.5" x2="1354.27" y2="1081.5"/>
-					<line class="cls-1" x1="811.27" y1="736.5" x2="644.27" y2="1081.5"/>
-					<line class="cls-1" x1="795.77" y1="639.96" x2="0.27" y2="691.5"/>
-					<line class="cls-1" x1="823.27" y1="658.5" x2="1921.27" y2="639.5"/>
-					<line class="cls-1" x1="914.27" y1="736.5" x2="901.27" y2="1081.5"/>
-					<line class="cls-1" x1="932.27" y1="632.5" x2="1921.27" y2="141.5"/>
-					<line class="cls-1" x1="990.27" y1="715.5" x2="1270.27" y2="1081.5"/>
-					<line class="cls-1" x1="914.27" y1="672.5" x2="0.27" y2="765.5"/>
-					<line class="cls-1" x1="1144.27" y1="639.5" x2="1921.27" y2="893.5"/>
-					<line class="cls-1" x1="1031.27" y1="555.5" x2="1920.27" y2="691.5"/>
-					<line class="cls-1" x1="1094.27" y1="679.5" x2="316.27" y2="1081.5"/>
-					<line class="cls-1" x1="1100.27" y1="665.5" x2="1596.27" y2="1081.5"/>
-					<line class="cls-1" x1="1222.27" y1="727.5" x2="1642.27" y2="1081.5"/>
-					<line class="cls-1" x1="1332.27" y1="691.5" x2="1082.27" y2="1081.5"/>
-					<line class="cls-1" x1="1213.27" y1="672.5" x2="0.27" y2="583.5"/>
-					<line class="cls-1" x1="1379.27" y1="595.5" x2="1920.77" y2="1"/>
-					<line x1="1920.77" y1="1" x2="900.77" y2="307"/>
-          <div className="d_about_join_text">
+          <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1922.82 1081.93'>
+    <line x1='606.42' y1='337.5' x2='0.42' y2='117.5' />
+    <line x1='606.42' y1='390.5' x2='0.42' y2='651.5' />
+    <line x1='661.42' y1='350.5' x2='1921.42' y2='815.5' />
+    <line x1='787.42' y1='359.5' x2='1921.42' y2='727.5' />
+    <line x1='739.42' y1='329.5' x2='1.42' y2='288.5' />
+    <line x1='787.42' y1='316.5' x2='1920.42' y2='296.5' />
+    <line x1='749.42' y1='359.5' x2='0.42' y2='845.5' />
+    <line x1='1055.42' y1='296.5' x2='1921.42' y2='95.5' />
+    <line x1='1012.42' y1='329.5' x2='0.42' y2='390.5' />
+    <line x1='1218.52' y1='316.5' x2='1920.42' y2='161.5' />
+    <line x1='1168.62' y1='316.5' x2='0.42' y2='175.5' />
+    <line x1='907.42' y1='474.5' x2='0.42' y2='474.5' />
+    <line x1='914.42' y1='564.5' x2='0.42' y2='1081.5' />
+    <line x1='932.42' y1='491.5' x2='1921.42' y2='239.5' />
+    <line x1='960.42' y1='504.5' x2='0.42' y2='504.5' />
+    <line x1='1031.42' y1='501.5' x2='1921.42' y2='58.5' />
+    <line x1='680.42' y1='651.5' x2='1.42' y2='540.5' />
+    <line x1='687.42' y1='765.8' x2='0.42' y2='1021.5' />
+    <line x1='795.92' y1='640' x2='0.42' y2='691.5' />
+    <line x1='823.42' y1='658.5' x2='1921.42' y2='639.5' />
+    <line x1='932.42' y1='632.5' x2='1921.42' y2='141.5' />
+    <line x1='914.42' y1='672.5' x2='0.42' y2='765.5' />
+    <line x1='1144.42' y1='639.5' x2='1921.42' y2='893.5' />
+    <line x1='1031.42' y1='555.5' x2='1920.42' y2='691.5' />
+    <line x1='1213.42' y1='672.5' x2='0.42' y2='583.5' />
 
-          </div>
-				</svg>
+    <line x1='1379.42' y1='595.5' x2='1920.92' y2='1'/>
+    <line x1='1920.92' y1='1' x2='900.92' y2='307'/>
+    <line x1='718.92' y1='744.5' x2='1920.42' y2='1053.2' />
+    <line x1='816.32' y1='736.26' x2='1922.52' y2='766.5' />
+    <line x1='795.92' y1='698.3' x2='0.12' y2='898.9' />
+    <line x1='983.92' y1='698.3' x2='1920.42' y2='975' />
+    <line x1='1093.02' y1='685.3' x2='0.12' y2='805.2' />
+    <line x1='1109.12' y1='628' x2='1.42' y2='350.5' />
+    <line x1='1218.52' y1='639.5' x2='1922.52' y2='117.6' />
+    <line x1='1218.52' y1='708.1' x2='1921.42' y2='1080.4' />
+    <Link to='join-the-crew'>
+    <g className='d_about_join_svg_text' transform="rotate(-13.99)">
+      <text className='d_about_join_svg_letter' fill="#FF5D00" x='535.93' y='560.83'>R</text>
+      <circle cx='535.93' cy='490.83'/>
+      <text className='d_about_join_svg_start' x='535.93' y='490.83'>Start a project</text>
+    </g>
+    </Link>
+    <Link to='join-the-crew'>
+    <g className='d_about_join_svg_text' transform="rotate(-13.99)">
+      <text className='d_about_join_svg_letter' fill="#FFFFFF" x='655.86' y='555.84'>E</text>
+      <circle cx='655.86' cy='495.84'/>
+      <text className='d_about_join_svg_start' x='655.86' y='495.84'>Start a project</text>
+    </g>
+    </Link>
+    <Link to='join-the-crew'>
+    <g className='d_about_join_svg_text' transform="rotate(-2.31)">
+      <text className='d_about_join_svg_letter' fill="#FF5D00" x='895.17' y='392.5'>a</text>
+      <circle cx='895.17' cy='352.5'/>
+      <text className='d_about_join_svg_start' x='895.17' y='352.5'>Start a project</text>
+    </g>
+    </Link>
+    <Link to='join-the-crew'>
+    <g className='d_about_join_svg_text'>
+      <text className='d_about_join_svg_letter' fill="#FFFFFF" x='1045.33' y='395.56' >D</text>
+      <circle cx='1045.33' cy='335.56'/>
+      <text className='d_about_join_svg_start' x='1045.33' y='335.56'>Start a project</text>
+    </g>
+    </Link>
+    <Link to='join-the-crew'>
+    <g className='d_about_join_svg_text'>
+      <text className='d_about_join_svg_letter' fill="#FF5D00" x='1200.93' y='423.78'>Y</text>
+      <circle cx='1200.93' cy='355.78'/>
+      <text className='d_about_join_svg_start' x='1200.93' y='355.78'>Start a project</text>
+    </g>
+    </Link>
+    <Link to='join-the-crew'>
+    <g className='d_about_join_svg_text'>
+      <text className='d_about_join_svg_letter' fill="#FFFFFF" x='933.19' y='579.77'>t</text>
+      <circle cx='933.19' cy='529.77'/>
+      <text className='d_about_join_svg_start' x='933.19' y='529.77'>Start a project</text>
+    </g>
+    </Link>
+    <Link to='join-the-crew'>
+    <g className='d_about_join_svg_text'>
+      <text className='d_about_join_svg_letter' fill="#FFFFFF" x='1005.07' y='578'>o</text>
+      <circle cx='1005.07' cy='528'/>
+      <text className='d_about_join_svg_start' x='1005.07' y='528'>Start a project</text>
+    </g>
+    </Link>
+    <Link to='join-the-crew'>
+    <g className='d_about_join_svg_text' transform="rotate(-13.99)">
+      <text className='d_about_join_svg_letter' fill="#FF5D00" x='500.75' y='920.86'>S</text>
+      <circle cx='500.75' cy='850.86'/>
+      <text className='d_about_join_svg_start' x='500.75' y='850.86'>Start a project</text>
+    </g>
+    </Link>
+    <Link to='join-the-crew'>
+    <g className='d_about_join_svg_text'transform="rotate(0.94)">
+      <text className='d_about_join_svg_letter' fill="#FFFFFF" x='805.95' y='732.55'>t</text>
+      <circle cx='805.95' cy='682.55'/>
+      <text className='d_about_join_svg_start' x='805.95' y='682.55'>Start a project</text>
+    </g>
+    </Link>
+    <Link to='join-the-crew'>
+    <g className='d_about_join_svg_text' transform="rotate(-20)">
+      <text className='d_about_join_svg_letter' fill="#FF5D00" x='640.92' y='1050.5'>A</text>
+      <circle cx='640.92' cy='980.5'/>
+      <text className='d_about_join_svg_start' x='640.92' y='980.5'>Start a project</text>
+    </g>
+    </Link>
+    <Link to='join-the-crew'>
+    <g className='d_about_join_svg_text'  transform="rotate(30)">
+      <text className='d_about_join_svg_letter' fill="#FFFFFF" x='1300.5' y='50.38'>r</text>
+      <circle cx='1300.5' cy='0.38'/>
+      <text className='d_about_join_svg_start' x='1300.5' y='0.38'>Start a project</text>
+    </g>
+    </Link>
+    <Link to='join-the-crew'>
+    <g className='d_about_join_svg_text' transform="rotate(1.01)">
+      <text className='d_about_join_svg_letter' fill="#FFFFFF" x='1222.39' y='696.25'>t</text>
+      <circle cx='1222.39' cy='646.25'/>
+      <text className='d_about_join_svg_start' x='1222.39' y='646.25'>Start a project</text>
+    </g>
+    </Link>
+    <Link to='join-the-crew'>
+    <g className='d_about_join_svg_text' transform="rotate(15)">
+      <text fill="#FFFFFF" x='1493.69' y='343.04' style={{fontSize: '350px'}}>?</text>
+      <circle cx='1493.69' cy='223.04'/>
+      <text className='d_about_join_svg_start' x='1493.69' y='223.04'>Start a project</text>
+    </g>
+    </Link>
+</svg>
           </section>
           <section className="d_about_app">
             <div className="d_about_app_box">
@@ -779,7 +920,7 @@ ooking for isn’t available at the moment, no worries–send
                     </div>
                   </li>
                   <li className="d_feedback">
-                    <div className="d_feedback_main_info">
+                  <div className="d_feedback_main_info">
                       <img className="d_feedback_cutomer_picture" src={CustomerImg}/>
                       <p className="d_feedback_text">
                       Я бы написал более независимое мнение если бы у меня 

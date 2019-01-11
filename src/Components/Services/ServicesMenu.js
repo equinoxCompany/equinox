@@ -14,8 +14,15 @@ export default class extends Component {
   constructor(props){
     super(props);
     this.state = {
-      visibility: window.innerWidth >= 768 ? true : false
+      visibility: window.innerWidth >= 768 ? true : false,
+      services: ''
     }
+  }
+
+  componentDidMount(){
+    fetch('http://91.225.165.43:3001/service')
+      .then(res => res.json())
+      .then(services => this.setState({ services }, () => console.log(services)))
   }
 
   goBack(){
@@ -34,13 +41,25 @@ export default class extends Component {
             <Link to="home"><img src={Exit} className="button_service_exit"/></Link>
         </div>
         <div className="services_type_strategy">
-            <div className="services_type_circle"></div>
-            <h2>Digital Strategy</h2>
-            <div className="services_type_vertical_line"></div>
-            <div className="services_type_horizontal_line"></div>
-        </div>
+              <div className="services_type_circle"></div>
+              <h2>Digital Strategy</h2>
+              <div className="services_type_vertical_line"></div>
+              <div className="services_type_horizontal_line"></div>
+          </div>
         <ul className="service_type_scroll_selector">
-          <li className="service_type_jobs">
+        {
+          this.state.services && this.state.services.map(service => (
+            <li className="service_type_jobs">
+            <div className="service_type_jobs_top_circle"></div>
+            <div className="service_type_jobs_vertical_line"></div>
+            <div className="service_type_jobs_info_circle">
+              <h3>{service.title}</h3>
+            </div>
+          </li>
+          ))
+        }
+       
+          {/* <li className="service_type_jobs">
             <div className="service_type_jobs_top_circle"></div>
             <div className="service_type_jobs_vertical_line"></div>
             <div className="service_type_jobs_info_circle">
@@ -81,14 +100,7 @@ export default class extends Component {
             <div className="service_type_jobs_info_circle">
               <h3>Type of jobs</h3>
             </div>
-          </li>
-          <li className="service_type_jobs">
-            <div className="service_type_jobs_top_circle"></div>
-            <div className="service_type_jobs_vertical_line"></div>
-            <div className="service_type_jobs_info_circle">
-              <h3>Type of jobs</h3>
-            </div>
-          </li>
+          </li> */}
         </ul>  
         <div className="service_type_scroll_box">
           <div className="service_type_scroll_button"></div>

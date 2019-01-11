@@ -9,6 +9,10 @@
   color: white;
 }
 
+.d_about::-webkit-scrollbar { 
+  display: none; 
+}
+
 .d_about_preview, .d_about_services, .d_about_team, .d_about_app{
   position: relative;
   height: auto;
@@ -204,10 +208,6 @@
 
 .d_l_t_ufo{
   position: absolute;
-  top: 0;
-  left: -1vw;
-  width: 4.5vw;
-  height: 4.5vw;
   border-radius: 50%;
   background: #898989;
   z-index: 0;
@@ -215,10 +215,6 @@
 
 .d_l_b_ufo{
   position: absolute;
-  bottom: 1vw;
-  left: -0.5vw;
-  width: 4.5vw;
-  height: 4.5vw;
   border-radius: 50%;
   background: #898989;
   z-index: 2;
@@ -226,10 +222,6 @@
 
 .d_c_c_ufo{
   position: absolute;
-  bottom: 4vw;
-  right: 3vw;
-  width: 2vw;
-  height: 2vw;
   border-radius: 50%;
   background: #898989;
   z-index: 2;
@@ -237,10 +229,6 @@
 
 .d_r_t_ufo{
   position: absolute;
-  top: 0;
-  right: -1vw;
-  width: 5vw;
-  height: 5vw;
   border-radius: 50%;
   background: #898989;
   z-index: 0;
@@ -248,10 +236,6 @@
 
 .d_r_b_ufo{
   position: absolute;
-  bottom: 1.5vw;
-  right: 0vw;
-  width: 2vw;
-  height: 2vw;
   border-radius: 50%;
   background: #898989;
   z-index: 0;
@@ -259,10 +243,6 @@
 
 .d_c_b_ufo{
   position: absolute;
-  bottom: -1.2vw;
-  right: 3vw;
-  width: 3.5vw;
-  height: 3.5vw;
   border-radius: 50%;
   background: #898989;
   z-index: 2;
@@ -777,7 +757,7 @@
   position: relative;
   margin: 0 auto;
   bottom: 0;
-  border: 1px solid #FF5D00;
+  border: 0.1vw solid #FF5D00;
   border-radius: 2vw;
   padding: 0.6vw 3vw 0.6vw 3vw;
   background: #171717;
@@ -971,7 +951,8 @@
 
 .d_feedback_main_info{
   display:flex;
-  flex-direction: row;
+  align-items: flex-start;
+  justify-content: left;
 }
 
 .d_feedback_first_circle{
@@ -1036,6 +1017,7 @@
 
 .d_feedback_text{
   padding: 1vw;
+  max-width: 85%;
   font-size: 1.5vw;
   border-radius: 2vw; 
   margin: 0;
@@ -1059,6 +1041,7 @@
 }
 
 .d_feedback_cutomer_picture{
+  flex-shrink: none;
   width: 4.5vw;
   height: 4.5vw;
   border-radius: 50%;
@@ -1072,6 +1055,7 @@
   margin-left: 2vw;
 }
 
+
 }
 
 
@@ -1081,7 +1065,7 @@
     overflow-y: scroll;
     width: 100%;
     overflow-x: hidden;
-    height: 91vh;
+    height: 92vh;
     position: absolute;
     top: 0;
   }

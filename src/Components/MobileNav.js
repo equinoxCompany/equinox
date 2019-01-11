@@ -8,8 +8,10 @@ import Link from 'react-router-dom/Link';
 export default class extends Component {
 
   componentDidMount(){
-    d3.select('.mobile_nav img')
-      .on('click', function(){
+    d3.selectAll('.mobile_nav img, .m_nav_reset_wrap')
+      .on('click', showMenu);
+  
+    function showMenu(){
         d3.select(this.parentNode)
         .call(function(e){
            let flag = e.attr('data-visible');
@@ -17,7 +19,7 @@ export default class extends Component {
               d3.select('.m_nav_list')
                 .call(function(nav){
                   nav.style('display', 'block');
-              e.attr('data-visible','true');
+                e.attr('data-visible','true');
              });
            }else{
               d3.select('.m_nav_list')
@@ -27,9 +29,11 @@ export default class extends Component {
               });
             }
         });
-      });
+      }
+  
+    }
 
-  }
+
 
   render(){
     return(
@@ -50,6 +54,9 @@ export default class extends Component {
             <Link to="home"><li className="m_nav_home_circle">
               <span>Home</span>
             </li></Link>
+            <li>
+              <div className="m_nav_reset_wrap"></div>
+            </li>
           </ul>
         </div>
     )
